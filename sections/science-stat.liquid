@@ -1,0 +1,239 @@
+<section class="science-stat" {% if section.settings.anchor != blank %}id="{{ section.settings.anchor | handleize }}"{% endif %}>
+  <div class="science-stat__inner">
+    <div class="science-stat__copy">
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="science-stat__eyebrow">{{ section.settings.eyebrow | escape }}</p>
+      {%- endif -%}
+      {%- if section.settings.heading != blank -%}
+        <h2 class="science-stat__heading">{{ section.settings.heading | escape | replace: ' published ', '<br>published<br>' }}</h2>
+      {%- endif -%}
+      {%- if section.settings.text != blank -%}
+        <div class="science-stat__text rte">{{ section.settings.text }}</div>
+      {%- endif -%}
+    </div>
+    <div class="science-stat__figure">
+      <p class="science-stat__value">{{ section.settings.value | escape }}</p>
+      {%- if section.settings.label != blank -%}
+        <p class="science-stat__label">{{ section.settings.label | escape }}</p>
+      {%- endif -%}
+      {%- if section.settings.caption != blank -%}
+        <p class="science-stat__caption">{{ section.settings.caption | escape }}</p>
+      {%- endif -%}
+      {%- if section.settings.context != blank -%}
+        <div class="science-stat__note">
+          {%- if section.settings.context_title != blank -%}
+            <p class="science-stat__note-title">{{ section.settings.context_title | escape }}</p>
+          {%- endif -%}
+          <p>{{ section.settings.context | escape }}</p>
+          {%- if section.settings.link_label != blank -%}
+            <a href="{{ section.settings.link | default: '#' }}">{{ section.settings.link_label | escape }}</a>
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% stylesheet %}
+  .science-stat {
+    color: #ffffff;
+    background-image: linear-gradient(105deg, #000000 0%, #041433 48%, #0037ae 100%);
+  }
+
+  .science-stat__inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(220px, 0.85fr);
+    gap: 3rem;
+    align-items: start;
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 4.75rem 1.5rem;
+  }
+
+  .science-stat__eyebrow {
+    margin: 0 0 1rem;
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: none;
+    color: rgba(255, 255, 255, 0.88);
+  }
+
+  .science-stat__heading {
+    margin: 0;
+    max-width: 14ch;
+    font-size: clamp(2rem, 3.6vw, 2.9rem);
+    font-weight: 800;
+    line-height: 1.02;
+    letter-spacing: -0.03em;
+    text-transform: uppercase;
+  }
+
+  .science-stat__text {
+    max-width: 34rem;
+    margin-top: 1.15rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+    line-height: 1.65;
+    color: rgba(255, 255, 255, 0.82);
+  }
+
+  .science-stat__text p {
+    margin: 0 0 0.75rem;
+  }
+
+  .science-stat__text p:last-child {
+    margin-bottom: 0;
+  }
+
+  .science-stat__figure {
+    padding-top: 1.5rem;
+  }
+
+  .science-stat__value {
+    margin: 0;
+    font-size: clamp(4.5rem, 8vw, 6.5rem);
+    font-weight: 500;
+    line-height: 0.9;
+    letter-spacing: -0.04em;
+  }
+
+  .science-stat__label {
+    margin: 1.15rem 0 0;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+
+  .science-stat__caption {
+    max-width: 22rem;
+    margin: 0.45rem 0 0;
+    font-size: 0.86rem;
+    font-weight: 500;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.82);
+  }
+
+  .science-stat__note {
+    max-width: 26rem;
+    margin-top: 1.35rem;
+    padding: 1.15rem 1.2rem 1.2rem;
+    border: 1px solid rgba(255, 255, 255, 0.55);
+  }
+
+  .science-stat__note-title {
+    margin: 0 0 0.65rem;
+    color: #c9a45c;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+  }
+
+  .science-stat__note p {
+    margin: 0;
+    font-size: 0.86rem;
+    font-weight: 500;
+    line-height: 1.55;
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  .science-stat__note a {
+    display: inline-block;
+    margin-top: 1rem;
+    color: #ffffff;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-decoration: underline;
+    text-transform: uppercase;
+    text-underline-offset: 0.28em;
+  }
+
+  @media screen and (max-width: 989px) {
+    .science-stat__inner {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .science-stat__figure {
+      padding-top: 0.5rem;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:sections.science_stat.name",
+  "settings": [
+    {
+      "type": "text",
+      "id": "anchor",
+      "label": "t:sections.science_stat.settings.anchor",
+      "default": "Peptide"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "t:sections.science_stat.settings.eyebrow",
+      "default": "Research Spotlight"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "t:sections.science_stat.settings.heading",
+      "default": "What does the published evidence show?"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "t:sections.science_stat.settings.text",
+      "default": "<p>GHK-Cu (Copper Tripeptide-1) is the leading peptide in Cuprofuse®. Published research on that peptide is part of why it was selected.</p>"
+    },
+    {
+      "type": "text",
+      "id": "value",
+      "label": "t:sections.science_stat.settings.value",
+      "default": "+91.4"
+    },
+    {
+      "type": "text",
+      "id": "label",
+      "label": "t:sections.science_stat.settings.label",
+      "default": "Mean hair-count change"
+    },
+    {
+      "type": "textarea",
+      "id": "caption",
+      "label": "t:sections.science_stat.settings.caption",
+      "default": "Reported in the microneedling + minoxidil group after 12 weeks in the Dhurat et al. study."
+    },
+    {
+      "type": "text",
+      "id": "context_title",
+      "label": "t:sections.science_stat.settings.context_title",
+      "default": "Important Context"
+    },
+    {
+      "type": "textarea",
+      "id": "context",
+      "label": "t:sections.science_stat.settings.context",
+      "default": "This research investigated 1.5 mm microneedling combined with minoxidil — not the Riavâte 0.5 mm system. The study is presented as background research on microneedling and should not be interpreted as a clinical result for Riavâte."
+    },
+    {
+      "type": "text",
+      "id": "link_label",
+      "label": "t:sections.science_stat.settings.link_label",
+      "default": "View study"
+    },
+    {
+      "type": "url",
+      "id": "link",
+      "label": "t:sections.science_stat.settings.link"
+    }
+  ],
+  "presets": [
+    { "name": "t:sections.science_stat.name" }
+  ]
+}
+{% endschema %}

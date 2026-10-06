@@ -1,0 +1,366 @@
+{%- liquid
+  assign split_class = 'science-split'
+  if section.settings.image_side == 'right'
+    assign split_class = split_class | append: ' science-split--image-right'
+  endif
+  if section.settings.points_style == 'timeline'
+    assign split_class = split_class | append: ' science-split--timeline'
+  endif
+
+  assign heading_html = section.settings.heading | escape | replace: ', ', ',<br>' | replace: '. ', '.<br>'
+  if section.settings.italic_word != blank
+    assign heading_html = heading_html | replace: ' beyond ', '<br>beyond '
+    assign italic = section.settings.italic_word | escape
+    assign wrapped = '<br><em>' | append: italic | append: '</em><br>'
+    assign heading_html = heading_html | replace: italic, wrapped
+  endif
+-%}
+
+<section
+  class="{{ split_class }}"
+  {% if section.settings.anchor != blank %}
+    id="{{ section.settings.anchor | handleize }}"
+  {% endif %}
+>
+  <div class="science-split__inner">
+    <div class="science-split__media">
+      {%- if section.settings.image != blank -%}
+        {{
+          section.settings.image
+          | image_url: width: 1400
+          | image_tag:
+            widths: '480, 800, 1200',
+            sizes: '(min-width: 990px) 42vw, 100vw',
+            alt: section.settings.image_alt,
+            class: 'science-split__image'
+        }}
+      {%- else -%}
+        <img
+          class="science-split__image"
+          src="{{ section.settings.fallback | asset_url }}"
+          alt="{{ section.settings.image_alt | escape }}"
+          width="1024"
+          height="1024"
+          loading="lazy"
+        >
+      {%- endif -%}
+    </div>
+    <div class="science-split__copy">
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="science-split__eyebrow">{{ section.settings.eyebrow | escape }}</p>
+      {%- endif -%}
+      {%- if section.settings.heading != blank -%}
+        <h2 class="science-split__heading">{{ heading_html }}</h2>
+      {%- endif -%}
+      {%- if section.settings.text != blank -%}
+        <div class="science-split__text rte">{{ section.settings.text }}</div>
+      {%- endif -%}
+      {%- if section.blocks.size > 0 -%}
+        <ol class="science-split__points">
+          {%- for block in section.blocks -%}
+            <li {{ block.shopify_attributes }}>
+              <p class="science-split__index">0{{ forloop.index }}</p>
+              <div>
+                {%- if block.settings.title != blank -%}
+                  <h3>{{ block.settings.title | escape }}</h3>
+                {%- endif -%}
+                {%- if block.settings.text != blank -%}
+                  <p>{{ block.settings.text | escape }}</p>
+                {%- endif -%}
+              </div>
+            </li>
+          {%- endfor -%}
+        </ol>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% stylesheet %}
+  .science-split {
+    background: #ffffff;
+    color: #121a43;
+  }
+
+  .science-split__inner {
+    display: grid;
+    grid-template-columns: minmax(260px, 0.9fr) minmax(0, 1.1fr);
+    gap: 3.5rem;
+    align-items: center;
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 4.5rem 1.5rem;
+  }
+
+  .science-split--image-right .science-split__media {
+    order: 2;
+  }
+
+  .science-split__image {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: 1.25rem;
+  }
+
+  .science-split__eyebrow {
+    margin: 0 0 0.9rem;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #8b93a7;
+  }
+
+  .science-split__heading {
+    margin: 0;
+    max-width: 16ch;
+    font-size: clamp(1.7rem, 2.8vw, 2.45rem);
+    font-weight: 800;
+    line-height: 1.08;
+    letter-spacing: -0.03em;
+    text-transform: uppercase;
+  }
+
+  .science-split__text {
+    max-width: 34rem;
+    margin-top: 1.15rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+    line-height: 1.65;
+    color: #5c6578;
+  }
+
+  .science-split__text p {
+    margin: 0 0 0.8rem;
+  }
+
+  .science-split__text p:last-child {
+    margin-bottom: 0;
+  }
+
+  .science-split__points {
+    display: grid;
+    gap: 1.35rem;
+    margin: 1.6rem 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .science-split__points li {
+    display: grid;
+    grid-template-columns: 2.4rem minmax(0, 1fr);
+    gap: 0.75rem;
+  }
+
+  .science-split__index {
+    margin: 0;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #c5cedb;
+  }
+
+  .science-split__points h3 {
+    margin: 0 0 0.25rem;
+    font-size: 0.92rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+  }
+
+  .science-split__points p {
+    margin: 0;
+    font-size: 0.88rem;
+    font-weight: 500;
+    line-height: 1.55;
+    color: #5c6578;
+  }
+
+  .science-split__heading em {
+    font-style: italic;
+    font-weight: 500;
+    letter-spacing: 0;
+    text-transform: none;
+  }
+
+  .science-split--timeline .science-split__eyebrow {
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: none;
+  }
+
+  .science-split--timeline .science-split__heading {
+    max-width: 13ch;
+    font-size: clamp(2rem, 3.4vw, 2.85rem);
+    line-height: 0.98;
+  }
+
+  .science-split--timeline .science-split__text {
+    max-width: 28rem;
+    margin-top: 1rem;
+    font-size: 0.88rem;
+    line-height: 1.5;
+    color: #1a2744;
+  }
+
+  .science-split--timeline .science-split__points {
+    position: relative;
+    gap: 0;
+    margin-top: 1.45rem;
+    padding: 0.2rem 0 0 1.4rem;
+    border-left: 1px solid #d5dbe6;
+  }
+
+  .science-split--timeline .science-split__points li {
+    display: block;
+    position: relative;
+    padding: 0 0 1.35rem;
+  }
+
+  .science-split--timeline .science-split__points li:last-child {
+    padding-bottom: 0;
+  }
+
+  .science-split--timeline .science-split__points li::before {
+    content: "";
+    position: absolute;
+    top: 0.28rem;
+    left: -1.4rem;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #2f4bdb;
+    transform: translateX(-50%);
+  }
+
+  .science-split--timeline .science-split__index {
+    margin: 0 0 0.15rem;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    color: #8b93a7;
+  }
+
+  .science-split--timeline .science-split__points h3 {
+    margin: 0 0 0.28rem;
+    font-size: 0.92rem;
+    font-weight: 800;
+    color: #121a43;
+  }
+
+  .science-split--timeline .science-split__points p {
+    max-width: 26rem;
+    font-size: 0.86rem;
+    color: #3d4566;
+  }
+
+  @media screen and (max-width: 989px) {
+    .science-split__inner {
+      grid-template-columns: 1fr;
+      gap: 1.75rem;
+    }
+
+    .science-split--image-right .science-split__media {
+      order: 0;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:sections.science_split.name",
+  "settings": [
+    {
+      "type": "text",
+      "id": "anchor",
+      "label": "t:sections.science_split.settings.anchor",
+      "default": "Section"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "t:sections.science_split.settings.eyebrow",
+      "default": "The device"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "t:sections.science_split.settings.heading",
+      "default": "Precision beyond conventional application."
+    },
+    {
+      "type": "text",
+      "id": "italic_word",
+      "label": "t:sections.science_split.settings.italic_word",
+      "default": "conventional"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "t:sections.science_split.settings.text",
+      "default": "<p>A controlled 0.5 mm micro-infusion head, designed for a precise pass across the scalp.</p>"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "t:sections.science_split.settings.image"
+    },
+    {
+      "type": "text",
+      "id": "fallback",
+      "label": "t:sections.science_split.settings.fallback",
+      "default": "science-device.jpg"
+    },
+    {
+      "type": "text",
+      "id": "image_alt",
+      "label": "t:sections.science_split.settings.image_alt",
+      "default": "Riavâte micro-infusion device"
+    },
+    {
+      "type": "select",
+      "id": "image_side",
+      "label": "t:sections.science_split.settings.image_side",
+      "options": [
+        { "value": "left", "label": "t:sections.science_split.options.left" },
+        { "value": "right", "label": "t:sections.science_split.options.right" }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "select",
+      "id": "points_style",
+      "label": "t:sections.science_split.settings.points_style",
+      "options": [
+        { "value": "list", "label": "t:sections.science_split.options.list" },
+        { "value": "timeline", "label": "t:sections.science_split.options.timeline" }
+      ],
+      "default": "list"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "point",
+      "name": "t:sections.science_split.blocks.point.name",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "t:sections.science_split.blocks.point.title",
+          "default": "GHK-Cu"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "t:sections.science_split.blocks.point.text",
+          "default": "Copper Tripeptide-1, selected as the leading peptide."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    { "name": "t:sections.science_split.name" }
+  ]
+}
+{% endschema %}

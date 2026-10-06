@@ -1,0 +1,214 @@
+<section class="science-principles">
+  <div class="science-principles__inner">
+    {%- if section.settings.eyebrow != blank -%}
+      <p class="science-principles__eyebrow">{{ section.settings.eyebrow | escape }}</p>
+    {%- endif -%}
+    {%- if section.settings.heading != blank -%}
+      <h2 class="science-principles__heading">{{ section.settings.heading | escape | replace: ' behind ', '<br>behind ' }}</h2>
+    {%- endif -%}
+    {%- if section.settings.text != blank -%}
+      <div class="science-principles__text rte">{{ section.settings.text }}</div>
+    {%- endif -%}
+    <ol class="science-principles__list">
+      {%- for block in section.blocks -%}
+        <li class="science-principles__item" {{ block.shopify_attributes }}>
+          <p class="science-principles__index">0{{ forloop.index }}</p>
+          {%- if block.settings.title != blank -%}
+            <h3 class="science-principles__title">{{ block.settings.title | escape }}</h3>
+          {%- endif -%}
+          {%- if block.settings.kicker != blank -%}
+            <p class="science-principles__kicker">{{ block.settings.kicker | escape }}</p>
+          {%- endif -%}
+          {%- if block.settings.text != blank -%}
+            <p class="science-principles__item-text">{{ block.settings.text | escape }}</p>
+          {%- endif -%}
+        </li>
+      {%- endfor -%}
+    </ol>
+  </div>
+</section>
+
+{% stylesheet %}
+  .science-principles {
+    color: #ffffff;
+    background-image: linear-gradient(105deg, #000000 6%, #021433 46%, #0b3ea8 100%);
+  }
+
+  .science-principles__inner {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 4.75rem 1.5rem 4.25rem;
+  }
+
+  .science-principles__eyebrow {
+    margin: 0 0 0.85rem;
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: none;
+    color: rgba(255, 255, 255, 0.88);
+  }
+
+  .science-principles__heading {
+    margin: 0;
+    max-width: 18ch;
+    font-size: clamp(2.15rem, 4vw, 3.15rem);
+    font-weight: 800;
+    line-height: 1.02;
+    letter-spacing: -0.03em;
+    text-transform: uppercase;
+  }
+
+  .science-principles__text {
+    max-width: 36rem;
+    margin-top: 1.15rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+    line-height: 1.65;
+    color: rgba(255, 255, 255, 0.82);
+  }
+
+  .science-principles__text p {
+    margin: 0;
+  }
+
+  .science-principles__list {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0;
+    margin: 2.4rem 0 0;
+    padding: 0;
+    list-style: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.16);
+  }
+
+  .science-principles__item {
+    padding: 1.75rem 1.35rem 0.25rem 0;
+    border-left: 1px solid rgba(255, 255, 255, 0.16);
+    padding-left: 1.35rem;
+  }
+
+  .science-principles__item:first-child {
+    padding-left: 0;
+    border-left: 0;
+  }
+
+  .science-principles__index {
+    margin: 0 0 1.45rem;
+    font-size: clamp(2.2rem, 3vw, 2.85rem);
+    font-weight: 500;
+    line-height: 1;
+    color: #ffffff;
+  }
+
+  .science-principles__title {
+    margin: 0;
+    font-size: 0.92rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .science-principles__kicker {
+    margin: 0.28rem 0 0.85rem;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.72);
+  }
+
+  .science-principles__item-text {
+    margin: 0;
+    max-width: 16rem;
+    font-size: 0.84rem;
+    font-weight: 500;
+    line-height: 1.55;
+    color: rgba(255, 255, 255, 0.78);
+  }
+
+  @media screen and (max-width: 989px) {
+    .science-principles__list {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .science-principles__item:nth-child(odd) {
+      padding-left: 0;
+      border-left: 0;
+    }
+
+    .science-principles__item:nth-child(n + 3) {
+      border-top: 1px solid rgba(255, 255, 255, 0.16);
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    .science-principles__list {
+      grid-template-columns: 1fr;
+    }
+
+    .science-principles__item {
+      padding-left: 0;
+      border-left: 0;
+    }
+
+    .science-principles__item:nth-child(n + 2) {
+      border-top: 1px solid rgba(255, 255, 255, 0.16);
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:sections.science_principles.name",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "t:sections.science_principles.settings.eyebrow",
+      "default": "Science at a Glance"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "t:sections.science_principles.settings.heading",
+      "default": "The principles behind Riavâte."
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "t:sections.science_principles.settings.text",
+      "default": "<p>Four ideas shape the system: a precise device, a concentrated formula, a simple routine, and a clear view of the evidence.</p>"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "principle",
+      "name": "t:sections.science_principles.blocks.principle.name",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "t:sections.science_principles.blocks.principle.title",
+          "default": "0.5 mm"
+        },
+        {
+          "type": "text",
+          "id": "kicker",
+          "label": "t:sections.science_principles.blocks.principle.kicker",
+          "default": "Precision"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "t:sections.science_principles.blocks.principle.text",
+          "default": "A controlled 0.5 mm micro-infusion device for targeted scalp application."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    { "name": "t:sections.science_principles.name" }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,213 @@
+<section class="about-pillars">
+  <div class="about-pillars__inner">
+    <div class="about-pillars__intro">
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="about-pillars__eyebrow">{{ section.settings.eyebrow | escape }}</p>
+      {%- endif -%}
+      {%- if section.settings.heading != blank -%}
+        <h2 class="about-pillars__heading">{{ section.settings.heading | escape | replace: '. ', '.<br>' }}</h2>
+      {%- endif -%}
+      {%- if section.settings.text != blank -%}
+        <div class="about-pillars__text rte">{{ section.settings.text }}</div>
+      {%- endif -%}
+    </div>
+    <ol class="about-pillars__list">
+      {%- for block in section.blocks -%}
+        <li class="about-pillars__item" {{ block.shopify_attributes }}>
+          <p class="about-pillars__index">0{{ forloop.index }}</p>
+          {%- if block.settings.title != blank -%}
+            <h3 class="about-pillars__title">{{ block.settings.title | escape }}</h3>
+          {%- endif -%}
+          {%- if block.settings.text != blank -%}
+            <p class="about-pillars__item-text">{{ block.settings.text | escape }}</p>
+          {%- endif -%}
+        </li>
+      {%- endfor -%}
+    </ol>
+  </div>
+</section>
+
+{% stylesheet %}
+  .about-pillars {
+    background: #ffffff;
+    color: #121a43;
+  }
+
+  .about-pillars__inner {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 5rem 1.5rem;
+  }
+
+  .about-pillars__intro {
+    max-width: 46rem;
+    margin: 0 auto 3.25rem;
+    text-align: center;
+  }
+
+  .about-pillars__eyebrow {
+    margin: 0 0 1.1rem;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #8b93a7;
+  }
+
+  .about-pillars__heading {
+    margin: 0;
+    font-size: clamp(1.85rem, 3.2vw, 2.7rem);
+    font-weight: 800;
+    line-height: 1.08;
+    letter-spacing: -0.03em;
+    text-transform: uppercase;
+    color: #1a2744;
+  }
+
+  .about-pillars__text {
+    max-width: 34rem;
+    margin: 1.15rem auto 0;
+    font-size: 0.95rem;
+    font-weight: 500;
+    line-height: 1.6;
+    color: #5c6578;
+  }
+
+  .about-pillars__text p {
+    margin: 0;
+  }
+
+  .about-pillars__list {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0;
+    margin: 0;
+    padding: 0;
+    border-top: 1px solid #e4e7ee;
+    list-style: none;
+  }
+
+  .about-pillars__item {
+    padding: 2.25rem 1.75rem 0.25rem;
+    border-left: 1px solid #e4e7ee;
+  }
+
+  .about-pillars__item:first-child {
+    border-left: 0;
+  }
+
+  .about-pillars__index {
+    margin: 0 0 1.35rem;
+    font-size: clamp(2rem, 3vw, 2.65rem);
+    font-weight: 500;
+    line-height: 1;
+    color: #d5dce6;
+  }
+
+  .about-pillars__title {
+    margin: 0 0 0.45rem;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  .about-pillars__item-text {
+    max-width: 12rem;
+    margin: 0;
+    font-size: 0.92rem;
+    font-weight: 500;
+    line-height: 1.45;
+    color: #3d4566;
+  }
+
+  @media screen and (max-width: 989px) {
+    .about-pillars__list {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .about-pillars__item:nth-child(odd) {
+      border-left: 0;
+    }
+
+    .about-pillars__item:nth-child(n + 3) {
+      border-top: 1px solid #e4e7ee;
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    .about-pillars__inner {
+      padding: 3.5rem 1.25rem;
+    }
+
+    .about-pillars__list {
+      grid-template-columns: 1fr;
+    }
+
+    .about-pillars__item {
+      border-left: 0;
+    }
+
+    .about-pillars__item:nth-child(n + 2) {
+      border-top: 1px solid #e4e7ee;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:sections.about_pillars.name",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "t:sections.about_pillars.settings.eyebrow",
+      "default": "Our philosophy"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "t:sections.about_pillars.settings.heading",
+      "default": "Precision in the device. Purpose in the formula."
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "t:sections.about_pillars.settings.text",
+      "default": "<p>Every element of Riavâte is designed to work as part of one considered scalp-care system.</p>"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "pillar",
+      "name": "t:sections.about_pillars.blocks.pillar.name",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "t:sections.about_pillars.blocks.pillar.title",
+          "default": "Precision"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "t:sections.about_pillars.blocks.pillar.text",
+          "default": "Designed for controlled and consistent micro-infusion application."
+        }
+      ]
+    }
+  ],
+  "max_blocks": 4,
+  "presets": [
+    {
+      "name": "t:sections.about_pillars.name",
+      "blocks": [
+        { "type": "pillar", "settings": { "title": "Precision", "text": "0.5 mm controlled micro-infusion." } },
+        { "type": "pillar", "settings": { "title": "Formulation", "text": "Cuprofuse® concentrated serum." } },
+        { "type": "pillar", "settings": { "title": "Simplicity", "text": "Designed for a considered at-home routine." } },
+        { "type": "pillar", "settings": { "title": "Purpose", "text": "Focused on targeted scalp care." } }
+      ]
+    }
+  ]
+}
+{% endschema %}

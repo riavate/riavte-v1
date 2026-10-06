@@ -15,7 +15,8 @@
         "about": {
           "type": "link",
           "settings": {
-            "label": "About"
+            "label": "About",
+            "link": "/pages/about"
           }
         },
         "kit": {
@@ -28,7 +29,8 @@
         "science": {
           "type": "link",
           "settings": {
-            "label": "Science"
+            "label": "Science",
+            "link": "/pages/science"
           }
         },
         "ingredients": {

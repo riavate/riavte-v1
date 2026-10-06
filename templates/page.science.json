@@ -1,0 +1,284 @@
+{
+  "sections": {
+    "science_hero": {
+      "type": "science-hero",
+      "settings": {
+        "eyebrow": "The Riavâte approach",
+        "heading": "Precision technology. Cuprofuse® formulation.",
+        "text": "<p>Riavâte brings together controlled 0.5 mm micro-infusion technology with Cuprofuse®, our concentrated serum led by GHK-Cu and formulated with a precisely configured combination of selected scalp-care ingredients.</p>",
+        "note": "One system. Precision in delivery. Purpose in formulation.",
+        "image_alt": "Riavâte micro-infusion device held between two fingers"
+      }
+    },
+    "science_principles": {
+      "type": "science-principles",
+      "blocks": {
+        "precision": {
+          "type": "principle",
+          "settings": {
+            "title": "0.5 mm",
+            "kicker": "Precision",
+            "text": "Controlled micro-infusion designed for precise scalp application."
+          }
+        },
+        "formulation": {
+          "type": "principle",
+          "settings": {
+            "title": "Cuprofuse®",
+            "kicker": "Our hero peptide",
+            "text": "Our concentrated serum, led by GHK-Cu and selected scalp-care actives."
+          }
+        },
+        "simplicity": {
+          "type": "principle",
+          "settings": {
+            "title": "Follicle-focused",
+            "kicker": "Targeted application",
+            "text": "A considered application system designed around targeted scalp care."
+          }
+        },
+        "purpose": {
+          "type": "principle",
+          "settings": {
+            "title": "Science-led",
+            "kicker": "Selected actives",
+            "text": "Built around published research into microneedling, peptides and cosmetic scalp-care ingredients."
+          }
+        }
+      },
+      "block_order": ["precision", "formulation", "simplicity", "purpose"],
+      "settings": {
+        "eyebrow": "Science at a Glance",
+        "heading": "The principles behind Riavâte.",
+        "text": ""
+      }
+    },
+    "science_device": {
+      "type": "science-split",
+      "blocks": {
+        "channels": {
+          "type": "point",
+          "settings": {
+            "title": "Precision micro-channels",
+            "text": "0.5 mm micro-infusion creates controlled micro-channels during application."
+          }
+        },
+        "targeted": {
+          "type": "point",
+          "settings": {
+            "title": "Targeted application",
+            "text": "Cuprofuse® is applied directly across the targeted scalp area."
+          }
+        },
+        "together": {
+          "type": "point",
+          "settings": {
+            "title": "Formula + device",
+            "text": "The micro-infusion device and concentrated serum are designed to work as one considered system."
+          }
+        }
+      },
+      "block_order": ["channels", "targeted", "together"],
+      "settings": {
+        "anchor": "device",
+        "eyebrow": "Why Micro-Infusion?",
+        "heading": "Precision beyond conventional application.",
+        "italic_word": "conventional",
+        "text": "<p>Traditional topical products are applied to the scalp surface. Riavâte uses controlled 0.5 mm micro-infusion to create temporary micro-channels during application, providing a more targeted approach to scalp care.</p>",
+        "fallback": "science-device.jpg",
+        "image_alt": "Close view of the Riavâte micro-infusion tip",
+        "image_side": "left",
+        "points_style": "timeline"
+      }
+    },
+    "science_stat": {
+      "type": "science-stat",
+      "settings": {
+        "anchor": "peptide",
+        "eyebrow": "Research Spotlight",
+        "heading": "What does the published evidence show?",
+        "text": "<p>Microneedling has been investigated in clinical research on androgenetic alopecia.</p><p>In a 2013 randomized evaluator-blinded study involving 100 participants, researchers compared weekly 1.5 mm microneedling plus 5% minoxidil against 5% minoxidil alone for 12 weeks.</p>",
+        "value": "+91.4",
+        "label": "Mean hair-count change",
+        "caption": "Reported in the microneedling + minoxidil group after 12 weeks in the Dhurat et al. study.",
+        "context_title": "Important Context",
+        "context": "This research investigated 1.5 mm microneedling combined with minoxidil — not the Riavâte 0.5 mm system. The study is presented as background research on microneedling and should not be interpreted as a clinical result for Riavâte.",
+        "link_label": "View study",
+        "link": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3746236/"
+      }
+    },
+    "science_formula": {
+      "type": "science-serum",
+      "blocks": {
+        "led": {
+          "type": "trait",
+          "settings": {
+            "title": "GHK-Cu\nLED",
+            "text": "Leading peptide within Cuprofuse®."
+          }
+        },
+        "multi": {
+          "type": "trait",
+          "settings": {
+            "title": "MULTI-\nACTIVE",
+            "text": "A considered combination of selected scalp-care ingredients."
+          }
+        },
+        "concentrated": {
+          "type": "trait",
+          "settings": {
+            "title": "CONCENTR\nATED",
+            "text": "Created as a focused cosmetic serum for the Riavâte system."
+          }
+        }
+      },
+      "block_order": ["led", "multi", "concentrated"],
+      "settings": {
+        "anchor": "formula",
+        "eyebrow": "Our Hero Peptide",
+        "heading": "Our concentrated serum Cuprofuse® at the heart of Riavâte.",
+        "text": "<p>Cuprofuse® is more than a single hero ingredient. It brings GHK-Cu together with a precisely configured combination of selected molecules and scalp-care ingredients in one concentrated formula.</p>",
+        "subheading": "GHK-Cu",
+        "subtext": "Copper Tripeptide-1 sits at the heart of Cuprofuse® as its leading peptide, supported by a wider combination of carefully selected cosmetic ingredients.",
+        "fallback": "science-serum.jpg",
+        "image_alt": "Riavâte serum vial with molecular forms"
+      }
+    },
+    "science_purpose": {
+      "type": "science-inside",
+      "blocks": {
+        "niacinamide": {
+          "type": "active",
+          "settings": {
+            "index": "02",
+            "title": "Niacinamide",
+            "kicker": "Scalp barrier support",
+            "text": "Helps condition the scalp and support its natural barrier."
+          }
+        },
+        "caffeine": {
+          "type": "active",
+          "settings": {
+            "index": "02",
+            "title": "Caffeine",
+            "kicker": "Scalp care active",
+            "text": "A widely studied ingredient used in modern cosmetic scalp-care formulations."
+          }
+        },
+        "panthenol": {
+          "type": "active",
+          "settings": {
+            "index": "02",
+            "title": "Panthenol",
+            "kicker": "Condition + hydration",
+            "text": "Helps moisturise and condition the scalp and hair."
+          }
+        },
+        "adenosine": {
+          "type": "active",
+          "settings": {
+            "index": "02",
+            "title": "Adenosine",
+            "kicker": "Targeted active",
+            "text": "A cosmetic active explored in published research relating to the appearance of hair."
+          }
+        }
+      },
+      "block_order": ["niacinamide", "caffeine", "panthenol", "adenosine"],
+      "settings": {
+        "anchor": "routine",
+        "eyebrow": "Inside Cuprofuse®",
+        "heading": "Selected with purpose.",
+        "italic_word": "purpose",
+        "text": "<p>Cuprofuse® combines its leading peptide GHK-Cu with selected cosmetic actives, each chosen for a considered role within the formula.</p>",
+        "feature_index": "01",
+        "feature_title": "GHK-Cu / COPPER TRIPEPTIDE-1",
+        "feature_text": "The leading peptide at the heart of Cuprofuse®.",
+        "fallback": "science-apply.jpg",
+        "image_alt": "Riavâte device applied along the hairline"
+      }
+    },
+    "science_note": {
+      "type": "science-note",
+      "settings": {
+        "eyebrow": "Transparency — Scientific Note",
+        "heading": "Understanding the evidence.",
+        "lede": "Independent research Riavâte clinical results",
+        "text": "<p>The science behind Riavâte draws from published research across microneedling, follicular delivery and individual cosmetic ingredients used within our approach. These studies help inform the scientific rationale behind the system. Unless explicitly stated, referenced studies were not conducted on the finished Riavâte or Cuprofuse® product.</p>"
+      }
+    },
+    "science_explore": {
+      "type": "science-explore",
+      "blocks": {
+        "microneedling": {
+          "type": "card",
+          "settings": {
+            "kicker": "Microneedling",
+            "title": "Microneedling and hair-growth research",
+            "text": "Published research on microneedling and hair growth. Presented as background, not a clinical result for Riavâte."
+          }
+        },
+        "follicular": {
+          "type": "card",
+          "settings": {
+            "kicker": "Follicular delivery",
+            "title": "Hair follicles as storage and penetration pathways",
+            "text": "Published work on the hair follicle as a route for storage and penetration of topical ingredients."
+          }
+        },
+        "caffeine": {
+          "type": "card",
+          "settings": {
+            "kicker": "Caffeine",
+            "title": "Follicular penetration of caffeine",
+            "text": "Published research on how caffeine penetrates the hair follicle."
+          }
+        },
+        "adenosine": {
+          "type": "card",
+          "settings": {
+            "kicker": "Adenosine",
+            "title": "Published topical adenosine research",
+            "text": "Published research on topical adenosine. Not a clinical result for Riavâte."
+          }
+        },
+        "peptide": {
+          "type": "card",
+          "settings": {
+            "kicker": "GHK-Cu / copper peptides",
+            "title": "Published research relating to copper peptides",
+            "text": "Published research on copper peptides, including GHK-Cu. Not a result for the finished Riavâte system."
+          }
+        }
+      },
+      "block_order": ["microneedling", "follicular", "caffeine", "adenosine", "peptide"],
+      "settings": {
+        "eyebrow": "Scientific References",
+        "heading": "Explore the research.",
+        "italic_word": "research",
+        "text": "Independent research informing the science behind our approach."
+      }
+    },
+    "science_close": {
+      "type": "science-close",
+      "settings": {
+        "eyebrow": "The Riavâte System",
+        "heading": "Science-led scalp care. Designed with precision.",
+        "text": "<p>Precision micro-infusion meets Cuprofuse® concentrated serum — bringing technology, formulation and modern scalp care together in one considered system.</p>",
+        "button_label": "Discover the system",
+        "button_link": "/products/the-kit"
+      }
+    }
+  },
+  "order": [
+    "science_hero",
+    "science_principles",
+    "science_device",
+    "science_stat",
+    "science_formula",
+    "science_purpose",
+    "science_note",
+    "science_explore",
+    "science_close"
+  ]
+}

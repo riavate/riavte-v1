@@ -15,3 +15,5 @@
 # Local homepage preview. Shopify serves the storefront home page from templates/index.json.
 index.html
 kit.html
+about.html
+science.html

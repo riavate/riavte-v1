@@ -264,6 +264,262 @@
         "james": "James"
       }
     },
+    "about_hero": {
+      "name": "About hero",
+      "settings": {
+        "eyebrow": "Eyebrow",
+        "heading": "Heading",
+        "text": "Text",
+        "image": "Image",
+        "image_alt": "Image alt text",
+        "labels": "Labels"
+      }
+    },
+    "about_reconsidered": {
+      "name": "About split",
+      "settings": {
+        "eyebrow": "Eyebrow",
+        "heading": "Heading",
+        "text": "Text",
+        "image": "Image",
+        "image_alt": "Image alt text",
+        "caption": "Image caption"
+      }
+    },
+    "about_pillars": {
+      "name": "About pillars",
+      "settings": {
+        "eyebrow": "Eyebrow",
+        "heading": "Heading",
+        "text": "Text"
+      },
+      "blocks": {
+        "pillar": { "name": "Pillar", "title": "Title", "text": "Text" }
+      }
+    },
+    "about_formula": {
+      "name": "About formula",
+      "settings": {
+        "eyebrow": "Eyebrow",
+        "heading": "Heading",
+        "subheading": "Subheading",
+        "text": "Text",
+        "image": "Background image"
+      },
+      "blocks": {
+        "feature": { "name": "Feature", "title": "Title", "text": "Text" }
+      }
+    },
+    "about_system": {
+      "name": "About system",
+      "settings": { "eyebrow": "Eyebrow", "heading": "Heading" },
+      "blocks": {
+        "row": {
+          "name": "Row",
+          "kicker": "Label",
+          "title": "Title",
+          "text": "Text",
+          "image": "Image",
+          "image_alt": "Image alt text",
+          "fallback": "Placeholder image",
+          "image_side": "Image side"
+        }
+      },
+      "options": {
+        "needles": "Device tips",
+        "serum": "Serum",
+        "kit": "Device and vial",
+        "right": "Right",
+        "left": "Left"
+      }
+    },
+    "about_evolved": {
+      "name": "About statement",
+      "settings": {
+        "eyebrow": "Eyebrow",
+        "heading": "Heading",
+        "text": "Text",
+        "points": "Points",
+        "button_label": "Button label",
+        "button_link": "Button link",
+        "image": "Image",
+        "image_alt": "Image alt text"
+      }
+    },
+    "science_hero": {
+      "name": "Science hero",
+      "settings": {
+        "eyebrow": "Eyebrow",
+        "heading": "Heading",
+        "text": "Text",
+        "note": "Note",
+        "image": "Image",
+        "image_alt": "Image alt text"
+      }
+    },
+    "science_principles": {
+      "name": "Science principles",
+      "settings": {
+        "eyebrow": "Eyebrow",
+        "heading": "Heading",
+        "text": "Text"
+      },
+      "blocks": {
+        "principle": {
+          "name": "Principle",
+          "title": "Title",
+          "kicker": "Kicker",
+          "text": "Text"
+        }
+      }
+    },
+    "science_split": {
+      "name": "Science split",
+      "settings": {
+        "anchor": "Anchor",
+        "eyebrow": "Eyebrow",
+        "heading": "Heading",
+        "text": "Text",
+        "image": "Image",
+        "fallback": "Placeholder image",
+        "image_alt": "Image alt text",
+        "image_side": "Image side",
+        "italic_word": "Italic word",
+        "points_style": "Points style"
+      },
+      "options": {
+        "left": "Left",
+        "right": "Right",
+        "list": "List",
+        "timeline": "Timeline"
+      },
+      "blocks": {
+        "point": {
+          "name": "Point",
+          "title": "Title",
+          "text": "Text"
+        }
+      }
+    },
+    "science_stat": {
+      "name": "Science statistic",
+      "settings": {
+        "anchor": "Anchor",
+        "eyebrow": "Eyebrow",
+        "heading": "Heading",
+        "text": "Text",
+        "value": "Figure",
+        "label": "Figure label",
+        "caption": "Caption",
+        "context_title": "Context title",
+        "context": "Context",
+        "link_label": "Link label",
+        "link": "Link"
+      }
+    },
+    "science_serum": {
+      "name": "Science serum",
+      "settings": {
+        "anchor": "Anchor",
+        "eyebrow": "Eyebrow",
+        "heading": "Heading",
+        "text": "Text",
+        "subheading": "Subheading",
+        "subtext": "Subtext",
+        "image": "Image",
+        "fallback": "Placeholder image",
+        "image_alt": "Image alt text"
+      },
+      "blocks": {
+        "trait": {
+          "name": "Trait",
+          "title": "Title",
+          "text": "Text"
+        }
+      }
+    },
+    "science_inside": {
+      "name": "Science ingredients",
+      "settings": {
+        "anchor": "Anchor",
+        "eyebrow": "Eyebrow",
+        "heading": "Heading",
+        "italic_word": "Italic word",
+        "text": "Text",
+        "feature_index": "Feature number",
+        "feature_title": "Feature title",
+        "feature_text": "Feature text",
+        "image": "Image",
+        "fallback": "Placeholder image",
+        "image_alt": "Image alt text"
+      },
+      "blocks": {
+        "active": {
+          "name": "Active",
+          "index": "Number",
+          "title": "Title",
+          "kicker": "Kicker",
+          "text": "Text"
+        }
+      }
+    },
+    "science_note": {
+      "name": "Science note",
+      "settings": {
+        "eyebrow": "Eyebrow",
+        "heading": "Heading",
+        "lede": "Lede",
+        "text": "Text"
+      }
+    },
+    "science_explore": {
+      "name": "Explore the science",
+      "settings": {
+        "eyebrow": "Eyebrow",
+        "heading": "Heading",
+        "italic_word": "Italic word",
+        "text": "Text"
+      },
+      "blocks": {
+        "card": {
+          "name": "Reference",
+          "kicker": "Kicker",
+          "title": "Title",
+          "text": "Text",
+          "link": "Link"
+        }
+      }
+    },
+    "science_close": {
+      "name": "Science close",
+      "settings": {
+        "eyebrow": "Eyebrow",
+        "heading": "Heading",
+        "text": "Text",
+        "button_label": "Button label",
+        "button_link": "Button link",
+        "image": "Image"
+      }
+    },
+    "about_reviews": {
+      "name": "About reviews",
+      "settings": {
+        "heading": "Heading",
+        "stars_label": "Star label",
+        "button_label": "Button label",
+        "button_link": "Button link"
+      },
+      "blocks": {
+        "review": {
+          "name": "Review",
+          "image": "Image",
+          "fallback": "Placeholder image",
+          "name_label": "Name",
+          "date": "Date",
+          "quote": "Quote"
+        }
+      }
+    },
     "product_main": {
       "name": "Product",
       "settings": {
