@@ -1,0 +1,271 @@
+{
+  "sections": {
+    "main": {
+      "type": "product-main",
+      "blocks": {
+        "point_1": { "type": "point", "settings": { "text": "0.5 mm precision micro-infusion" } },
+        "point_2": { "type": "point", "settings": { "text": "GHK-Cu led formula" } },
+        "point_3": { "type": "point", "settings": { "text": "Powered by Cuprofuse®" } },
+        "point_4": { "type": "point", "settings": { "text": "Gold-plated micro-touchpoints" } },
+        "point_5": { "type": "point", "settings": { "text": "Supports fuller-looking hair" } },
+        "point_6": { "type": "point", "settings": { "text": "Targeted cosmetic formula" } },
+        "supply_1": {
+          "type": "supply",
+          "settings": {
+            "title": "1 month supply",
+            "subtitle": "4 weekly treatments",
+            "details": "4 × Cuprofuse® Serum Vials\n4 × 0.5 mm Micro-Infusion Applicators",
+            "compare_price": "$406",
+            "price": "$167.00"
+          }
+        },
+        "supply_2": {
+          "type": "supply",
+          "settings": {
+            "title": "2 month supply",
+            "subtitle": "8 weekly treatments",
+            "details": "8 × Cuprofuse® Serum Vials\n8 × 0.5 mm Micro-Infusion Applicators",
+            "compare_price": "$406",
+            "price": "$167.00"
+          }
+        },
+        "supply_3": {
+          "type": "supply",
+          "settings": {
+            "title": "3 month supply",
+            "subtitle": "12 weekly treatments",
+            "details": "12 × Cuprofuse® Serum Vials\n12 × 0.5 mm Micro-Infusion Applicators",
+            "compare_price": "$406",
+            "price": "$167.00",
+            "badge": "Best value"
+          }
+        },
+        "benefits": {
+          "type": "accordion",
+          "settings": {
+            "title": "Key Benefits",
+            "content": "<p>Hair appears stronger and more resilient with continued use. Visible improvements in the appearance of density around the hairline, temples, and crown.</p>"
+          }
+        },
+        "works": {
+          "type": "accordion",
+          "settings": {
+            "title": "How It Works",
+            "content": "<p>The 0.5 mm micro-infusion system creates controlled micro-channels so Cuprofuse® can be applied precisely and evenly across targeted areas of the scalp.</p>"
+          }
+        },
+        "included": {
+          "type": "accordion",
+          "settings": {
+            "title": "What's Included",
+            "content": "<p>Cuprofuse® serum vials and matching 0.5 mm micro-infusion applicators. The number of each depends on the supply you choose.</p>"
+          }
+        }
+      },
+      "block_order": ["point_1", "point_2", "point_3", "point_4", "point_5", "point_6", "supply_1", "supply_2", "supply_3", "benefits", "works", "included"],
+      "settings": {
+        "heading": "The Precision\nMicro-Infusion System for Advanced Scalp Care",
+        "text": "A precision-led scalp-care system combining controlled 0.5 mm micro-infusion with Cuprofuse®, our concentrated serum led by GHK-Cu and a precisely configured combination of targeted scalp-care ingredients.",
+        "rating": "4.80 out of 5",
+        "ingredients_label": "Ingredients",
+        "certificate_label": "Lab Certificate",
+        "show_dynamic_checkout": true
+      }
+    },
+    "trust": {
+      "type": "icon-row",
+      "blocks": {
+        "precision": { "type": "item", "settings": { "icon": "precision", "title": "0.5 mm", "text": "Precision infusion" } },
+        "scalp": { "type": "item", "settings": { "icon": "scalp", "title": "Scalp-focused", "text": "Targeted formula" } },
+        "peptide": { "type": "item", "settings": { "icon": "peptide", "title": "GHK-Cu", "text": "Hero copper peptide" } },
+        "lab": { "type": "item", "settings": { "icon": "lab", "title": "Lab tested", "text": "Quality & consistency" } },
+        "serum": { "type": "item", "settings": { "icon": "serum", "title": "Cuprofuse®", "text": "Concentrated serum" } }
+      },
+      "block_order": ["precision", "scalp", "peptide", "lab", "serum"],
+      "settings": {}
+    },
+    "infusion": {
+      "type": "product-infusion",
+      "blocks": {
+        "step_1": { "type": "step", "settings": { "title": "01 — Micro-infuse", "text": "0.5 mm precision application" } },
+        "step_2": { "type": "step", "settings": { "title": "02 — Deliver", "text": "Cuprofuse® concentrated serum" } },
+        "step_3": { "type": "step", "settings": { "title": "03 — Support", "text": "Supports a healthier-looking scalp" } },
+        "step_4": { "type": "step", "settings": { "title": "04 — Strengthen", "text": "Supports stronger, fuller-looking hair" } }
+      },
+      "block_order": ["step_1", "step_2", "step_3", "step_4"],
+      "settings": {
+        "eyebrow": "How micro-infusion works",
+        "heading": "Advanced Scalp Care, Precisely Delivered.",
+        "text": "<p>Riavâte’s 0.5 mm micro-infusion system creates controlled micro-channels across the scalp, allowing the GHK-Cu powered cosmetic formula to be applied precisely and evenly.</p><p>Designed to bring together precision technology and targeted scalp care in one considered system.</p>",
+        "overlay": "How to\nWork video"
+      }
+    },
+    "cuprofuse": {
+      "type": "product-cuprofuse",
+      "blocks": {
+        "ghk": { "type": "feature", "settings": { "icon": "molecule", "title": "GHK-Cu LED", "text": "Copper peptide at the heart of the formula." } },
+        "precision": { "type": "feature", "settings": { "icon": "fuller", "title": "PRECISION FORMULATED", "text": "A considered combination of selected scalp-care ingredients." } },
+        "system": { "type": "feature", "settings": { "icon": "system", "title": "MADE FOR MICRO-INFUSION", "text": "Developed to complement the Riavâte application system." } }
+      },
+      "block_order": ["ghk", "precision", "system"],
+      "settings": {
+        "eyebrow": "The formula inside Riavâte",
+        "heading": "Cuprofuse®",
+        "subheading": "Our concentrated serum",
+        "text": "More than a single hero ingredient. Cuprofuse® brings GHK-Cu together with a precisely configured combination of selected molecules and scalp-care ingredients in one concentrated formula.",
+        "button_label": "Discover Cuprofuse® →"
+      }
+    },
+    "results": {
+      "type": "product-results",
+      "blocks": {
+        "shedding": {
+          "type": "result",
+          "settings": {
+            "before_asset": "product-result-2.jpg",
+            "after_asset": "product-result-2.jpg",
+            "title": "Reduced shedding",
+            "text": "Hair appears stronger and more resilient with continued use."
+          }
+        },
+        "hairline": {
+          "type": "result",
+          "settings": {
+            "before_asset": "product-result-1.jpg",
+            "after_asset": "product-result-1.jpg",
+            "title": "Fuller-looking hairline",
+            "text": "Visible improvements in the appearance of density around the hairline and temples."
+          }
+        },
+        "crown": {
+          "type": "result",
+          "settings": {
+            "before_asset": "product-result-3.jpg",
+            "after_asset": "product-result-3.jpg",
+            "title": "Improved crown coverage",
+            "text": "Hair appears fuller, helping reduce the appearance of visible scalp around the crown."
+          }
+        }
+      },
+      "block_order": ["shedding", "hairline", "crown"],
+      "settings": {
+        "eyebrow": "Real routines. Visible progress.",
+        "heading": "Results from the Riavâte Community"
+      }
+    },
+    "steps": {
+      "type": "product-steps",
+      "blocks": {
+        "prepare": { "type": "step", "settings": { "fallback": "product-step-1.jpg", "title": "01 — Prepare", "text": "Start with a clean, dry scalp." } },
+        "infuse": { "type": "step", "settings": { "fallback": "product-step-2.jpg", "title": "02 — Infuse", "text": "Apply Cuprofuse® using the Riavâte 0.5 mm Micro-Infusion System across targeted areas." } },
+        "complete": { "type": "step", "settings": { "fallback": "product-step-3.jpg", "title": "03 — Complete", "text": "Finish the application and allow the formula to absorb naturally." } }
+      },
+      "block_order": ["prepare", "infuse", "complete"],
+      "settings": {
+        "eyebrow": "Real routines. Visible progress.",
+        "heading": "See How Simple It Is to Use",
+        "video_label": "How to\nuse video"
+      }
+    },
+    "compare": {
+      "type": "product-compare",
+      "blocks": {
+        "riavate": {
+          "type": "column",
+          "settings": {
+            "tone": "featured",
+            "fallback": "product-compare-kit.png",
+            "title": "Riavâte micro-infusion",
+            "rows": "Approach|0.5 mm precision micro-infusion\nFormula|Cuprofuse® Concentrated Serum\nHero Ingredient|GHK-Cu\nRoutine|At-home targeted scalp care\nCost|From $70 one time"
+          }
+        },
+        "transplant": {
+          "type": "column",
+          "settings": {
+            "tone": "plain",
+            "fallback": "product-compare-transplant.png",
+            "title": "Hair transplant",
+            "rows": "Approach|Surgical hair restoration procedure\nFormula|Not a topical formula\nApproach|Clinical procedure with recovery\nCost|$5,000 to $15,000+"
+          }
+        },
+        "medication": {
+          "type": "column",
+          "settings": {
+            "tone": "plain",
+            "fallback": "product-compare-meds.png",
+            "title": "Minoxidil & medication",
+            "rows": "Approach|Drug-based treatment\nFormula|Pharmaceutical active ingredients\nApproach|Typically requires ongoing use\nCost|$30+ a month forever"
+          }
+        }
+      },
+      "block_order": ["riavate", "transplant", "medication"],
+      "settings": {}
+    },
+    "guarantee": {
+      "type": "product-guarantee",
+      "blocks": {
+        "document": { "type": "step", "settings": { "title": "01 — Document", "text": "Take a clear photo before starting and track your progress." } },
+        "consistent": { "type": "step", "settings": { "title": "02 — Stay consistent", "text": "Follow the recommended Riavâte routine consistently." } },
+        "complete": { "type": "step", "settings": { "title": "03 — Complete 120 days", "text": "Give your routine time and compare your progress." } }
+      },
+      "block_order": ["document", "consistent", "complete"],
+      "settings": {
+        "eyebrow": "Give Riavâte 120 days.",
+        "heading": "If you’re not satisfied, we’ll refund you."
+      }
+    },
+    "reviews": {
+      "type": "product-reviews",
+      "blocks": {
+        "james": {
+          "type": "review",
+          "settings": {
+            "fallback": "product-review-1.jpg",
+            "name": "James R.",
+            "date": "18 September 2026",
+            "quote": "<p>“Really easy to add to my routine.”</p><p>The kit feels premium and straightforward to use. I especially like how precise the applicator feels around my hairline.</p>"
+          }
+        },
+        "daniel": {
+          "type": "review",
+          "settings": {
+            "fallback": "product-review-2.jpg",
+            "name": "Daniel M.",
+            "date": "02 September 2026",
+            "quote": "<p>“My hair looks noticeably fuller.”</p><p>I’ve stayed consistent with the routine and I’m pleased with how my hair looks, particularly around the areas I was most conscious of.</p>"
+          }
+        },
+        "oliver": {
+          "type": "review",
+          "settings": {
+            "fallback": "product-review-3.jpg",
+            "name": "Oliver T.",
+            "date": "14 August 2026",
+            "quote": "<p>“A much more considered approach.”</p><p>I’ve tried plenty of scalp products before, but Riavâte feels different. The micro-infusion system is simple to use and feels like a proper part of my routine.</p>"
+          }
+        },
+        "sophie": {
+          "type": "review",
+          "settings": {
+            "fallback": "product-review-4.jpg",
+            "name": "Sophie W.",
+            "date": "27 July 2026",
+            "quote": "<p>“Really pleased with my progress.”</p><p>My scalp feels well cared for and my hair appears healthier and fuller than when I started. I also love how simple the whole system is to use.</p>"
+          }
+        }
+      },
+      "block_order": ["james", "daniel", "oliver", "sophie"],
+      "settings": {
+        "heading": "Customer Reviews",
+        "score": "4.80 out of 5",
+        "count_label": "Based on 10457 reviews",
+        "badge": "✓ Verified Customer",
+        "button_label": "Write a review",
+        "more_label": "See more",
+        "list_heading": "Reviews 10457",
+        "more_button": "Show more reviews"
+      }
+    }
+  },
+  "order": ["main", "trust", "infusion", "cuprofuse", "results", "steps", "compare", "guarantee", "reviews"]
+}

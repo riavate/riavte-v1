@@ -1,0 +1,252 @@
+<section class="precision">
+  <div class="precision__intro">
+    {%- if section.settings.heading != blank -%}
+      <h2 class="precision__heading">{{ section.settings.heading | escape }}</h2>
+    {%- endif -%}
+    {%- if section.settings.eyebrow != blank -%}
+      <p class="precision__eyebrow">{{ section.settings.eyebrow | escape }}</p>
+    {%- endif -%}
+    {%- if section.settings.text != blank -%}
+      <p class="precision__text">{{ section.settings.text | escape }}</p>
+    {%- endif -%}
+  </div>
+
+  <div class="precision__stage">
+    <div class="precision__media">
+      {%- if section.settings.image != blank -%}
+        {{
+          section.settings.image
+          | image_url: width: 900
+          | image_tag:
+            widths: '300, 500, 700, 900',
+            sizes: '(min-width: 750px) 320px, 70vw',
+            alt: section.settings.image_alt,
+            loading: 'lazy',
+            class: 'precision__image'
+        }}
+      {%- else -%}
+        <img
+          class="precision__image"
+          src="{{ 'precision-device.jpg' | asset_url }}"
+          alt="{{ section.settings.image_alt | escape }}"
+          width="256"
+          height="384"
+          loading="lazy"
+        >
+      {%- endif -%}
+    </div>
+
+    {%- for block in section.blocks -%}
+      <article class="precision__point precision__point--{{ block.settings.position }}" {{ block.shopify_attributes }}>
+        <h3>{{ block.settings.title | escape }}</h3>
+        <p>{{ block.settings.text | escape }}</p>
+      </article>
+    {%- endfor -%}
+  </div>
+</section>
+
+{% stylesheet %}
+  .precision {
+    padding: 4.5rem 0 3.5rem;
+    background: #ffffff;
+    color: #111111;
+  }
+
+  .precision__intro {
+    width: min(780px, calc(100% - 2.5rem));
+    margin: 0 auto 2.5rem;
+    text-align: center;
+  }
+
+  .precision__heading {
+    margin: 0;
+    font-size: clamp(1.75rem, 3vw, 2.25rem);
+    font-weight: 700;
+    line-height: 1.2;
+    background-image: linear-gradient(90deg, #000000 16%, #2d42a9 85%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+
+  .precision__eyebrow {
+    margin: 0.75rem 0 0;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 3.64px;
+    text-transform: uppercase;
+  }
+
+  .precision__text {
+    margin: 0.85rem auto 0;
+    max-width: 46rem;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.45;
+  }
+
+  .precision__stage {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(180px, 320px) minmax(0, 1fr);
+    grid-template-areas:
+      "top-left media top-right"
+      "bottom-left media bottom-right";
+    gap: 1.75rem 1.5rem;
+    align-items: center;
+    width: min(1100px, calc(100% - 2.5rem));
+    margin-inline: auto;
+  }
+
+  .precision__media {
+    grid-area: media;
+  }
+
+  .precision__image {
+    width: 100%;
+    height: auto;
+    max-height: 420px;
+    margin-inline: auto;
+    object-fit: contain;
+  }
+
+  .precision__point h3 {
+    margin: 0;
+    font-size: 15px;
+    font-weight: 800;
+    line-height: 1.3;
+  }
+
+  .precision__point p {
+    margin: 0.45rem 0 0;
+    max-width: 16rem;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.45;
+  }
+
+  .precision__point--top-left { grid-area: top-left; }
+  .precision__point--bottom-left { grid-area: bottom-left; }
+  .precision__point--top-right { grid-area: top-right; text-align: right; }
+  .precision__point--bottom-right { grid-area: bottom-right; text-align: right; }
+
+  .precision__point--top-right p,
+  .precision__point--bottom-right p {
+    margin-left: auto;
+  }
+
+  @media screen and (max-width: 989px) {
+    .precision__stage {
+      grid-template-columns: 1fr 1fr;
+      grid-template-areas:
+        "media media"
+        "top-left top-right"
+        "bottom-left bottom-right";
+    }
+
+    .precision__image {
+      max-height: 320px;
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    .precision {
+      padding: 3rem 0 2.5rem;
+    }
+
+    .precision__stage {
+      grid-template-columns: 1fr;
+      grid-template-areas:
+        "media"
+        "top-left"
+        "top-right"
+        "bottom-left"
+        "bottom-right";
+    }
+
+    .precision__point,
+    .precision__point--top-right,
+    .precision__point--bottom-right {
+      text-align: left;
+    }
+
+    .precision__point p,
+    .precision__point--top-right p,
+    .precision__point--bottom-right p {
+      margin-left: 0;
+      max-width: none;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:sections.precision.name",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "t:sections.precision.settings.heading",
+      "default": "0.5 mm precision"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "t:sections.precision.settings.eyebrow",
+      "default": "Micro-infusion"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "t:sections.precision.settings.text",
+      "default": "Engineered for controlled, targeted scalp application, Riavâte’s 0.5 mm micro-infusion system uses precision micro-touchpoints to apply the cosmetic formula consistently across the scalp."
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "t:sections.precision.settings.image"
+    },
+    {
+      "type": "text",
+      "id": "image_alt",
+      "label": "t:sections.precision.settings.image_alt",
+      "default": "Riavâte 0.5 mm micro-infusion device"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "point",
+      "name": "t:sections.precision.blocks.point.name",
+      "settings": [
+        {
+          "type": "select",
+          "id": "position",
+          "label": "t:sections.precision.blocks.point.position",
+          "options": [
+            { "value": "top-left", "label": "t:sections.precision.options.top_left" },
+            { "value": "top-right", "label": "t:sections.precision.options.top_right" },
+            { "value": "bottom-left", "label": "t:sections.precision.options.bottom_left" },
+            { "value": "bottom-right", "label": "t:sections.precision.options.bottom_right" }
+          ],
+          "default": "top-left"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "t:sections.precision.blocks.point.title",
+          "default": "Even distribution"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "t:sections.precision.blocks.point.text",
+          "default": "Helps distribute the cosmetic serum consistently across the treatment area."
+        }
+      ]
+    }
+  ],
+  "max_blocks": 4,
+  "presets": [
+    { "name": "t:sections.precision.name" }
+  ]
+}
+{% endschema %}

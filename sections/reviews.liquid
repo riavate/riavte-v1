@@ -1,0 +1,250 @@
+<section class="reviews">
+  <div class="reviews__card">
+    <h2 class="reviews__heading">{{ section.settings.heading | escape }}</h2>
+    <div class="reviews__top">
+      <div>
+        <p class="reviews__score">{{ section.settings.score | escape }}</p>
+        <p class="reviews__count">{{ section.settings.count_label | escape }}</p>
+        {%- if section.settings.badge != blank -%}
+          <p class="reviews__badge">{{ section.settings.badge | escape }}</p>
+        {%- endif -%}
+      </div>
+      {%- if section.settings.button_label != blank -%}
+        <a
+          class="reviews__button"
+          {% if section.settings.button_link != blank %}
+            href="{{ section.settings.button_link }}"
+          {% else %}
+            role="link"
+            aria-disabled="true"
+          {% endif %}
+        >
+          {{ section.settings.button_label | escape }}
+        </a>
+      {%- endif -%}
+    </div>
+
+    {%- if section.blocks.size > 0 -%}
+      <ul class="reviews__thumbs">
+        {%- for block in section.blocks -%}
+          <li {{ block.shopify_attributes }}>
+            {%- if block.settings.image != blank -%}
+              {{
+                block.settings.image
+                | image_url: width: 200
+                | image_tag:
+                  widths: '90, 160',
+                  sizes: '85px',
+                  alt: block.settings.image.alt,
+                  loading: 'lazy',
+                  class: 'reviews__thumb'
+              }}
+            {%- else -%}
+              <img class="reviews__thumb" src="{{ 'kit.jpg' | asset_url }}" alt="" width="85" height="81" loading="lazy">
+            {%- endif -%}
+          </li>
+        {%- endfor -%}
+      </ul>
+    {%- endif -%}
+
+    {%- if section.settings.more_label != blank -%}
+      <p class="reviews__more">
+        <a href="{{ section.settings.more_link | default: routes.root_url }}">{{ section.settings.more_label | escape }}</a>
+      </p>
+    {%- endif -%}
+  </div>
+</section>
+
+{% stylesheet %}
+  .reviews {
+    padding: 1rem 0 4.5rem;
+    background: #ffffff;
+  }
+
+  .reviews__card {
+    width: min(1063px, calc(100% - 2.5rem));
+    margin-inline: auto;
+    padding: 2rem 1.5rem 1.5rem;
+    border-radius: 16px;
+    background: #ffffff;
+    box-shadow: 4px 7px 16px rgba(0, 0, 0, 0.12);
+  }
+
+  .reviews__heading {
+    margin: 0 0 1.25rem;
+    text-align: center;
+    font-size: clamp(1.6rem, 3vw, 2rem);
+    font-weight: 700;
+    background-image: linear-gradient(90deg, #121a43 0%, #2d42a9 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+
+  .reviews__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .reviews__score,
+  .reviews__count {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  .reviews__count {
+    margin-top: 0.2rem;
+  }
+
+  .reviews__badge {
+    display: inline-block;
+    margin: 0.55rem 0 0;
+    padding: 0.28rem 0.5rem;
+    border-radius: 5px;
+    background: #c3f6bd;
+    font-size: 8px;
+    font-weight: 500;
+  }
+
+  .reviews__button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 43px;
+    padding: 0.6rem 1.4rem;
+    border: 1px solid #121a43;
+    border-radius: 15px;
+    background: transparent;
+    color: #121a43;
+    font-size: 16px;
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  .reviews__thumbs {
+    display: grid;
+    grid-template-columns: repeat(8, minmax(0, 1fr));
+    gap: 0.7rem;
+    margin: 1.4rem 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .reviews__thumb {
+    width: 100%;
+    height: 81px;
+    border-radius: 16px;
+    object-fit: cover;
+  }
+
+  .reviews__more {
+    margin: 0.85rem 0 0;
+    text-align: right;
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  .reviews__more a {
+    color: inherit;
+  }
+
+  @media screen and (max-width: 989px) {
+    .reviews__thumbs {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    .reviews {
+      padding-bottom: 3rem;
+    }
+
+    .reviews__top {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .reviews__thumbs {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .reviews__thumb {
+      height: 72px;
+      border-radius: 12px;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:sections.reviews.name",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "t:sections.precision.settings.heading",
+      "default": "Customer reviews"
+    },
+    {
+      "type": "text",
+      "id": "score",
+      "label": "t:sections.reviews.settings.score",
+      "default": "4.80 out of 5"
+    },
+    {
+      "type": "text",
+      "id": "count_label",
+      "label": "t:sections.reviews.settings.count_label",
+      "default": "Based on 10457 reviews"
+    },
+    {
+      "type": "text",
+      "id": "badge",
+      "label": "t:sections.results.blocks.card.badge",
+      "default": "✓ Verified customer"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "t:sections.reviews.settings.button_label",
+      "default": "Write a review"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "t:sections.hero.blocks.button.link"
+    },
+    {
+      "type": "text",
+      "id": "more_label",
+      "label": "t:sections.reviews.settings.more_label",
+      "default": "See more"
+    },
+    {
+      "type": "url",
+      "id": "more_link",
+      "label": "t:sections.reviews.settings.more_link"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "thumb",
+      "name": "t:sections.reviews.blocks.thumb.name",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "t:sections.results.blocks.card.image"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 8,
+  "presets": [
+    { "name": "t:sections.reviews.name" }
+  ]
+}
+{% endschema %}

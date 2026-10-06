@@ -1,0 +1,710 @@
+<section class="product-main">
+  <div class="product-main__layout">
+    <div class="product-main__media">
+      <div class="product-gallery" data-gallery>
+        <div class="product-gallery__thumbs">
+          {%- if product != blank and product.images.size > 0 -%}
+            {%- for image in product.images -%}
+              <button
+                class="product-gallery__thumb{% if forloop.first %} is-active{% endif %}"
+                type="button"
+                data-gallery-thumb
+                data-src="{{ image | image_url: width: 1400 }}"
+                aria-label="{{ image.alt | default: product.title | escape }}"
+                {% if forloop.first %}
+                  aria-current="true"
+                {% endif %}
+              >
+                {{
+                  image
+                  | image_url: width: 200
+                  | image_tag: widths: '100, 200', sizes: '100px', alt: '', class: 'product-gallery__thumb-image'
+                }}
+              </button>
+            {%- endfor -%}
+          {%- else -%}
+            {%- assign fallbacks = 'product-gallery-1.jpg,product-gallery-2.jpg,product-gallery-3.jpg,product-gallery-4.jpg,product-gallery-5.jpg' | split: ',' -%}
+            {%- for file in fallbacks -%}
+              <button
+                class="product-gallery__thumb{% if forloop.first %} is-active{% endif %}"
+                type="button"
+                data-gallery-thumb
+                data-src="{{ file | asset_url }}"
+                {% if forloop.first %}
+                  aria-current="true"
+                {% endif %}
+              >
+                <img class="product-gallery__thumb-image" src="{{ file | asset_url }}" alt="" width="100" height="100">
+              </button>
+            {%- endfor -%}
+          {%- endif -%}
+        </div>
+
+        <div class="product-gallery__stage">
+          {%- if product != blank and product.featured_image != blank -%}
+            {{
+              product.featured_image
+              | image_url: width: 1400
+              | image_tag:
+                widths: '600, 900, 1400',
+                sizes: '(min-width: 990px) 536px, 100vw',
+                alt: product.featured_image.alt | default: product.title,
+                class: 'product-gallery__image',
+                data-gallery-image: ''
+            }}
+          {%- else -%}
+            <img
+              class="product-gallery__image"
+              data-gallery-image
+              src="{{ 'product-gallery-1.jpg' | asset_url }}"
+              alt="{{ section.settings.heading | escape }}"
+              width="536"
+              height="536"
+            >
+          {%- endif -%}
+        </div>
+      </div>
+
+      <div class="product-main__docs">
+        <a class="product-main__doc" href="{{ section.settings.ingredients_link | default: '#' }}">
+          <svg width="19" height="20" viewBox="0 0 19 20" aria-hidden="true" focusable="false">
+            <path d="M7 2h5.2L16 5.8V18H7V2Z" fill="none" stroke="currentColor" stroke-width="1.2"/>
+            <path d="M12 2.2V6h3.6" fill="none" stroke="currentColor" stroke-width="1.2"/>
+            <path d="M9.2 9.2h4.2M9.2 12h4.2M9.2 14.8h2.6" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+          </svg>
+          <span>{{ section.settings.ingredients_label | escape }}</span>
+        </a>
+        <a class="product-main__doc" href="{{ section.settings.certificate_link | default: '#' }}">
+          <svg width="19" height="20" viewBox="0 0 19 20" aria-hidden="true" focusable="false">
+            <circle cx="9.5" cy="8" r="4.2" fill="none" stroke="currentColor" stroke-width="1.2"/>
+            <path d="M7.2 11.6 6 18l3.5-1.8L13 18l-1.2-6.4" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/>
+          </svg>
+          <span>{{ section.settings.certificate_label | escape }}</span>
+        </a>
+      </div>
+
+      <div class="product-main__accordions">
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'accordion' -%}
+            <details class="product-main__accordion" {{ block.shopify_attributes }}>
+              <summary>{{ block.settings.title | escape }}</summary>
+              <div class="product-main__accordion-body rte">{{ block.settings.content }}</div>
+            </details>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    </div>
+
+    <div class="product-main__info">
+      {%- if product != blank and product.title != blank -%}
+        <h1 class="product-main__title">{{ product.title | escape }}</h1>
+      {%- else -%}
+        <h1 class="product-main__title">{{ section.settings.heading | escape | newline_to_br }}</h1>
+      {%- endif -%}
+
+      <p class="product-main__rating">
+        <span class="product-main__stars" aria-hidden="true">
+          {%- for i in (1..5) -%}
+            <svg width="16" height="16" viewBox="0 0 16 16"><path fill="#e0a100" d="M8 1.2 9.8 5.6l4.7.4-3.6 3.1 1.1 4.6L8 11.4 4 13.7l1.1-4.6L1.5 6l4.7-.4L8 1.2Z"/></svg>
+          {%- endfor -%}
+        </span>
+        <span>{{ section.settings.rating | escape }}</span>
+      </p>
+
+      {%- if product != blank and product.description != blank -%}
+        <div class="product-main__description rte">{{ product.description }}</div>
+      {%- else -%}
+        <p class="product-main__description">{{ section.settings.text | escape }}</p>
+      {%- endif -%}
+
+      <ul class="product-main__points">
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'point' -%}
+            <li {{ block.shopify_attributes }}>{{ block.settings.text | escape }}</li>
+          {%- endif -%}
+        {%- endfor -%}
+      </ul>
+
+      {%- if product != blank -%}
+        {% form 'product', product, class: 'product-main__form' %}
+          {%- assign current_variant = product.selected_or_first_available_variant -%}
+          {%- assign supply_blocks = section.blocks | where: 'type', 'supply' -%}
+
+          <div class="product-main__supplies">
+            {%- if product.variants.size > 1 -%}
+              {%- for variant in product.variants -%}
+                {%- assign copy = supply_blocks[forloop.index0] -%}
+                <label class="supply-card{% if variant == current_variant %} is-selected{% endif %}">
+                  <input
+                    class="supply-card__input"
+                    type="radio"
+                    name="id"
+                    value="{{ variant.id }}"
+                    {% if variant == current_variant %}
+                      checked
+                    {% endif %}
+                    {% unless variant.available %}
+                      disabled
+                    {% endunless %}
+                  >
+                  <span class="supply-card__top">
+                    <span>
+                      <span class="supply-card__title">
+                        {%- if copy.settings.title != blank -%}
+                          {{ copy.settings.title | escape }}
+                        {%- else -%}
+                          {{ variant.title | escape }}
+                        {%- endif -%}
+                      </span>
+                      {%- if copy.settings.subtitle != blank -%}
+                        <span class="supply-card__subtitle">{{ copy.settings.subtitle | escape }}</span>
+                      {%- endif -%}
+                    </span>
+                    <span class="supply-card__prices">
+                      {%- if variant.compare_at_price > variant.price -%}
+                        <s>{{ variant.compare_at_price | money }}</s>
+                      {%- endif -%}
+                      <strong>{{ variant.price | money }}</strong>
+                    </span>
+                  </span>
+                  {%- if copy.settings.details != blank -%}
+                    <ul class="supply-card__details">
+                      {%- assign rows = copy.settings.details | newline_to_br | split: '<br />' -%}
+                      {%- for row in rows -%}
+                        {%- assign item = row | strip -%}
+                        {%- if item != blank -%}
+                          <li>{{ item | escape }}</li>
+                        {%- endif -%}
+                      {%- endfor -%}
+                    </ul>
+                  {%- endif -%}
+                  {%- if copy.settings.badge != blank -%}
+                    <span class="supply-card__badge">{{ copy.settings.badge | escape }}</span>
+                  {%- endif -%}
+                </label>
+              {%- endfor -%}
+            {%- else -%}
+              {%- for block in supply_blocks -%}
+                <label class="supply-card{% if forloop.first %} is-selected{% endif %}" {{ block.shopify_attributes }}>
+                  <input
+                    class="supply-card__input"
+                    type="radio"
+                    name="id"
+                    value="{{ current_variant.id }}"
+                    {% if forloop.first %}
+                      checked
+                    {% endif %}
+                  >
+                  <span class="supply-card__top">
+                    <span>
+                      <span class="supply-card__title">{{ block.settings.title | escape }}</span>
+                      <span class="supply-card__subtitle">{{ block.settings.subtitle | escape }}</span>
+                    </span>
+                    <span class="supply-card__prices">
+                      {%- if block.settings.compare_price != blank -%}
+                        <s>{{ block.settings.compare_price | escape }}</s>
+                      {%- elsif current_variant.compare_at_price > current_variant.price -%}
+                        <s>{{ current_variant.compare_at_price | money }}</s>
+                      {%- endif -%}
+                      {%- if block.settings.price != blank -%}
+                        <strong>{{ block.settings.price | escape }}</strong>
+                      {%- else -%}
+                        <strong>{{ current_variant.price | money }}</strong>
+                      {%- endif -%}
+                    </span>
+                  </span>
+                  <ul class="supply-card__details">
+                    {%- assign rows = block.settings.details | newline_to_br | split: '<br />' -%}
+                    {%- for row in rows -%}
+                      {%- assign item = row | strip -%}
+                      {%- if item != blank -%}
+                        <li>{{ item | escape }}</li>
+                      {%- endif -%}
+                    {%- endfor -%}
+                  </ul>
+                  {%- if block.settings.badge != blank -%}
+                    <span class="supply-card__badge">{{ block.settings.badge | escape }}</span>
+                  {%- endif -%}
+                </label>
+              {%- endfor -%}
+            {%- endif -%}
+          </div>
+
+          <button class="product-main__submit" type="submit" name="add" {% unless current_variant.available %}disabled{% endunless %}>
+            {%- if current_variant.available -%}
+              {{ 'products.add_to_cart' | t }}
+            {%- else -%}
+              {{ 'products.sold_out' | t }}
+            {%- endif -%}
+          </button>
+
+          {%- if section.settings.show_dynamic_checkout -%}
+            <div class="product-main__checkout">
+              {{ form | payment_button }}
+            </div>
+          {%- endif -%}
+        {% endform %}
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% stylesheet %}
+  .product-main {
+    padding: 2.4rem 0 1.5rem;
+  }
+
+  .product-main__layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.9fr);
+    gap: clamp(1.5rem, 4vw, 3.6rem);
+    width: min(1212px, calc(100% - 2.5rem));
+    margin-inline: auto;
+    align-items: start;
+  }
+
+  .product-gallery {
+    display: grid;
+    grid-template-columns: 100px minmax(0, 1fr);
+    gap: 0.7rem;
+    align-items: start;
+  }
+
+  .product-gallery__thumbs {
+    display: grid;
+    gap: 0.55rem;
+  }
+
+  .product-gallery__thumb {
+    width: 100px;
+    height: 100px;
+    padding: 0;
+    border: 1px solid transparent;
+    border-radius: 16px;
+    overflow: hidden;
+    background: #f4f4f4;
+    cursor: pointer;
+  }
+
+  .product-gallery__thumb.is-active {
+    border-color: #121a43;
+  }
+
+  .product-gallery__thumb-image,
+  .product-gallery__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .product-gallery__stage {
+    border-radius: 16px;
+    overflow: hidden;
+    background: #f3f3f3;
+    aspect-ratio: 1;
+  }
+
+  .product-main__docs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+    margin: 1.15rem 0 0 108px;
+  }
+
+  .product-main__doc {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.55rem;
+    min-height: 42px;
+    border: 0.5px solid #848484;
+    border-radius: 16px;
+    color: #111;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 700;
+  }
+
+  .product-main__accordion {
+    border-top: 0.5px solid #d0d0d0;
+    margin-left: 108px;
+  }
+
+  .product-main__accordion:last-child {
+    border-bottom: 0.5px solid #d0d0d0;
+  }
+
+  .product-main__accordion summary {
+    padding: 0.85rem 0;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    list-style: none;
+  }
+
+  .product-main__accordion summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .product-main__accordion-body {
+    padding: 0 0 0.9rem;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .product-main__title {
+    margin: 0;
+    max-width: 28rem;
+    color: #121a43;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1.15;
+  }
+
+  @supports (background-clip: text) or (-webkit-background-clip: text) {
+    .product-main__title {
+      background-image: linear-gradient(90deg, #121a43, #2d42a9);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+  }
+
+  .product-main__rating {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    margin: 0.85rem 0 0;
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  .product-main__stars {
+    display: inline-flex;
+    gap: 2px;
+  }
+
+  .product-main__description {
+    margin: 0.85rem 0 0;
+    max-width: 32rem;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.45;
+  }
+
+  .product-main__points {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.15rem 1.5rem;
+    margin: 1rem 0 0;
+    padding: 0;
+    list-style: none;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 25px;
+  }
+
+  .product-main__supplies {
+    display: grid;
+    gap: 0.85rem;
+    margin-top: 1.4rem;
+  }
+
+  .supply-card {
+    position: relative;
+    display: block;
+    padding: 0.75rem 1.15rem 0.7rem;
+    border: 0.5px solid #7a7a7a;
+    border-radius: 16px;
+    cursor: pointer;
+  }
+
+  .supply-card:has(.supply-card__input:checked),
+  .supply-card.is-selected:has(.supply-card__input:checked) {
+    border-color: #121a43;
+    box-shadow: inset 0 0 0 1px #121a43;
+  }
+
+  .supply-card__input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .supply-card__top {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .supply-card__title,
+  .supply-card__subtitle,
+  .supply-card__prices {
+    display: block;
+  }
+
+  .supply-card__title {
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 20px;
+    text-transform: uppercase;
+  }
+
+  .supply-card__subtitle,
+  .supply-card__details {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+  }
+
+  .supply-card__prices {
+    text-align: right;
+    white-space: nowrap;
+    font-size: 14px;
+  }
+
+  .supply-card__prices s {
+    margin-right: 0.35rem;
+    font-weight: 400;
+    color: #111;
+  }
+
+  .supply-card__details {
+    margin: 0.45rem 0 0;
+    padding-left: 1.15rem;
+  }
+
+  .supply-card__badge {
+    position: absolute;
+    right: 1.1rem;
+    bottom: -0.7rem;
+    padding: 0.2rem 0.7rem;
+    border-radius: 999px;
+    background: linear-gradient(90deg, #121a43, #2d42a9);
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+  }
+
+  .product-main__submit {
+    width: 100%;
+    margin-top: 1.15rem;
+    min-height: 43px;
+    border: 0;
+    border-radius: 15px;
+    background: linear-gradient(90deg, #121a43, #2d42a9);
+    color: #fff;
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+
+  .product-main__submit:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+  }
+
+  .product-main__checkout {
+    margin-top: 0.75rem;
+  }
+
+  @media screen and (max-width: 989px) {
+    .product-main__layout,
+    .product-main__points,
+    .product-main__docs {
+      grid-template-columns: 1fr;
+    }
+
+    .product-gallery {
+      grid-template-columns: 1fr;
+    }
+
+    .product-gallery__thumbs {
+      display: flex;
+      order: 2;
+      overflow-x: auto;
+    }
+
+    .product-gallery__thumb {
+      flex: 0 0 84px;
+      width: 84px;
+      height: 84px;
+    }
+
+    .product-main__docs,
+    .product-main__accordion {
+      margin-left: 0;
+    }
+  }
+{% endstylesheet %}
+
+{% javascript %}
+  document.addEventListener('click', (event) => {
+    const thumb = event.target.closest('[data-gallery-thumb]');
+    if (!thumb) return;
+    const gallery = thumb.closest('[data-gallery]');
+    const image = gallery.querySelector('.product-gallery__image');
+    if (!image) return;
+    image.src = thumb.dataset.src;
+    image.removeAttribute('srcset');
+    gallery.querySelectorAll('[data-gallery-thumb]').forEach((item) => {
+      const active = item === thumb;
+      item.classList.toggle('is-active', active);
+      if (active) {
+        item.setAttribute('aria-current', 'true');
+      } else {
+        item.removeAttribute('aria-current');
+      }
+    });
+  });
+
+  document.addEventListener('change', (event) => {
+    const input = event.target.closest('.supply-card__input');
+    if (!input) return;
+    const form = input.closest('form');
+    form.querySelectorAll('.supply-card').forEach((card) => {
+      card.classList.toggle('is-selected', card.contains(input) && input.checked);
+    });
+  });
+{% endjavascript %}
+
+{% schema %}
+{
+  "name": "t:sections.product_main.name",
+  "tag": "section",
+  "class": "product-main-section",
+  "enabled_on": {
+    "templates": ["product"]
+  },
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "t:sections.product_main.settings.heading",
+      "default": "The Precision\nMicro-Infusion System for Advanced Scalp Care"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "t:sections.product_main.settings.text",
+      "default": "A precision-led scalp-care system combining controlled 0.5 mm micro-infusion with Cuprofuse®, our concentrated serum led by GHK-Cu and a precisely configured combination of targeted scalp-care ingredients."
+    },
+    {
+      "type": "text",
+      "id": "rating",
+      "label": "t:sections.product_main.settings.rating",
+      "default": "4.80 out of 5"
+    },
+    {
+      "type": "text",
+      "id": "ingredients_label",
+      "label": "t:sections.product_main.settings.ingredients_label",
+      "default": "Ingredients"
+    },
+    {
+      "type": "url",
+      "id": "ingredients_link",
+      "label": "t:sections.product_main.settings.ingredients_link"
+    },
+    {
+      "type": "text",
+      "id": "certificate_label",
+      "label": "t:sections.product_main.settings.certificate_label",
+      "default": "Lab Certificate"
+    },
+    {
+      "type": "url",
+      "id": "certificate_link",
+      "label": "t:sections.product_main.settings.certificate_link"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_dynamic_checkout",
+      "label": "t:sections.product_main.settings.show_dynamic_checkout",
+      "info": "t:sections.product_main.settings.show_dynamic_checkout_info",
+      "default": true
+    }
+  ],
+  "blocks": [
+    {
+      "type": "point",
+      "name": "t:sections.product_main.blocks.point.name",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "t:sections.product_main.blocks.point.text",
+          "default": "0.5 mm precision micro-infusion"
+        }
+      ]
+    },
+    {
+      "type": "supply",
+      "name": "t:sections.product_main.blocks.supply.name",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "t:sections.product_main.blocks.supply.title",
+          "default": "1 month supply"
+        },
+        {
+          "type": "text",
+          "id": "subtitle",
+          "label": "t:sections.product_main.blocks.supply.subtitle",
+          "default": "4 weekly treatments"
+        },
+        {
+          "type": "textarea",
+          "id": "details",
+          "label": "t:sections.product_main.blocks.supply.details",
+          "default": "4 × Cuprofuse® Serum Vials\n4 × 0.5 mm Micro-Infusion Applicators"
+        },
+        {
+          "type": "text",
+          "id": "badge",
+          "label": "t:sections.product_main.blocks.supply.badge"
+        },
+        {
+          "type": "text",
+          "id": "compare_price",
+          "label": "t:sections.product_main.blocks.supply.compare_price",
+          "info": "t:sections.product_main.blocks.supply.price_info"
+        },
+        {
+          "type": "text",
+          "id": "price",
+          "label": "t:sections.product_main.blocks.supply.price",
+          "info": "t:sections.product_main.blocks.supply.price_info"
+        }
+      ]
+    },
+    {
+      "type": "accordion",
+      "name": "t:sections.product_main.blocks.accordion.name",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "t:sections.product_main.blocks.accordion.title",
+          "default": "Key benefits"
+        },
+        {
+          "type": "richtext",
+          "id": "content",
+          "label": "t:sections.product_main.blocks.accordion.content",
+          "default": "<p>Hair appears stronger and more resilient with continued use.</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.product_main.name"
+    }
+  ]
+}
+{% endschema %}

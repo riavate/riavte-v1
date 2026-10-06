@@ -1,0 +1,133 @@
+<section class="main-cart">
+  <div class="main-cart__inner">
+    <h1>{{ 'cart.title' | t }}</h1>
+
+    {%- if cart.item_count == 0 -%}
+      <p>{{ 'cart.empty' | t }}</p>
+      <a class="main-cart__checkout" href="{{ routes.all_products_collection_url }}">{{ 'cart.continue' | t }}</a>
+    {%- else -%}
+      <form action="{{ routes.cart_url }}" method="post">
+        <ul class="main-cart__items">
+          {%- for item in cart.items -%}
+            <li>
+              <a href="{{ item.url }}">
+                {%- if item.image -%}
+                  {{ item.image | image_url: width: 200 | image_tag: alt: item.title, class: 'main-cart__image' }}
+                {%- endif -%}
+              </a>
+              <div>
+                <p class="main-cart__title">{{ item.product.title | escape }}</p>
+                {%- unless item.product.has_only_default_variant -%}
+                  <p>{{ item.variant.title | escape }}</p>
+                {%- endunless -%}
+                <p>{{ item.final_line_price | money }}</p>
+                <label>
+                  <span class="visually-hidden">{{ 'cart.quantity' | t }}</span>
+                  <input type="number" name="updates[]" value="{{ item.quantity }}" min="0">
+                </label>
+                <a href="{{ item.url_to_remove }}">{{ 'cart.remove' | t }}</a>
+              </div>
+            </li>
+          {%- endfor -%}
+        </ul>
+        <p class="main-cart__total">{{ 'cart.total' | t }} {{ cart.total_price | money }}</p>
+        <button class="main-cart__update" type="submit">{{ 'cart.update' | t }}</button>
+        <button class="main-cart__checkout" type="submit" name="checkout">{{ 'cart.checkout' | t }}</button>
+      </form>
+    {%- endif -%}
+  </div>
+</section>
+
+{% stylesheet %}
+  .main-cart {
+    padding: 3rem 0 4rem;
+  }
+
+  .main-cart__inner {
+    width: min(860px, calc(100% - 2.5rem));
+    margin-inline: auto;
+  }
+
+  .main-cart h1 {
+    margin: 0 0 1.5rem;
+    font-size: 32px;
+  }
+
+  .main-cart__items {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .main-cart__items li {
+    display: grid;
+    grid-template-columns: 96px minmax(0, 1fr);
+    gap: 1rem;
+    padding: 1rem 0;
+    border-top: 1px solid #e6e6e6;
+  }
+
+  .main-cart__image {
+    width: 96px;
+    height: 96px;
+    object-fit: cover;
+    border-radius: 12px;
+  }
+
+  .main-cart__title {
+    margin: 0;
+    font-weight: 700;
+  }
+
+  .main-cart__total {
+    margin: 1.2rem 0;
+    font-size: 18px;
+    font-weight: 700;
+    text-align: right;
+  }
+
+  .main-cart__update,
+  .main-cart__checkout {
+    min-height: 44px;
+    padding: 0 1.4rem;
+    border-radius: 15px;
+    font-family: inherit;
+    font-weight: 700;
+    cursor: pointer;
+  }
+
+  .main-cart__update {
+    margin-right: 0.6rem;
+    border: 1px solid #121a43;
+    background: #fff;
+    color: #121a43;
+  }
+
+  .main-cart__checkout {
+    border: 0;
+    background: linear-gradient(90deg, #121a43, #2d42a9);
+    color: #fff;
+    text-decoration: none;
+  }
+
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:sections.main_cart.name",
+  "tag": "section",
+  "enabled_on": { "templates": ["cart"] },
+  "settings": [],
+  "presets": [{ "name": "t:sections.main_cart.name" }]
+}
+{% endschema %}

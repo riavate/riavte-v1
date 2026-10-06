@@ -1,0 +1,1691 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Riavâte kit</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0}
+body{font-family:Montserrat,sans-serif;color:#111;background:#fff}
+img{display:block;max-width:100%}
+p:empty{display:none}
+
+  .site-header {
+    position: relative;
+    z-index: 20;
+    background: #ffffff;
+    color: #111111;
+  }
+
+  .site-header__bar {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 1rem;
+    min-height: 86px;
+    width: min(1440px, 100%);
+    margin-inline: auto;
+    padding-inline: clamp(1.25rem, 8vw, 7.125rem);
+  }
+
+  .site-header__logo {
+    justify-self: start;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .site-header__logo-image {
+    width: auto;
+    height: 27px;
+    max-width: 160px;
+  }
+
+  .site-header__nav {
+    justify-self: center;
+  }
+
+  .site-header__menu {
+    display: flex;
+    align-items: center;
+    gap: clamp(1rem, 2.4vw, 2.4rem);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .site-header__menu a {
+    color: #111111;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 1.4;
+    text-decoration: none;
+  }
+
+  .site-header__menu a[aria-current='page'] {
+    font-weight: 600;
+  }
+
+  .site-header__menu a:hover,
+  .site-header__menu a:focus-visible {
+    color: #2d42a9;
+  }
+
+  .site-header__actions {
+    justify-self: end;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .site-header__cart {
+    position: relative;
+    display: flex;
+    color: #121a43;
+    text-decoration: none;
+  }
+
+  .site-header__cart svg {
+    width: 28px;
+    height: 28px;
+  }
+
+  .site-header__count {
+    position: absolute;
+    top: -6px;
+    right: -8px;
+    min-width: 16px;
+    height: 16px;
+    padding: 0 4px;
+    border-radius: 999px;
+    background: #121a43;
+    color: #ffffff;
+    font-size: 10px;
+    line-height: 16px;
+    text-align: center;
+  }
+
+  .site-header__toggle {
+    display: none;
+    width: 42px;
+    height: 42px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+  }
+
+  .site-header__toggle-lines,
+  .site-header__toggle-lines::before,
+  .site-header__toggle-lines::after {
+    display: block;
+    width: 18px;
+    height: 1.5px;
+    background: #121a43;
+    content: '';
+  }
+
+  .site-header__toggle-lines {
+    position: relative;
+    margin-inline: auto;
+  }
+
+  .site-header__toggle-lines::before,
+  .site-header__toggle-lines::after {
+    position: absolute;
+    left: 0;
+  }
+
+  .site-header__toggle-lines::before {
+    top: -6px;
+  }
+
+  .site-header__toggle-lines::after {
+    top: 6px;
+  }
+
+  .site-header.is-open .site-header__toggle-lines {
+    background: transparent;
+  }
+
+  .site-header.is-open .site-header__toggle-lines::before {
+    top: 0;
+    transform: rotate(45deg);
+  }
+
+  .site-header.is-open .site-header__toggle-lines::after {
+    top: 0;
+    transform: rotate(-45deg);
+  }
+
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  @media screen and (max-width: 989px) {
+    .site-header__bar {
+      grid-template-columns: auto 1fr auto;
+      min-height: 72px;
+    }
+
+    .site-header__toggle {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .site-header__nav {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      justify-self: stretch;
+      width: 100%;
+      background: #ffffff;
+      border-top: 1px solid #ececec;
+      box-shadow: 0 16px 30px rgba(0, 0, 0, 0.06);
+    }
+
+    .site-header.is-open .site-header__nav {
+      display: block;
+    }
+
+    .site-header__menu {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0;
+      padding: 0.5rem 0 0.75rem;
+    }
+
+    .site-header__menu a {
+      display: block;
+      padding: 0.9rem 1.25rem;
+      font-size: 16px;
+    }
+  }
+
+
+  .site-footer {
+    color: #ffffff;
+    background-image: linear-gradient(124deg, #000000 11%, #0037ae 87%);
+  }
+
+  .site-footer a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .site-footer__inner {
+    display: grid;
+    grid-template-columns: minmax(220px, 1.4fr) repeat(3, minmax(140px, 1fr));
+    gap: 2.5rem 2rem;
+    width: min(1120px, calc(100% - 2.5rem));
+    margin-inline: auto;
+    padding: 4.5rem 0 1.5rem;
+  }
+
+  .site-footer__logo-image {
+    width: auto;
+    height: 37px;
+    max-width: 212px;
+  }
+
+  .site-footer__tagline {
+    margin: 1.4rem 0 0;
+    font-size: 15px;
+    font-weight: 800;
+    line-height: 1.4;
+  }
+
+  .site-footer__text {
+    max-width: 20rem;
+    margin: 0.85rem 0 0;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 1.45;
+  }
+
+  .site-footer__contact-label {
+    margin: 1.6rem 0 0.45rem;
+    font-size: 15px;
+    font-weight: 800;
+  }
+
+  .site-footer__contact {
+    display: block;
+    margin-top: 0.35rem;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1.5;
+  }
+
+  .site-footer__heading {
+    margin: 0 0 0.9rem;
+    font-size: 15px;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+  }
+
+  .site-footer__links {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .site-footer__links a {
+    display: inline-block;
+    padding: 0.35rem 0;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 1.4;
+    text-transform: capitalize;
+  }
+
+  .site-footer__links a:hover,
+  .site-footer__links a:focus-visible,
+  .site-footer__contact:hover,
+  .site-footer__contact:focus-visible {
+    text-decoration: underline;
+  }
+
+  .site-footer__social {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    width: min(1120px, calc(100% - 2.5rem));
+    margin-inline: auto;
+    padding: 0 0 3rem;
+  }
+
+  .site-footer__social img {
+    width: 35px;
+    height: 35px;
+    object-fit: contain;
+  }
+
+  @media screen and (max-width: 989px) {
+    .site-footer__inner {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .site-footer__brand {
+      grid-column: 1 / -1;
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    .site-footer__inner {
+      grid-template-columns: 1fr;
+      padding-top: 3rem;
+    }
+  }
+
+
+  .icon-row {
+    background: var(--icon-row-bg, #f7f7f7);
+    color: var(--icon-row-text, #111111);
+  }
+
+  .icon-row__list {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 1.25rem 1rem;
+    width: min(1180px, calc(100% - 2.5rem));
+    margin: 0 auto;
+    padding: 1.35rem 0;
+    list-style: none;
+  }
+
+  .icon-row__item {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    min-width: 0;
+  }
+
+  .icon-row__icon {
+    display: flex;
+    flex: 0 0 auto;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+  }
+
+  .icon-row__icon img,
+  .icon-row__image {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+  }
+
+  .icon-row__copy {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    min-width: 0;
+  }
+
+  .icon-row__title {
+    font-size: 12px;
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+  }
+
+  .icon-row__text {
+    font-size: 11px;
+    font-weight: 500;
+    line-height: 1.3;
+  }
+
+  @media screen and (max-width: 989px) {
+    .icon-row__list {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    .icon-row__list {
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem 0.75rem;
+      padding: 1.25rem 0;
+    }
+
+    .icon-row__item:last-child:nth-child(odd) {
+      grid-column: 1 / -1;
+    }
+  }
+
+
+  .product-main {
+    padding: 2.4rem 0 1.5rem;
+  }
+
+  .product-main__layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.9fr);
+    gap: clamp(1.5rem, 4vw, 3.6rem);
+    width: min(1212px, calc(100% - 2.5rem));
+    margin-inline: auto;
+    align-items: start;
+  }
+
+  .product-gallery {
+    display: grid;
+    grid-template-columns: 100px minmax(0, 1fr);
+    gap: 0.7rem;
+    align-items: start;
+  }
+
+  .product-gallery__thumbs {
+    display: grid;
+    gap: 0.55rem;
+  }
+
+  .product-gallery__thumb {
+    width: 100px;
+    height: 100px;
+    padding: 0;
+    border: 1px solid transparent;
+    border-radius: 16px;
+    overflow: hidden;
+    background: #f4f4f4;
+    cursor: pointer;
+  }
+
+  .product-gallery__thumb.is-active {
+    border-color: #121a43;
+  }
+
+  .product-gallery__thumb-image,
+  .product-gallery__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .product-gallery__stage {
+    border-radius: 16px;
+    overflow: hidden;
+    background: #f3f3f3;
+    aspect-ratio: 1;
+  }
+
+  .product-main__docs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+    margin: 1.15rem 0 0 108px;
+  }
+
+  .product-main__doc {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.55rem;
+    min-height: 42px;
+    border: 0.5px solid #848484;
+    border-radius: 16px;
+    color: #111;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 700;
+  }
+
+  .product-main__accordion {
+    border-top: 0.5px solid #d0d0d0;
+    margin-left: 108px;
+  }
+
+  .product-main__accordion:last-child {
+    border-bottom: 0.5px solid #d0d0d0;
+  }
+
+  .product-main__accordion summary {
+    padding: 0.85rem 0;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    list-style: none;
+  }
+
+  .product-main__accordion summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .product-main__accordion-body {
+    padding: 0 0 0.9rem;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .product-main__title {
+    margin: 0;
+    max-width: 28rem;
+    color: #121a43;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1.15;
+  }
+
+  @supports (background-clip: text) or (-webkit-background-clip: text) {
+    .product-main__title {
+      background-image: linear-gradient(90deg, #121a43, #2d42a9);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+  }
+
+  .product-main__rating {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    margin: 0.85rem 0 0;
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  .product-main__stars {
+    display: inline-flex;
+    gap: 2px;
+  }
+
+  .product-main__description {
+    margin: 0.85rem 0 0;
+    max-width: 32rem;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.45;
+  }
+
+  .product-main__points {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.15rem 1.5rem;
+    margin: 1rem 0 0;
+    padding: 0;
+    list-style: none;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 25px;
+  }
+
+  .product-main__supplies {
+    display: grid;
+    gap: 0.85rem;
+    margin-top: 1.4rem;
+  }
+
+  .supply-card {
+    position: relative;
+    display: block;
+    padding: 0.75rem 1.15rem 0.7rem;
+    border: 0.5px solid #7a7a7a;
+    border-radius: 16px;
+    cursor: pointer;
+  }
+
+  .supply-card:has(.supply-card__input:checked),
+  .supply-card.is-selected:has(.supply-card__input:checked) {
+    border-color: #121a43;
+    box-shadow: inset 0 0 0 1px #121a43;
+  }
+
+  .supply-card__input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .supply-card__top {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .supply-card__title,
+  .supply-card__subtitle,
+  .supply-card__prices {
+    display: block;
+  }
+
+  .supply-card__title {
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 20px;
+    text-transform: uppercase;
+  }
+
+  .supply-card__subtitle,
+  .supply-card__details {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+  }
+
+  .supply-card__prices {
+    text-align: right;
+    white-space: nowrap;
+    font-size: 14px;
+  }
+
+  .supply-card__prices s {
+    margin-right: 0.35rem;
+    font-weight: 400;
+    color: #111;
+  }
+
+  .supply-card__details {
+    margin: 0.45rem 0 0;
+    padding-left: 1.15rem;
+  }
+
+  .supply-card__badge {
+    position: absolute;
+    right: 1.1rem;
+    bottom: -0.7rem;
+    padding: 0.2rem 0.7rem;
+    border-radius: 999px;
+    background: linear-gradient(90deg, #121a43, #2d42a9);
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+  }
+
+  .product-main__submit {
+    width: 100%;
+    margin-top: 1.15rem;
+    min-height: 43px;
+    border: 0;
+    border-radius: 15px;
+    background: linear-gradient(90deg, #121a43, #2d42a9);
+    color: #fff;
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+
+  .product-main__submit:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+  }
+
+  .product-main__checkout {
+    margin-top: 0.75rem;
+  }
+
+  @media screen and (max-width: 989px) {
+    .product-main__layout,
+    .product-main__points,
+    .product-main__docs {
+      grid-template-columns: 1fr;
+    }
+
+    .product-gallery {
+      grid-template-columns: 1fr;
+    }
+
+    .product-gallery__thumbs {
+      display: flex;
+      order: 2;
+      overflow-x: auto;
+    }
+
+    .product-gallery__thumb {
+      flex: 0 0 84px;
+      width: 84px;
+      height: 84px;
+    }
+
+    .product-main__docs,
+    .product-main__accordion {
+      margin-left: 0;
+    }
+  }
+
+
+  .product-infusion {
+    padding: 4.5rem 0;
+  }
+
+  .product-infusion__layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: clamp(1.5rem, 4vw, 4rem);
+    align-items: center;
+    width: min(1212px, calc(100% - 2.5rem));
+    margin-inline: auto;
+  }
+
+  .product-infusion__eyebrow {
+    margin: 0;
+    color: #121a43;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.26em;
+    text-transform: uppercase;
+  }
+
+  .product-infusion__heading {
+    margin: 0.6rem 0 0;
+    max-width: 26rem;
+    color: #121a43;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  @supports (background-clip: text) or (-webkit-background-clip: text) {
+    .product-infusion__heading {
+      background-image: linear-gradient(90deg, #121a43, #2d42a9);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+  }
+
+  .product-infusion__text,
+  .product-infusion__steps {
+    max-width: 30rem;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.5;
+  }
+
+  .product-infusion__text {
+    margin: 1.1rem 0 0;
+  }
+
+  .product-infusion__steps {
+    margin: 1.2rem 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .product-infusion__steps li {
+    margin-top: 0.85rem;
+  }
+
+  .product-infusion__steps strong,
+  .product-infusion__steps span {
+    display: block;
+  }
+
+  .product-infusion__media {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    min-height: 320px;
+    aspect-ratio: 1;
+    background: #d7dde8;
+  }
+
+  .product-infusion__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .product-infusion__overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    color: #0037ae;
+    font-size: 32px;
+    font-weight: 800;
+    line-height: 1.15;
+    text-align: center;
+  }
+
+  @media screen and (max-width: 989px) {
+    .product-infusion__layout {
+      grid-template-columns: 1fr;
+    }
+
+    .product-infusion__heading,
+    .product-infusion__overlay {
+      font-size: 28px;
+    }
+  }
+
+
+.product-cuprofuse {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 598px;
+    padding: 5.25rem 1.25rem 4.6rem;
+    background: linear-gradient(102deg, #000000 10%, #001433 46%, #0037ae 92%);
+    color: #fff;
+    text-align: center;
+  }
+
+  .product-cuprofuse__eyebrow,
+  .product-cuprofuse__subheading,
+  .product-cuprofuse__text {
+    margin: 0;
+    max-width: 40rem;
+  }
+
+  .product-cuprofuse__eyebrow {
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.26em;
+    text-transform: uppercase;
+  }
+
+  .product-cuprofuse__heading {
+    margin: 0.35rem 0 0;
+    font-size: clamp(40px, 5vw, 64px);
+    font-weight: 700;
+    line-height: 0.95;
+    letter-spacing: 0.01em;
+  }
+
+  .product-cuprofuse__subheading {
+    margin-top: 0.7rem;
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  .product-cuprofuse__text {
+    max-width: 617px;
+    margin-top: 1.15rem;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.45;
+  }
+
+  .product-cuprofuse__features {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    width: min(1224px, calc(100% - 2.5rem));
+    margin: 2.5rem 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .product-cuprofuse__icon {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    height: 45px;
+    margin-bottom: 1.35rem;
+  }
+
+  .product-cuprofuse__icon img {
+    display: block;
+    width: auto;
+    height: 45px;
+  }
+
+  .product-cuprofuse__copy {
+    position: relative;
+    padding: 0 1.6rem;
+  }
+
+  .product-cuprofuse__features li:not(:last-child) .product-cuprofuse__copy::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 1px;
+    height: 49px;
+    background: rgba(255, 255, 255, 0.9);
+  }
+
+  .product-cuprofuse__copy strong,
+  .product-cuprofuse__copy span {
+    display: block;
+  }
+
+  .product-cuprofuse__copy strong {
+    font-size: 15px;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+    line-height: 1;
+  }
+
+  .product-cuprofuse__copy span {
+    max-width: 20rem;
+    margin: 0.7rem auto 0;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.35;
+  }
+
+  .product-cuprofuse__button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 308px;
+    min-height: 44px;
+    margin-top: 2.1rem;
+    padding: 0 1.5rem;
+    border: 1px solid #fff;
+    border-radius: 22px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  @media screen and (max-width: 749px) {
+    .product-cuprofuse {
+      min-height: 0;
+      padding: 3.5rem 1.25rem;
+    }
+
+    .product-cuprofuse__features {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    .product-cuprofuse__icon:empty {
+      display: none;
+    }
+
+    .product-cuprofuse__features li:not(:last-child) .product-cuprofuse__copy::after {
+      top: auto;
+      right: 20%;
+      bottom: -0.85rem;
+      width: 60%;
+      height: 1px;
+    }
+
+    .product-cuprofuse__button {
+      min-width: 0;
+      width: min(308px, 100%);
+    }
+  }
+
+  .product-results {
+    width: min(1212px, calc(100% - 2.5rem));
+    margin: 0 auto;
+    padding: 4rem 0 1rem;
+  }
+
+  .product-results__eyebrow {
+    margin: 0;
+    color: #121a43;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.26em;
+    text-transform: uppercase;
+  }
+
+  .product-results__heading {
+    margin: 0.45rem 0 0;
+    max-width: 40rem;
+    color: #121a43;
+    font-size: 32px;
+    font-weight: 800;
+    line-height: 1.2;
+  }
+
+  @supports (background-clip: text) or (-webkit-background-clip: text) {
+    .product-results__heading {
+      background-image: linear-gradient(90deg, #111 16%, #2d42a9 84%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+  }
+
+  .product-results__grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.5rem 2rem;
+    margin: 1.6rem 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .product-results__pair {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.45rem;
+  }
+
+  .product-results__image {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: 16px;
+  }
+
+  .product-results__pair img:first-child {
+    object-position: 18% center;
+  }
+
+  .product-results__pair img:last-child {
+    object-position: 82% center;
+  }
+
+  .product-results__grid h3 {
+    margin: 0.8rem 0 0;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+  }
+
+  .product-results__grid p {
+    margin: 0.2rem 0 0;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.4;
+  }
+
+  @media screen and (max-width: 989px) {
+    .product-results__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+
+  .product-steps {
+    width: min(1212px, calc(100% - 2.5rem));
+    margin: 0 auto;
+    padding: 3.5rem 0 2rem;
+  }
+
+  .product-steps__eyebrow {
+    margin: 0;
+    color: #121a43;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.26em;
+    text-transform: uppercase;
+  }
+
+  .product-steps__heading {
+    margin: 0.4rem 0 0;
+    color: #121a43;
+    font-size: 32px;
+    font-weight: 800;
+  }
+
+  @supports (background-clip: text) or (-webkit-background-clip: text) {
+    .product-steps__heading {
+      background-image: linear-gradient(90deg, #111 16%, #2d42a9 84%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+  }
+
+  .product-steps__layout {
+    display: grid;
+    grid-template-columns: 318px minmax(0, 1fr);
+    gap: 1.25rem;
+    margin-top: 1.4rem;
+    align-items: start;
+  }
+
+  .product-steps__video {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 420px;
+    border-radius: 16px;
+    background: #d3d3d3;
+    overflow: hidden;
+  }
+
+  .product-steps__video-image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .product-steps__video p {
+    position: relative;
+    margin: 0;
+    color: #fff;
+    font-size: 32px;
+    font-weight: 800;
+    line-height: 1.15;
+    text-align: center;
+  }
+
+  .product-steps__list {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .product-steps__image {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: 16px;
+  }
+
+  .product-steps__list h3 {
+    margin: 0.75rem 0 0;
+    font-size: 14px;
+    font-weight: 700;
+  }
+
+  .product-steps__list p {
+    margin: 0.25rem 0 0;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.4;
+  }
+
+  @media screen and (max-width: 989px) {
+    .product-steps__layout,
+    .product-steps__list {
+      grid-template-columns: 1fr;
+    }
+
+    .product-steps__video {
+      min-height: 240px;
+    }
+  }
+
+
+  .product-compare {
+    width: min(1212px, calc(100% - 2.5rem));
+    margin: 2rem auto 0;
+    padding-bottom: 2rem;
+  }
+
+  .product-compare__grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.15rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .product-compare__card {
+    min-height: 488px;
+    padding: 1.4rem 1.2rem 1.5rem;
+    border: 1px solid #0037ae;
+    border-radius: 16px;
+  }
+
+  .product-compare__card--featured {
+    border: 0;
+    background: linear-gradient(180deg, #0037ae, #001748);
+    color: #fff;
+  }
+
+  .product-compare__media {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    height: 130px;
+  }
+
+  .product-compare__image {
+    width: auto;
+    max-width: 70%;
+    max-height: 120px;
+    object-fit: contain;
+  }
+
+  .product-compare__card h2 {
+    margin: 0.6rem 0 0.4rem;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  .product-compare__card dl {
+    margin: 0;
+  }
+
+  .product-compare__card dl div {
+    display: grid;
+    grid-template-columns: 92px minmax(0, 1fr);
+    gap: 0.5rem;
+    padding: 0.55rem 0;
+    border-top: 0.5px solid currentColor;
+    font-size: 11px;
+    line-height: 1.35;
+  }
+
+  .product-compare__card dt {
+    font-weight: 700;
+  }
+
+  .product-compare__card dd {
+    margin: 0;
+    font-weight: 400;
+  }
+
+  @media screen and (max-width: 989px) {
+    .product-compare__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+
+  .product-guarantee {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: clamp(1.5rem, 4vw, 4rem);
+    align-items: center;
+    width: min(1212px, calc(100% - 2.5rem));
+    margin: 2.5rem auto;
+  }
+
+  .product-guarantee__eyebrow {
+    margin: 0;
+    color: #121a43;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.26em;
+    text-transform: uppercase;
+  }
+
+  .product-guarantee__heading {
+    margin: 0.55rem 0 0;
+    max-width: 26rem;
+    color: #121a43;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  @supports (background-clip: text) or (-webkit-background-clip: text) {
+    .product-guarantee__heading {
+      background-image: linear-gradient(90deg, #121a43, #2d42a9);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+  }
+
+  .product-guarantee ol {
+    margin: 1.2rem 0 0;
+    padding: 0;
+    list-style: none;
+    max-width: 30rem;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.45;
+  }
+
+  .product-guarantee li + li {
+    margin-top: 0.85rem;
+  }
+
+  .product-guarantee strong,
+  .product-guarantee span {
+    display: block;
+  }
+
+  .product-guarantee__media {
+    border-radius: 16px;
+    overflow: hidden;
+    aspect-ratio: 1;
+    background: #f3f3f3;
+  }
+
+  .product-guarantee__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  @media screen and (max-width: 989px) {
+    .product-guarantee {
+      grid-template-columns: 1fr;
+    }
+
+    .product-guarantee__heading {
+      font-size: 28px;
+    }
+  }
+
+
+  .product-reviews {
+    width: min(1212px, calc(100% - 2.5rem));
+    margin: 2rem auto 4rem;
+  }
+
+  .product-reviews__summary {
+    padding: 2rem 1.5rem 1.4rem;
+    border-radius: 16px;
+    background: #fff;
+    box-shadow: 4px 7px 16px rgba(0, 0, 0, 0.12);
+  }
+
+  .product-reviews__summary h2,
+  .product-reviews__list-head h3 {
+    margin: 0;
+    color: #121a43;
+    text-align: center;
+    font-size: 32px;
+    font-weight: 700;
+  }
+
+  @supports (background-clip: text) or (-webkit-background-clip: text) {
+    .product-reviews__summary h2 {
+      background-image: linear-gradient(90deg, #121a43, #2d42a9);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+  }
+
+  .product-reviews__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1.2rem;
+  }
+
+  .product-reviews__score,
+  .product-reviews__count,
+  .product-reviews__badge {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  .product-reviews__stars {
+    color: #e0a100;
+    letter-spacing: 0.08em;
+  }
+
+  .product-reviews__badge {
+    display: inline-block;
+    margin-top: 0.35rem;
+    padding: 0.15rem 0.45rem;
+    border-radius: 5px;
+    background: #c3f6bd;
+    font-size: 12px;
+  }
+
+  .product-reviews__write,
+  .product-reviews__more a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 224px;
+    min-height: 44px;
+    border: 1px solid #121a43;
+    border-radius: 15px;
+    color: #121a43;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 700;
+  }
+
+  .product-reviews__thumbs {
+    display: grid;
+    grid-template-columns: repeat(8, minmax(0, 1fr));
+    gap: 0.7rem;
+    margin: 1.1rem 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .product-reviews__thumbs li {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+  }
+
+  .product-reviews__thumbs img {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+  }
+
+  .product-reviews__thumbs span {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.53);
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  .product-reviews__list-head {
+    margin-top: 2rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 0.5px solid #111;
+    text-align: left;
+  }
+
+  .product-reviews__list-head h3 {
+    color: #111;
+    font-size: 16px;
+    text-align: left;
+  }
+
+  .product-reviews__list {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.7rem;
+    margin: 1rem 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .product-reviews__list li {
+    border: 1px solid #111;
+    border-radius: 16px;
+    overflow: hidden;
+  }
+
+  .product-reviews__photo {
+    width: 100%;
+    aspect-ratio: 1.15;
+    object-fit: cover;
+  }
+
+  .product-reviews__body {
+    padding: 0.75rem 0.8rem 0.9rem;
+    font-size: 12px;
+  }
+
+  .product-reviews__name {
+    margin: 0.25rem 0;
+    font-size: 12px;
+    font-weight: 700;
+  }
+
+  .product-reviews__body .rte {
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1.4;
+  }
+
+  .product-reviews__date {
+    margin: 0.55rem 0 0;
+    color: #8e8e8e;
+    font-size: 11px;
+    text-align: right;
+  }
+
+  .product-reviews__more {
+    margin: 1.4rem 0 0;
+    text-align: center;
+  }
+
+  .product-reviews__more a {
+    border-radius: 22px;
+    font-weight: 500;
+  }
+
+  @media screen and (max-width: 989px) {
+    .product-reviews__thumbs {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .product-reviews__list {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .product-reviews__top {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+
+  @media screen and (max-width: 549px) {
+    .product-reviews__list,
+    .product-reviews__thumbs {
+      grid-template-columns: 1fr;
+    }
+  }
+
+</style>
+</head>
+<body>
+
+<header class="site-header" data-header>
+  <div class="site-header__bar">
+    <a class="site-header__logo" href="/"><img class="site-header__logo-image" src="/assets/logo.png" alt="Riavâte" width="156" height="27"></a>
+    <nav class="site-header__nav" id="nav"><ul class="site-header__menu">
+      <li><a href="/">Home</a></li><li><a href="#">About</a></li><li><a href="/kit.html">The Kit</a></li><li><a href="#">Science</a></li><li><a href="#">Ingredients</a></li>
+    </ul></nav>
+    <div class="site-header__actions">
+      <a class="site-header__cart" href="#" aria-label="Cart"><svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true"><path d="M7 8h14l-1.2 12.2a2 2 0 0 1-2 1.8H10.2a2 2 0 0 1-2-1.8L7 8Z" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10.5 8V6.8A3.5 3.5 0 0 1 14 3.3a3.5 3.5 0 0 1 3.5 3.5V8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></a>
+      <button class="site-header__toggle" type="button" data-menu-toggle aria-expanded="false" aria-controls="nav"><span class="site-header__toggle-lines"></span></button>
+    </div>
+  </div>
+</header>
+<main>
+<section class="product-main"><div class="product-main__layout">
+  <div class="product-main__media">
+    <div class="product-gallery" data-gallery>
+      <div class="product-gallery__thumbs">
+        <button class="product-gallery__thumb is-active" type="button" data-gallery-thumb data-src="/assets/product-gallery-1.jpg" aria-current="true"><img class="product-gallery__thumb-image" src="/assets/product-gallery-1.jpg" alt=""></button>
+        <button class="product-gallery__thumb" type="button" data-gallery-thumb data-src="/assets/product-gallery-2.jpg"><img class="product-gallery__thumb-image" src="/assets/product-gallery-2.jpg" alt=""></button>
+        <button class="product-gallery__thumb" type="button" data-gallery-thumb data-src="/assets/product-gallery-3.jpg"><img class="product-gallery__thumb-image" src="/assets/product-gallery-3.jpg" alt=""></button>
+        <button class="product-gallery__thumb" type="button" data-gallery-thumb data-src="/assets/product-gallery-4.jpg"><img class="product-gallery__thumb-image" src="/assets/product-gallery-4.jpg" alt=""></button>
+        <button class="product-gallery__thumb" type="button" data-gallery-thumb data-src="/assets/product-gallery-5.jpg"><img class="product-gallery__thumb-image" src="/assets/product-gallery-5.jpg" alt=""></button>
+      </div>
+      <div class="product-gallery__stage"><img class="product-gallery__image" src="/assets/product-gallery-1.jpg" alt="The Precision Micro-Infusion System"></div>
+    </div>
+    <div class="product-main__docs">
+      <a class="product-main__doc" href="#"><svg width="19" height="20" viewBox="0 0 19 20" aria-hidden="true"><path d="M7 2h5.2L16 5.8V18H7V2Z" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M12 2.2V6h3.6" fill="none" stroke="currentColor" stroke-width="1.2"/></svg><span>Ingredients</span></a>
+      <a class="product-main__doc" href="#"><svg width="19" height="20" viewBox="0 0 19 20" aria-hidden="true"><circle cx="9.5" cy="8" r="4.2" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M7.2 11.6 6 18l3.5-1.8L13 18l-1.2-6.4" fill="none" stroke="currentColor" stroke-width="1.2"/></svg><span>Lab Certificate</span></a>
+    </div>
+    <div class="product-main__accordions">
+      <details class="product-main__accordion"><summary>Key Benefits</summary><div class="product-main__accordion-body"><p>Hair appears stronger and more resilient with continued use. Visible improvements in the appearance of density around the hairline, temples, and crown.</p></div></details>
+      <details class="product-main__accordion"><summary>How It Works</summary><div class="product-main__accordion-body"><p>The 0.5 mm micro-infusion system creates controlled micro-channels so Cuprofuse® can be applied precisely and evenly.</p></div></details>
+      <details class="product-main__accordion"><summary>What's Included</summary><div class="product-main__accordion-body"><p>Cuprofuse® serum vials and matching 0.5 mm micro-infusion applicators.</p></div></details>
+    </div>
+  </div>
+  <div class="product-main__info">
+    <h1 class="product-main__title">The Precision<br>Micro-Infusion System for Advanced Scalp Care</h1>
+    <p class="product-main__rating"><span class="product-main__stars" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 16 16"><path fill="#e0a100" d="M8 1.2 9.8 5.6l4.7.4-3.6 3.1 1.1 4.6L8 11.4 4 13.7l1.1-4.6L1.5 6l4.7-.4L8 1.2Z"/></svg><svg width="16" height="16" viewBox="0 0 16 16"><path fill="#e0a100" d="M8 1.2 9.8 5.6l4.7.4-3.6 3.1 1.1 4.6L8 11.4 4 13.7l1.1-4.6L1.5 6l4.7-.4L8 1.2Z"/></svg><svg width="16" height="16" viewBox="0 0 16 16"><path fill="#e0a100" d="M8 1.2 9.8 5.6l4.7.4-3.6 3.1 1.1 4.6L8 11.4 4 13.7l1.1-4.6L1.5 6l4.7-.4L8 1.2Z"/></svg><svg width="16" height="16" viewBox="0 0 16 16"><path fill="#e0a100" d="M8 1.2 9.8 5.6l4.7.4-3.6 3.1 1.1 4.6L8 11.4 4 13.7l1.1-4.6L1.5 6l4.7-.4L8 1.2Z"/></svg><svg width="16" height="16" viewBox="0 0 16 16"><path fill="#e0a100" d="M8 1.2 9.8 5.6l4.7.4-3.6 3.1 1.1 4.6L8 11.4 4 13.7l1.1-4.6L1.5 6l4.7-.4L8 1.2Z"/></svg></span><span>4.80 out of 5</span></p>
+    <p class="product-main__description">A precision-led scalp-care system combining controlled 0.5 mm micro-infusion with Cuprofuse®, our concentrated serum led by GHK-Cu and a precisely configured combination of targeted scalp-care ingredients.</p>
+    <ul class="product-main__points"><li>0.5 mm precision micro-infusion</li><li>GHK-Cu led formula</li><li>Powered by Cuprofuse®</li><li>Gold-plated micro-touchpoints</li><li>Supports fuller-looking hair</li><li>Targeted cosmetic formula</li></ul>
+    <form class="product-main__form" action="#">
+      <div class="product-main__supplies">
+        <label class="supply-card is-selected"><input class="supply-card__input" type="radio" name="supply" checked><span class="supply-card__top"><span><span class="supply-card__title">1 month supply</span><span class="supply-card__subtitle">4 weekly treatments</span></span><span class="supply-card__prices"><s>$406</s><strong>$167.00</strong></span></span><ul class="supply-card__details"><li>4 × Cuprofuse® Serum Vials</li><li>4 × 0.5 mm Micro-Infusion Applicators</li></ul></label>
+        <label class="supply-card"><input class="supply-card__input" type="radio" name="supply"><span class="supply-card__top"><span><span class="supply-card__title">2 month supply</span><span class="supply-card__subtitle">8 weekly treatments</span></span><span class="supply-card__prices"><s>$406</s><strong>$167.00</strong></span></span><ul class="supply-card__details"><li>8 × Cuprofuse® Serum Vials</li><li>8 × 0.5 mm Micro-Infusion Applicators</li></ul></label>
+        <label class="supply-card"><input class="supply-card__input" type="radio" name="supply"><span class="supply-card__top"><span><span class="supply-card__title">3 month supply</span><span class="supply-card__subtitle">12 weekly treatments</span></span><span class="supply-card__prices"><s>$406</s><strong>$167.00</strong></span></span><ul class="supply-card__details"><li>12 × Cuprofuse® Serum Vials</li><li>12 × 0.5 mm Micro-Infusion Applicators</li></ul><span class="supply-card__badge">Best value</span></label>
+      </div>
+      <button class="product-main__submit" type="button">Add to cart</button>
+    </form>
+  </div>
+</div></section>
+<section class="icon-row"><ul class="icon-row__list">
+  <li class="icon-row__item"><span class="icon-row__icon"><img src="/assets/icon-precision.svg" alt="" width="30" height="27"></span><span class="icon-row__copy"><span class="icon-row__title">0.5 mm</span><span class="icon-row__text">Precision infusion</span></span></li>
+  <li class="icon-row__item"><span class="icon-row__icon"><img src="/assets/icon-scalp.svg" alt="" width="28" height="28"></span><span class="icon-row__copy"><span class="icon-row__title">Scalp-focused</span><span class="icon-row__text">Targeted formula</span></span></li>
+  <li class="icon-row__item"><span class="icon-row__icon"><img src="/assets/icon-peptide.svg" alt="" width="28" height="28"></span><span class="icon-row__copy"><span class="icon-row__title">GHK-Cu</span><span class="icon-row__text">Hero copper peptide</span></span></li>
+  <li class="icon-row__item"><span class="icon-row__icon"><img src="/assets/icon-lab.svg" alt="" width="28" height="28"></span><span class="icon-row__copy"><span class="icon-row__title">Lab tested</span><span class="icon-row__text">Quality &amp; consistency</span></span></li>
+  <li class="icon-row__item"><span class="icon-row__icon"><img src="/assets/icon-serum.svg" alt="" width="28" height="28"></span><span class="icon-row__copy"><span class="icon-row__title">Cuprofuse®</span><span class="icon-row__text">Concentrated serum</span></span></li>
+</ul></section>
+<section class="product-infusion"><div class="product-infusion__layout">
+  <div class="product-infusion__copy">
+    <p class="product-infusion__eyebrow">How micro-infusion works</p>
+    <h2 class="product-infusion__heading">Advanced Scalp Care, Precisely Delivered.</h2>
+    <div class="product-infusion__text"><p>Riavâte’s 0.5 mm micro-infusion system creates controlled micro-channels across the scalp, allowing the GHK-Cu powered cosmetic formula to be applied precisely and evenly.</p><p>Designed to bring together precision technology and targeted scalp care in one considered system.</p></div>
+    <ol class="product-infusion__steps"><li><strong>01 — Micro-infuse</strong><span>0.5 mm precision application</span></li><li><strong>02 — Deliver</strong><span>Cuprofuse® concentrated serum</span></li><li><strong>03 — Support</strong><span>Supports a healthier-looking scalp</span></li><li><strong>04 — Strengthen</strong><span>Supports stronger, fuller-looking hair</span></li></ol>
+  </div>
+  <div class="product-infusion__media"><img class="product-infusion__image" src="/assets/product-how.jpg" alt=""><p class="product-infusion__overlay">How to<br>Work video</p></div>
+</div></section>
+<section class="product-cuprofuse">
+  <p class="product-cuprofuse__eyebrow">The formula inside Riavâte</p>
+  <h2 class="product-cuprofuse__heading">Cuprofuse®</h2>
+  <p class="product-cuprofuse__subheading">Our concentrated serum</p>
+  <p class="product-cuprofuse__text">More than a single hero ingredient. Cuprofuse® brings GHK-Cu together with a precisely configured combination of selected molecules and scalp-care ingredients in one concentrated formula.</p>
+  <ul class="product-cuprofuse__features">
+    <li><span class="product-cuprofuse__icon"><img src="/assets/product-cuprofuse-molecule.png" alt="" width="45" height="45"></span><div class="product-cuprofuse__copy"><strong>GHK-Cu LED</strong><span>Copper peptide at the heart of the formula.</span></div></li>
+    <li><span class="product-cuprofuse__icon"><img src="/assets/product-cuprofuse-follicle.png" alt="" width="45" height="45"></span><div class="product-cuprofuse__copy"><strong>PRECISION FORMULATED</strong><span>A considered combination of selected scalp-care ingredients.</span></div></li>
+    <li><span class="product-cuprofuse__icon"><img src="/assets/product-cuprofuse-device.svg" alt="" width="47" height="45"></span><div class="product-cuprofuse__copy"><strong>MADE FOR MICRO-INFUSION</strong><span>Developed to complement the Riavâte application system.</span></div></li>
+  </ul>
+  <a class="product-cuprofuse__button" href="#">Discover Cuprofuse® →</a>
+</section>
+<section class="product-results">
+  <div class="product-results__intro"><p class="product-results__eyebrow">Real routines. Visible progress.</p><h2 class="product-results__heading">Results from the Riavâte Community</h2></div>
+  <ul class="product-results__grid">
+    <li><div class="product-results__pair"><img class="product-results__image" src="/assets/product-result-2.jpg" alt=""><img class="product-results__image" src="/assets/product-result-2.jpg" alt=""></div><h3>Reduced shedding</h3><p>Hair appears stronger and more resilient with continued use.</p></li>
+    <li><div class="product-results__pair"><img class="product-results__image" src="/assets/product-result-1.jpg" alt=""><img class="product-results__image" src="/assets/product-result-1.jpg" alt=""></div><h3>Fuller-looking hairline</h3><p>Visible improvements in the appearance of density around the hairline and temples.</p></li>
+    <li><div class="product-results__pair"><img class="product-results__image" src="/assets/product-result-3.jpg" alt=""><img class="product-results__image" src="/assets/product-result-3.jpg" alt=""></div><h3>Improved crown coverage</h3><p>Hair appears fuller, helping reduce the appearance of visible scalp around the crown.</p></li>
+  </ul>
+</section>
+<section class="product-steps">
+  <div class="product-steps__intro"><p class="product-steps__eyebrow">Real routines. Visible progress.</p><h2 class="product-steps__heading">See How Simple It Is to Use</h2></div>
+  <div class="product-steps__layout">
+    <div class="product-steps__video"><p>How to<br>use video</p></div>
+    <ol class="product-steps__list">
+      <li><img class="product-steps__image" src="/assets/product-step-1.jpg" alt=""><h3>01 — Prepare</h3><p>Start with a clean, dry scalp.</p></li>
+      <li><img class="product-steps__image" src="/assets/product-step-2.jpg" alt=""><h3>02 — Infuse</h3><p>Apply Cuprofuse® using the Riavâte 0.5 mm Micro-Infusion System across targeted areas.</p></li>
+      <li><img class="product-steps__image" src="/assets/product-step-3.jpg" alt=""><h3>03 — Complete</h3><p>Finish the application and allow the formula to absorb naturally.</p></li>
+    </ol>
+  </div>
+</section>
+<section class="product-compare"><ul class="product-compare__grid">
+  <li class="product-compare__card product-compare__card--featured"><div class="product-compare__media"><img class="product-compare__image" src="/assets/product-compare-kit.png" alt=""></div><h2>Riavâte micro-infusion</h2><dl><div><dt>Approach</dt><dd>0.5 mm precision micro-infusion</dd></div><div><dt>Formula</dt><dd>Cuprofuse® Concentrated Serum</dd></div><div><dt>Hero Ingredient</dt><dd>GHK-Cu</dd></div><div><dt>Routine</dt><dd>At-home targeted scalp care</dd></div><div><dt>Cost</dt><dd>From $70 one time</dd></div></dl></li>
+  <li class="product-compare__card product-compare__card--plain"><div class="product-compare__media"><img class="product-compare__image" src="/assets/product-compare-transplant.png" alt=""></div><h2>Hair transplant</h2><dl><div><dt>Approach</dt><dd>Surgical hair restoration procedure</dd></div><div><dt>Formula</dt><dd>Not a topical formula</dd></div><div><dt>Approach</dt><dd>Clinical procedure with recovery</dd></div><div><dt>Cost</dt><dd>$5,000 to $15,000+</dd></div></dl></li>
+  <li class="product-compare__card product-compare__card--plain"><div class="product-compare__media"><img class="product-compare__image" src="/assets/product-compare-meds.png" alt=""></div><h2>Minoxidil &amp; medication</h2><dl><div><dt>Approach</dt><dd>Drug-based treatment</dd></div><div><dt>Formula</dt><dd>Pharmaceutical active ingredients</dd></div><div><dt>Approach</dt><dd>Typically requires ongoing use</dd></div><div><dt>Cost</dt><dd>$30+ a month forever</dd></div></dl></li>
+</ul></section>
+<section class="product-guarantee">
+  <div class="product-guarantee__copy"><p class="product-guarantee__eyebrow">Give Riavâte 120 days.</p><h2 class="product-guarantee__heading">If you’re not satisfied, we’ll refund you.</h2><ol><li><strong>01 — Document</strong><span>Take a clear photo before starting and track your progress.</span></li><li><strong>02 — Stay consistent</strong><span>Follow the recommended Riavâte routine consistently.</span></li><li><strong>03 — Complete 120 days</strong><span>Give your routine time and compare your progress.</span></li></ol></div>
+  <div class="product-guarantee__media"><img class="product-guarantee__image" src="/assets/product-gallery-6.jpg" alt=""></div>
+</section>
+<section class="product-reviews">
+  <div class="product-reviews__summary">
+    <h2>Customer Reviews</h2>
+    <div class="product-reviews__top"><div><p class="product-reviews__score"><span class="product-reviews__stars">★★★★★</span> 4.80 out of 5</p><p class="product-reviews__count">Based on 10457 reviews</p><p class="product-reviews__badge">✓ Verified Customer</p></div><a class="product-reviews__write" href="#">Write a review</a></div>
+    <ul class="product-reviews__thumbs"><li><img src="/assets/product-review-thumb.jpg" alt=""></li><li><img src="/assets/product-review-thumb.jpg" alt=""></li><li><img src="/assets/product-review-thumb.jpg" alt=""></li><li><img src="/assets/product-review-thumb.jpg" alt=""></li><li><img src="/assets/product-review-thumb.jpg" alt=""></li><li><img src="/assets/product-review-thumb.jpg" alt=""></li><li><img src="/assets/product-review-thumb.jpg" alt=""></li><li><img src="/assets/product-review-thumb.jpg" alt=""><span>See more</span></li></ul>
+  </div>
+  <div class="product-reviews__list-head"><h3>Reviews 10457</h3></div>
+  <ul class="product-reviews__list">
+    <li><img class="product-reviews__photo" src="/assets/product-review-1.jpg" alt=""><div class="product-reviews__body"><p class="product-reviews__stars">★★★★★</p><p class="product-reviews__name">James R.</p><div class="rte"><p>“Really easy to add to my routine.”</p><p>The kit feels premium and straightforward to use. I especially like how precise the applicator feels around my hairline.</p></div><p class="product-reviews__date">18 September 2026</p></div></li>
+    <li><img class="product-reviews__photo" src="/assets/product-review-2.jpg" alt=""><div class="product-reviews__body"><p class="product-reviews__stars">★★★★★</p><p class="product-reviews__name">Daniel M.</p><div class="rte"><p>“My hair looks noticeably fuller.”</p><p>I’ve stayed consistent with the routine and I’m pleased with how my hair looks, particularly around the areas I was most conscious of.</p></div><p class="product-reviews__date">02 September 2026</p></div></li>
+    <li><img class="product-reviews__photo" src="/assets/product-review-3.jpg" alt=""><div class="product-reviews__body"><p class="product-reviews__stars">★★★★★</p><p class="product-reviews__name">Oliver T.</p><div class="rte"><p>“A much more considered approach.”</p><p>I’ve tried plenty of scalp products before, but Riavâte feels different. The micro-infusion system is simple to use and feels like a proper part of my routine.</p></div><p class="product-reviews__date">14 August 2026</p></div></li>
+    <li><img class="product-reviews__photo" src="/assets/product-review-4.jpg" alt=""><div class="product-reviews__body"><p class="product-reviews__stars">★★★★★</p><p class="product-reviews__name">Sophie W.</p><div class="rte"><p>“Really pleased with my progress.”</p><p>My scalp feels well cared for and my hair appears healthier and fuller than when I started. I also love how simple the whole system is to use.</p></div><p class="product-reviews__date">27 July 2026</p></div></li>
+  </ul>
+  <p class="product-reviews__more"><a href="#">Show more reviews</a></p>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <div class="site-footer__brand">
+      <a href="/"><img class="site-footer__logo-image" src="/assets/logo-white.png" alt="Riavâte"></a>
+      <p class="site-footer__tagline">Precision science. Visible confidence.</p>
+      <p class="site-footer__text">Science-led scalp care, thoughtfully formulated with GHK-Cu and selected cosmetic actives.</p>
+      <p class="site-footer__contact-label">Contact information</p>
+      <a class="site-footer__contact" href="#">Call us: +86 18560628679</a>
+      <a class="site-footer__contact" href="#">Email: info@gasoplus.co.uk</a>
+    </div>
+    <div class="site-footer__column"><p class="site-footer__heading">EXPLORE</p><ul class="site-footer__links"><li><a href="/kit.html">The Kit</a></li><li><a href="#">The Science</a></li><li><a href="#">Our Formula</a></li><li><a href="#">How to Use</a></li><li><a href="#">About Riavâte</a></li></ul></div>
+    <div class="site-footer__column"><p class="site-footer__heading">SUPPORT</p><ul class="site-footer__links"><li><a href="#">FAQs</a></li><li><a href="#">Contact Us</a></li><li><a href="#">Shipping &amp; Delivery</a></li><li><a href="#">Returns &amp; Refunds</a></li><li><a href="#">Track Your Order</a></li></ul></div>
+    <div class="site-footer__column"><p class="site-footer__heading">LEGAL</p><ul class="site-footer__links"><li><a href="#">Privacy Policy</a></li><li><a href="#">Terms &amp; Conditions</a></li><li><a href="#">Cookie Policy</a></li><li><a href="#">Accessibility</a></li></ul></div>
+  </div>
+  <div class="site-footer__social">
+    <a href="#"><img src="/assets/social-instagram.png" alt=""></a>
+    <a href="#"><img src="/assets/social-facebook.png" alt=""></a>
+    <a href="#"><img src="/assets/social-tiktok.png" alt=""></a>
+  </div>
+</footer>
+<script>
+document.addEventListener('click', (event) => {
+  const toggle = event.target.closest('[data-menu-toggle]');
+  if (toggle) {
+    const header = toggle.closest('[data-header]');
+    const open = header.classList.toggle('is-open');
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    return;
+  }
+  const thumb = event.target.closest('[data-gallery-thumb]');
+  if (!thumb) return;
+  const gallery = thumb.closest('[data-gallery]');
+  const image = gallery.querySelector('.product-gallery__image');
+  image.src = thumb.dataset.src;
+  gallery.querySelectorAll('[data-gallery-thumb]').forEach((item) => {
+    const active = item === thumb;
+    item.classList.toggle('is-active', active);
+    if (active) item.setAttribute('aria-current', 'true');
+    else item.removeAttribute('aria-current');
+  });
+});
+document.addEventListener('change', (event) => {
+  const input = event.target.closest('.supply-card__input');
+  if (!input) return;
+  const form = input.closest('form');
+  form.querySelectorAll('.supply-card').forEach((card) => card.classList.toggle('is-selected', card.contains(input) && input.checked));
+});
+</script>
+
+</body>
+</html>

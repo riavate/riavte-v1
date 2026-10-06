@@ -1,0 +1,142 @@
+<section class="product-compare">
+  <ul class="product-compare__grid">
+    {%- for block in section.blocks -%}
+      <li class="product-compare__card product-compare__card--{{ block.settings.tone }}" {{ block.shopify_attributes }}>
+        <div class="product-compare__media">
+          {%- if block.settings.image != blank -%}
+            {{ block.settings.image | image_url: width: 500 | image_tag: alt: '', class: 'product-compare__image' }}
+          {%- elsif block.settings.fallback != blank -%}
+            <img class="product-compare__image" src="{{ block.settings.fallback | asset_url }}" alt="" width="160" height="120">
+          {%- endif -%}
+        </div>
+        <h2>{{ block.settings.title | escape }}</h2>
+        <dl>
+          {%- assign rows = block.settings.rows | newline_to_br | split: '<br />' -%}
+          {%- for row in rows -%}
+            {%- assign item = row | strip -%}
+            {%- if item != blank -%}
+              {%- assign parts = item | split: '|' -%}
+              <div>
+                <dt>{{ parts | first | strip | escape }}</dt>
+                <dd>{{ parts | last | strip | escape }}</dd>
+              </div>
+            {%- endif -%}
+          {%- endfor -%}
+        </dl>
+      </li>
+    {%- endfor -%}
+  </ul>
+</section>
+
+{% stylesheet %}
+  .product-compare {
+    width: min(1212px, calc(100% - 2.5rem));
+    margin: 2rem auto 0;
+    padding-bottom: 2rem;
+  }
+
+  .product-compare__grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.15rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .product-compare__card {
+    min-height: 488px;
+    padding: 1.4rem 1.2rem 1.5rem;
+    border: 1px solid #0037ae;
+    border-radius: 16px;
+  }
+
+  .product-compare__card--featured {
+    border: 0;
+    background: linear-gradient(180deg, #0037ae, #001748);
+    color: #fff;
+  }
+
+  .product-compare__media {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    height: 130px;
+  }
+
+  .product-compare__image {
+    width: auto;
+    max-width: 70%;
+    max-height: 120px;
+    object-fit: contain;
+  }
+
+  .product-compare__card h2 {
+    margin: 0.6rem 0 0.4rem;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  .product-compare__card dl {
+    margin: 0;
+  }
+
+  .product-compare__card dl div {
+    display: grid;
+    grid-template-columns: 92px minmax(0, 1fr);
+    gap: 0.5rem;
+    padding: 0.55rem 0;
+    border-top: 0.5px solid currentColor;
+    font-size: 11px;
+    line-height: 1.35;
+  }
+
+  .product-compare__card dt {
+    font-weight: 700;
+  }
+
+  .product-compare__card dd {
+    margin: 0;
+    font-weight: 400;
+  }
+
+  @media screen and (max-width: 989px) {
+    .product-compare__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:sections.product_compare.name",
+  "tag": "section",
+  "enabled_on": { "templates": ["product"] },
+  "blocks": [
+    {
+      "type": "column",
+      "name": "t:sections.product_compare.blocks.column.name",
+      "settings": [
+        {
+          "type": "select",
+          "id": "tone",
+          "label": "t:sections.product_compare.blocks.column.tone",
+          "options": [
+            { "value": "featured", "label": "t:sections.product_compare.options.featured" },
+            { "value": "plain", "label": "t:sections.product_compare.options.plain" }
+          ],
+          "default": "plain"
+        },
+        { "type": "image_picker", "id": "image", "label": "t:sections.product_compare.blocks.column.image" },
+        { "type": "text", "id": "fallback", "label": "t:sections.product_compare.blocks.column.fallback" },
+        { "type": "text", "id": "title", "label": "t:sections.product_compare.blocks.column.title", "default": "Riavâte micro-infusion" },
+        { "type": "textarea", "id": "rows", "label": "t:sections.product_compare.blocks.column.rows", "info": "t:sections.product_compare.blocks.column.rows_info", "default": "Approach|0.5 mm precision micro-infusion\nFormula|Cuprofuse® Concentrated Serum\nHero Ingredient|GHK-Cu\nRoutine|At-home targeted scalp care\nCost|From $70 one time" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "t:sections.product_compare.name" }]
+}
+{% endschema %}

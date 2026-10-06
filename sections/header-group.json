@@ -1,0 +1,46 @@
+{
+  "type": "header",
+  "name": "Header",
+  "sections": {
+    "header": {
+      "type": "header",
+      "blocks": {
+        "home": {
+          "type": "link",
+          "settings": {
+            "label": "Home",
+            "link": "/"
+          }
+        },
+        "about": {
+          "type": "link",
+          "settings": {
+            "label": "About"
+          }
+        },
+        "kit": {
+          "type": "link",
+          "settings": {
+            "label": "The Kit",
+            "link": "/products/the-kit"
+          }
+        },
+        "science": {
+          "type": "link",
+          "settings": {
+            "label": "Science"
+          }
+        },
+        "ingredients": {
+          "type": "link",
+          "settings": {
+            "label": "Ingredients"
+          }
+        }
+      },
+      "block_order": ["home", "about", "kit", "science", "ingredients"],
+      "settings": {}
+    }
+  },
+  "order": ["header"]
+}

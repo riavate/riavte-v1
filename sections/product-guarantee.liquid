@@ -1,0 +1,125 @@
+<section class="product-guarantee">
+  <div class="product-guarantee__copy">
+    <p class="product-guarantee__eyebrow">{{ section.settings.eyebrow | escape }}</p>
+    <h2 class="product-guarantee__heading">{{ section.settings.heading | escape }}</h2>
+    <ol>
+      {%- for block in section.blocks -%}
+        <li {{ block.shopify_attributes }}>
+          <strong>{{ block.settings.title | escape }}</strong>
+          <span>{{ block.settings.text | escape }}</span>
+        </li>
+      {%- endfor -%}
+    </ol>
+  </div>
+  <div class="product-guarantee__media">
+    {%- if section.settings.image != blank -%}
+      {{ section.settings.image | image_url: width: 1200 | image_tag: alt: section.settings.heading, class: 'product-guarantee__image' }}
+    {%- else -%}
+      <img class="product-guarantee__image" src="{{ 'product-gallery-6.jpg' | asset_url }}" alt="{{ section.settings.heading | escape }}" width="502" height="502">
+    {%- endif -%}
+  </div>
+</section>
+
+{% stylesheet %}
+  .product-guarantee {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: clamp(1.5rem, 4vw, 4rem);
+    align-items: center;
+    width: min(1212px, calc(100% - 2.5rem));
+    margin: 2.5rem auto;
+  }
+
+  .product-guarantee__eyebrow {
+    margin: 0;
+    color: #121a43;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.26em;
+    text-transform: uppercase;
+  }
+
+  .product-guarantee__heading {
+    margin: 0.55rem 0 0;
+    max-width: 26rem;
+    color: #121a43;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  @supports (background-clip: text) or (-webkit-background-clip: text) {
+    .product-guarantee__heading {
+      background-image: linear-gradient(90deg, #121a43, #2d42a9);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+  }
+
+  .product-guarantee ol {
+    margin: 1.2rem 0 0;
+    padding: 0;
+    list-style: none;
+    max-width: 30rem;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.45;
+  }
+
+  .product-guarantee li + li {
+    margin-top: 0.85rem;
+  }
+
+  .product-guarantee strong,
+  .product-guarantee span {
+    display: block;
+  }
+
+  .product-guarantee__media {
+    border-radius: 16px;
+    overflow: hidden;
+    aspect-ratio: 1;
+    background: #f3f3f3;
+  }
+
+  .product-guarantee__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  @media screen and (max-width: 989px) {
+    .product-guarantee {
+      grid-template-columns: 1fr;
+    }
+
+    .product-guarantee__heading {
+      font-size: 28px;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:sections.product_guarantee.name",
+  "tag": "section",
+  "enabled_on": { "templates": ["product"] },
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "t:sections.product_guarantee.settings.eyebrow", "default": "Give Riavâte 120 days." },
+    { "type": "textarea", "id": "heading", "label": "t:sections.product_guarantee.settings.heading", "default": "If you’re not satisfied, we’ll refund you." },
+    { "type": "image_picker", "id": "image", "label": "t:sections.product_guarantee.settings.image" }
+  ],
+  "blocks": [
+    {
+      "type": "step",
+      "name": "t:sections.product_guarantee.blocks.step.name",
+      "settings": [
+        { "type": "text", "id": "title", "label": "t:sections.product_guarantee.blocks.step.title", "default": "01 — Document" },
+        { "type": "text", "id": "text", "label": "t:sections.product_guarantee.blocks.step.text", "default": "Take a clear photo before starting and track your progress." }
+      ]
+    }
+  ],
+  "presets": [{ "name": "t:sections.product_guarantee.name" }]
+}
+{% endschema %}

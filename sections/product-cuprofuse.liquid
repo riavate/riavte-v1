@@ -1,0 +1,225 @@
+<section class="product-cuprofuse">
+  <p class="product-cuprofuse__eyebrow">{{ section.settings.eyebrow | escape }}</p>
+  <h2 class="product-cuprofuse__heading">{{ section.settings.heading | escape }}</h2>
+  <p class="product-cuprofuse__subheading">{{ section.settings.subheading | escape }}</p>
+  <p class="product-cuprofuse__text">{{ section.settings.text | escape }}</p>
+
+  <ul class="product-cuprofuse__features">
+    {%- for block in section.blocks -%}
+      <li {{ block.shopify_attributes }}>
+        <span class="product-cuprofuse__icon">
+          {%- if block.settings.icon == 'molecule' -%}
+            <img src="{{ 'product-cuprofuse-molecule.png' | asset_url }}" alt="" width="45" height="45">
+          {%- elsif block.settings.icon == 'fuller' -%}
+            <img src="{{ 'product-cuprofuse-follicle.png' | asset_url }}" alt="" width="45" height="45">
+          {%- elsif block.settings.icon == 'system' -%}
+            <img src="{{ 'product-cuprofuse-device.svg' | asset_url }}" alt="" width="47" height="45">
+          {%- endif -%}
+        </span>
+        <div class="product-cuprofuse__copy">
+          <strong>{{ block.settings.title | escape }}</strong>
+          <span>{{ block.settings.text | escape }}</span>
+        </div>
+      </li>
+    {%- endfor -%}
+  </ul>
+
+  {%- if section.settings.button_label != blank -%}
+    <a class="product-cuprofuse__button" href="{{ section.settings.button_link | default: '#' }}">
+      {{ section.settings.button_label | escape }}
+    </a>
+  {%- endif -%}
+</section>
+
+{% stylesheet %}
+  .product-cuprofuse {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 598px;
+    padding: 5.25rem 1.25rem 4.6rem;
+    background: linear-gradient(102deg, #000000 10%, #001433 46%, #0037ae 92%);
+    color: #fff;
+    text-align: center;
+  }
+
+  .product-cuprofuse__eyebrow,
+  .product-cuprofuse__subheading,
+  .product-cuprofuse__text {
+    margin: 0;
+    max-width: 40rem;
+  }
+
+  .product-cuprofuse__eyebrow {
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.26em;
+    text-transform: uppercase;
+  }
+
+  .product-cuprofuse__heading {
+    margin: 0.35rem 0 0;
+    font-size: clamp(40px, 5vw, 64px);
+    font-weight: 700;
+    line-height: 0.95;
+    letter-spacing: 0.01em;
+  }
+
+  .product-cuprofuse__subheading {
+    margin-top: 0.7rem;
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  .product-cuprofuse__text {
+    max-width: 617px;
+    margin-top: 1.15rem;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.45;
+  }
+
+  .product-cuprofuse__features {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    width: min(1224px, calc(100% - 2.5rem));
+    margin: 2.5rem 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .product-cuprofuse__icon {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    height: 45px;
+    margin-bottom: 1.35rem;
+  }
+
+  .product-cuprofuse__icon img {
+    display: block;
+    width: auto;
+    height: 45px;
+  }
+
+  .product-cuprofuse__copy {
+    position: relative;
+    padding: 0 1.6rem;
+  }
+
+  .product-cuprofuse__features li:not(:last-child) .product-cuprofuse__copy::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 1px;
+    height: 49px;
+    background: rgba(255, 255, 255, 0.9);
+  }
+
+  .product-cuprofuse__copy strong,
+  .product-cuprofuse__copy span {
+    display: block;
+  }
+
+  .product-cuprofuse__copy strong {
+    font-size: 15px;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+    line-height: 1;
+  }
+
+  .product-cuprofuse__copy span {
+    max-width: 20rem;
+    margin: 0.7rem auto 0;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.35;
+  }
+
+  .product-cuprofuse__button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 308px;
+    min-height: 44px;
+    margin-top: 2.1rem;
+    padding: 0 1.5rem;
+    border: 1px solid #fff;
+    border-radius: 22px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  @media screen and (max-width: 749px) {
+    .product-cuprofuse {
+      min-height: 0;
+      padding: 3.5rem 1.25rem;
+    }
+
+    .product-cuprofuse__features {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    .product-cuprofuse__icon:empty {
+      display: none;
+    }
+
+    .product-cuprofuse__features li:not(:last-child) .product-cuprofuse__copy::after {
+      top: auto;
+      right: 20%;
+      bottom: -0.85rem;
+      width: 60%;
+      height: 1px;
+    }
+
+    .product-cuprofuse__button {
+      min-width: 0;
+      width: min(308px, 100%);
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:sections.product_cuprofuse.name",
+  "tag": "section",
+  "enabled_on": { "templates": ["product"] },
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "t:sections.product_cuprofuse.settings.eyebrow", "default": "The formula inside Riavâte" },
+    { "type": "text", "id": "heading", "label": "t:sections.product_cuprofuse.settings.heading", "default": "Cuprofuse®" },
+    { "type": "text", "id": "subheading", "label": "t:sections.product_cuprofuse.settings.subheading", "default": "Our concentrated serum" },
+    { "type": "textarea", "id": "text", "label": "t:sections.product_cuprofuse.settings.text", "default": "More than a single hero ingredient. Cuprofuse® brings GHK-Cu together with a precisely configured combination of selected molecules and scalp-care ingredients in one concentrated formula." },
+    { "type": "text", "id": "button_label", "label": "t:sections.product_cuprofuse.settings.button_label", "default": "Discover Cuprofuse® →" },
+    { "type": "url", "id": "button_link", "label": "t:sections.product_cuprofuse.settings.button_link" }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "t:sections.product_cuprofuse.blocks.feature.name",
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "t:sections.product_cuprofuse.blocks.feature.icon",
+          "options": [
+            { "value": "molecule", "label": "t:sections.product_cuprofuse.options.molecule" },
+            { "value": "fuller", "label": "t:sections.product_cuprofuse.options.fuller" },
+            { "value": "none", "label": "t:sections.product_cuprofuse.options.none" },
+            { "value": "system", "label": "t:sections.product_cuprofuse.options.system" }
+          ],
+          "default": "molecule"
+        },
+        { "type": "text", "id": "title", "label": "t:sections.product_cuprofuse.blocks.feature.title", "default": "GHK-Cu led" },
+        { "type": "textarea", "id": "text", "label": "t:sections.product_cuprofuse.blocks.feature.text", "default": "Copper peptide at the heart of the formula." }
+      ]
+    }
+  ],
+  "presets": [{ "name": "t:sections.product_cuprofuse.name" }]
+}
+{% endschema %}

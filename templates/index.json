@@ -1,0 +1,285 @@
+{
+  "sections": {
+    "hero": {
+      "type": "hero",
+      "blocks": {
+        "eyebrow": {
+          "type": "eyebrow",
+          "settings": { "text": "PRECISION SCALP CARE" }
+        },
+        "heading": {
+          "type": "heading",
+          "settings": { "heading": "A NEW STANDARD IN SCALP CARE." }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "Meet Riavâte — a precision-led approach to modern scalp care, combining controlled 0.5 mm micro-infusion technology with Cuprofuse®, our concentrated serum led by GHK-Cu and a precisely configured combination of targeted scalp-care ingredients."
+          }
+        }
+      },
+      "block_order": ["eyebrow", "heading", "text"],
+      "settings": {}
+    },
+    "trust": {
+      "type": "icon-row",
+      "blocks": {
+        "precision": {
+          "type": "item",
+          "settings": { "icon": "precision", "title": "0.5 mm", "text": "Precision infusion" }
+        },
+        "scalp": {
+          "type": "item",
+          "settings": { "icon": "scalp", "title": "Scalp-focused", "text": "Targeted formula" }
+        },
+        "peptide": {
+          "type": "item",
+          "settings": { "icon": "peptide", "title": "GHK-Cu", "text": "Hero copper peptide" }
+        },
+        "lab": {
+          "type": "item",
+          "settings": { "icon": "lab", "title": "Lab tested", "text": "Quality & consistency" }
+        },
+        "serum": {
+          "type": "item",
+          "settings": { "icon": "serum", "title": "Cuprofuse®", "text": "Concentrated serum" }
+        }
+      },
+      "block_order": ["precision", "scalp", "peptide", "lab", "serum"],
+      "settings": {}
+    },
+    "precision": {
+      "type": "precision",
+      "blocks": {
+        "even": {
+          "type": "point",
+          "settings": {
+            "position": "top-left",
+            "title": "EVEN DISTRIBUTION",
+            "text": "Helps distribute the cosmetic serum consistently across the treatment area."
+          }
+        },
+        "precision_point": {
+          "type": "point",
+          "settings": {
+            "position": "top-right",
+            "title": "0.5 MM PRECISION",
+            "text": "Designed for controlled and consistent micro-infusion application."
+          }
+        },
+        "gold": {
+          "type": "point",
+          "settings": {
+            "position": "bottom-left",
+            "title": "GOLD-PLATED TIPS",
+            "text": "Precision micro-touchpoints engineered for a refined application experience."
+          }
+        },
+        "targeted": {
+          "type": "point",
+          "settings": {
+            "position": "bottom-right",
+            "title": "TARGETED APPLICATION",
+            "text": "Helps apply the formula precisely across targeted areas of the scalp."
+          }
+        }
+      },
+      "block_order": ["even", "precision_point", "gold", "targeted"],
+      "settings": {
+        "heading": "0.5 MM PRECISION",
+        "eyebrow": "MICRO-INFUSION",
+        "text": "Engineered for controlled, targeted scalp application, Riavâte’s 0.5 mm micro-infusion system uses precision micro-touchpoints to apply the cosmetic formula consistently across the scalp.",
+        "image_alt": "Riavâte 0.5 mm micro-infusion device"
+      }
+    },
+    "cuprofuse": {
+      "type": "media-with-text",
+      "blocks": {
+        "eyebrow": { "type": "eyebrow", "settings": { "text": "INTRODUCING" } },
+        "heading": { "type": "heading", "settings": { "heading": "CUPROFUSE®" } },
+        "subheading": { "type": "subheading", "settings": { "text": "OUR CONCENTRATED SERUM" } },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>More than a single hero ingredient. Cuprofuse® brings GHK-Cu together with a precisely configured combination of selected molecules and scalp-care ingredients in one concentrated formula.</p>"
+          }
+        },
+        "button": { "type": "button", "settings": { "label": "DISCOVER CUPROFUSE® →" } }
+      },
+      "block_order": ["eyebrow", "heading", "subheading", "text", "button"],
+      "settings": {
+        "fallback_image": "cuprofuse",
+        "image_alt": "Cuprofuse concentrated serum",
+        "image_position": "right",
+        "heading_size": 48,
+        "heading_size_mobile": 36,
+        "padding": 72
+      }
+    },
+    "peptide": {
+      "type": "peptide",
+      "blocks": {
+        "scalp": {
+          "type": "feature",
+          "settings": {
+            "icon": "scalp",
+            "title": "SCALP CONDITION",
+            "text": "Helps support a healthy-looking, well-conditioned scalp."
+          }
+        },
+        "fuller": {
+          "type": "feature",
+          "settings": {
+            "icon": "fuller",
+            "title": "FULLER APPEARANCE",
+            "text": "Supports the appearance of fuller and healthier-looking hair."
+          }
+        },
+        "molecule": {
+          "type": "feature",
+          "settings": {
+            "icon": "molecule",
+            "title": "PEPTIDE POWER",
+            "text": "A copper peptide at the heart of Riavâte’s targeted cosmetic formula."
+          }
+        },
+        "apply": {
+          "type": "feature",
+          "settings": {
+            "icon": "apply",
+            "title": "TARGETED FORMULA",
+            "text": "Combined with selected actives for a considered approach to scalp care."
+          }
+        }
+      },
+      "block_order": ["scalp", "fuller", "molecule", "apply"],
+      "settings": {
+        "eyebrow": "OUR HERO PEPTIDE",
+        "heading": "GHK-Cu",
+        "text": "<p>COPPER TRIPEPTIDE-1</p><p>At the heart of Riavâte is GHK-Cu (Copper Tripeptide-1) — a copper peptide selected as the hero of our science-led scalp-care formula.</p>"
+      }
+    },
+    "beyond": {
+      "type": "media-with-text",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": { "heading": "PRECISION, BEYOND THE SURFACE." }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>RIAVÂTE combines controlled 0.5 mm micro-infusion with a GHK-Cu powered cosmetic formula for precise, targeted scalp application.</p><p>Designed to support scalp condition and the appearance of stronger, fuller and healthier-looking hair.</p>"
+          }
+        },
+        "caption": {
+          "type": "caption",
+          "settings": {
+            "text": "0.5 MM MICRO-INFUSION · CUPROFUSE® CONCENTRATED SERUM · TARGETED SCALP CARE"
+          }
+        }
+      },
+      "block_order": ["heading", "text", "caption"],
+      "settings": {
+        "fallback_image": "scalp",
+        "image_alt": "Micro-infusion applied to the scalp surface",
+        "image_position": "right",
+        "heading_size": 32,
+        "heading_size_mobile": 28,
+        "padding": 72
+      }
+    },
+    "results": {
+      "type": "results",
+      "blocks": {
+        "sarah": {
+          "type": "card",
+          "settings": {
+            "fallback": "sarah",
+            "name": "Sarah M.",
+            "verified": true,
+            "badge": "✓ Verified customer",
+            "quote": "<p>“My hair looks noticeably fuller.”</p><p>I’ve been consistent with my Riavâte routine and I’m really pleased with how my hair looks and feels. My scalp feels well cared for, and my hair appears fuller and healthier around the areas I was most conscious of.</p>",
+            "uses_label": "Sarah uses",
+            "product_name": "Riavâte Hair Micro-Infusion Kit"
+          }
+        },
+        "daniel": {
+          "type": "card",
+          "settings": {
+            "fallback": "daniel",
+            "name": "Daniel R.",
+            "verified": true,
+            "badge": "✓ Verified customer",
+            "quote": "<p>“I can see the difference in my routine.”</p><p>Riavâte feels completely different from the scalp products I’ve used before. The micro-infusion system is precise and straightforward to use, and I’ve noticed an improvement in the overall appearance of my hair.</p>",
+            "uses_label": "Daniel uses",
+            "product_name": "Riavâte Hair Micro-Infusion Kit"
+          }
+        },
+        "james": {
+          "type": "card",
+          "settings": {
+            "fallback": "james",
+            "name": "James T.",
+            "verified": true,
+            "badge": "✓ Verified customer",
+            "quote": "<p>“My hair looks stronger and healthier.”</p><p>I wanted something that felt more considered than another everyday serum. Riavâte has become part of my regular scalp-care routine, and I’m really happy with how much healthier and fuller my hair appears.</p>",
+            "uses_label": "James uses",
+            "product_name": "Riavâte Hair Micro-Infusion Kit"
+          }
+        }
+      },
+      "block_order": ["sarah", "daniel", "james"],
+      "settings": { "heading": "Real Results. Visible Difference." }
+    },
+    "statement": {
+      "type": "media-with-text",
+      "blocks": {
+        "eyebrow": { "type": "eyebrow", "settings": { "text": "RIAVÂTE BRAND STATEMENT" } },
+        "heading": {
+          "type": "heading",
+          "settings": { "heading": "Hair care has focused on the surface for long enough." }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Riavâte takes a more precise approach.</p><p>Our Micro-Infusion System pairs controlled 0.5 mm application with <strong>Cuprofuse®</strong>, our concentrated serum led by GHK-Cu and formulated with a precisely configured combination of targeted scalp-care ingredients.</p>"
+          }
+        },
+        "button": { "type": "button", "settings": { "label": "Check availability" } }
+      },
+      "block_order": ["eyebrow", "heading", "text", "button"],
+      "settings": {
+        "fallback_image": "application",
+        "image_alt": "Applying the Riavâte micro-infusion device",
+        "image_position": "left",
+        "heading_size": 32,
+        "heading_size_mobile": 28,
+        "padding": 72
+      }
+    },
+    "reviews": {
+      "type": "reviews",
+      "blocks": {
+        "t1": { "type": "thumb", "settings": {} },
+        "t2": { "type": "thumb", "settings": {} },
+        "t3": { "type": "thumb", "settings": {} },
+        "t4": { "type": "thumb", "settings": {} },
+        "t5": { "type": "thumb", "settings": {} },
+        "t6": { "type": "thumb", "settings": {} },
+        "t7": { "type": "thumb", "settings": {} },
+        "t8": { "type": "thumb", "settings": {} }
+      },
+      "block_order": ["t1", "t2", "t3", "t4", "t5", "t6", "t7", "t8"],
+      "settings": {
+        "heading": "Customer Reviews",
+        "score": "4.80 out of 5",
+        "count_label": "Based on 10457 reviews",
+        "badge": "✓ Verified customer",
+        "button_label": "Write a review",
+        "more_label": "See more"
+      }
+    }
+  },
+  "order": ["hero", "trust", "precision", "cuprofuse", "peptide", "beyond", "results", "statement", "reviews"]
+}

@@ -1,0 +1,650 @@
+{%- liquid
+  assign hero_image = section.settings.image
+  assign hero_image_mobile = section.settings.image_mobile
+  assign image_alt = section.settings.image_alt
+
+  if hero_image == blank
+    if hero_image_mobile != blank
+      assign hero_image = hero_image_mobile
+      assign hero_image_mobile = blank
+    endif
+  endif
+
+  if hero_image != blank
+    if hero_image.alt != blank
+      assign image_alt = hero_image.alt
+    endif
+  endif
+
+  assign loading = 'lazy'
+  assign fetchpriority = 'auto'
+  assign heading_tag = 'h2'
+  if section.index == blank
+    assign loading = 'eager'
+    assign fetchpriority = 'high'
+    assign heading_tag = 'h1'
+  endif
+  if section.index == 1
+    assign loading = 'eager'
+    assign fetchpriority = 'high'
+    assign heading_tag = 'h1'
+  endif
+-%}
+
+{%- style -%}
+  {{ section.settings.heading_font | font_face: font_display: 'swap' }}
+  {{ section.settings.text_font | font_face: font_display: 'swap' }}
+
+  #shopify-section-{{ section.id }} {
+    --hero-heading-font-family: {{ section.settings.heading_font.family }}, {{ section.settings.heading_font.fallback_families }};
+    --hero-heading-font-weight: {{ section.settings.heading_font.weight }};
+    --hero-heading-font-style: {{ section.settings.heading_font.style }};
+    --hero-text-font-family: {{ section.settings.text_font.family }}, {{ section.settings.text_font.fallback_families }};
+    --hero-text-font-weight: {{ section.settings.text_font.weight }};
+    --hero-text-font-style: {{ section.settings.text_font.style }};
+  }
+{%- endstyle -%}
+
+{%- if loading == 'eager' -%}
+  {%- if hero_image != blank -%}
+    {{ hero_image | image_url: width: 1600 | preload_tag: as: 'image' }}
+  {%- else -%}
+    {{ 'hero-home.jpg' | asset_url | preload_tag: as: 'image' }}
+  {%- endif -%}
+{%- endif -%}
+
+<section
+  class="home-hero home-hero--height-{{ section.settings.image_height }} home-hero--align-{{ section.settings.content_alignment }}{% if hero_image_mobile != blank %} home-hero--has-mobile-image{% endif %}"
+  style="
+    --hero-pad-x: {{ section.settings.horizontal_padding }};
+    --hero-content-max: {{ section.settings.content_max_width }}px;
+    --hero-text-max: {{ section.settings.text_max_width }}px;
+    --hero-heading-size: {{ section.settings.heading_size }}px;
+    --hero-heading-size-mobile: {{ section.settings.heading_size_mobile }}px;
+    --hero-gradient-start: {{ section.settings.gradient_start }};
+    --hero-gradient-end: {{ section.settings.gradient_end }};
+    --hero-heading-color: {{ section.settings.heading_color }};
+    --hero-text: {{ section.settings.text_color }};
+  "
+>
+  <div class="home-hero__media">
+    {%- if hero_image != blank -%}
+      <picture>
+        {%- if hero_image_mobile != blank -%}
+          <source
+            media="(max-width: 749px)"
+            srcset="{{ hero_image_mobile | image_url: width: 400 }} 400w, {{ hero_image_mobile | image_url: width: 600 }} 600w, {{ hero_image_mobile | image_url: width: 800 }} 800w, {{ hero_image_mobile | image_url: width: 1200 }} 1200w"
+            sizes="100vw"
+          >
+        {%- endif -%}
+        {{
+          hero_image
+          | image_url: width: 2400
+          | image_tag:
+            widths: '750, 1100, 1500, 1866, 2400',
+            sizes: '100vw',
+            loading: loading,
+            fetchpriority: fetchpriority,
+            alt: image_alt,
+            class: 'home-hero__image'
+        }}
+      </picture>
+    {%- else -%}
+      <img
+        class="home-hero__image"
+        src="{{ 'hero-home.jpg' | asset_url }}"
+        alt="{{ image_alt | escape }}"
+        width="1866"
+        height="843"
+        loading="{{ loading }}"
+        fetchpriority="{{ fetchpriority }}"
+      >
+    {%- endif -%}
+  </div>
+
+  <div class="home-hero__inner">
+    <div class="home-hero__content">
+      {%- for block in section.blocks -%}
+        {%- case block.type -%}
+          {%- when 'eyebrow' -%}
+            <p class="home-hero__eyebrow" {{ block.shopify_attributes }}>
+              {{ block.settings.text | escape }}
+            </p>
+          {%- when 'heading' -%}
+            <{{ heading_tag }}
+              class="home-hero__heading{% unless section.settings.heading_gradient %} home-hero__heading--solid{% endunless %}"
+              {{ block.shopify_attributes }}
+            >
+              {{ block.settings.heading | escape }}
+            </{{ heading_tag }}>
+          {%- when 'text' -%}
+            <p class="home-hero__text" {{ block.shopify_attributes }}>
+              {{ block.settings.text | escape | newline_to_br }}
+            </p>
+          {%- when 'button' -%}
+            {%- if block.settings.label != blank -%}
+              <a
+                class="home-hero__button home-hero__button--{{ block.settings.style }}"
+                {% if block.settings.link != blank %}
+                  href="{{ block.settings.link }}"
+                {% else %}
+                  role="link"
+                  aria-disabled="true"
+                {% endif %}
+                {{ block.shopify_attributes }}
+              >
+                {{ block.settings.label | escape }}
+              </a>
+            {%- endif -%}
+        {%- endcase -%}
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% stylesheet %}
+  .home-hero {
+    position: relative;
+    isolation: isolate;
+    width: 100%;
+    background-color: #ffffff;
+    color: var(--hero-text, #000000);
+  }
+
+  .home-hero--height-adapt {
+    aspect-ratio: 1440 / 650;
+  }
+
+  .home-hero--height-small {
+    min-height: 420px;
+  }
+
+  .home-hero--height-medium {
+    min-height: 560px;
+  }
+
+  .home-hero--height-large {
+    min-height: 650px;
+  }
+
+  .home-hero__media {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+  }
+
+  .home-hero__media picture,
+  .home-hero__media img {
+    width: 100%;
+    height: 100%;
+  }
+
+  .home-hero__image {
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    object-fit: cover;
+    object-position: center center;
+  }
+
+  .home-hero__inner {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    width: min(100%, 1440px);
+    min-height: 100%;
+    margin-inline: auto;
+    padding-block: 2.5rem;
+    padding-inline: clamp(1.25rem, calc(var(--hero-pad-x, 183) * 100% / 1440), calc(var(--hero-pad-x, 183) * 1px));
+  }
+
+  .home-hero--align-center .home-hero__inner {
+    justify-content: center;
+  }
+
+  .home-hero__content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    width: min(100%, var(--hero-content-max, 494px));
+    text-align: left;
+  }
+
+  .home-hero--align-center .home-hero__content {
+    align-items: center;
+    text-align: center;
+  }
+
+  .home-hero__eyebrow {
+    margin: 0;
+    font-family: var(--hero-text-font-family, Montserrat, sans-serif);
+    font-style: var(--hero-text-font-style, normal);
+    font-weight: var(--hero-text-font-weight, 500);
+    font-size: 15px;
+    line-height: 1.27;
+    letter-spacing: 3.9px;
+    text-transform: uppercase;
+    color: var(--hero-text, #000000);
+  }
+
+  .home-hero__heading {
+    margin: 0;
+    max-width: 100%;
+    font-family: var(--hero-heading-font-family, Montserrat, sans-serif);
+    font-style: var(--hero-heading-font-style, normal);
+    font-weight: var(--hero-heading-font-weight, 700);
+    font-size: var(--hero-heading-size, 48px);
+    line-height: 1.22;
+    letter-spacing: 0;
+    color: var(--hero-gradient-start, #121a43);
+  }
+
+  @supports (background-clip: text) or (-webkit-background-clip: text) {
+    .home-hero__heading {
+      background-image: linear-gradient(
+        90deg,
+        var(--hero-gradient-start, #121a43) 0%,
+        var(--hero-gradient-end, #2d42a9) 100%
+      );
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+  }
+
+  .home-hero__heading--solid {
+    background-image: none;
+    color: var(--hero-heading-color, #121a43);
+    -webkit-text-fill-color: currentcolor;
+  }
+
+  .home-hero__text {
+    margin: 0;
+    max-width: var(--hero-text-max, 411px);
+    font-family: var(--hero-text-font-family, Montserrat, sans-serif);
+    font-style: var(--hero-text-font-style, normal);
+    font-weight: var(--hero-text-font-weight, 500);
+    font-size: 14px;
+    line-height: 1.25;
+    color: var(--hero-text, #000000);
+  }
+
+  .home-hero--align-center .home-hero__text {
+    max-width: min(100%, var(--hero-text-max, 411px));
+  }
+
+  .home-hero__button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 43px;
+    margin-top: 4px;
+    padding: 0.65rem 1.75rem;
+    border: 1px solid transparent;
+    border-radius: 15px;
+    background-image: linear-gradient(90deg, #121a43 0%, #2d42a9 100%);
+    color: #ffffff;
+    font-family: var(--hero-heading-font-family, Montserrat, sans-serif);
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 1.25;
+    text-decoration: none;
+  }
+
+  .home-hero__button--secondary {
+    background-image: none;
+    background-color: transparent;
+    border-color: #121a43;
+    color: #121a43;
+  }
+
+  .home-hero__button:focus-visible {
+    outline: 2px solid #121a43;
+    outline-offset: 3px;
+  }
+
+  .home-hero__button[aria-disabled='true'] {
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+
+  @media screen and (max-width: 989px) {
+    .home-hero__heading {
+      font-size: clamp(2rem, 4.6vw, var(--hero-heading-size, 48px));
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    .home-hero,
+    .home-hero--height-adapt,
+    .home-hero--height-small,
+    .home-hero--height-medium,
+    .home-hero--height-large {
+      display: flex;
+      flex-direction: column;
+      aspect-ratio: auto;
+      min-height: 0;
+    }
+
+    .home-hero__media {
+      position: relative;
+      inset: auto;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 16 / 10;
+    }
+
+    .home-hero__image {
+      object-position: 72% center;
+    }
+
+    .home-hero--has-mobile-image .home-hero__image {
+      object-position: center center;
+    }
+
+    .home-hero__inner {
+      width: 100%;
+      min-height: 0;
+      padding: 1.75rem 1.25rem 2.25rem;
+    }
+
+    .home-hero__heading {
+      font-size: var(--hero-heading-size-mobile, 32px);
+    }
+
+    .home-hero__eyebrow {
+      font-size: 12px;
+      letter-spacing: 2.4px;
+    }
+
+    .home-hero__text {
+      max-width: none;
+      font-size: 15px;
+      line-height: 1.5;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:sections.hero.name",
+  "tag": "div",
+  "class": "home-hero-section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "t:sections.hero.settings.image_header"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "t:sections.hero.settings.image",
+      "info": "t:sections.hero.settings.image_info"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_mobile",
+      "label": "t:sections.hero.settings.image_mobile",
+      "info": "t:sections.hero.settings.image_mobile_info"
+    },
+    {
+      "type": "text",
+      "id": "image_alt",
+      "label": "t:sections.hero.settings.image_alt",
+      "info": "t:sections.hero.settings.image_alt_info",
+      "default": "Riavâte micro infusion device and serum vials"
+    },
+    {
+      "type": "select",
+      "id": "image_height",
+      "label": "t:sections.hero.settings.image_height",
+      "options": [
+        {
+          "value": "adapt",
+          "label": "t:sections.hero.options.adapt"
+        },
+        {
+          "value": "small",
+          "label": "t:sections.hero.options.small"
+        },
+        {
+          "value": "medium",
+          "label": "t:sections.hero.options.medium"
+        },
+        {
+          "value": "large",
+          "label": "t:sections.hero.options.large"
+        }
+      ],
+      "default": "adapt"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.hero.settings.layout_header"
+    },
+    {
+      "type": "select",
+      "id": "content_alignment",
+      "label": "t:labels.alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "t:options.alignment.left"
+        },
+        {
+          "value": "center",
+          "label": "t:options.alignment.center"
+        }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "range",
+      "id": "horizontal_padding",
+      "min": 24,
+      "max": 240,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.hero.settings.horizontal_padding",
+      "default": 183
+    },
+    {
+      "type": "range",
+      "id": "content_max_width",
+      "min": 280,
+      "max": 720,
+      "step": 2,
+      "unit": "px",
+      "label": "t:sections.hero.settings.content_max_width",
+      "default": 494
+    },
+    {
+      "type": "range",
+      "id": "text_max_width",
+      "min": 240,
+      "max": 640,
+      "step": 2,
+      "unit": "px",
+      "label": "t:sections.hero.settings.text_max_width",
+      "default": 412
+    },
+    {
+      "type": "header",
+      "content": "t:general.typography"
+    },
+    {
+      "type": "font_picker",
+      "id": "heading_font",
+      "label": "t:sections.hero.settings.heading_font",
+      "default": "montserrat_n7"
+    },
+    {
+      "type": "font_picker",
+      "id": "text_font",
+      "label": "t:sections.hero.settings.text_font",
+      "default": "montserrat_n5"
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "min": 28,
+      "max": 72,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.hero.settings.heading_size",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "heading_size_mobile",
+      "min": 24,
+      "max": 48,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.hero.settings.heading_size_mobile",
+      "default": 32
+    },
+    {
+      "type": "header",
+      "content": "t:general.colors"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "t:sections.hero.settings.text_color",
+      "default": "#000000"
+    },
+    {
+      "type": "checkbox",
+      "id": "heading_gradient",
+      "label": "t:sections.hero.settings.heading_gradient",
+      "default": true
+    },
+    {
+      "type": "color",
+      "id": "gradient_start",
+      "label": "t:sections.hero.settings.gradient_start",
+      "default": "#121A43",
+      "visible_if": "{{ section.settings.heading_gradient }}"
+    },
+    {
+      "type": "color",
+      "id": "gradient_end",
+      "label": "t:sections.hero.settings.gradient_end",
+      "default": "#2D42A9",
+      "visible_if": "{{ section.settings.heading_gradient }}"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "t:sections.hero.settings.heading_color",
+      "default": "#121A43",
+      "visible_if": "{{ section.settings.heading_gradient == false }}"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "eyebrow",
+      "name": "t:sections.hero.blocks.eyebrow.name",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "t:sections.hero.blocks.eyebrow.text",
+          "default": "Precision scalp care"
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "name": "t:sections.hero.blocks.heading.name",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "t:sections.hero.blocks.heading.heading",
+          "default": "A new standard in scalp care."
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "name": "t:sections.hero.blocks.text.name",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "t:sections.hero.blocks.text.text",
+          "default": "Meet Riavâte — a precision-led approach to modern scalp care, combining controlled 0.5 mm micro-infusion technology with Cuprofuse®, our concentrated serum led by GHK-Cu and a precisely configured combination of targeted scalp-care ingredients."
+        }
+      ]
+    },
+    {
+      "type": "button",
+      "name": "t:sections.hero.blocks.button.name",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "t:sections.hero.blocks.button.label",
+          "default": "Shop the kit"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "t:sections.hero.blocks.button.link"
+        },
+        {
+          "type": "select",
+          "id": "style",
+          "label": "t:sections.hero.blocks.button.style",
+          "options": [
+            {
+              "value": "primary",
+              "label": "t:sections.hero.options.primary"
+            },
+            {
+              "value": "secondary",
+              "label": "t:sections.hero.options.secondary"
+            }
+          ],
+          "default": "primary"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.hero.name",
+      "blocks": [
+        {
+          "type": "eyebrow",
+          "settings": {
+            "text": "PRECISION SCALP CARE"
+          }
+        },
+        {
+          "type": "heading",
+          "settings": {
+            "heading": "A NEW STANDARD IN SCALP CARE."
+          }
+        },
+        {
+          "type": "text",
+          "settings": {
+            "text": "Meet Riavâte — a precision-led approach to modern scalp care, combining controlled 0.5 mm micro-infusion technology with Cuprofuse®, our concentrated serum led by GHK-Cu and a precisely configured combination of targeted scalp-care ingredients."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

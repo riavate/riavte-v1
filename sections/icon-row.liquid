@@ -1,0 +1,179 @@
+<section
+  class="icon-row"
+  style="--icon-row-bg: {{ section.settings.background }}; --icon-row-text: {{ section.settings.text_color }};"
+>
+  <ul class="icon-row__list">
+    {%- for block in section.blocks -%}
+      <li class="icon-row__item" {{ block.shopify_attributes }}>
+        <span class="icon-row__icon">
+          {%- if block.settings.image != blank -%}
+            {{
+              block.settings.image
+              | image_url: width: 80
+              | image_tag: widths: '40, 80', sizes: '28px', alt: '', class: 'icon-row__image'
+            }}
+          {%- else -%}
+            {%- case block.settings.icon -%}
+              {%- when 'precision' -%}
+                <img src="{{ 'icon-precision.svg' | asset_url }}" alt="" width="30" height="27">
+              {%- when 'scalp' -%}
+                <img src="{{ 'icon-scalp.svg' | asset_url }}" alt="" width="28" height="28">
+              {%- when 'peptide' -%}
+                <img src="{{ 'icon-peptide.svg' | asset_url }}" alt="" width="28" height="28">
+              {%- when 'lab' -%}
+                <img src="{{ 'icon-lab.svg' | asset_url }}" alt="" width="28" height="28">
+              {%- else -%}
+                <img src="{{ 'icon-serum.svg' | asset_url }}" alt="" width="28" height="28">
+            {%- endcase -%}
+          {%- endif -%}
+        </span>
+        <span class="icon-row__copy">
+          <span class="icon-row__title">{{ block.settings.title | escape }}</span>
+          <span class="icon-row__text">{{ block.settings.text | escape }}</span>
+        </span>
+      </li>
+    {%- endfor -%}
+  </ul>
+</section>
+
+{% stylesheet %}
+  .icon-row {
+    background: var(--icon-row-bg, #f7f7f7);
+    color: var(--icon-row-text, #111111);
+  }
+
+  .icon-row__list {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 1.25rem 1rem;
+    width: min(1180px, calc(100% - 2.5rem));
+    margin: 0 auto;
+    padding: 1.35rem 0;
+    list-style: none;
+  }
+
+  .icon-row__item {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    min-width: 0;
+  }
+
+  .icon-row__icon {
+    display: flex;
+    flex: 0 0 auto;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+  }
+
+  .icon-row__icon img,
+  .icon-row__image {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+  }
+
+  .icon-row__copy {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    min-width: 0;
+  }
+
+  .icon-row__title {
+    font-size: 12px;
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+  }
+
+  .icon-row__text {
+    font-size: 11px;
+    font-weight: 500;
+    line-height: 1.3;
+  }
+
+  @media screen and (max-width: 989px) {
+    .icon-row__list {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    .icon-row__list {
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem 0.75rem;
+      padding: 1.25rem 0;
+    }
+
+    .icon-row__item:last-child:nth-child(odd) {
+      grid-column: 1 / -1;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:sections.icon_row.name",
+  "settings": [
+    {
+      "type": "color",
+      "id": "background",
+      "label": "t:labels.background",
+      "default": "#F7F7F7"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "t:sections.icon_row.settings.text_color",
+      "default": "#111111"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "t:sections.icon_row.blocks.item.name",
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "t:sections.icon_row.blocks.item.icon",
+          "options": [
+            { "value": "precision", "label": "t:sections.icon_row.options.precision" },
+            { "value": "scalp", "label": "t:sections.icon_row.options.scalp" },
+            { "value": "peptide", "label": "t:sections.icon_row.options.peptide" },
+            { "value": "lab", "label": "t:sections.icon_row.options.lab" },
+            { "value": "serum", "label": "t:sections.icon_row.options.serum" }
+          ],
+          "default": "precision"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "t:sections.icon_row.blocks.item.image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "t:sections.icon_row.blocks.item.title",
+          "default": "0.5 mm"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "t:sections.icon_row.blocks.item.text",
+          "default": "Precision infusion"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.icon_row.name"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,1387 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Riavâte home</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0}
+body{font-family:Montserrat,sans-serif;color:#111;background:#fff}
+img{display:block;max-width:100%}
+p:empty{display:none}
+
+  .site-header {
+    position: relative;
+    z-index: 20;
+    background: #ffffff;
+    color: #111111;
+  }
+
+  .site-header__bar {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 1rem;
+    min-height: 86px;
+    width: min(1440px, 100%);
+    margin-inline: auto;
+    padding-inline: clamp(1.25rem, 8vw, 7.125rem);
+  }
+
+  .site-header__logo {
+    justify-self: start;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .site-header__logo-image {
+    width: auto;
+    height: 27px;
+    max-width: 160px;
+  }
+
+  .site-header__nav {
+    justify-self: center;
+  }
+
+  .site-header__menu {
+    display: flex;
+    align-items: center;
+    gap: clamp(1rem, 2.4vw, 2.4rem);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .site-header__menu a {
+    color: #111111;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 1.4;
+    text-decoration: none;
+  }
+
+  .site-header__menu a[aria-current='page'] {
+    font-weight: 600;
+  }
+
+  .site-header__menu a:hover,
+  .site-header__menu a:focus-visible {
+    color: #2d42a9;
+  }
+
+  .site-header__actions {
+    justify-self: end;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .site-header__cart {
+    position: relative;
+    display: flex;
+    color: #121a43;
+    text-decoration: none;
+  }
+
+  .site-header__cart svg {
+    width: 28px;
+    height: 28px;
+  }
+
+  .site-header__count {
+    position: absolute;
+    top: -6px;
+    right: -8px;
+    min-width: 16px;
+    height: 16px;
+    padding: 0 4px;
+    border-radius: 999px;
+    background: #121a43;
+    color: #ffffff;
+    font-size: 10px;
+    line-height: 16px;
+    text-align: center;
+  }
+
+  .site-header__toggle {
+    display: none;
+    width: 42px;
+    height: 42px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+  }
+
+  .site-header__toggle-lines,
+  .site-header__toggle-lines::before,
+  .site-header__toggle-lines::after {
+    display: block;
+    width: 18px;
+    height: 1.5px;
+    background: #121a43;
+    content: '';
+  }
+
+  .site-header__toggle-lines {
+    position: relative;
+    margin-inline: auto;
+  }
+
+  .site-header__toggle-lines::before,
+  .site-header__toggle-lines::after {
+    position: absolute;
+    left: 0;
+  }
+
+  .site-header__toggle-lines::before {
+    top: -6px;
+  }
+
+  .site-header__toggle-lines::after {
+    top: 6px;
+  }
+
+  .site-header.is-open .site-header__toggle-lines {
+    background: transparent;
+  }
+
+  .site-header.is-open .site-header__toggle-lines::before {
+    top: 0;
+    transform: rotate(45deg);
+  }
+
+  .site-header.is-open .site-header__toggle-lines::after {
+    top: 0;
+    transform: rotate(-45deg);
+  }
+
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  @media screen and (max-width: 989px) {
+    .site-header__bar {
+      grid-template-columns: auto 1fr auto;
+      min-height: 72px;
+    }
+
+    .site-header__toggle {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .site-header__nav {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      justify-self: stretch;
+      width: 100%;
+      background: #ffffff;
+      border-top: 1px solid #ececec;
+      box-shadow: 0 16px 30px rgba(0, 0, 0, 0.06);
+    }
+
+    .site-header.is-open .site-header__nav {
+      display: block;
+    }
+
+    .site-header__menu {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0;
+      padding: 0.5rem 0 0.75rem;
+    }
+
+    .site-header__menu a {
+      display: block;
+      padding: 0.9rem 1.25rem;
+      font-size: 16px;
+    }
+  }
+
+
+  .home-hero {
+    position: relative;
+    isolation: isolate;
+    width: 100%;
+    background-color: #ffffff;
+    color: var(--hero-text, #000000);
+  }
+
+  .home-hero--height-adapt {
+    aspect-ratio: 1440 / 650;
+  }
+
+  .home-hero--height-small {
+    min-height: 420px;
+  }
+
+  .home-hero--height-medium {
+    min-height: 560px;
+  }
+
+  .home-hero--height-large {
+    min-height: 650px;
+  }
+
+  .home-hero__media {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+  }
+
+  .home-hero__media picture,
+  .home-hero__media img {
+    width: 100%;
+    height: 100%;
+  }
+
+  .home-hero__image {
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    object-fit: cover;
+    object-position: center center;
+  }
+
+  .home-hero__inner {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    width: min(100%, 1440px);
+    min-height: 100%;
+    margin-inline: auto;
+    padding-block: 2.5rem;
+    padding-inline: clamp(1.25rem, calc(var(--hero-pad-x, 183) * 100% / 1440), calc(var(--hero-pad-x, 183) * 1px));
+  }
+
+  .home-hero--align-center .home-hero__inner {
+    justify-content: center;
+  }
+
+  .home-hero__content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    width: min(100%, var(--hero-content-max, 494px));
+    text-align: left;
+  }
+
+  .home-hero--align-center .home-hero__content {
+    align-items: center;
+    text-align: center;
+  }
+
+  .home-hero__eyebrow {
+    margin: 0;
+    font-family: var(--hero-text-font-family, Montserrat, sans-serif);
+    font-style: var(--hero-text-font-style, normal);
+    font-weight: var(--hero-text-font-weight, 500);
+    font-size: 15px;
+    line-height: 1.27;
+    letter-spacing: 3.9px;
+    text-transform: uppercase;
+    color: var(--hero-text, #000000);
+  }
+
+  .home-hero__heading {
+    margin: 0;
+    max-width: 100%;
+    font-family: var(--hero-heading-font-family, Montserrat, sans-serif);
+    font-style: var(--hero-heading-font-style, normal);
+    font-weight: var(--hero-heading-font-weight, 700);
+    font-size: var(--hero-heading-size, 48px);
+    line-height: 1.22;
+    letter-spacing: 0;
+    color: var(--hero-gradient-start, #121a43);
+  }
+
+  @supports (background-clip: text) or (-webkit-background-clip: text) {
+    .home-hero__heading {
+      background-image: linear-gradient(
+        90deg,
+        var(--hero-gradient-start, #121a43) 0%,
+        var(--hero-gradient-end, #2d42a9) 100%
+      );
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+  }
+
+  .home-hero__heading--solid {
+    background-image: none;
+    color: var(--hero-heading-color, #121a43);
+    -webkit-text-fill-color: currentcolor;
+  }
+
+  .home-hero__text {
+    margin: 0;
+    max-width: var(--hero-text-max, 411px);
+    font-family: var(--hero-text-font-family, Montserrat, sans-serif);
+    font-style: var(--hero-text-font-style, normal);
+    font-weight: var(--hero-text-font-weight, 500);
+    font-size: 14px;
+    line-height: 1.25;
+    color: var(--hero-text, #000000);
+  }
+
+  .home-hero--align-center .home-hero__text {
+    max-width: min(100%, var(--hero-text-max, 411px));
+  }
+
+  .home-hero__button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 43px;
+    margin-top: 4px;
+    padding: 0.65rem 1.75rem;
+    border: 1px solid transparent;
+    border-radius: 15px;
+    background-image: linear-gradient(90deg, #121a43 0%, #2d42a9 100%);
+    color: #ffffff;
+    font-family: var(--hero-heading-font-family, Montserrat, sans-serif);
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 1.25;
+    text-decoration: none;
+  }
+
+  .home-hero__button--secondary {
+    background-image: none;
+    background-color: transparent;
+    border-color: #121a43;
+    color: #121a43;
+  }
+
+  .home-hero__button:focus-visible {
+    outline: 2px solid #121a43;
+    outline-offset: 3px;
+  }
+
+  .home-hero__button[aria-disabled='true'] {
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+
+  @media screen and (max-width: 989px) {
+    .home-hero__heading {
+      font-size: clamp(2rem, 4.6vw, var(--hero-heading-size, 48px));
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    .home-hero,
+    .home-hero--height-adapt,
+    .home-hero--height-small,
+    .home-hero--height-medium,
+    .home-hero--height-large {
+      display: flex;
+      flex-direction: column;
+      aspect-ratio: auto;
+      min-height: 0;
+    }
+
+    .home-hero__media {
+      position: relative;
+      inset: auto;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 16 / 10;
+    }
+
+    .home-hero__image {
+      object-position: 72% center;
+    }
+
+    .home-hero--has-mobile-image .home-hero__image {
+      object-position: center center;
+    }
+
+    .home-hero__inner {
+      width: 100%;
+      min-height: 0;
+      padding: 1.75rem 1.25rem 2.25rem;
+    }
+
+    .home-hero__heading {
+      font-size: var(--hero-heading-size-mobile, 32px);
+    }
+
+    .home-hero__eyebrow {
+      font-size: 12px;
+      letter-spacing: 2.4px;
+    }
+
+    .home-hero__text {
+      max-width: none;
+      font-size: 15px;
+      line-height: 1.5;
+    }
+  }
+
+
+  .icon-row {
+    background: var(--icon-row-bg, #f7f7f7);
+    color: var(--icon-row-text, #111111);
+  }
+
+  .icon-row__list {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 1.25rem 1rem;
+    width: min(1180px, calc(100% - 2.5rem));
+    margin: 0 auto;
+    padding: 1.35rem 0;
+    list-style: none;
+  }
+
+  .icon-row__item {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    min-width: 0;
+  }
+
+  .icon-row__icon {
+    display: flex;
+    flex: 0 0 auto;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+  }
+
+  .icon-row__icon img,
+  .icon-row__image {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+  }
+
+  .icon-row__copy {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    min-width: 0;
+  }
+
+  .icon-row__title {
+    font-size: 12px;
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+  }
+
+  .icon-row__text {
+    font-size: 11px;
+    font-weight: 500;
+    line-height: 1.3;
+  }
+
+  @media screen and (max-width: 989px) {
+    .icon-row__list {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    .icon-row__list {
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem 0.75rem;
+      padding: 1.25rem 0;
+    }
+
+    .icon-row__item:last-child:nth-child(odd) {
+      grid-column: 1 / -1;
+    }
+  }
+
+
+  .precision {
+    padding: 4.5rem 0 3.5rem;
+    background: #ffffff;
+    color: #111111;
+  }
+
+  .precision__intro {
+    width: min(780px, calc(100% - 2.5rem));
+    margin: 0 auto 2.5rem;
+    text-align: center;
+  }
+
+  .precision__heading {
+    margin: 0;
+    font-size: clamp(1.75rem, 3vw, 2.25rem);
+    font-weight: 700;
+    line-height: 1.2;
+    background-image: linear-gradient(90deg, #000000 16%, #2d42a9 85%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+
+  .precision__eyebrow {
+    margin: 0.75rem 0 0;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 3.64px;
+    text-transform: uppercase;
+  }
+
+  .precision__text {
+    margin: 0.85rem auto 0;
+    max-width: 46rem;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.45;
+  }
+
+  .precision__stage {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(180px, 320px) minmax(0, 1fr);
+    grid-template-areas:
+      "top-left media top-right"
+      "bottom-left media bottom-right";
+    gap: 1.75rem 1.5rem;
+    align-items: center;
+    width: min(1100px, calc(100% - 2.5rem));
+    margin-inline: auto;
+  }
+
+  .precision__media {
+    grid-area: media;
+  }
+
+  .precision__image {
+    width: 100%;
+    height: auto;
+    max-height: 420px;
+    margin-inline: auto;
+    object-fit: contain;
+  }
+
+  .precision__point h3 {
+    margin: 0;
+    font-size: 15px;
+    font-weight: 800;
+    line-height: 1.3;
+  }
+
+  .precision__point p {
+    margin: 0.45rem 0 0;
+    max-width: 16rem;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.45;
+  }
+
+  .precision__point--top-left { grid-area: top-left; }
+  .precision__point--bottom-left { grid-area: bottom-left; }
+  .precision__point--top-right { grid-area: top-right; text-align: right; }
+  .precision__point--bottom-right { grid-area: bottom-right; text-align: right; }
+
+  .precision__point--top-right p,
+  .precision__point--bottom-right p {
+    margin-left: auto;
+  }
+
+  @media screen and (max-width: 989px) {
+    .precision__stage {
+      grid-template-columns: 1fr 1fr;
+      grid-template-areas:
+        "media media"
+        "top-left top-right"
+        "bottom-left bottom-right";
+    }
+
+    .precision__image {
+      max-height: 320px;
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    .precision {
+      padding: 3rem 0 2.5rem;
+    }
+
+    .precision__stage {
+      grid-template-columns: 1fr;
+      grid-template-areas:
+        "media"
+        "top-left"
+        "top-right"
+        "bottom-left"
+        "bottom-right";
+    }
+
+    .precision__point,
+    .precision__point--top-right,
+    .precision__point--bottom-right {
+      text-align: left;
+    }
+
+    .precision__point p,
+    .precision__point--top-right p,
+    .precision__point--bottom-right p {
+      margin-left: 0;
+      max-width: none;
+    }
+  }
+
+
+  .media-text {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: clamp(1.5rem, 4vw, 4rem);
+    align-items: center;
+    width: min(1180px, calc(100% - 2.5rem));
+    margin-inline: auto;
+    padding-block: var(--media-pad, 72px);
+  }
+
+  .media-text--right .media-text__content {
+    order: -1;
+  }
+
+  .media-text__image {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: 16px;
+  }
+
+  .media-text__content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.85rem;
+    max-width: 32rem;
+  }
+
+  .media-text__eyebrow,
+  .media-text__subheading {
+    margin: 0;
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 3.9px;
+    text-transform: uppercase;
+  }
+
+  .media-text__heading {
+    margin: 0;
+    font-size: var(--media-heading-size, 48px);
+    font-weight: 700;
+    line-height: 1.15;
+    background-image: linear-gradient(90deg, #121a43 0%, #2d42a9 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+
+  .media-text__text {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.5;
+  }
+
+  .media-text__text p {
+    margin: 0 0 0.75rem;
+  }
+
+  .media-text__text p:last-child {
+    margin-bottom: 0;
+  }
+
+  .media-text__caption {
+    margin: 0;
+    color: #0037ae;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1.45;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .media-text__button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 43px;
+    margin-top: 0.4rem;
+    padding: 0.65rem 1.6rem;
+    border-radius: 15px;
+    background-image: linear-gradient(90deg, #121a43 0%, #2d42a9 100%);
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.2;
+    text-decoration: none;
+  }
+
+  .media-text__button:focus-visible {
+    outline: 2px solid #121a43;
+    outline-offset: 3px;
+  }
+
+  @media screen and (max-width: 989px) {
+    .media-text,
+    .media-text--left {
+      grid-template-columns: 1fr;
+    }
+
+    .media-text--left .media-text__content,
+    .media-text--right .media-text__content {
+      order: 2;
+    }
+
+    .media-text__media {
+      order: 1;
+    }
+
+    .media-text__heading {
+      font-size: clamp(1.75rem, 4vw, var(--media-heading-size, 48px));
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    .media-text,
+    .media-text--left {
+      padding-block: 2.5rem;
+    }
+
+    .media-text__heading {
+      font-size: var(--media-heading-size-mobile, 32px);
+    }
+
+    .media-text__image {
+      aspect-ratio: 4 / 3;
+    }
+  }
+
+
+  .peptide {
+    padding: 4.5rem 1.25rem 4rem;
+    color: #ffffff;
+    background-image: linear-gradient(124deg, #000000 8%, #021433 48%, #0037ae 100%);
+  }
+
+  .peptide__intro {
+    width: min(640px, 100%);
+    margin: 0 auto 2.75rem;
+    text-align: center;
+  }
+
+  .peptide__eyebrow {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 3.64px;
+    text-transform: uppercase;
+  }
+
+  .peptide__heading {
+    margin: 0.65rem 0 0;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 700;
+    line-height: 1.05;
+  }
+
+  .peptide__text {
+    margin-top: 1rem;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.5;
+  }
+
+  .peptide__text p {
+    margin: 0 0 0.35rem;
+  }
+
+  .peptide__grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1.5rem;
+    width: min(1120px, 100%);
+    margin: 0 auto;
+    padding: 0;
+    list-style: none;
+  }
+
+  .peptide__item {
+    text-align: center;
+  }
+
+  .peptide__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 76px;
+    margin-bottom: 0.85rem;
+  }
+
+  .peptide__icon img,
+  .peptide__icon-image {
+    width: 72px;
+    height: 72px;
+    object-fit: contain;
+  }
+
+  .peptide__item h3 {
+    margin: 0;
+    font-size: 15px;
+    font-weight: 800;
+    line-height: 1.3;
+  }
+
+  .peptide__item p {
+    margin: 0.55rem auto 0;
+    max-width: 16rem;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.45;
+  }
+
+  @media screen and (max-width: 989px) {
+    .peptide__grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem 1rem;
+    }
+  }
+
+  @media screen and (max-width: 549px) {
+    .peptide {
+      padding: 3rem 1.25rem;
+    }
+
+    .peptide__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+
+  .results {
+    padding: 4.5rem 0 4rem;
+    background: #ffffff;
+  }
+
+  .results__heading {
+    width: min(640px, calc(100% - 2.5rem));
+    margin: 0 auto 2rem;
+    text-align: center;
+    font-size: clamp(1.75rem, 3vw, 2.25rem);
+    font-weight: 700;
+    line-height: 1.2;
+    background-image: linear-gradient(90deg, #000000 16%, #2d42a9 85%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+
+  .results__grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.5rem;
+    width: min(1080px, calc(100% - 2.5rem));
+    margin: 0 auto;
+    padding: 0;
+    list-style: none;
+  }
+
+  .results__card {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border-radius: 19px;
+    background: #f6f6f6;
+  }
+
+  .results__photo {
+    aspect-ratio: 320 / 210;
+    overflow: hidden;
+  }
+
+  .results__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .results__body {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 1rem 1.1rem 1.1rem;
+  }
+
+  .results__meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+  }
+
+  .results__name {
+    margin: 0;
+    font-size: 12px;
+    font-weight: 500;
+  }
+
+  .results__badge {
+    margin: 0;
+    padding: 0.25rem 0.45rem;
+    border-radius: 5px;
+    background: #c3f6bd;
+    font-size: 8px;
+    font-weight: 500;
+    line-height: 1.2;
+    white-space: nowrap;
+  }
+
+  .results__quote {
+    flex: 1;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1.45;
+  }
+
+  .results__quote p {
+    margin: 0 0 0.45rem;
+  }
+
+  .results__quote p:first-child {
+    font-size: 13px;
+  }
+
+  .results__product {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    padding: 0.45rem;
+    border-radius: 5px;
+    background: #ffffff;
+  }
+
+  .results__product img {
+    width: 42px;
+    height: 42px;
+    border-radius: 5px;
+    object-fit: cover;
+  }
+
+  .results__product p {
+    margin: 0;
+    font-size: 10px;
+    line-height: 1.35;
+  }
+
+  @media screen and (max-width: 989px) {
+    .results__grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    .results {
+      padding: 3rem 0;
+    }
+
+    .results__grid {
+      grid-template-columns: 1fr;
+      max-width: 420px;
+    }
+  }
+
+
+  .reviews {
+    padding: 1rem 0 4.5rem;
+    background: #ffffff;
+  }
+
+  .reviews__card {
+    width: min(1063px, calc(100% - 2.5rem));
+    margin-inline: auto;
+    padding: 2rem 1.5rem 1.5rem;
+    border-radius: 16px;
+    background: #ffffff;
+    box-shadow: 4px 7px 16px rgba(0, 0, 0, 0.12);
+  }
+
+  .reviews__heading {
+    margin: 0 0 1.25rem;
+    text-align: center;
+    font-size: clamp(1.6rem, 3vw, 2rem);
+    font-weight: 700;
+    background-image: linear-gradient(90deg, #121a43 0%, #2d42a9 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+
+  .reviews__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .reviews__score,
+  .reviews__count {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  .reviews__count {
+    margin-top: 0.2rem;
+  }
+
+  .reviews__badge {
+    display: inline-block;
+    margin: 0.55rem 0 0;
+    padding: 0.28rem 0.5rem;
+    border-radius: 5px;
+    background: #c3f6bd;
+    font-size: 8px;
+    font-weight: 500;
+  }
+
+  .reviews__button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 43px;
+    padding: 0.6rem 1.4rem;
+    border: 1px solid #121a43;
+    border-radius: 15px;
+    background: transparent;
+    color: #121a43;
+    font-size: 16px;
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  .reviews__thumbs {
+    display: grid;
+    grid-template-columns: repeat(8, minmax(0, 1fr));
+    gap: 0.7rem;
+    margin: 1.4rem 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .reviews__thumb {
+    width: 100%;
+    height: 81px;
+    border-radius: 16px;
+    object-fit: cover;
+  }
+
+  .reviews__more {
+    margin: 0.85rem 0 0;
+    text-align: right;
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  .reviews__more a {
+    color: inherit;
+  }
+
+  @media screen and (max-width: 989px) {
+    .reviews__thumbs {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    .reviews {
+      padding-bottom: 3rem;
+    }
+
+    .reviews__top {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .reviews__thumbs {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .reviews__thumb {
+      height: 72px;
+      border-radius: 12px;
+    }
+  }
+
+
+  .site-footer {
+    color: #ffffff;
+    background-image: linear-gradient(124deg, #000000 11%, #0037ae 87%);
+  }
+
+  .site-footer a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .site-footer__inner {
+    display: grid;
+    grid-template-columns: minmax(220px, 1.4fr) repeat(3, minmax(140px, 1fr));
+    gap: 2.5rem 2rem;
+    width: min(1120px, calc(100% - 2.5rem));
+    margin-inline: auto;
+    padding: 4.5rem 0 1.5rem;
+  }
+
+  .site-footer__logo-image {
+    width: auto;
+    height: 37px;
+    max-width: 212px;
+  }
+
+  .site-footer__tagline {
+    margin: 1.4rem 0 0;
+    font-size: 15px;
+    font-weight: 800;
+    line-height: 1.4;
+  }
+
+  .site-footer__text {
+    max-width: 20rem;
+    margin: 0.85rem 0 0;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 1.45;
+  }
+
+  .site-footer__contact-label {
+    margin: 1.6rem 0 0.45rem;
+    font-size: 15px;
+    font-weight: 800;
+  }
+
+  .site-footer__contact {
+    display: block;
+    margin-top: 0.35rem;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1.5;
+  }
+
+  .site-footer__heading {
+    margin: 0 0 0.9rem;
+    font-size: 15px;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+  }
+
+  .site-footer__links {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .site-footer__links a {
+    display: inline-block;
+    padding: 0.35rem 0;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 1.4;
+    text-transform: capitalize;
+  }
+
+  .site-footer__links a:hover,
+  .site-footer__links a:focus-visible,
+  .site-footer__contact:hover,
+  .site-footer__contact:focus-visible {
+    text-decoration: underline;
+  }
+
+  .site-footer__social {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    width: min(1120px, calc(100% - 2.5rem));
+    margin-inline: auto;
+    padding: 0 0 3rem;
+  }
+
+  .site-footer__social img {
+    width: 35px;
+    height: 35px;
+    object-fit: contain;
+  }
+
+  @media screen and (max-width: 989px) {
+    .site-footer__inner {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .site-footer__brand {
+      grid-column: 1 / -1;
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    .site-footer__inner {
+      grid-template-columns: 1fr;
+      padding-top: 3rem;
+    }
+  }
+
+.home-hero{--hero-pad-x:183;--hero-content-max:494px;--hero-text-max:412px;--hero-heading-size:48px;--hero-heading-size-mobile:32px;--hero-gradient-start:#121A43;--hero-gradient-end:#2D42A9;--hero-text:#000;--hero-heading-font-family:Montserrat,sans-serif;--hero-heading-font-weight:700;--hero-text-font-family:Montserrat,sans-serif;--hero-text-font-weight:500}
+</style>
+</head>
+<body>
+<header class="site-header" data-header>
+  <div class="site-header__bar">
+    <a class="site-header__logo" href="#"><img class="site-header__logo-image" src="/assets/logo.png" alt="Riavâte" width="156" height="27"></a>
+    <nav class="site-header__nav" id="nav"><ul class="site-header__menu">
+      <li><a href="/">Home</a></li><li><a href="#">About</a></li><li><a href="/kit.html">The Kit</a></li><li><a href="#">Science</a></li><li><a href="#">Ingredients</a></li>
+    </ul></nav>
+    <div class="site-header__actions">
+      <a class="site-header__cart" href="#" aria-label="Cart"><svg width="28" height="28" viewBox="0 0 28 28"><path d="M7 8h14l-1.2 12.2a2 2 0 0 1-2 1.8H10.2a2 2 0 0 1-2-1.8L7 8Z" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10.5 8V6.8A3.5 3.5 0 0 1 14 3.3a3.5 3.5 0 0 1 3.5 3.5V8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></a>
+      <button class="site-header__toggle" type="button" data-menu-toggle aria-expanded="false" aria-controls="nav"><span class="site-header__toggle-lines"></span></button>
+    </div>
+  </div>
+</header>
+<section class="home-hero home-hero--height-adapt home-hero--align-left">
+  <div class="home-hero__media"><img class="home-hero__image" src="/assets/hero-home.jpg" alt="" width="1866" height="843"></div>
+  <div class="home-hero__inner"><div class="home-hero__content">
+    <p class="home-hero__eyebrow">PRECISION SCALP CARE</p>
+    <h1 class="home-hero__heading">A NEW STANDARD IN SCALP CARE.</h1>
+    <p class="home-hero__text">Meet Riavâte — a precision-led approach to modern scalp care, combining controlled 0.5 mm micro-infusion technology with Cuprofuse®, our concentrated serum led by GHK-Cu and a precisely configured combination of targeted scalp-care ingredients.</p>
+  </div></div>
+</section>
+<section class="icon-row">
+  <ul class="icon-row__list">
+    <li class="icon-row__item"><span class="icon-row__icon"><img src="/assets/icon-precision.svg" alt="" width="30" height="27"></span><span class="icon-row__copy"><span class="icon-row__title">0.5 MM</span><span class="icon-row__text">Precision Infusion</span></span></li>
+    <li class="icon-row__item"><span class="icon-row__icon"><img src="/assets/icon-scalp.svg" alt="" width="28" height="28"></span><span class="icon-row__copy"><span class="icon-row__title">SCALP-FOCUSED</span><span class="icon-row__text">Targeted Formula</span></span></li>
+    <li class="icon-row__item"><span class="icon-row__icon"><img src="/assets/icon-peptide.svg" alt="" width="28" height="28"></span><span class="icon-row__copy"><span class="icon-row__title">GHK-Cu</span><span class="icon-row__text">Hero Copper Peptide</span></span></li>
+    <li class="icon-row__item"><span class="icon-row__icon"><img src="/assets/icon-lab.svg" alt="" width="28" height="28"></span><span class="icon-row__copy"><span class="icon-row__title">LAB TESTED</span><span class="icon-row__text">Quality & Consistency</span></span></li>
+    <li class="icon-row__item"><span class="icon-row__icon"><img src="/assets/icon-serum.svg" alt="" width="28" height="28"></span><span class="icon-row__copy"><span class="icon-row__title">CUPROFUSE®</span><span class="icon-row__text">Concentrated Serum</span></span></li>
+  </ul>
+</section>
+<section class="precision">
+  <div class="precision__intro">
+    <h2 class="precision__heading">0.5 MM PRECISION</h2>
+    <p class="precision__eyebrow">MICRO-INFUSION</p>
+    <p class="precision__text">Engineered for controlled, targeted scalp application, Riavâte’s 0.5 mm micro-infusion system uses precision micro-touchpoints to apply the cosmetic formula consistently across the scalp.</p>
+  </div>
+  <div class="precision__stage">
+    <div class="precision__media"><img class="precision__image" src="/assets/precision-device.jpg" alt=""></div>
+    <article class="precision__point precision__point--top-left"><h3>EVEN DISTRIBUTION</h3><p>Helps distribute the cosmetic serum consistently across the treatment area.</p></article>
+    <article class="precision__point precision__point--top-right"><h3>0.5 MM PRECISION</h3><p>Designed for controlled and consistent micro-infusion application.</p></article>
+    <article class="precision__point precision__point--bottom-left"><h3>GOLD-PLATED TIPS</h3><p>Precision micro-touchpoints engineered for a refined application experience.</p></article>
+    <article class="precision__point precision__point--bottom-right"><h3>TARGETED APPLICATION</h3><p>Helps apply the formula precisely across targeted areas of the scalp.</p></article>
+  </div>
+</section>
+<section class="media-text media-text--right" style="--media-heading-size:48px;--media-heading-size-mobile:36px;--media-pad:72px">
+  <div class="media-text__media"><img class="media-text__image" src="/assets/cuprofuse.jpg" alt=""></div>
+  <div class="media-text__content">
+    <p class="media-text__eyebrow">INTRODUCING</p>
+    <h2 class="media-text__heading">CUPROFUSE®</h2>
+    <p class="media-text__subheading">OUR CONCENTRATED SERUM</p>
+    <div class="media-text__text"><p>More than a single hero ingredient. Cuprofuse® brings GHK-Cu together with a precisely configured combination of selected molecules and scalp-care ingredients in one concentrated formula.</p></div>
+    <a class="media-text__button" href="#">DISCOVER CUPROFUSE® →</a>
+  </div>
+</section>
+<section class="peptide">
+  <div class="peptide__intro">
+    <p class="peptide__eyebrow">OUR HERO PEPTIDE</p>
+    <h2 class="peptide__heading">GHK-Cu</h2>
+    <div class="peptide__text"><p>COPPER TRIPEPTIDE-1</p><p>At the heart of Riavâte is GHK-Cu (Copper Tripeptide-1) — a copper peptide selected as the hero of our science-led scalp-care formula.</p></div>
+  </div>
+  <ul class="peptide__grid">
+    <li class="peptide__item"><span class="peptide__icon"><img src="/assets/icon-scalp-health.png" alt=""></span><h3>SCALP CONDITION</h3><p>Helps support a healthy-looking, well-conditioned scalp.</p></li>
+    <li class="peptide__item"><span class="peptide__icon"><img src="/assets/icon-fuller.png" alt=""></span><h3>FULLER APPEARANCE</h3><p>Supports the appearance of fuller and healthier-looking hair.</p></li>
+    <li class="peptide__item"><span class="peptide__icon"><img src="/assets/icon-molecule.png" alt=""></span><h3>PEPTIDE POWER</h3><p>A copper peptide at the heart of Riavâte’s targeted cosmetic formula.</p></li>
+    <li class="peptide__item"><span class="peptide__icon"><img src="/assets/icon-apply.png" alt=""></span><h3>TARGETED FORMULA</h3><p>Combined with selected actives for a considered approach to scalp care.</p></li>
+  </ul>
+</section>
+<section class="media-text media-text--right" style="--media-heading-size:32px;--media-heading-size-mobile:28px;--media-pad:72px">
+  <div class="media-text__media"><img class="media-text__image" src="/assets/scalp-diagram.jpg" alt=""></div>
+  <div class="media-text__content">
+    <h2 class="media-text__heading">PRECISION, BEYOND THE SURFACE.</h2>
+    <div class="media-text__text"><p>RIAVÂTE combines controlled 0.5 mm micro-infusion with a GHK-Cu powered cosmetic formula for precise, targeted scalp application.</p><p>Designed to support scalp condition and the appearance of stronger, fuller and healthier-looking hair.</p></div>
+    <p class="media-text__caption">0.5 MM MICRO-INFUSION · CUPROFUSE® CONCENTRATED SERUM · TARGETED SCALP CARE</p>
+  </div>
+</section>
+<section class="results">
+  <h2 class="results__heading">Real Results. Visible Difference.</h2>
+  <ul class="results__grid">
+    <li class="results__card"><div class="results__photo"><img class="results__image" src="/assets/result-sarah.jpg" alt=""></div><div class="results__body"><div class="results__meta"><p class="results__name">Sarah M.</p><p class="results__badge">✓ Verified customer</p></div><div class="results__quote"><p>“My hair looks noticeably fuller.”</p><p>I’ve been consistent with my Riavâte routine and I’m really pleased with how my hair looks and feels.</p></div><div class="results__product"><img src="/assets/kit-thumb.jpg" alt=""><p><strong>Sarah uses</strong><br>Riavâte Hair Micro-Infusion Kit</p></div></div></li>
+    <li class="results__card"><div class="results__photo"><img class="results__image" src="/assets/result-daniel.jpg" alt=""></div><div class="results__body"><div class="results__meta"><p class="results__name">Daniel R.</p><p class="results__badge">✓ Verified customer</p></div><div class="results__quote"><p>“I can see the difference in my routine.”</p></div><div class="results__product"><img src="/assets/kit-thumb.jpg" alt=""><p><strong>Daniel uses</strong><br>Riavâte Hair Micro-Infusion Kit</p></div></div></li>
+    <li class="results__card"><div class="results__photo"><img class="results__image" src="/assets/result-james.jpg" alt=""></div><div class="results__body"><div class="results__meta"><p class="results__name">James T.</p><p class="results__badge">✓ Verified customer</p></div><div class="results__quote"><p>“My hair looks stronger and healthier.”</p></div><div class="results__product"><img src="/assets/kit-thumb.jpg" alt=""><p><strong>James uses</strong><br>Riavâte Hair Micro-Infusion Kit</p></div></div></li>
+  </ul>
+</section>
+<section class="media-text media-text--left" style="--media-heading-size:32px;--media-heading-size-mobile:28px;--media-pad:72px">
+  <div class="media-text__media"><img class="media-text__image" src="/assets/application.jpg" alt=""></div>
+  <div class="media-text__content">
+    <p class="media-text__eyebrow">RIAVÂTE BRAND STATEMENT</p>
+    <h2 class="media-text__heading">Hair care has focused on the surface for long enough.</h2>
+    <div class="media-text__text"><p>Riavâte takes a more precise approach.</p></div>
+    <a class="media-text__button" href="#">Check availability</a>
+  </div>
+</section>
+<section class="reviews"><div class="reviews__card">
+  <h2 class="reviews__heading">Customer Reviews</h2>
+  <div class="reviews__top"><div><p class="reviews__score">4.80 out of 5</p><p class="reviews__count">Based on 10457 reviews</p><p class="reviews__badge">✓ Verified customer</p></div><a class="reviews__button" href="#">Write a review</a></div>
+  <ul class="reviews__thumbs"><li><img class="reviews__thumb" src="/assets/kit.jpg" alt=""></li><li><img class="reviews__thumb" src="/assets/kit.jpg" alt=""></li><li><img class="reviews__thumb" src="/assets/kit.jpg" alt=""></li><li><img class="reviews__thumb" src="/assets/kit.jpg" alt=""></li><li><img class="reviews__thumb" src="/assets/kit.jpg" alt=""></li><li><img class="reviews__thumb" src="/assets/kit.jpg" alt=""></li><li><img class="reviews__thumb" src="/assets/kit.jpg" alt=""></li><li><img class="reviews__thumb" src="/assets/kit.jpg" alt=""></li></ul>
+  <p class="reviews__more"><a href="#">See more</a></p>
+</div></section>
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <div class="site-footer__brand">
+      <img class="site-footer__logo-image" src="/assets/logo-white.png" alt="Riavâte">
+      <p class="site-footer__tagline">Precision science. Visible confidence.</p>
+      <p class="site-footer__text">Science-led scalp care, thoughtfully formulated with GHK-Cu and selected cosmetic actives.</p>
+      <p class="site-footer__contact-label">Contact information</p>
+      <a class="site-footer__contact" href="#">Call us: +86 18560628679</a>
+      <a class="site-footer__contact" href="#">Email: info@gasoplus.co.uk</a>
+    </div>
+    <div class="site-footer__column"><p class="site-footer__heading">EXPLORE</p><ul class="site-footer__links"><li><a href="/kit.html">The Kit</a></li><li><a href="#">The Science</a></li><li><a href="#">Our Formula</a></li><li><a href="#">How to Use</a></li><li><a href="#">About Riavâte</a></li></ul></div>
+    <div class="site-footer__column"><p class="site-footer__heading">SUPPORT</p><ul class="site-footer__links"><li><a href="#">FAQs</a></li><li><a href="#">Contact Us</a></li><li><a href="#">Shipping & Delivery</a></li><li><a href="#">Returns & Refunds</a></li><li><a href="#">Track Your Order</a></li></ul></div>
+    <div class="site-footer__column"><p class="site-footer__heading">LEGAL</p><ul class="site-footer__links"><li><a href="#">Privacy Policy</a></li><li><a href="#">Terms & Conditions</a></li><li><a href="#">Cookie Policy</a></li><li><a href="#">Accessibility</a></li></ul></div>
+  </div>
+  <div class="site-footer__social">
+    <a href="#"><img src="/assets/social-instagram.png" alt=""></a>
+    <a href="#"><img src="/assets/social-facebook.png" alt=""></a>
+    <a href="#"><img src="/assets/social-tiktok.png" alt=""></a>
+  </div>
+</footer>
+<script>
+document.addEventListener('click', (event) => {
+  const toggle = event.target.closest('[data-menu-toggle]');
+  if (!toggle) return;
+  const header = toggle.closest('[data-header]');
+  const open = header.classList.toggle('is-open');
+  toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+});
+</script>
+</body></html>

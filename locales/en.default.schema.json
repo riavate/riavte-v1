@@ -1,0 +1,348 @@
+{
+  "general": {
+    "404": "Not found",
+    "article": "Article",
+    "block": "Block",
+    "blog": "Blog",
+    "cart": "Cart",
+    "collection": "Collection",
+    "collections": "Collections",
+    "collection_card": "Collection card",
+    "collections_grid": "Collections grid",
+    "colors": "Colors",
+    "column": "Column",
+    "container": "Container",
+    "content": "Content",
+    "fonts": "Fonts",
+    "footer": "Footer",
+    "group": "Group",
+    "header": "Header",
+    "hello_world": "Hello world",
+    "layout": "Layout",
+    "liquid_tips": "Liquid tips",
+    "main": "Main",
+    "page": "Page",
+    "password": "Password",
+    "primary": "Primary",
+    "product": "Product",
+    "row": "Row",
+    "search": "Search",
+    "secondary": "Secondary",
+    "settings": "Settings",
+    "sidebar": "Sidebar",
+    "theme": "Theme",
+    "typography": "Typography"
+  },
+  "labels": {
+    "alignment": "Alignment",
+    "background": "Background",
+    "foreground": "Foreground",
+    "grid_gap": "Grid spacing",
+    "grid_item_width": "Grid item width",
+    "input_corner_radius": "Input corner radius",
+    "layout_direction": "Layout direction",
+    "menu": "Menu",
+    "customer_account_menu": "Customer account menu",
+    "padding": "Padding",
+    "page_margin": "Page margin",
+    "page_width": "Page width",
+    "show_payment_icons": "Show payment icons"
+  },
+  "options": {
+    "alignment": {
+      "left": "Left",
+      "center": "Center",
+      "right": "Right"
+    },
+    "direction": {
+      "horizontal": "Horizontal",
+      "vertical": "Vertical"
+    },
+    "page_width": {
+      "narrow": "Narrow",
+      "wide": "Wide"
+    },
+    "size": {
+      "large": "Large",
+      "small": "Small"
+    }
+  },
+  "sections": {
+    "hero": {
+      "name": "Hero",
+      "settings": {
+        "image_header": "Image",
+        "image": "Image",
+        "image_info": "1440 \u00d7 650 pixels recommended. Leave open space on the left for the headline.",
+        "image_mobile": "Mobile image",
+        "image_mobile_info": "Optional. Shown below 750px. 800 \u00d7 500 pixels recommended.",
+        "image_alt": "Image alt text",
+        "image_alt_info": "Used when the image has no alt text of its own.",
+        "image_height": "Image height",
+        "layout_header": "Layout",
+        "horizontal_padding": "Side padding",
+        "content_max_width": "Content width",
+        "text_max_width": "Text width",
+        "heading_font": "Heading font",
+        "text_font": "Text font",
+        "heading_size": "Heading size",
+        "heading_size_mobile": "Mobile heading size",
+        "text_color": "Text",
+        "heading_gradient": "Gradient heading",
+        "gradient_start": "Gradient start",
+        "gradient_end": "Gradient end",
+        "heading_color": "Heading"
+      },
+      "blocks": {
+        "eyebrow": {
+          "name": "Eyebrow",
+          "text": "Text"
+        },
+        "heading": {
+          "name": "Heading",
+          "heading": "Heading"
+        },
+        "text": {
+          "name": "Text",
+          "text": "Text"
+        },
+        "button": {
+          "name": "Button",
+          "label": "Label",
+          "link": "Link",
+          "style": "Style"
+        }
+      },
+      "options": {
+        "adapt": "Adapt to image",
+        "small": "Small",
+        "medium": "Medium",
+        "large": "Large",
+        "primary": "Primary",
+        "secondary": "Secondary"
+      }
+    },
+    "header": {
+      "name": "Header",
+      "settings": {
+        "logo": "Logo",
+        "menu_info": "Replaces the links below when a menu is selected."
+      },
+      "blocks": {
+        "link": {
+          "name": "Link",
+          "label": "Label",
+          "link": "Link"
+        }
+      }
+    },
+    "footer": {
+      "name": "Footer",
+      "settings": {
+        "logo": "Logo",
+        "tagline": "Tagline",
+        "text": "Text",
+        "contact_heading": "Contact heading",
+        "phone": "Phone",
+        "email": "Email",
+        "instagram": "Instagram",
+        "facebook": "Facebook",
+        "tiktok": "TikTok"
+      },
+      "blocks": {
+        "column": {
+          "name": "Link column",
+          "heading": "Heading",
+          "links": "Links",
+          "links_info": "One link per line, formatted as Label|/pages/handle"
+        }
+      }
+    },
+    "icon_row": {
+      "name": "Icon row",
+      "settings": {
+        "text_color": "Text"
+      },
+      "blocks": {
+        "item": {
+          "name": "Icon",
+          "icon": "Icon",
+          "image": "Custom icon",
+          "title": "Title",
+          "text": "Text"
+        }
+      },
+      "options": {
+        "precision": "Precision",
+        "scalp": "Scalp",
+        "peptide": "Peptide",
+        "lab": "Lab tested",
+        "serum": "Serum"
+      }
+    },
+    "precision": {
+      "name": "Precision",
+      "settings": {
+        "heading": "Heading",
+        "eyebrow": "Eyebrow",
+        "text": "Text",
+        "image": "Image",
+        "image_alt": "Image alt text"
+      },
+      "blocks": {
+        "point": {
+          "name": "Point",
+          "position": "Position",
+          "title": "Title",
+          "text": "Text"
+        }
+      },
+      "options": {
+        "top_left": "Top left",
+        "top_right": "Top right",
+        "bottom_left": "Bottom left",
+        "bottom_right": "Bottom right"
+      }
+    },
+    "media_with_text": {
+      "name": "Media with text",
+      "settings": {
+        "image": "Image",
+        "fallback_image": "Placeholder image",
+        "image_alt": "Image alt text",
+        "image_position": "Image position",
+        "heading_size": "Heading size",
+        "heading_size_mobile": "Mobile heading size"
+      },
+      "blocks": {
+        "subheading": {
+          "name": "Subheading"
+        },
+        "caption": {
+          "name": "Caption"
+        }
+      },
+      "options": {
+        "none": "None",
+        "cuprofuse": "Cuprofuse",
+        "scalp": "Scalp diagram",
+        "application": "Application"
+      }
+    },
+    "peptide": {
+      "name": "Peptide",
+      "blocks": {
+        "feature": {
+          "name": "Feature"
+        }
+      },
+      "options": {
+        "scalp": "Scalp condition",
+        "fuller": "Fuller appearance",
+        "molecule": "Peptide",
+        "apply": "Application"
+      }
+    },
+    "results": {
+      "name": "Results",
+      "blocks": {
+        "card": {
+          "name": "Result",
+          "image": "Image",
+          "fallback": "Placeholder image",
+          "name_label": "Name",
+          "verified": "Show badge",
+          "badge": "Badge",
+          "quote": "Quote",
+          "uses_label": "Uses label",
+          "product_name": "Product name"
+        }
+      },
+      "options": {
+        "sarah": "Sarah",
+        "daniel": "Daniel",
+        "james": "James"
+      }
+    },
+    "product_main": {
+      "name": "Product",
+      "settings": {
+        "heading": "Heading",
+        "text": "Description",
+        "rating": "Rating",
+        "ingredients_label": "Ingredients label",
+        "ingredients_link": "Ingredients link",
+        "certificate_label": "Certificate label",
+        "certificate_link": "Certificate link",
+        "show_dynamic_checkout": "Show dynamic checkout",
+        "show_dynamic_checkout_info": "Shows Shopify’s accelerated checkout buttons, such as Shop Pay, under Add to cart."
+      },
+      "blocks": {
+        "point": { "name": "Benefit", "text": "Text" },
+        "supply": {
+          "name": "Supply option",
+          "title": "Title",
+          "subtitle": "Subtitle",
+          "details": "Included items",
+          "badge": "Badge",
+          "compare_price": "Compare price",
+          "price": "Price",
+          "price_info": "Shown until this product has more than one variant. After that, Shopify variant prices are used. Create one variant per supply option, in the same order as these blocks."
+        },
+        "accordion": { "name": "Accordion", "title": "Title", "content": "Content" }
+      }
+    },
+    "product_infusion": {
+      "name": "How it works",
+      "settings": { "eyebrow": "Eyebrow", "heading": "Heading", "text": "Text", "image": "Image", "overlay": "Overlay text" },
+      "blocks": { "step": { "name": "Step", "title": "Title", "text": "Text" } }
+    },
+    "product_cuprofuse": {
+      "name": "Cuprofuse",
+      "settings": { "eyebrow": "Eyebrow", "heading": "Heading", "subheading": "Subheading", "text": "Text", "button_label": "Button label", "button_link": "Button link" },
+      "blocks": { "feature": { "name": "Feature", "icon": "Icon", "title": "Title", "text": "Text" } },
+      "options": { "molecule": "Molecule", "fuller": "Fuller", "none": "None", "system": "Device" }
+    },
+    "product_results": {
+      "name": "Community results",
+      "settings": { "eyebrow": "Eyebrow", "heading": "Heading" },
+      "blocks": { "result": { "name": "Result", "before": "Before image", "before_asset": "Before placeholder", "after": "After image", "after_asset": "After placeholder", "title": "Title", "text": "Text" } }
+    },
+    "product_steps": {
+      "name": "How to use",
+      "settings": { "eyebrow": "Eyebrow", "heading": "Heading", "image": "Video image", "video_label": "Video label" },
+      "blocks": { "step": { "name": "Step", "image": "Image", "fallback": "Placeholder", "title": "Title", "text": "Text" } }
+    },
+    "product_compare": {
+      "name": "Comparison",
+      "blocks": { "column": { "name": "Column", "tone": "Style", "image": "Image", "fallback": "Placeholder", "title": "Title", "rows": "Rows", "rows_info": "One row per line, written as Label|Value." } },
+      "options": { "featured": "Featured", "plain": "Plain" }
+    },
+    "product_guarantee": {
+      "name": "Guarantee",
+      "settings": { "eyebrow": "Eyebrow", "heading": "Heading", "image": "Image" },
+      "blocks": { "step": { "name": "Step", "title": "Title", "text": "Text" } }
+    },
+    "product_reviews": {
+      "name": "Product reviews",
+      "settings": { "heading": "Heading", "score": "Score", "count_label": "Review count", "badge": "Badge", "button_label": "Button label", "button_link": "Button link", "more_label": "More label", "list_heading": "List heading", "more_button": "More button", "more_link": "More link" },
+      "blocks": { "review": { "name": "Review", "image": "Image", "fallback": "Placeholder", "name_label": "Name", "date": "Date", "quote": "Quote" } }
+    },
+    "main_cart": { "name": "Cart" },
+    "reviews": {
+      "name": "Reviews",
+      "settings": {
+        "score": "Score",
+        "count_label": "Review count",
+        "button_label": "Button label",
+        "more_label": "More label",
+        "more_link": "More link"
+      },
+      "blocks": {
+        "thumb": {
+          "name": "Thumbnail"
+        }
+      }
+    }
+  }
+}

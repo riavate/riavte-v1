@@ -1,0 +1,333 @@
+{%- liquid
+  assign image = section.settings.image
+  assign fallback = section.settings.fallback_image
+  assign image_width = 1200
+  assign image_height = 1200
+  if fallback == 'application'
+    assign image_width = 232
+    assign image_height = 288
+  endif
+  if fallback == 'scalp'
+    assign image_width = 383
+    assign image_height = 257
+  endif
+-%}
+
+<section
+  class="media-text media-text--{{ section.settings.image_position }}"
+  style="
+    --media-heading-size: {{ section.settings.heading_size }}px;
+    --media-heading-size-mobile: {{ section.settings.heading_size_mobile }}px;
+    --media-pad: {{ section.settings.padding }}px;
+  "
+>
+  <div class="media-text__media">
+    {%- if image != blank -%}
+      {{
+        image
+        | image_url: width: 1600
+        | image_tag:
+          widths: '400, 700, 1000, 1400',
+          sizes: '(min-width: 990px) 46vw, 100vw',
+          alt: section.settings.image_alt,
+          loading: 'lazy',
+          class: 'media-text__image'
+      }}
+    {%- elsif fallback == 'cuprofuse' -%}
+      <img class="media-text__image" src="{{ 'cuprofuse.jpg' | asset_url }}" alt="{{ section.settings.image_alt | escape }}" width="1254" height="1254" loading="lazy">
+    {%- elsif fallback == 'scalp' -%}
+      <img class="media-text__image" src="{{ 'scalp-diagram.jpg' | asset_url }}" alt="{{ section.settings.image_alt | escape }}" width="{{ image_width }}" height="{{ image_height }}" loading="lazy">
+    {%- elsif fallback == 'application' -%}
+      <img class="media-text__image" src="{{ 'application.jpg' | asset_url }}" alt="{{ section.settings.image_alt | escape }}" width="{{ image_width }}" height="{{ image_height }}" loading="lazy">
+    {%- endif -%}
+  </div>
+
+  <div class="media-text__content">
+    {%- for block in section.blocks -%}
+      {%- case block.type -%}
+        {%- when 'eyebrow' -%}
+          <p class="media-text__eyebrow" {{ block.shopify_attributes }}>{{ block.settings.text | escape }}</p>
+        {%- when 'heading' -%}
+          <h2 class="media-text__heading" {{ block.shopify_attributes }}>{{ block.settings.heading | escape }}</h2>
+        {%- when 'subheading' -%}
+          <p class="media-text__subheading" {{ block.shopify_attributes }}>{{ block.settings.text | escape }}</p>
+        {%- when 'text' -%}
+          <div class="media-text__text rte" {{ block.shopify_attributes }}>{{ block.settings.text }}</div>
+        {%- when 'caption' -%}
+          <p class="media-text__caption" {{ block.shopify_attributes }}>{{ block.settings.text | escape }}</p>
+        {%- when 'button' -%}
+          {%- if block.settings.label != blank -%}
+            <a
+              class="media-text__button"
+              {% if block.settings.link != blank %}
+                href="{{ block.settings.link }}"
+              {% else %}
+                role="link"
+                aria-disabled="true"
+              {% endif %}
+              {{ block.shopify_attributes }}
+            >
+              {{ block.settings.label | escape }}
+            </a>
+          {%- endif -%}
+      {%- endcase -%}
+    {%- endfor -%}
+  </div>
+</section>
+
+{% stylesheet %}
+  .media-text {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: clamp(1.5rem, 4vw, 4rem);
+    align-items: center;
+    width: min(1180px, calc(100% - 2.5rem));
+    margin-inline: auto;
+    padding-block: var(--media-pad, 72px);
+  }
+
+  .media-text--right .media-text__content {
+    order: -1;
+  }
+
+  .media-text__image {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: 16px;
+  }
+
+  .media-text__content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.85rem;
+    max-width: 32rem;
+  }
+
+  .media-text__eyebrow,
+  .media-text__subheading {
+    margin: 0;
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 3.9px;
+    text-transform: uppercase;
+  }
+
+  .media-text__heading {
+    margin: 0;
+    font-size: var(--media-heading-size, 48px);
+    font-weight: 700;
+    line-height: 1.15;
+    background-image: linear-gradient(90deg, #121a43 0%, #2d42a9 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+
+  .media-text__text {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.5;
+  }
+
+  .media-text__text p {
+    margin: 0 0 0.75rem;
+  }
+
+  .media-text__text p:last-child {
+    margin-bottom: 0;
+  }
+
+  .media-text__caption {
+    margin: 0;
+    color: #0037ae;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1.45;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .media-text__button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 43px;
+    margin-top: 0.4rem;
+    padding: 0.65rem 1.6rem;
+    border-radius: 15px;
+    background-image: linear-gradient(90deg, #121a43 0%, #2d42a9 100%);
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.2;
+    text-decoration: none;
+  }
+
+  .media-text__button:focus-visible {
+    outline: 2px solid #121a43;
+    outline-offset: 3px;
+  }
+
+  @media screen and (max-width: 989px) {
+    .media-text,
+    .media-text--left {
+      grid-template-columns: 1fr;
+    }
+
+    .media-text--left .media-text__content,
+    .media-text--right .media-text__content {
+      order: 2;
+    }
+
+    .media-text__media {
+      order: 1;
+    }
+
+    .media-text__heading {
+      font-size: clamp(1.75rem, 4vw, var(--media-heading-size, 48px));
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    .media-text,
+    .media-text--left {
+      padding-block: 2.5rem;
+    }
+
+    .media-text__heading {
+      font-size: var(--media-heading-size-mobile, 32px);
+    }
+
+    .media-text__image {
+      aspect-ratio: 4 / 3;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:sections.media_with_text.name",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "t:sections.media_with_text.settings.image"
+    },
+    {
+      "type": "select",
+      "id": "fallback_image",
+      "label": "t:sections.media_with_text.settings.fallback_image",
+      "options": [
+        { "value": "none", "label": "t:sections.media_with_text.options.none" },
+        { "value": "cuprofuse", "label": "t:sections.media_with_text.options.cuprofuse" },
+        { "value": "scalp", "label": "t:sections.media_with_text.options.scalp" },
+        { "value": "application", "label": "t:sections.media_with_text.options.application" }
+      ],
+      "default": "none"
+    },
+    {
+      "type": "text",
+      "id": "image_alt",
+      "label": "t:sections.media_with_text.settings.image_alt",
+      "default": "Riavâte scalp care"
+    },
+    {
+      "type": "select",
+      "id": "image_position",
+      "label": "t:sections.media_with_text.settings.image_position",
+      "options": [
+        { "value": "right", "label": "t:options.alignment.right" },
+        { "value": "left", "label": "t:options.alignment.left" }
+      ],
+      "default": "right"
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "min": 28,
+      "max": 64,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.media_with_text.settings.heading_size",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "heading_size_mobile",
+      "min": 24,
+      "max": 42,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.media_with_text.settings.heading_size_mobile",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "padding",
+      "min": 24,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "t:labels.padding",
+      "default": 72
+    }
+  ],
+  "blocks": [
+    {
+      "type": "eyebrow",
+      "name": "t:sections.hero.blocks.eyebrow.name",
+      "limit": 1,
+      "settings": [
+        { "type": "text", "id": "text", "label": "t:sections.hero.blocks.eyebrow.text", "default": "Introducing" }
+      ]
+    },
+    {
+      "type": "heading",
+      "name": "t:sections.hero.blocks.heading.name",
+      "limit": 1,
+      "settings": [
+        { "type": "text", "id": "heading", "label": "t:sections.hero.blocks.heading.heading", "default": "Cuprofuse®" }
+      ]
+    },
+    {
+      "type": "subheading",
+      "name": "t:sections.media_with_text.blocks.subheading.name",
+      "limit": 1,
+      "settings": [
+        { "type": "text", "id": "text", "label": "t:sections.hero.blocks.eyebrow.text", "default": "Our concentrated serum" }
+      ]
+    },
+    {
+      "type": "text",
+      "name": "t:sections.hero.blocks.text.name",
+      "limit": 1,
+      "settings": [
+        { "type": "richtext", "id": "text", "label": "t:sections.hero.blocks.text.text", "default": "<p>Share the details of this section.</p>" }
+      ]
+    },
+    {
+      "type": "caption",
+      "name": "t:sections.media_with_text.blocks.caption.name",
+      "limit": 1,
+      "settings": [
+        { "type": "textarea", "id": "text", "label": "t:sections.hero.blocks.text.text" }
+      ]
+    },
+    {
+      "type": "button",
+      "name": "t:sections.hero.blocks.button.name",
+      "limit": 1,
+      "settings": [
+        { "type": "text", "id": "label", "label": "t:sections.hero.blocks.button.label", "default": "Discover Cuprofuse®" },
+        { "type": "url", "id": "link", "label": "t:sections.hero.blocks.button.link" }
+      ]
+    }
+  ],
+  "presets": [
+    { "name": "t:sections.media_with_text.name" }
+  ]
+}
+{% endschema %}
