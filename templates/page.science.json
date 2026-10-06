@@ -12,9 +12,10 @@
     "science_hero": {
       "type": "science-hero",
       "settings": {
-        "eyebrow": "The science",
+        "eyebrow": "The Riavâte approach",
         "heading": "Precision technology. Cuprofuse® formulation.",
-        "text": "<p>Riavâte brings a controlled micro-infusion device together with Cuprofuse®, a concentrated serum led by GHK-Cu.</p><p>This page sets out how the device, the formula and the routine are designed to work as one scalp-care system.</p>",
+        "text": "<p>Riavâte brings together controlled 0.5 mm micro-infusion technology with Cuprofuse®, our concentrated serum led by GHK-Cu and formulated with a precisely configured combination of selected scalp-care ingredients.</p>",
+        "note": "One system. Precision in delivery. Purpose in formulation.",
         "image_alt": "Riavâte micro-infusion device held between two fingers"
       }
     },

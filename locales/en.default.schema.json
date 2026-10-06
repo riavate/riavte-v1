@@ -361,6 +361,7 @@
         "eyebrow": "Eyebrow",
         "heading": "Heading",
         "text": "Text",
+        "note": "Note",
         "image": "Image",
         "image_alt": "Image alt text"
       }

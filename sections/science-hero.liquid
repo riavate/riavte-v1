@@ -10,6 +10,9 @@
       {%- if section.settings.text != blank -%}
         <div class="science-hero__text rte">{{ section.settings.text }}</div>
       {%- endif -%}
+      {%- if section.settings.note != blank -%}
+        <p class="science-hero__note">{{ section.settings.note | escape }}</p>
+      {%- endif -%}
     </div>
     <div class="science-hero__media">
       {%- if section.settings.image != blank -%}
@@ -71,26 +74,31 @@
   }
 
   .science-hero__text {
-    max-width: 32rem;
-    margin-top: 1.4rem;
-    font-size: 0.95rem;
+    max-width: 28rem;
+    margin-top: 1.35rem;
+    font-size: 0.92rem;
     font-weight: 500;
-    line-height: 1.7;
-    color: #3d4566;
+    line-height: 1.55;
+    color: #1a2744;
   }
 
   .science-hero__text p {
-    margin: 0 0 0.85rem;
+    margin: 0;
   }
 
-  .science-hero__text p:last-child {
-    margin-bottom: 0;
+  .science-hero__note {
+    max-width: 28rem;
+    margin: 1.15rem 0 0;
+    color: #2f4bdb;
+    font-size: 0.92rem;
+    font-weight: 500;
+    line-height: 1.45;
   }
 
   .science-hero__image {
     display: block;
     width: 100%;
-    aspect-ratio: 1;
+    aspect-ratio: 5 / 4;
     object-fit: cover;
     border-radius: 1.35rem;
   }
@@ -112,7 +120,7 @@
       "type": "text",
       "id": "eyebrow",
       "label": "t:sections.science_hero.settings.eyebrow",
-      "default": "The science"
+      "default": "The Riavâte approach"
     },
     {
       "type": "text",
@@ -124,7 +132,13 @@
       "type": "richtext",
       "id": "text",
       "label": "t:sections.science_hero.settings.text",
-      "default": "<p>Riavâte pairs a controlled micro-infusion device with Cuprofuse®, a concentrated serum led by GHK-Cu.</p>"
+      "default": "<p>Riavâte brings together controlled 0.5 mm micro-infusion technology with Cuprofuse®, our concentrated serum led by GHK-Cu and formulated with a precisely configured combination of selected scalp-care ingredients.</p>"
+    },
+    {
+      "type": "text",
+      "id": "note",
+      "label": "t:sections.science_hero.settings.note",
+      "default": "One system. Precision in delivery. Purpose in formulation."
     },
     {
       "type": "image_picker",
