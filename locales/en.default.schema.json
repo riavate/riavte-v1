@@ -418,7 +418,12 @@
         "heading": "Heading",
         "text": "Text",
         "value": "Figure",
-        "caption": "Caption"
+        "label": "Figure label",
+        "caption": "Caption",
+        "context_title": "Context title",
+        "context": "Context",
+        "link_label": "Link label",
+        "link": "Link"
       }
     },
     "science_note": {

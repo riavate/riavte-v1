@@ -104,11 +104,16 @@
       "type": "science-stat",
       "settings": {
         "anchor": "peptide",
-        "eyebrow": "Published context",
+        "eyebrow": "Research Spotlight",
         "heading": "What does the published evidence show?",
-        "text": "<p>GHK-Cu (Copper Tripeptide-1) is the leading peptide in Cuprofuse®. Published research on that peptide is part of why it was selected.</p><p>That research describes the ingredient. It does not describe a result of the finished Riavâte system.</p>",
-        "value": "+91.4%",
-        "caption": "A figure cited from published copper-peptide research. Shown as ingredient context, not as a result of the Riavâte system."
+        "text": "<p>Microneedling has been investigated in clinical research on androgenetic alopecia.</p><p>In a 2013 randomized evaluator-blinded study involving 100 participants, researchers compared weekly 1.5 mm microneedling plus 5% minoxidil against 5% minoxidil alone for 12 weeks.</p>",
+        "value": "+91.4",
+        "label": "Mean hair-count change",
+        "caption": "Reported in the microneedling + minoxidil group after 12 weeks in the Dhurat et al. study.",
+        "context_title": "Important Context",
+        "context": "This research investigated 1.5 mm microneedling combined with minoxidil — not the Riavâte 0.5 mm system. The study is presented as background research on microneedling and should not be interpreted as a clinical result for Riavâte.",
+        "link_label": "View study",
+        "link": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3746236/"
       }
     },
     "science_formula": {
