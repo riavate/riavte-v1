@@ -210,9 +210,10 @@
     "science_note": {
       "type": "science-note",
       "settings": {
-        "eyebrow": "A clear distinction",
+        "eyebrow": "Transparency — Scientific Note",
         "heading": "Understanding the evidence.",
-        "text": "<p>Published research on an ingredient is not the same as a result from the finished Riavâte system. We share that context so the formula can be read clearly.</p>"
+        "lede": "Independent research Riavâte clinical results",
+        "text": "<p>The science behind Riavâte draws from published research across microneedling, follicular delivery and individual cosmetic ingredients used within our approach. These studies help inform the scientific rationale behind the system. Unless explicitly stated, referenced studies were not conducted on the finished Riavâte or Cuprofuse® product.</p>"
       }
     },
     "science_explore": {
