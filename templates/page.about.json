@@ -11,7 +11,12 @@
   "sections": {
     "about_hero": {
       "type": "about-hero",
-      "settings": {}
+      "settings": {
+        "eyebrow": "About Riavâte",
+        "heading": "A more precise approach to scalp care.",
+        "text": "<p>Riavâte was created around a simple idea: modern scalp care should be considered, targeted and built with precision.</p><p>We bring together precision micro-infusion technology and Cuprofuse®, our concentrated serum led by GHK-Cu, to create a considered approach to modern scalp care.</p>",
+        "labels": "Precision technology\nPeptide-led formula\nModern scalp care"
+      }
     },
     "about_reconsidered": {
       "type": "about-reconsidered",

@@ -33,6 +33,17 @@
       {%- endif -%}
     </div>
   </div>
+  {%- if section.settings.labels != blank -%}
+    <ul class="about-hero__labels">
+      {%- assign labels = section.settings.labels | newline_to_br | split: '<br />' -%}
+      {%- for label in labels -%}
+        {%- assign item = label | strip -%}
+        {%- if item != blank -%}
+          <li>{{ item | escape }}</li>
+        {%- endif -%}
+      {%- endfor -%}
+    </ul>
+  {%- endif -%}
 </section>
 
 {% stylesheet %}
@@ -48,7 +59,7 @@
     align-items: center;
     max-width: 1180px;
     margin: 0 auto;
-    padding: 5.5rem 1.5rem 4.5rem;
+    padding: 5.5rem 1.5rem 2.5rem;
   }
 
   .about-hero__eyebrow {
@@ -57,11 +68,12 @@
     font-weight: 600;
     letter-spacing: 0.18em;
     text-transform: uppercase;
+    color: #8b93a7;
   }
 
   .about-hero__heading {
     margin: 0;
-    max-width: 11ch;
+    max-width: 14ch;
     font-size: clamp(2rem, 4vw, 3.25rem);
     font-weight: 800;
     line-height: 1.05;
@@ -79,7 +91,27 @@
   }
 
   .about-hero__text p {
-    margin: 0 0 0.85rem;
+    margin: 0;
+  }
+
+  .about-hero__text p + p {
+    margin-top: 1rem;
+  }
+
+  .about-hero__labels {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.25rem 3.5rem;
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 1.5rem 1.5rem 4.5rem;
+    list-style: none;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #1a2744;
   }
 
   .about-hero__media {
@@ -105,6 +137,11 @@
     .about-hero__heading {
       max-width: 14ch;
     }
+
+    .about-hero__labels {
+      gap: 1rem 1.5rem;
+      padding-bottom: 3rem;
+    }
   }
 {% endstylesheet %}
 
@@ -129,7 +166,7 @@
       "type": "richtext",
       "id": "text",
       "label": "t:sections.about_hero.settings.text",
-      "default": "<p>Riavâte brings controlled 0.5 mm micro-infusion together with Cuprofuse®, a concentrated serum led by GHK-Cu, for a more precise approach to modern scalp care.</p>"
+      "default": "<p>Riavâte was created around a simple idea: modern scalp care should be considered, targeted and built with precision.</p><p>We bring together precision micro-infusion technology and Cuprofuse®, our concentrated serum led by GHK-Cu, to create a considered approach to modern scalp care.</p>"
     },
     {
       "type": "image_picker",
@@ -141,6 +178,12 @@
       "id": "image_alt",
       "label": "t:sections.about_hero.settings.image_alt",
       "default": "Riavâte micro-infusion device"
+    },
+    {
+      "type": "textarea",
+      "id": "labels",
+      "label": "t:sections.about_hero.settings.labels",
+      "default": "Precision technology\nPeptide-led formula\nModern scalp care"
     }
   ],
   "presets": [{ "name": "t:sections.about_hero.name" }]

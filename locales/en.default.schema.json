@@ -280,7 +280,8 @@
         "heading": "Heading",
         "text": "Text",
         "image": "Image",
-        "image_alt": "Image alt text"
+        "image_alt": "Image alt text",
+        "labels": "Labels"
       }
     },
     "about_reconsidered": {
