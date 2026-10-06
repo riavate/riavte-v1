@@ -42,16 +42,14 @@
 
         <div class="product-gallery__stage">
           {%- if product != blank and product.featured_image != blank -%}
-            {{
-              product.featured_image
-              | image_url: width: 1400
-              | image_tag:
-                widths: '600, 900, 1400',
-                sizes: '(min-width: 990px) 536px, 100vw',
-                alt: product.featured_image.alt | default: product.title,
-                class: 'product-gallery__image',
-                data-gallery-image: ''
-            }}
+            <img
+              class="product-gallery__image"
+              data-gallery-image
+              src="{{ product.featured_image | image_url: width: 1400 }}"
+              alt="{{ product.featured_image.alt | default: product.title | escape }}"
+              width="{{ product.featured_image.width }}"
+              height="{{ product.featured_image.height }}"
+            >
           {%- else -%}
             <img
               class="product-gallery__image"
@@ -536,10 +534,21 @@
     const thumb = event.target.closest('[data-gallery-thumb]');
     if (!thumb) return;
     const gallery = thumb.closest('[data-gallery]');
-    const image = gallery.querySelector('.product-gallery__image');
-    if (!image) return;
-    image.src = thumb.dataset.src;
+    if (!gallery) return;
+    const image = gallery.querySelector('[data-gallery-image]');
+    const nextSrc = thumb.getAttribute('data-src');
+    if (!image || !nextSrc) return;
+
+    const picture = image.closest('picture');
+    if (picture) {
+      picture.querySelectorAll('source').forEach((source) => {
+        source.remove();
+      });
+    }
+
     image.removeAttribute('srcset');
+    image.removeAttribute('sizes');
+    image.src = nextSrc;
     gallery.querySelectorAll('[data-gallery-thumb]').forEach((item) => {
       const active = item === thumb;
       item.classList.toggle('is-active', active);

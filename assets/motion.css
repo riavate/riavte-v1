@@ -1,0 +1,38 @@
+@media (prefers-reduced-motion: no-preference) {
+  .site-header {
+    animation: motion-header 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translate3d(0, 28px, 0);
+  }
+
+  .reveal.is-in {
+    animation: motion-rise 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+}
+
+@keyframes motion-header {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -12px, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes motion-rise {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 28px, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
