@@ -5,14 +5,17 @@
         <p class="about-system__eyebrow">{{ section.settings.eyebrow | escape }}</p>
       {%- endif -%}
       {%- if section.settings.heading != blank -%}
-        <h2 class="about-system__heading">{{ section.settings.heading | escape }}</h2>
+        <h2 class="about-system__heading">{{ section.settings.heading | escape | replace: '. ', '.<br>' }}</h2>
       {%- endif -%}
     </div>
     <ol class="about-system__list">
       {%- for block in section.blocks -%}
-        <li class="about-system__row{% if block.settings.image_side == 'left' %} about-system__row--image-left{% endif %}" {{ block.shopify_attributes }}>
+        <li class="about-system__row" {{ block.shopify_attributes }}>
+          <p class="about-system__index">0{{ forloop.index }}</p>
           <div class="about-system__copy">
-            <p class="about-system__index">0{{ forloop.index }}</p>
+            {%- if block.settings.kicker != blank -%}
+              <p class="about-system__kicker">{{ block.settings.kicker | escape }}</p>
+            {%- endif -%}
             {%- if block.settings.title != blank -%}
               <h3 class="about-system__title">{{ block.settings.title | escape }}</h3>
             {%- endif -%}
@@ -50,41 +53,45 @@
 
 {% stylesheet %}
   .about-system {
-    background: #ffffff;
-    color: #121a43;
+    color: #1a2744;
+    background: linear-gradient(#e7f0ff, #e7f0ff) left / 8px 100% no-repeat #ffffff;
   }
 
   .about-system__inner {
-    max-width: 1180px;
+    max-width: 1120px;
     margin: 0 auto;
-    padding: 5rem 1.5rem;
+    padding: 5.5rem 1.5rem 5rem 2.75rem;
   }
 
   .about-system__intro {
-    max-width: 36rem;
-    margin-bottom: 3.5rem;
+    margin-bottom: 4.5rem;
+  }
+
+  .about-system__heading {
+    max-width: 22ch;
   }
 
   .about-system__eyebrow {
-    margin: 0 0 0.85rem;
-    font-size: 0.75rem;
+    margin: 0 0 1rem;
+    font-size: 0.72rem;
     font-weight: 600;
-    letter-spacing: 0.18em;
+    letter-spacing: 0.22em;
     text-transform: uppercase;
+    color: #8b93a7;
   }
 
   .about-system__heading {
     margin: 0;
-    font-size: clamp(1.9rem, 3.6vw, 2.8rem);
+    font-size: clamp(2rem, 3.4vw, 2.85rem);
     font-weight: 800;
-    line-height: 1.08;
+    line-height: 1.05;
     letter-spacing: -0.03em;
     text-transform: uppercase;
   }
 
   .about-system__list {
     display: grid;
-    gap: 4rem;
+    gap: 4.75rem;
     margin: 0;
     padding: 0;
     list-style: none;
@@ -92,37 +99,44 @@
 
   .about-system__row {
     display: grid;
-    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
-    gap: 3rem;
+    grid-template-columns: 4.25rem minmax(0, 1fr) minmax(220px, 38%);
+    gap: 1.25rem 2.25rem;
     align-items: center;
   }
 
-  .about-system__row--image-left .about-system__media {
-    order: -1;
+  .about-system__index {
+    margin: 0;
+    font-size: clamp(1.7rem, 2.2vw, 2.15rem);
+    font-weight: 500;
+    line-height: 1;
+    color: #c5cedb;
   }
 
-  .about-system__index {
-    margin: 0 0 0.75rem;
-    font-size: 0.8rem;
-    font-weight: 700;
-    letter-spacing: 0.14em;
-    color: #0037ae;
+  .about-system__kicker {
+    margin: 0 0 0.45rem;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #8b93a7;
   }
 
   .about-system__title {
     margin: 0;
-    font-size: clamp(1.25rem, 2vw, 1.6rem);
+    font-size: clamp(1.15rem, 1.7vw, 1.45rem);
     font-weight: 800;
     letter-spacing: -0.02em;
+    line-height: 1.15;
     text-transform: uppercase;
   }
 
   .about-system__text {
-    margin-top: 0.85rem;
-    font-size: 0.95rem;
+    max-width: 34rem;
+    margin-top: 0.7rem;
+    font-size: 0.92rem;
     font-weight: 500;
-    line-height: 1.7;
-    color: #3d4566;
+    line-height: 1.65;
+    color: #5c6578;
   }
 
   .about-system__text p {
@@ -130,7 +144,7 @@
   }
 
   .about-system__media {
-    border-radius: 1.1rem;
+    border-radius: 1.15rem;
     overflow: hidden;
   }
 
@@ -138,23 +152,22 @@
     display: block;
     width: 100%;
     height: auto;
-    aspect-ratio: 16 / 9;
+    aspect-ratio: 16 / 10;
     object-fit: cover;
   }
 
   @media screen and (max-width: 989px) {
     .about-system__inner {
-      padding: 3.5rem 1.25rem;
+      padding: 3.5rem 1.25rem 3.5rem 1.5rem;
     }
 
-    .about-system__row,
-    .about-system__row--image-left {
-      grid-template-columns: 1fr;
-      gap: 1.25rem;
+    .about-system__row {
+      grid-template-columns: 3rem minmax(0, 1fr);
+      gap: 0.75rem 1rem;
     }
 
-    .about-system__row--image-left .about-system__media {
-      order: 0;
+    .about-system__media {
+      grid-column: 1 / -1;
     }
   }
 {% endstylesheet %}
@@ -167,7 +180,7 @@
       "type": "text",
       "id": "eyebrow",
       "label": "t:sections.about_system.settings.eyebrow",
-      "default": "The kit"
+      "default": "What makes Riavâte different"
     },
     {
       "type": "text",
@@ -183,9 +196,15 @@
       "settings": [
         {
           "type": "text",
+          "id": "kicker",
+          "label": "t:sections.about_system.blocks.row.kicker",
+          "default": "01 — The device"
+        },
+        {
+          "type": "text",
           "id": "title",
           "label": "t:sections.about_system.blocks.row.title",
-          "default": "Precision device"
+          "default": "0.5 mm precision"
         },
         {
           "type": "richtext",
@@ -236,8 +255,9 @@
         {
           "type": "row",
           "settings": {
-            "title": "Precision device",
-            "text": "<p>The 0.5 mm micro-infusion applicator uses gold-plated micro-touchpoints for a controlled, consistent application.</p>",
+            "kicker": "01 — The device",
+            "title": "0.5 mm precision",
+            "text": "<p>A controlled 0.5 mm micro-infusion system designed for precise, targeted scalp application.</p>",
             "image_alt": "Gold-plated micro-infusion tips",
             "fallback": "needles",
             "image_side": "right"
@@ -246,8 +266,9 @@
         {
           "type": "row",
           "settings": {
-            "title": "Cuprofuse® concentrated serum",
-            "text": "<p>A concentrated serum led by GHK-Cu, with a precisely configured combination of selected scalp-care ingredients.</p>",
+            "kicker": "02 — The formula",
+            "title": "Cuprofuse® concentrate",
+            "text": "<p>Our concentrated serum, led by GHK-Cu and formulated with a precisely configured combination of selected scalp-care ingredients.</p>",
             "image_alt": "Cuprofuse serum being measured into a vial",
             "fallback": "serum",
             "image_side": "left"
@@ -256,8 +277,9 @@
         {
           "type": "row",
           "settings": {
-            "title": "One complete system",
-            "text": "<p>The device and the serum are designed to be used together, as one considered scalp-care routine.</p>",
+            "kicker": "03 — The system",
+            "title": "Designed together",
+            "text": "<p>Device and formula, brought together as one considered scalp-care system.</p>",
             "image_alt": "Riavâte device and serum vial",
             "fallback": "kit",
             "image_side": "right"

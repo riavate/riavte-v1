@@ -86,8 +86,9 @@
         "device": {
           "type": "row",
           "settings": {
-            "title": "Precision device",
-            "text": "<p>The 0.5 mm micro-infusion applicator uses gold-plated micro-touchpoints for a controlled, consistent application.</p>",
+            "kicker": "01 — The device",
+            "title": "0.5 mm precision",
+            "text": "<p>A controlled 0.5 mm micro-infusion system designed for precise, targeted scalp application.</p>",
             "image_alt": "Gold-plated micro-infusion tips",
             "fallback": "needles",
             "image_side": "right"
@@ -96,8 +97,9 @@
         "serum": {
           "type": "row",
           "settings": {
-            "title": "Cuprofuse® concentrated serum",
-            "text": "<p>A concentrated serum led by GHK-Cu, with a precisely configured combination of selected scalp-care ingredients.</p>",
+            "kicker": "02 — The formula",
+            "title": "Cuprofuse® concentrate",
+            "text": "<p>Our concentrated serum, led by GHK-Cu and formulated with a precisely configured combination of selected scalp-care ingredients.</p>",
             "image_alt": "Cuprofuse serum being measured into a vial",
             "fallback": "serum",
             "image_side": "left"
@@ -106,8 +108,9 @@
         "kit": {
           "type": "row",
           "settings": {
-            "title": "One complete system",
-            "text": "<p>The device and the serum are designed to be used together, as one considered scalp-care routine.</p>",
+            "kicker": "03 — The system",
+            "title": "Designed together",
+            "text": "<p>Device and formula, brought together as one considered scalp-care system.</p>",
             "image_alt": "Riavâte device and serum vial",
             "fallback": "kit",
             "image_side": "right"
@@ -115,7 +118,10 @@
         }
       },
       "block_order": ["device", "serum", "kit"],
-      "settings": {}
+      "settings": {
+        "eyebrow": "What makes Riavâte different",
+        "heading": "One system. Designed with purpose."
+      }
     },
     "about_evolved": {
       "type": "about-evolved",

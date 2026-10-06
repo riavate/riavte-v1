@@ -323,6 +323,7 @@
       "blocks": {
         "row": {
           "name": "Row",
+          "kicker": "Label",
           "title": "Title",
           "text": "Text",
           "image": "Image",
