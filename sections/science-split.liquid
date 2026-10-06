@@ -9,6 +9,7 @@
 
   assign heading_html = section.settings.heading | escape | replace: ', ', ',<br>' | replace: '. ', '.<br>'
   if section.settings.italic_word != blank
+    assign heading_html = heading_html | replace: ' beyond ', '<br>beyond '
     assign italic = section.settings.italic_word | escape
     assign wrapped = '<br><em>' | append: italic | append: '</em><br>'
     assign heading_html = heading_html | replace: italic, wrapped
