@@ -1,0 +1,266 @@
+{%- liquid
+  assign heading_html = section.settings.heading | escape | replace: ' concentrated ', ' concentrated<br>' | replace: ' serum ', ' serum<br>' | replace: ' Cuprofuse® ', ' Cuprofuse®<br>' | replace: ' of ', ' of<br>'
+-%}
+
+<section
+  class="science-serum"
+  {% if section.settings.anchor != blank %}
+    id="{{ section.settings.anchor | handleize }}"
+  {% endif %}
+>
+  <div class="science-serum__inner">
+    <div class="science-serum__media">
+      {%- if section.settings.image != blank -%}
+        {{
+          section.settings.image
+          | image_url: width: 1400
+          | image_tag:
+            widths: '480, 800, 1200',
+            sizes: '(min-width: 990px) 42vw, 100vw',
+            alt: section.settings.image_alt,
+            class: 'science-serum__image'
+        }}
+      {%- else -%}
+        <img
+          class="science-serum__image"
+          src="{{ section.settings.fallback | asset_url }}"
+          alt="{{ section.settings.image_alt | escape }}"
+          width="1024"
+          height="1024"
+          loading="lazy"
+        >
+      {%- endif -%}
+    </div>
+    <div class="science-serum__copy">
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="science-serum__eyebrow">{{ section.settings.eyebrow | escape }}</p>
+      {%- endif -%}
+      {%- if section.settings.heading != blank -%}
+        <h2 class="science-serum__heading">{{ heading_html }}</h2>
+      {%- endif -%}
+      {%- if section.settings.text != blank -%}
+        <div class="science-serum__text rte">{{ section.settings.text }}</div>
+      {%- endif -%}
+      {%- if section.settings.subheading != blank -%}
+        <h3 class="science-serum__subheading">{{ section.settings.subheading | escape }}</h3>
+      {%- endif -%}
+      {%- if section.settings.subtext != blank -%}
+        <p class="science-serum__subtext">{{ section.settings.subtext | escape }}</p>
+      {%- endif -%}
+      {%- if section.blocks.size > 0 -%}
+        <ul class="science-serum__traits">
+          {%- for block in section.blocks -%}
+            <li {{ block.shopify_attributes }}>
+              {%- if block.settings.title != blank -%}
+                <h3>{{ block.settings.title | escape | newline_to_br }}</h3>
+              {%- endif -%}
+              {%- if block.settings.text != blank -%}
+                <p>{{ block.settings.text | escape }}</p>
+              {%- endif -%}
+            </li>
+          {%- endfor -%}
+        </ul>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% stylesheet %}
+  .science-serum {
+    background: #fff;
+    color: #1a2f7a;
+  }
+
+  .science-serum__inner {
+    display: grid;
+    grid-template-columns: minmax(260px, 0.92fr) minmax(0, 1fr);
+    gap: 3.75rem;
+    align-items: start;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 5rem 1.5rem 1.5rem;
+  }
+
+  .science-serum__image {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: 1.15rem;
+  }
+
+  .science-serum__eyebrow {
+    margin: 0 0 1rem;
+    color: #8b93a7;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+  }
+
+  .science-serum__heading {
+    margin: 0;
+    max-width: 13ch;
+    color: #1a2f7a;
+    font-size: clamp(1.85rem, 2.7vw, 2.45rem);
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    text-transform: uppercase;
+  }
+
+  .science-serum__text,
+  .science-serum__subtext {
+    max-width: 34rem;
+    color: #3a4258;
+    font-size: 0.9rem;
+    font-weight: 500;
+    line-height: 1.6;
+  }
+
+  .science-serum__text {
+    margin-top: 1.2rem;
+  }
+
+  .science-serum__text p {
+    margin: 0 0 0.85rem;
+  }
+
+  .science-serum__text p:last-child {
+    margin-bottom: 0;
+  }
+
+  .science-serum__subheading {
+    margin: 1.2rem 0 0.35rem;
+    color: #1a2f7a;
+    font-size: 0.95rem;
+    font-weight: 800;
+  }
+
+  .science-serum__subtext {
+    margin: 0;
+  }
+
+  .science-serum__traits {
+    margin: 1.6rem 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .science-serum__traits li {
+    display: grid;
+    grid-template-columns: 6.4rem minmax(0, 1fr);
+    gap: 1.75rem;
+    align-items: center;
+    padding: 1.05rem 0;
+    border-top: 1px solid #e4e8ef;
+  }
+
+  .science-serum__traits h3 {
+    margin: 0;
+    color: #1a2f7a;
+    font-size: 0.78rem;
+    font-weight: 700;
+    line-height: 1.25;
+    letter-spacing: 0.04em;
+  }
+
+  .science-serum__traits p {
+    margin: 0;
+    max-width: 16rem;
+    color: #5c6578;
+    font-size: 0.86rem;
+    font-weight: 500;
+    line-height: 1.45;
+  }
+
+  @media screen and (max-width: 989px) {
+    .science-serum__inner {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      padding-top: 3.5rem;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:sections.science_serum.name",
+  "settings": [
+    {
+      "type": "text",
+      "id": "anchor",
+      "label": "t:sections.science_serum.settings.anchor"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "t:sections.science_serum.settings.eyebrow",
+      "default": "Our Hero Peptide"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "t:sections.science_serum.settings.heading",
+      "default": "Our concentrated serum Cuprofuse® at the heart of Riavâte."
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "t:sections.science_serum.settings.text",
+      "default": "<p>Cuprofuse® is more than a single hero ingredient. It brings GHK-Cu together with a precisely configured combination of selected molecules and scalp-care ingredients in one concentrated formula.</p>"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "t:sections.science_serum.settings.subheading",
+      "default": "GHK-Cu"
+    },
+    {
+      "type": "textarea",
+      "id": "subtext",
+      "label": "t:sections.science_serum.settings.subtext",
+      "default": "Copper Tripeptide-1 sits at the heart of Cuprofuse® as its leading peptide, supported by a wider combination of carefully selected cosmetic ingredients."
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "t:sections.science_serum.settings.image"
+    },
+    {
+      "type": "text",
+      "id": "fallback",
+      "label": "t:sections.science_serum.settings.fallback",
+      "default": "science-serum.jpg"
+    },
+    {
+      "type": "text",
+      "id": "image_alt",
+      "label": "t:sections.science_serum.settings.image_alt",
+      "default": "Riavâte serum vial"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "trait",
+      "name": "t:sections.science_serum.blocks.trait.name",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "title",
+          "label": "t:sections.science_serum.blocks.trait.title",
+          "default": "GHK-Cu LED"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "t:sections.science_serum.blocks.trait.text",
+          "default": "Leading peptide within Cuprofuse®."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    { "name": "t:sections.science_serum.name" }
+  ]
+}
+{% endschema %}

@@ -426,6 +426,52 @@
         "link": "Link"
       }
     },
+    "science_serum": {
+      "name": "Science serum",
+      "settings": {
+        "anchor": "Anchor",
+        "eyebrow": "Eyebrow",
+        "heading": "Heading",
+        "text": "Text",
+        "subheading": "Subheading",
+        "subtext": "Subtext",
+        "image": "Image",
+        "fallback": "Placeholder image",
+        "image_alt": "Image alt text"
+      },
+      "blocks": {
+        "trait": {
+          "name": "Trait",
+          "title": "Title",
+          "text": "Text"
+        }
+      }
+    },
+    "science_inside": {
+      "name": "Science ingredients",
+      "settings": {
+        "anchor": "Anchor",
+        "eyebrow": "Eyebrow",
+        "heading": "Heading",
+        "italic_word": "Italic word",
+        "text": "Text",
+        "feature_index": "Feature number",
+        "feature_title": "Feature title",
+        "feature_text": "Feature text",
+        "image": "Image",
+        "fallback": "Placeholder image",
+        "image_alt": "Image alt text"
+      },
+      "blocks": {
+        "active": {
+          "name": "Active",
+          "index": "Number",
+          "title": "Title",
+          "kicker": "Kicker",
+          "text": "Text"
+        }
+      }
+    },
     "science_note": {
       "name": "Science note",
       "settings": {
