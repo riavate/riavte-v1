@@ -1,0 +1,270 @@
+<section class="about-system">
+  <div class="about-system__inner">
+    <div class="about-system__intro">
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="about-system__eyebrow">{{ section.settings.eyebrow | escape }}</p>
+      {%- endif -%}
+      {%- if section.settings.heading != blank -%}
+        <h2 class="about-system__heading">{{ section.settings.heading | escape }}</h2>
+      {%- endif -%}
+    </div>
+    <ol class="about-system__list">
+      {%- for block in section.blocks -%}
+        <li class="about-system__row{% if block.settings.image_side == 'left' %} about-system__row--image-left{% endif %}" {{ block.shopify_attributes }}>
+          <div class="about-system__copy">
+            <p class="about-system__index">0{{ forloop.index }}</p>
+            {%- if block.settings.title != blank -%}
+              <h3 class="about-system__title">{{ block.settings.title | escape }}</h3>
+            {%- endif -%}
+            {%- if block.settings.text != blank -%}
+              <div class="about-system__text rte">{{ block.settings.text }}</div>
+            {%- endif -%}
+          </div>
+          <div class="about-system__media">
+            {%- if block.settings.image != blank -%}
+              {{
+                block.settings.image
+                | image_url: width: 1200
+                | image_tag:
+                  widths: '480, 800, 1200',
+                  sizes: '(min-width: 990px) 46vw, 100vw',
+                  alt: block.settings.image_alt,
+                  class: 'about-system__image',
+                  loading: 'lazy'
+              }}
+            {%- else -%}
+              {%- if block.settings.fallback == 'serum' -%}
+                <img class="about-system__image" src="{{ 'about-serum.jpg' | asset_url }}" alt="{{ block.settings.image_alt | escape }}" width="1024" height="556" loading="lazy">
+              {%- elsif block.settings.fallback == 'kit' -%}
+                <img class="about-system__image" src="{{ 'about-kit.jpg' | asset_url }}" alt="{{ block.settings.image_alt | escape }}" width="1024" height="556" loading="lazy">
+              {%- else -%}
+                <img class="about-system__image" src="{{ 'about-needles.jpg' | asset_url }}" alt="{{ block.settings.image_alt | escape }}" width="1024" height="556" loading="lazy">
+              {%- endif -%}
+            {%- endif -%}
+          </div>
+        </li>
+      {%- endfor -%}
+    </ol>
+  </div>
+</section>
+
+{% stylesheet %}
+  .about-system {
+    background: #ffffff;
+    color: #121a43;
+  }
+
+  .about-system__inner {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 5rem 1.5rem;
+  }
+
+  .about-system__intro {
+    max-width: 36rem;
+    margin-bottom: 3.5rem;
+  }
+
+  .about-system__eyebrow {
+    margin: 0 0 0.85rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+
+  .about-system__heading {
+    margin: 0;
+    font-size: clamp(1.9rem, 3.6vw, 2.8rem);
+    font-weight: 800;
+    line-height: 1.08;
+    letter-spacing: -0.03em;
+    text-transform: uppercase;
+  }
+
+  .about-system__list {
+    display: grid;
+    gap: 4rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .about-system__row {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    gap: 3rem;
+    align-items: center;
+  }
+
+  .about-system__row--image-left .about-system__media {
+    order: -1;
+  }
+
+  .about-system__index {
+    margin: 0 0 0.75rem;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    color: #0037ae;
+  }
+
+  .about-system__title {
+    margin: 0;
+    font-size: clamp(1.25rem, 2vw, 1.6rem);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+  }
+
+  .about-system__text {
+    margin-top: 0.85rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+    line-height: 1.7;
+    color: #3d4566;
+  }
+
+  .about-system__text p {
+    margin: 0;
+  }
+
+  .about-system__media {
+    border-radius: 1.1rem;
+    overflow: hidden;
+  }
+
+  .about-system__image {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+  }
+
+  @media screen and (max-width: 989px) {
+    .about-system__inner {
+      padding: 3.5rem 1.25rem;
+    }
+
+    .about-system__row,
+    .about-system__row--image-left {
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+    }
+
+    .about-system__row--image-left .about-system__media {
+      order: 0;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:sections.about_system.name",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "t:sections.about_system.settings.eyebrow",
+      "default": "The kit"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "t:sections.about_system.settings.heading",
+      "default": "One system. Designed with purpose."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "row",
+      "name": "t:sections.about_system.blocks.row.name",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "t:sections.about_system.blocks.row.title",
+          "default": "Precision device"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "t:sections.about_system.blocks.row.text",
+          "default": "<p>The 0.5 mm micro-infusion applicator, engineered for controlled application.</p>"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "t:sections.about_system.blocks.row.image"
+        },
+        {
+          "type": "text",
+          "id": "image_alt",
+          "label": "t:sections.about_system.blocks.row.image_alt",
+          "default": "Riavâte system detail"
+        },
+        {
+          "type": "select",
+          "id": "fallback",
+          "label": "t:sections.about_system.blocks.row.fallback",
+          "options": [
+            { "value": "needles", "label": "t:sections.about_system.options.needles" },
+            { "value": "serum", "label": "t:sections.about_system.options.serum" },
+            { "value": "kit", "label": "t:sections.about_system.options.kit" }
+          ],
+          "default": "needles"
+        },
+        {
+          "type": "select",
+          "id": "image_side",
+          "label": "t:sections.about_system.blocks.row.image_side",
+          "options": [
+            { "value": "right", "label": "t:sections.about_system.options.right" },
+            { "value": "left", "label": "t:sections.about_system.options.left" }
+          ],
+          "default": "right"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 3,
+  "presets": [
+    {
+      "name": "t:sections.about_system.name",
+      "blocks": [
+        {
+          "type": "row",
+          "settings": {
+            "title": "Precision device",
+            "text": "<p>The 0.5 mm micro-infusion applicator uses gold-plated micro-touchpoints for a controlled, consistent application.</p>",
+            "image_alt": "Gold-plated micro-infusion tips",
+            "fallback": "needles",
+            "image_side": "right"
+          }
+        },
+        {
+          "type": "row",
+          "settings": {
+            "title": "Cuprofuse® concentrated serum",
+            "text": "<p>A concentrated serum led by GHK-Cu, with a precisely configured combination of selected scalp-care ingredients.</p>",
+            "image_alt": "Cuprofuse serum being measured into a vial",
+            "fallback": "serum",
+            "image_side": "left"
+          }
+        },
+        {
+          "type": "row",
+          "settings": {
+            "title": "One complete system",
+            "text": "<p>The device and the serum are designed to be used together, as one considered scalp-care routine.</p>",
+            "image_alt": "Riavâte device and serum vial",
+            "fallback": "kit",
+            "image_side": "right"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

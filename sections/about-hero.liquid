@@ -1,0 +1,148 @@
+<section class="about-hero">
+  <div class="about-hero__inner">
+    <div class="about-hero__copy">
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="about-hero__eyebrow">{{ section.settings.eyebrow | escape }}</p>
+      {%- endif -%}
+      {%- if section.settings.heading != blank -%}
+        <h1 class="about-hero__heading">{{ section.settings.heading | escape }}</h1>
+      {%- endif -%}
+      {%- if section.settings.text != blank -%}
+        <div class="about-hero__text rte">{{ section.settings.text }}</div>
+      {%- endif -%}
+    </div>
+    <div class="about-hero__media">
+      {%- if section.settings.image != blank -%}
+        {{
+          section.settings.image
+          | image_url: width: 1400
+          | image_tag:
+            widths: '480, 800, 1200',
+            sizes: '(min-width: 990px) 46vw, 100vw',
+            alt: section.settings.image_alt,
+            class: 'about-hero__image'
+        }}
+      {%- else -%}
+        <img
+          class="about-hero__image"
+          src="{{ 'about-hero.jpg' | asset_url }}"
+          alt="{{ section.settings.image_alt | escape }}"
+          width="1024"
+          height="992"
+        >
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% stylesheet %}
+  .about-hero {
+    background: #ffffff;
+    color: #121a43;
+  }
+
+  .about-hero__inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+    gap: 4rem;
+    align-items: center;
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 5.5rem 1.5rem 4.5rem;
+  }
+
+  .about-hero__eyebrow {
+    margin: 0 0 1.25rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+
+  .about-hero__heading {
+    margin: 0;
+    max-width: 11ch;
+    font-size: clamp(2rem, 4vw, 3.25rem);
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    text-transform: uppercase;
+  }
+
+  .about-hero__text {
+    max-width: 34rem;
+    margin-top: 1.5rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+    line-height: 1.7;
+    color: #3d4566;
+  }
+
+  .about-hero__text p {
+    margin: 0 0 0.85rem;
+  }
+
+  .about-hero__media {
+    border-radius: 1.25rem;
+    overflow: hidden;
+  }
+
+  .about-hero__image {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 0.96;
+    object-fit: cover;
+  }
+
+  @media screen and (max-width: 989px) {
+    .about-hero__inner {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      padding: 3.5rem 1.25rem 3rem;
+    }
+
+    .about-hero__heading {
+      max-width: 14ch;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:sections.about_hero.name",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "t:sections.about_hero.settings.eyebrow",
+      "default": "About Riavâte"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "t:sections.about_hero.settings.heading",
+      "default": "A more precise approach to scalp care."
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "t:sections.about_hero.settings.text",
+      "default": "<p>Riavâte brings controlled 0.5 mm micro-infusion together with Cuprofuse®, a concentrated serum led by GHK-Cu, for a more precise approach to modern scalp care.</p>"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "t:sections.about_hero.settings.image"
+    },
+    {
+      "type": "text",
+      "id": "image_alt",
+      "label": "t:sections.about_hero.settings.image_alt",
+      "default": "Riavâte micro-infusion device"
+    }
+  ],
+  "presets": [{ "name": "t:sections.about_hero.name" }]
+}
+{% endschema %}

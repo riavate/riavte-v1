@@ -273,6 +273,84 @@
         "james": "James"
       }
     },
+    "about_hero": {
+      "name": "About hero",
+      "settings": {
+        "eyebrow": "Eyebrow",
+        "heading": "Heading",
+        "text": "Text",
+        "image": "Image",
+        "image_alt": "Image alt text"
+      }
+    },
+    "about_reconsidered": {
+      "name": "About split",
+      "settings": {
+        "eyebrow": "Eyebrow",
+        "heading": "Heading",
+        "text": "Text",
+        "image": "Image",
+        "image_alt": "Image alt text"
+      }
+    },
+    "about_pillars": {
+      "name": "About pillars",
+      "settings": {
+        "eyebrow": "Eyebrow",
+        "heading": "Heading",
+        "text": "Text"
+      },
+      "blocks": {
+        "pillar": { "name": "Pillar", "title": "Title", "text": "Text" }
+      }
+    },
+    "about_formula": {
+      "name": "About formula",
+      "settings": {
+        "eyebrow": "Eyebrow",
+        "heading": "Heading",
+        "subheading": "Subheading",
+        "text": "Text",
+        "image": "Background image"
+      },
+      "blocks": {
+        "feature": { "name": "Feature", "title": "Title", "text": "Text" }
+      }
+    },
+    "about_system": {
+      "name": "About system",
+      "settings": { "eyebrow": "Eyebrow", "heading": "Heading" },
+      "blocks": {
+        "row": {
+          "name": "Row",
+          "title": "Title",
+          "text": "Text",
+          "image": "Image",
+          "image_alt": "Image alt text",
+          "fallback": "Placeholder image",
+          "image_side": "Image side"
+        }
+      },
+      "options": {
+        "needles": "Device tips",
+        "serum": "Serum",
+        "kit": "Device and vial",
+        "right": "Right",
+        "left": "Left"
+      }
+    },
+    "about_evolved": {
+      "name": "About statement",
+      "settings": {
+        "eyebrow": "Eyebrow",
+        "heading": "Heading",
+        "text": "Text",
+        "button_label": "Button label",
+        "button_link": "Button link",
+        "image": "Image",
+        "image_alt": "Image alt text"
+      }
+    },
     "product_main": {
       "name": "Product",
       "settings": {

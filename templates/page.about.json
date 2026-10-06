@@ -1,0 +1,179 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "about_hero": {
+      "type": "about-hero",
+      "settings": {}
+    },
+    "about_reconsidered": {
+      "type": "about-reconsidered",
+      "settings": {}
+    },
+    "about_pillars": {
+      "type": "about-pillars",
+      "blocks": {
+        "even": {
+          "type": "pillar",
+          "settings": {
+            "title": "Even distribution",
+            "text": "Helps distribute the cosmetic serum consistently across the treatment area."
+          }
+        },
+        "precision": {
+          "type": "pillar",
+          "settings": {
+            "title": "0.5 mm precision",
+            "text": "Designed for controlled and consistent micro-infusion application."
+          }
+        },
+        "gold": {
+          "type": "pillar",
+          "settings": {
+            "title": "Gold-plated tips",
+            "text": "Precision micro-touchpoints engineered for a refined application experience."
+          }
+        },
+        "targeted": {
+          "type": "pillar",
+          "settings": {
+            "title": "Targeted application",
+            "text": "Helps apply the formula precisely across targeted areas of the scalp."
+          }
+        }
+      },
+      "block_order": ["even", "precision", "gold", "targeted"],
+      "settings": {}
+    },
+    "about_formula": {
+      "type": "about-formula",
+      "blocks": {
+        "ghk": {
+          "type": "feature",
+          "settings": {
+            "title": "GHK-Cu",
+            "text": "The copper peptide at the heart of the formula."
+          }
+        },
+        "precision": {
+          "type": "feature",
+          "settings": {
+            "title": "Precision formulated",
+            "text": "A considered combination of selected scalp-care ingredients."
+          }
+        },
+        "infusion": {
+          "type": "feature",
+          "settings": {
+            "title": "Made for micro-infusion",
+            "text": "Developed to complement the Riavâte application system."
+          }
+        }
+      },
+      "block_order": ["ghk", "precision", "infusion"],
+      "settings": {}
+    },
+    "about_system": {
+      "type": "about-system",
+      "blocks": {
+        "device": {
+          "type": "row",
+          "settings": {
+            "title": "Precision device",
+            "text": "<p>The 0.5 mm micro-infusion applicator uses gold-plated micro-touchpoints for a controlled, consistent application.</p>",
+            "image_alt": "Gold-plated micro-infusion tips",
+            "fallback": "needles",
+            "image_side": "right"
+          }
+        },
+        "serum": {
+          "type": "row",
+          "settings": {
+            "title": "Cuprofuse® concentrated serum",
+            "text": "<p>A concentrated serum led by GHK-Cu, with a precisely configured combination of selected scalp-care ingredients.</p>",
+            "image_alt": "Cuprofuse serum being measured into a vial",
+            "fallback": "serum",
+            "image_side": "left"
+          }
+        },
+        "kit": {
+          "type": "row",
+          "settings": {
+            "title": "One complete system",
+            "text": "<p>The device and the serum are designed to be used together, as one considered scalp-care routine.</p>",
+            "image_alt": "Riavâte device and serum vial",
+            "fallback": "kit",
+            "image_side": "right"
+          }
+        }
+      },
+      "block_order": ["device", "serum", "kit"],
+      "settings": {}
+    },
+    "about_evolved": {
+      "type": "about-evolved",
+      "settings": {
+        "button_link": "/products/the-kit"
+      }
+    },
+    "results": {
+      "type": "results",
+      "blocks": {
+        "sarah": {
+          "type": "card",
+          "settings": {
+            "fallback": "sarah",
+            "name": "Sarah M.",
+            "verified": true,
+            "badge": "✓ Verified customer",
+            "quote": "<p>“My hair looks noticeably fuller.”</p><p>I’ve been consistent with my Riavâte routine and I’m really pleased with how my hair looks and feels. My scalp feels well cared for, and my hair appears fuller and healthier around the areas I was most conscious of.</p>",
+            "uses_label": "Sarah uses",
+            "product_name": "Riavâte Hair Micro-Infusion Kit"
+          }
+        },
+        "daniel": {
+          "type": "card",
+          "settings": {
+            "fallback": "daniel",
+            "name": "Daniel R.",
+            "verified": true,
+            "badge": "✓ Verified customer",
+            "quote": "<p>“I can see the difference in my routine.”</p><p>Riavâte feels completely different from the scalp products I’ve used before. The micro-infusion system is precise and straightforward to use, and I’ve noticed an improvement in the overall appearance of my hair.</p>",
+            "uses_label": "Daniel uses",
+            "product_name": "Riavâte Hair Micro-Infusion Kit"
+          }
+        },
+        "james": {
+          "type": "card",
+          "settings": {
+            "fallback": "james",
+            "name": "James T.",
+            "verified": true,
+            "badge": "✓ Verified customer",
+            "quote": "<p>“My hair looks stronger and healthier.”</p><p>I wanted something that felt more considered than another everyday serum. Riavâte has become part of my regular scalp-care routine, and I’m really happy with how much healthier and fuller my hair appears.</p>",
+            "uses_label": "James uses",
+            "product_name": "Riavâte Hair Micro-Infusion Kit"
+          }
+        }
+      },
+      "block_order": ["sarah", "daniel", "james"],
+      "settings": { "heading": "Real routines. Visible progress." }
+    }
+  },
+  "order": [
+    "about_hero",
+    "about_reconsidered",
+    "about_pillars",
+    "about_formula",
+    "about_system",
+    "about_evolved",
+    "results"
+  ]
+}
