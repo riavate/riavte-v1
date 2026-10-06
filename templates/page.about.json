@@ -23,34 +23,38 @@
         "even": {
           "type": "pillar",
           "settings": {
-            "title": "Even distribution",
-            "text": "Helps distribute the cosmetic serum consistently across the treatment area."
+            "title": "Precision",
+            "text": "0.5 mm controlled micro-infusion."
           }
         },
         "precision": {
           "type": "pillar",
           "settings": {
-            "title": "0.5 mm precision",
-            "text": "Designed for controlled and consistent micro-infusion application."
+            "title": "Formulation",
+            "text": "Cuprofuse® concentrated serum."
           }
         },
         "gold": {
           "type": "pillar",
           "settings": {
-            "title": "Gold-plated tips",
-            "text": "Precision micro-touchpoints engineered for a refined application experience."
+            "title": "Simplicity",
+            "text": "Designed for a considered at-home routine."
           }
         },
         "targeted": {
           "type": "pillar",
           "settings": {
-            "title": "Targeted application",
-            "text": "Helps apply the formula precisely across targeted areas of the scalp."
+            "title": "Purpose",
+            "text": "Focused on targeted scalp care."
           }
         }
       },
       "block_order": ["even", "precision", "gold", "targeted"],
-      "settings": {}
+      "settings": {
+        "eyebrow": "Our philosophy",
+        "heading": "Precision in the device. Purpose in the formula.",
+        "text": "<p>Every element of Riavâte is designed to work as part of one considered scalp-care system.</p>"
+      }
     },
     "about_formula": {
       "type": "about-formula",
