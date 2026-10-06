@@ -153,48 +153,53 @@
         "button_link": "/products/the-kit"
       }
     },
-    "results": {
-      "type": "results",
+    "about_reviews": {
+      "type": "about-reviews",
       "blocks": {
-        "sarah": {
-          "type": "card",
+        "james": {
+          "type": "review",
           "settings": {
-            "fallback": "sarah",
-            "name": "Sarah M.",
-            "verified": true,
-            "badge": "✓ Verified customer",
-            "quote": "<p>“My hair looks noticeably fuller.”</p><p>I’ve been consistent with my Riavâte routine and I’m really pleased with how my hair looks and feels. My scalp feels well cared for, and my hair appears fuller and healthier around the areas I was most conscious of.</p>",
-            "uses_label": "Sarah uses",
-            "product_name": "Riavâte Hair Micro-Infusion Kit"
+            "fallback": "product-review-1.jpg",
+            "name": "James R.",
+            "date": "18 September 2026",
+            "quote": "<p>“Really easy to add to my routine.”</p><p>The kit feels premium and straightforward to use. I especially like how precise the applicator feels around my hairline.</p>"
           }
         },
         "daniel": {
-          "type": "card",
+          "type": "review",
           "settings": {
-            "fallback": "daniel",
-            "name": "Daniel R.",
-            "verified": true,
-            "badge": "✓ Verified customer",
-            "quote": "<p>“I can see the difference in my routine.”</p><p>Riavâte feels completely different from the scalp products I’ve used before. The micro-infusion system is precise and straightforward to use, and I’ve noticed an improvement in the overall appearance of my hair.</p>",
-            "uses_label": "Daniel uses",
-            "product_name": "Riavâte Hair Micro-Infusion Kit"
+            "fallback": "about-review-daniel.jpg",
+            "name": "Daniel M.",
+            "date": "02 September 2026",
+            "quote": "<p>“My hair looks noticeably fuller.”</p><p>I’m pleased with how my hair looks, particularly around the areas I was most conscious of.</p>"
           }
         },
-        "james": {
-          "type": "card",
+        "oliver": {
+          "type": "review",
           "settings": {
-            "fallback": "james",
-            "name": "James T.",
-            "verified": true,
-            "badge": "✓ Verified customer",
-            "quote": "<p>“My hair looks stronger and healthier.”</p><p>I wanted something that felt more considered than another everyday serum. Riavâte has become part of my regular scalp-care routine, and I’m really happy with how much healthier and fuller my hair appears.</p>",
-            "uses_label": "James uses",
-            "product_name": "Riavâte Hair Micro-Infusion Kit"
+            "fallback": "product-review-3.jpg",
+            "name": "Oliver T.",
+            "date": "14 August 2026",
+            "quote": "<p>“A much more considered approach.”</p><p>I’ve tried plenty of scalp products before, but Riavâte feels different. The micro-infusion system is simple to use and feels like a proper part of my routine.</p>"
+          }
+        },
+        "sophie": {
+          "type": "review",
+          "settings": {
+            "fallback": "product-review-4.jpg",
+            "name": "Sophie W.",
+            "date": "27 July 2026",
+            "quote": "<p>“Really pleased with my progress.”</p><p>My scalp feels well cared for and my hair appears healthier and fuller than when I started. I also love how simple the whole system is to use.</p>"
           }
         }
       },
-      "block_order": ["sarah", "daniel", "james"],
-      "settings": { "heading": "Real routines. Visible progress." }
+      "block_order": ["james", "daniel", "oliver", "sophie"],
+      "settings": {
+        "heading": "Reviews 10457",
+        "stars_label": "5 out of 5 stars",
+        "button_label": "Show more reviews",
+        "button_link": "/products/the-kit"
+      }
     }
   },
   "order": [
@@ -204,6 +209,6 @@
     "about_formula",
     "about_system",
     "about_evolved",
-    "results"
+    "about_reviews"
   ]
 }

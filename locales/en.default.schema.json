@@ -355,6 +355,25 @@
         "image_alt": "Image alt text"
       }
     },
+    "about_reviews": {
+      "name": "About reviews",
+      "settings": {
+        "heading": "Heading",
+        "stars_label": "Star label",
+        "button_label": "Button label",
+        "button_link": "Button link"
+      },
+      "blocks": {
+        "review": {
+          "name": "Review",
+          "image": "Image",
+          "fallback": "Placeholder image",
+          "name_label": "Name",
+          "date": "Date",
+          "quote": "Quote"
+        }
+      }
+    },
     "product_main": {
       "name": "Product",
       "settings": {
