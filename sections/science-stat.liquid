@@ -1,0 +1,157 @@
+<section class="science-stat" {% if section.settings.anchor != blank %}id="{{ section.settings.anchor | handleize }}"{% endif %}>
+  <div class="science-stat__inner">
+    <div class="science-stat__copy">
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="science-stat__eyebrow">{{ section.settings.eyebrow | escape }}</p>
+      {%- endif -%}
+      {%- if section.settings.heading != blank -%}
+        <h2 class="science-stat__heading">{{ section.settings.heading | escape | replace: '? ', '?<br>' }}</h2>
+      {%- endif -%}
+      {%- if section.settings.text != blank -%}
+        <div class="science-stat__text rte">{{ section.settings.text }}</div>
+      {%- endif -%}
+    </div>
+    <div class="science-stat__figure">
+      <p class="science-stat__value">{{ section.settings.value | escape }}</p>
+      {%- if section.settings.caption != blank -%}
+        <p class="science-stat__caption">{{ section.settings.caption | escape }}</p>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% stylesheet %}
+  .science-stat {
+    color: #ffffff;
+    background-image: linear-gradient(105deg, #000000 0%, #041433 48%, #0037ae 100%);
+  }
+
+  .science-stat__inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(220px, 0.85fr);
+    gap: 3rem;
+    align-items: center;
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 4.75rem 1.5rem;
+  }
+
+  .science-stat__eyebrow {
+    margin: 0 0 1rem;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.62);
+  }
+
+  .science-stat__heading {
+    margin: 0;
+    max-width: 16ch;
+    font-size: clamp(1.85rem, 3.2vw, 2.7rem);
+    font-weight: 800;
+    line-height: 1.08;
+    letter-spacing: -0.03em;
+    text-transform: uppercase;
+  }
+
+  .science-stat__text {
+    max-width: 34rem;
+    margin-top: 1.15rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+    line-height: 1.65;
+    color: rgba(255, 255, 255, 0.82);
+  }
+
+  .science-stat__text p {
+    margin: 0 0 0.75rem;
+  }
+
+  .science-stat__text p:last-child {
+    margin-bottom: 0;
+  }
+
+  .science-stat__figure {
+    padding-left: 2.5rem;
+    border-left: 1px solid rgba(255, 255, 255, 0.28);
+  }
+
+  .science-stat__value {
+    margin: 0;
+    font-size: clamp(4.5rem, 8vw, 7.5rem);
+    font-weight: 500;
+    line-height: 0.9;
+    letter-spacing: -0.04em;
+  }
+
+  .science-stat__caption {
+    max-width: 18rem;
+    margin: 1.1rem 0 0;
+    font-size: 0.88rem;
+    font-weight: 500;
+    line-height: 1.55;
+    color: rgba(255, 255, 255, 0.78);
+  }
+
+  @media screen and (max-width: 989px) {
+    .science-stat__inner {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .science-stat__figure {
+      padding-left: 0;
+      padding-top: 1.5rem;
+      border-left: 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.28);
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:sections.science_stat.name",
+  "settings": [
+    {
+      "type": "text",
+      "id": "anchor",
+      "label": "t:sections.science_stat.settings.anchor",
+      "default": "Peptide"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "t:sections.science_stat.settings.eyebrow",
+      "default": "Published context"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "t:sections.science_stat.settings.heading",
+      "default": "What does the published evidence show?"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "t:sections.science_stat.settings.text",
+      "default": "<p>GHK-Cu (Copper Tripeptide-1) is the leading peptide in Cuprofuse®. Published research on that peptide is part of why it was selected.</p>"
+    },
+    {
+      "type": "text",
+      "id": "value",
+      "label": "t:sections.science_stat.settings.value",
+      "default": "+91.4%"
+    },
+    {
+      "type": "textarea",
+      "id": "caption",
+      "label": "t:sections.science_stat.settings.caption",
+      "default": "A figure cited from published copper-peptide research. Shown as ingredient context, not as a result of the Riavâte system."
+    }
+  ],
+  "presets": [
+    { "name": "t:sections.science_stat.name" }
+  ]
+}
+{% endschema %}

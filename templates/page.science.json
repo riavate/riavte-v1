@@ -1,0 +1,203 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "science_hero": {
+      "type": "science-hero",
+      "settings": {
+        "eyebrow": "The science",
+        "heading": "Precision technology. Cuprofuse® formulation.",
+        "text": "<p>Riavâte brings a controlled micro-infusion device together with Cuprofuse®, a concentrated serum led by GHK-Cu.</p><p>This page sets out how the device, the formula and the routine are designed to work as one scalp-care system.</p>",
+        "image_alt": "Riavâte micro-infusion device held between two fingers"
+      }
+    },
+    "science_principles": {
+      "type": "science-principles",
+      "blocks": {
+        "precision": {
+          "type": "principle",
+          "settings": {
+            "title": "Precision",
+            "text": "A controlled 0.5 mm micro-infusion device, designed for targeted scalp application."
+          }
+        },
+        "formulation": {
+          "type": "principle",
+          "settings": {
+            "title": "Formulation",
+            "text": "Cuprofuse®, a concentrated serum led by GHK-Cu (Copper Tripeptide-1)."
+          }
+        },
+        "simplicity": {
+          "type": "principle",
+          "settings": {
+            "title": "Simplicity",
+            "text": "A considered at-home routine, without a complicated regimen."
+          }
+        },
+        "purpose": {
+          "type": "principle",
+          "settings": {
+            "title": "Purpose",
+            "text": "Focused on the scalp, where the device and formula are designed to meet."
+          }
+        }
+      },
+      "block_order": ["precision", "formulation", "simplicity", "purpose"],
+      "settings": {
+        "eyebrow": "Our approach",
+        "heading": "The principles behind Riavâte.",
+        "text": "<p>Four ideas shape the system: a precise device, a concentrated formula, a simple routine, and a clear view of the evidence.</p>"
+      }
+    },
+    "science_device": {
+      "type": "science-split",
+      "settings": {
+        "anchor": "device",
+        "eyebrow": "The device",
+        "heading": "Precision beyond surface application.",
+        "text": "<p>The Riavâte device uses a controlled 0.5 mm micro-infusion head. Fine gold-plated tips are arranged for a precise, even pass across the scalp.</p><p>It is designed for targeted application, so the routine stays considered rather than complicated.</p>",
+        "fallback": "science-device.jpg",
+        "image_alt": "Close view of the Riavâte micro-infusion tip",
+        "image_side": "left"
+      }
+    },
+    "science_stat": {
+      "type": "science-stat",
+      "settings": {
+        "anchor": "peptide",
+        "eyebrow": "Published context",
+        "heading": "What does the published evidence show?",
+        "text": "<p>GHK-Cu (Copper Tripeptide-1) is the leading peptide in Cuprofuse®. Published research on that peptide is part of why it was selected.</p><p>That research describes the ingredient. It does not describe a result of the finished Riavâte system.</p>",
+        "value": "+91.4%",
+        "caption": "A figure cited from published copper-peptide research. Shown as ingredient context, not as a result of the Riavâte system."
+      }
+    },
+    "science_formula": {
+      "type": "science-split",
+      "settings": {
+        "anchor": "formula",
+        "eyebrow": "The formula",
+        "heading": "Our concentrated serum, Cuprofuse®, at the heart of Riavâte.",
+        "text": "<p>Cuprofuse® brings GHK-Cu together with a precisely configured combination of selected molecules and scalp-care ingredients.</p><p>The serum is concentrated so each application stays precise, and it is designed to be used with the Riavâte device.</p>",
+        "fallback": "science-serum.jpg",
+        "image_alt": "Riavâte serum vial with molecular forms",
+        "image_side": "left"
+      }
+    },
+    "science_purpose": {
+      "type": "science-split",
+      "blocks": {
+        "peptide": {
+          "type": "point",
+          "settings": {
+            "title": "GHK-Cu",
+            "text": "Copper Tripeptide-1, selected as the leading peptide in Cuprofuse®."
+          }
+        },
+        "device": {
+          "type": "point",
+          "settings": {
+            "title": "The device",
+            "text": "0.5 mm micro-infusion for a targeted pass across the scalp."
+          }
+        },
+        "system": {
+          "type": "point",
+          "settings": {
+            "title": "The system",
+            "text": "Device and formula, designed to be used together."
+          }
+        }
+      },
+      "block_order": ["peptide", "device", "system"],
+      "settings": {
+        "anchor": "routine",
+        "eyebrow": "The routine",
+        "heading": "Selected with purpose.",
+        "text": "<p>Every part of Riavâte is chosen for the same job: a precise, considered approach to scalp care.</p>",
+        "fallback": "science-apply.jpg",
+        "image_alt": "Riavâte device applied along the hairline",
+        "image_side": "left"
+      }
+    },
+    "science_note": {
+      "type": "science-note",
+      "settings": {
+        "eyebrow": "A clear distinction",
+        "heading": "Understanding the evidence.",
+        "text": "<p>Published research on an ingredient is not the same as a result from the finished Riavâte system. We share that context so the formula can be read clearly.</p>"
+      }
+    },
+    "science_explore": {
+      "type": "science-explore",
+      "blocks": {
+        "device": {
+          "type": "card",
+          "settings": {
+            "title": "The device",
+            "text": "0.5 mm micro-infusion.",
+            "link": "#device"
+          }
+        },
+        "formula": {
+          "type": "card",
+          "settings": {
+            "title": "The formula",
+            "text": "Cuprofuse® concentrate.",
+            "link": "#formula"
+          }
+        },
+        "peptide": {
+          "type": "card",
+          "settings": {
+            "title": "The peptide",
+            "text": "GHK-Cu led formulation.",
+            "link": "#peptide"
+          }
+        },
+        "routine": {
+          "type": "card",
+          "settings": {
+            "title": "The routine",
+            "text": "Designed to be used together.",
+            "link": "#routine"
+          }
+        }
+      },
+      "block_order": ["device", "formula", "peptide", "routine"],
+      "settings": {
+        "eyebrow": "On this page",
+        "heading": "Explore the science"
+      }
+    },
+    "science_close": {
+      "type": "science-close",
+      "settings": {
+        "eyebrow": "Riavâte",
+        "heading": "Science-led scalp care, built with precision.",
+        "text": "<p>Device and formula, designed together as one considered scalp-care system.</p>",
+        "button_label": "Shop the system →",
+        "button_link": "/products/the-kit"
+      }
+    }
+  },
+  "order": [
+    "science_hero",
+    "science_principles",
+    "science_device",
+    "science_stat",
+    "science_formula",
+    "science_purpose",
+    "science_note",
+    "science_explore",
+    "science_close"
+  ]
+}

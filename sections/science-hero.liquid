@@ -1,0 +1,145 @@
+<section class="science-hero">
+  <div class="science-hero__inner">
+    <div class="science-hero__copy">
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="science-hero__eyebrow">{{ section.settings.eyebrow | escape }}</p>
+      {%- endif -%}
+      {%- if section.settings.heading != blank -%}
+        <h1 class="science-hero__heading">{{ section.settings.heading | escape | replace: '. ', '.<br>' }}</h1>
+      {%- endif -%}
+      {%- if section.settings.text != blank -%}
+        <div class="science-hero__text rte">{{ section.settings.text }}</div>
+      {%- endif -%}
+    </div>
+    <div class="science-hero__media">
+      {%- if section.settings.image != blank -%}
+        {{
+          section.settings.image
+          | image_url: width: 1400
+          | image_tag:
+            widths: '480, 800, 1200',
+            sizes: '(min-width: 990px) 46vw, 100vw',
+            alt: section.settings.image_alt,
+            class: 'science-hero__image'
+        }}
+      {%- else -%}
+        <img
+          class="science-hero__image"
+          src="{{ 'science-hold.jpg' | asset_url }}"
+          alt="{{ section.settings.image_alt | escape }}"
+          width="1024"
+          height="1024"
+        >
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% stylesheet %}
+  .science-hero {
+    background: #ffffff;
+    color: #121a43;
+  }
+
+  .science-hero__inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(280px, 0.92fr);
+    gap: 4rem;
+    align-items: center;
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 5.5rem 1.5rem 4.5rem;
+  }
+
+  .science-hero__eyebrow {
+    margin: 0 0 1.15rem;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #8b93a7;
+  }
+
+  .science-hero__heading {
+    margin: 0;
+    max-width: 12ch;
+    font-size: clamp(2.1rem, 4vw, 3.35rem);
+    font-weight: 800;
+    line-height: 1.02;
+    letter-spacing: -0.03em;
+    text-transform: uppercase;
+  }
+
+  .science-hero__text {
+    max-width: 32rem;
+    margin-top: 1.4rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+    line-height: 1.7;
+    color: #3d4566;
+  }
+
+  .science-hero__text p {
+    margin: 0 0 0.85rem;
+  }
+
+  .science-hero__text p:last-child {
+    margin-bottom: 0;
+  }
+
+  .science-hero__image {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: 1.35rem;
+  }
+
+  @media screen and (max-width: 989px) {
+    .science-hero__inner {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      padding-top: 3.5rem;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:sections.science_hero.name",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "t:sections.science_hero.settings.eyebrow",
+      "default": "The science"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "t:sections.science_hero.settings.heading",
+      "default": "Precision technology. Cuprofuse® formulation."
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "t:sections.science_hero.settings.text",
+      "default": "<p>Riavâte pairs a controlled micro-infusion device with Cuprofuse®, a concentrated serum led by GHK-Cu.</p>"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "t:sections.science_hero.settings.image"
+    },
+    {
+      "type": "text",
+      "id": "image_alt",
+      "label": "t:sections.science_hero.settings.image_alt",
+      "default": "Riavâte micro-infusion device held between two fingers"
+    }
+  ],
+  "presets": [
+    { "name": "t:sections.science_hero.name" }
+  ]
+}
+{% endschema %}

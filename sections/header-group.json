@@ -38,7 +38,8 @@
         "science": {
           "type": "link",
           "settings": {
-            "label": "Science"
+            "label": "Science",
+            "link": "/pages/science"
           }
         },
         "ingredients": {
