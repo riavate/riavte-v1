@@ -19,7 +19,7 @@
       <p class="science-close__eyebrow">{{ section.settings.eyebrow | escape }}</p>
     {%- endif -%}
     {%- if section.settings.heading != blank -%}
-      <h2 class="science-close__heading">{{ section.settings.heading | escape | replace: ', ', ',<br>' }}</h2>
+      <h2 class="science-close__heading">{{ section.settings.heading | escape | replace: ' scalp ', '<br>scalp ' | replace: '. ', '.<br>' | replace: ' with ', ' with<br>' }}</h2>
     {%- endif -%}
     {%- if section.settings.text != blank -%}
       <div class="science-close__text rte">{{ section.settings.text }}</div>
@@ -55,36 +55,37 @@
   .science-close__copy {
     position: relative;
     z-index: 1;
-    width: min(28rem, calc(100% - 3rem));
+    width: min(34rem, calc(100% - 3rem));
     margin: 0 8% 0 auto;
-    padding: 5.25rem 0;
+    padding: 5.5rem 0;
   }
 
   .science-close__eyebrow {
-    margin: 0 0 1rem;
+    margin: 0 0 1.15rem;
     font-size: 0.72rem;
-    font-weight: 600;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: none;
+    color: rgba(255, 255, 255, 0.88);
   }
 
   .science-close__heading {
     margin: 0;
-    max-width: 12ch;
-    font-size: clamp(2rem, 4vw, 3.1rem);
-    font-weight: 500;
-    line-height: 1.12;
-    letter-spacing: 0.02em;
+    max-width: 11em;
+    font-size: clamp(2.15rem, 4.2vw, 3.35rem);
+    font-weight: 400;
+    line-height: 1.08;
+    letter-spacing: 0.01em;
     text-transform: uppercase;
   }
 
   .science-close__text {
-    max-width: 24rem;
-    margin-top: 1.15rem;
-    font-size: 0.95rem;
-    font-weight: 500;
-    line-height: 1.6;
-    color: rgba(255, 255, 255, 0.88);
+    max-width: 28rem;
+    margin-top: 1.25rem;
+    font-size: 0.92rem;
+    font-weight: 400;
+    line-height: 1.55;
+    color: rgba(255, 255, 255, 0.92);
   }
 
   .science-close__text p {
@@ -130,25 +131,25 @@
       "type": "text",
       "id": "eyebrow",
       "label": "t:sections.science_close.settings.eyebrow",
-      "default": "Riavâte"
+      "default": "The Riavâte System"
     },
     {
       "type": "text",
       "id": "heading",
       "label": "t:sections.science_close.settings.heading",
-      "default": "Science-led scalp care, built with precision."
+      "default": "Science-led scalp care. Designed with precision."
     },
     {
       "type": "richtext",
       "id": "text",
       "label": "t:sections.science_close.settings.text",
-      "default": "<p>Device and formula, designed together as one considered scalp-care system.</p>"
+      "default": "<p>Precision micro-infusion meets Cuprofuse® concentrated serum — bringing technology, formulation and modern scalp care together in one considered system.</p>"
     },
     {
       "type": "text",
       "id": "button_label",
       "label": "t:sections.science_close.settings.button_label",
-      "default": "Shop the system →"
+      "default": "Discover the system"
     },
     {
       "type": "url",

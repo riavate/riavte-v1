@@ -271,10 +271,10 @@
     "science_close": {
       "type": "science-close",
       "settings": {
-        "eyebrow": "Riavâte",
-        "heading": "Science-led scalp care, built with precision.",
-        "text": "<p>Device and formula, designed together as one considered scalp-care system.</p>",
-        "button_label": "Shop the system →",
+        "eyebrow": "The Riavâte System",
+        "heading": "Science-led scalp care. Designed with precision.",
+        "text": "<p>Precision micro-infusion meets Cuprofuse® concentrated serum — bringing technology, formulation and modern scalp care together in one considered system.</p>",
+        "button_label": "Discover the system",
         "button_link": "/products/the-kit"
       }
     }
