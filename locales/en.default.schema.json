@@ -485,11 +485,14 @@
       "name": "Explore the science",
       "settings": {
         "eyebrow": "Eyebrow",
-        "heading": "Heading"
+        "heading": "Heading",
+        "italic_word": "Italic word",
+        "text": "Text"
       },
       "blocks": {
         "card": {
-          "name": "Card",
+          "name": "Reference",
+          "kicker": "Kicker",
           "title": "Title",
           "text": "Text",
           "link": "Link"

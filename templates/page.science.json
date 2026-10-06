@@ -219,43 +219,53 @@
     "science_explore": {
       "type": "science-explore",
       "blocks": {
-        "device": {
+        "microneedling": {
           "type": "card",
           "settings": {
-            "title": "The device",
-            "text": "0.5 mm micro-infusion.",
-            "link": "#device"
+            "kicker": "Microneedling",
+            "title": "Microneedling and hair-growth research",
+            "text": "Published research on microneedling and hair growth. Presented as background, not a clinical result for Riavâte."
           }
         },
-        "formula": {
+        "follicular": {
           "type": "card",
           "settings": {
-            "title": "The formula",
-            "text": "Cuprofuse® concentrate.",
-            "link": "#formula"
+            "kicker": "Follicular delivery",
+            "title": "Hair follicles as storage and penetration pathways",
+            "text": "Published work on the hair follicle as a route for storage and penetration of topical ingredients."
+          }
+        },
+        "caffeine": {
+          "type": "card",
+          "settings": {
+            "kicker": "Caffeine",
+            "title": "Follicular penetration of caffeine",
+            "text": "Published research on how caffeine penetrates the hair follicle."
+          }
+        },
+        "adenosine": {
+          "type": "card",
+          "settings": {
+            "kicker": "Adenosine",
+            "title": "Published topical adenosine research",
+            "text": "Published research on topical adenosine. Not a clinical result for Riavâte."
           }
         },
         "peptide": {
           "type": "card",
           "settings": {
-            "title": "The peptide",
-            "text": "GHK-Cu led formulation.",
-            "link": "#peptide"
-          }
-        },
-        "routine": {
-          "type": "card",
-          "settings": {
-            "title": "The routine",
-            "text": "Designed to be used together.",
-            "link": "#routine"
+            "kicker": "GHK-Cu / copper peptides",
+            "title": "Published research relating to copper peptides",
+            "text": "Published research on copper peptides, including GHK-Cu. Not a result for the finished Riavâte system."
           }
         }
       },
-      "block_order": ["device", "formula", "peptide", "routine"],
+      "block_order": ["microneedling", "follicular", "caffeine", "adenosine", "peptide"],
       "settings": {
-        "eyebrow": "On this page",
-        "heading": "Explore the science"
+        "eyebrow": "Scientific References",
+        "heading": "Explore the research.",
+        "italic_word": "research",
+        "text": "Independent research informing the science behind our approach."
       }
     },
     "science_close": {
