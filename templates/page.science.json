@@ -64,14 +64,40 @@
     },
     "science_device": {
       "type": "science-split",
+      "blocks": {
+        "channels": {
+          "type": "point",
+          "settings": {
+            "title": "Precision micro-channels",
+            "text": "0.5 mm micro-infusion creates controlled micro-channels during application."
+          }
+        },
+        "targeted": {
+          "type": "point",
+          "settings": {
+            "title": "Targeted application",
+            "text": "Cuprofuse® is applied directly across the targeted scalp area."
+          }
+        },
+        "together": {
+          "type": "point",
+          "settings": {
+            "title": "Formula + device",
+            "text": "The micro-infusion device and concentrated serum are designed to work as one considered system."
+          }
+        }
+      },
+      "block_order": ["channels", "targeted", "together"],
       "settings": {
         "anchor": "device",
-        "eyebrow": "The device",
-        "heading": "Precision beyond surface application.",
-        "text": "<p>The Riavâte device uses a controlled 0.5 mm micro-infusion head. Fine gold-plated tips are arranged for a precise, even pass across the scalp.</p><p>It is designed for targeted application, so the routine stays considered rather than complicated.</p>",
+        "eyebrow": "Why Micro-Infusion?",
+        "heading": "Precision beyond conventional application.",
+        "italic_word": "conventional",
+        "text": "<p>Traditional topical products are applied to the scalp surface. Riavâte uses controlled 0.5 mm micro-infusion to create temporary micro-channels during application, providing a more targeted approach to scalp care.</p>",
         "fallback": "science-device.jpg",
         "image_alt": "Close view of the Riavâte micro-infusion tip",
-        "image_side": "left"
+        "image_side": "left",
+        "points_style": "timeline"
       }
     },
     "science_stat": {

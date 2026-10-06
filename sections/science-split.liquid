@@ -1,5 +1,22 @@
+{%- liquid
+  assign split_class = 'science-split'
+  if section.settings.image_side == 'right'
+    assign split_class = split_class | append: ' science-split--image-right'
+  endif
+  if section.settings.points_style == 'timeline'
+    assign split_class = split_class | append: ' science-split--timeline'
+  endif
+
+  assign heading_html = section.settings.heading | escape | replace: ', ', ',<br>' | replace: '. ', '.<br>'
+  if section.settings.italic_word != blank
+    assign italic = section.settings.italic_word | escape
+    assign wrapped = '<br><em>' | append: italic | append: '</em><br>'
+    assign heading_html = heading_html | replace: italic, wrapped
+  endif
+-%}
+
 <section
-  class="science-split{% if section.settings.image_side == 'right' %} science-split--image-right{% endif %}"
+  class="{{ split_class }}"
   {% if section.settings.anchor != blank %}
     id="{{ section.settings.anchor | handleize }}"
   {% endif %}
@@ -32,7 +49,7 @@
         <p class="science-split__eyebrow">{{ section.settings.eyebrow | escape }}</p>
       {%- endif -%}
       {%- if section.settings.heading != blank -%}
-        <h2 class="science-split__heading">{{ section.settings.heading | escape | replace: ', ', ',<br>' | replace: '. ', '.<br>' }}</h2>
+        <h2 class="science-split__heading">{{ heading_html }}</h2>
       {%- endif -%}
       {%- if section.settings.text != blank -%}
         <div class="science-split__text rte">{{ section.settings.text }}</div>
@@ -159,6 +176,84 @@
     color: #5c6578;
   }
 
+  .science-split__heading em {
+    font-style: italic;
+    font-weight: 500;
+    letter-spacing: 0;
+    text-transform: none;
+  }
+
+  .science-split--timeline .science-split__eyebrow {
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: none;
+  }
+
+  .science-split--timeline .science-split__heading {
+    max-width: 13ch;
+    font-size: clamp(2rem, 3.4vw, 2.85rem);
+    line-height: 0.98;
+  }
+
+  .science-split--timeline .science-split__text {
+    max-width: 28rem;
+    margin-top: 1rem;
+    font-size: 0.88rem;
+    line-height: 1.5;
+    color: #1a2744;
+  }
+
+  .science-split--timeline .science-split__points {
+    position: relative;
+    gap: 0;
+    margin-top: 1.45rem;
+    padding: 0.2rem 0 0 1.4rem;
+    border-left: 1px solid #d5dbe6;
+  }
+
+  .science-split--timeline .science-split__points li {
+    display: block;
+    position: relative;
+    padding: 0 0 1.35rem;
+  }
+
+  .science-split--timeline .science-split__points li:last-child {
+    padding-bottom: 0;
+  }
+
+  .science-split--timeline .science-split__points li::before {
+    content: "";
+    position: absolute;
+    top: 0.28rem;
+    left: -1.4rem;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #2f4bdb;
+    transform: translateX(-50%);
+  }
+
+  .science-split--timeline .science-split__index {
+    margin: 0 0 0.15rem;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    color: #8b93a7;
+  }
+
+  .science-split--timeline .science-split__points h3 {
+    margin: 0 0 0.28rem;
+    font-size: 0.92rem;
+    font-weight: 800;
+    color: #121a43;
+  }
+
+  .science-split--timeline .science-split__points p {
+    max-width: 26rem;
+    font-size: 0.86rem;
+    color: #3d4566;
+  }
+
   @media screen and (max-width: 989px) {
     .science-split__inner {
       grid-template-columns: 1fr;
@@ -191,7 +286,13 @@
       "type": "text",
       "id": "heading",
       "label": "t:sections.science_split.settings.heading",
-      "default": "Precision beyond surface application."
+      "default": "Precision beyond conventional application."
+    },
+    {
+      "type": "text",
+      "id": "italic_word",
+      "label": "t:sections.science_split.settings.italic_word",
+      "default": "conventional"
     },
     {
       "type": "richtext",
@@ -225,6 +326,16 @@
         { "value": "right", "label": "t:sections.science_split.options.right" }
       ],
       "default": "left"
+    },
+    {
+      "type": "select",
+      "id": "points_style",
+      "label": "t:sections.science_split.settings.points_style",
+      "options": [
+        { "value": "list", "label": "t:sections.science_split.options.list" },
+        { "value": "timeline", "label": "t:sections.science_split.options.timeline" }
+      ],
+      "default": "list"
     }
   ],
   "blocks": [

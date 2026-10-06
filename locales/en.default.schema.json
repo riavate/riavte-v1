@@ -392,11 +392,15 @@
         "image": "Image",
         "fallback": "Placeholder image",
         "image_alt": "Image alt text",
-        "image_side": "Image side"
+        "image_side": "Image side",
+        "italic_word": "Italic word",
+        "points_style": "Points style"
       },
       "options": {
         "left": "Left",
-        "right": "Right"
+        "right": "Right",
+        "list": "List",
+        "timeline": "Timeline"
       },
       "blocks": {
         "point": {
