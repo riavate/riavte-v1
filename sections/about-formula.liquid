@@ -66,9 +66,9 @@
   .about-formula__inner {
     position: relative;
     z-index: 1;
-    max-width: 760px;
+    max-width: 820px;
     margin: 0 auto;
-    padding: 6rem 1.5rem;
+    padding: 5.5rem 1.5rem;
     text-align: center;
   }
 
@@ -108,22 +108,26 @@
     margin: 0;
   }
 
+  .about-formula__text p + p {
+    margin-top: 1rem;
+  }
+
   .about-formula__features {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 1.5rem;
-    margin: 2.5rem 0 0;
-    padding: 0;
+    margin: 2.25rem 0 0;
+    padding: 1.6rem 0 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.45);
     list-style: none;
-    text-align: left;
+    text-align: center;
   }
 
   .about-formula__feature-title {
-    margin: 0 0 0.4rem;
-    font-size: 0.8rem;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
+    margin: 0;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
   }
 
   .about-formula__feature-text {
@@ -153,7 +157,7 @@
       "type": "text",
       "id": "eyebrow",
       "label": "t:sections.about_formula.settings.eyebrow",
-      "default": "The formula"
+      "default": "At the heart of Riavâte"
     },
     {
       "type": "text",
@@ -171,7 +175,7 @@
       "type": "richtext",
       "id": "text",
       "label": "t:sections.about_formula.settings.text",
-      "default": "<p>More than a single hero ingredient. Cuprofuse® brings GHK-Cu together with a precisely configured combination of selected molecules and scalp-care ingredients in one concentrated formula.</p>"
+      "default": "<p>More than a single hero ingredient. Cuprofuse® brings GHK-Cu together with a precisely configured combination of selected molecules and scalp-care ingredients in one concentrated formula.</p><p>At its core is GHK-Cu (Copper Tripeptide-1), selected as the leading peptide within the Cuprofuse® formula.</p>"
     },
     {
       "type": "image_picker",
@@ -188,13 +192,13 @@
           "type": "text",
           "id": "title",
           "label": "t:sections.about_formula.blocks.feature.title",
-          "default": "GHK-Cu"
+          "default": "GHK-Cu LED"
         },
         {
           "type": "textarea",
           "id": "text",
           "label": "t:sections.about_formula.blocks.feature.text",
-          "default": "The copper peptide at the heart of the formula."
+          "default": "Label"
         }
       ]
     }
@@ -204,9 +208,9 @@
     {
       "name": "t:sections.about_formula.name",
       "blocks": [
-        { "type": "feature", "settings": { "title": "GHK-Cu", "text": "The copper peptide at the heart of the formula." } },
-        { "type": "feature", "settings": { "title": "Precision formulated", "text": "A considered combination of selected scalp-care ingredients." } },
-        { "type": "feature", "settings": { "title": "Made for micro-infusion", "text": "Developed to complement the Riavâte application system." } }
+        { "type": "feature", "settings": { "title": "GHK-Cu LED" } },
+        { "type": "feature", "settings": { "title": "CONCENTRATED SERUM" } },
+        { "type": "feature", "settings": { "title": "PRECISION FORMULATED" } }
       ]
     }
   ]
