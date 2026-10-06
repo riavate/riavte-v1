@@ -15,7 +15,12 @@
     },
     "about_reconsidered": {
       "type": "about-reconsidered",
-      "settings": {}
+      "settings": {
+        "eyebrow": "Why Riavâte",
+        "heading": "Scalp care, reconsidered",
+        "text": "<p>Traditional hair-care routines often focus on what happens at the surface. Riavâte takes a more targeted approach.</p><p>Our system combines controlled 0.5 mm micro-infusion with Cuprofuse®, our concentrated serum, creating a simple and considered way to incorporate precision scalp care into your routine.</p>",
+        "caption": "0.5 mm controlled micro-infusion"
+      }
     },
     "about_pillars": {
       "type": "about-pillars",

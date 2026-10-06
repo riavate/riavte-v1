@@ -5,7 +5,7 @@
         <p class="about-reconsidered__eyebrow">{{ section.settings.eyebrow | escape }}</p>
       {%- endif -%}
       {%- if section.settings.heading != blank -%}
-        <h2 class="about-reconsidered__heading">{{ section.settings.heading | escape }}</h2>
+        <h2 class="about-reconsidered__heading">{{ section.settings.heading | escape | replace: ', ', ',<br>' }}</h2>
       {%- endif -%}
       {%- if section.settings.text != blank -%}
         <div class="about-reconsidered__text rte">{{ section.settings.text }}</div>
@@ -32,6 +32,9 @@
           loading="lazy"
         >
       {%- endif -%}
+      {%- if section.settings.caption != blank -%}
+        <p class="about-reconsidered__caption">{{ section.settings.caption | escape }}</p>
+      {%- endif -%}
     </div>
   </div>
 </section>
@@ -39,7 +42,7 @@
 {% stylesheet %}
   .about-reconsidered {
     color: #ffffff;
-    background: linear-gradient(115deg, #05070f 0%, #071433 48%, #0037ae 100%);
+    background: linear-gradient(105deg, #000000 0%, #07101f 46%, #0037ae 100%);
   }
 
   .about-reconsidered__inner {
@@ -63,7 +66,7 @@
 
   .about-reconsidered__heading {
     margin: 0;
-    max-width: 12ch;
+    max-width: 13ch;
     font-size: clamp(2rem, 4vw, 3rem);
     font-weight: 800;
     line-height: 1.05;
@@ -81,12 +84,29 @@
   }
 
   .about-reconsidered__text p {
-    margin: 0 0 0.85rem;
+    margin: 0;
+  }
+
+  .about-reconsidered__text p + p {
+    margin-top: 1rem;
+  }
+
+  .about-reconsidered__image {
+    border-radius: 1.15rem;
+  }
+
+  .about-reconsidered__caption {
+    margin: 0.95rem 0 0;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-align: center;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.82);
   }
 
   .about-reconsidered__media {
-    border-radius: 1.1rem;
-    overflow: hidden;
+    overflow: visible;
   }
 
   .about-reconsidered__image {
@@ -114,19 +134,19 @@
       "type": "text",
       "id": "eyebrow",
       "label": "t:sections.about_reconsidered.settings.eyebrow",
-      "default": "Our approach"
+      "default": "Why Riavâte"
     },
     {
       "type": "text",
       "id": "heading",
       "label": "t:sections.about_reconsidered.settings.heading",
-      "default": "Scalp care, reconsidered."
+      "default": "Scalp care, reconsidered"
     },
     {
       "type": "richtext",
       "id": "text",
       "label": "t:sections.about_reconsidered.settings.text",
-      "default": "<p>Most routines stay on the surface. Riavâte is designed for controlled, targeted application, so the cosmetic formula can be placed more precisely across the scalp.</p>"
+      "default": "<p>Traditional hair-care routines often focus on what happens at the surface. Riavâte takes a more targeted approach.</p><p>Our system combines controlled 0.5 mm micro-infusion with Cuprofuse®, our concentrated serum, creating a simple and considered way to incorporate precision scalp care into your routine.</p>"
     },
     {
       "type": "image_picker",
@@ -138,6 +158,12 @@
       "id": "image_alt",
       "label": "t:sections.about_reconsidered.settings.image_alt",
       "default": "Riavâte device applied to the scalp"
+    },
+    {
+      "type": "text",
+      "id": "caption",
+      "label": "t:sections.about_reconsidered.settings.caption",
+      "default": "0.5 mm controlled micro-infusion"
     }
   ],
   "presets": [{ "name": "t:sections.about_reconsidered.name" }]
