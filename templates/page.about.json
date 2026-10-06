@@ -145,6 +145,11 @@
     "about_evolved": {
       "type": "about-evolved",
       "settings": {
+        "eyebrow": "This is Riavâte",
+        "heading": "Scalp care has evolved.",
+        "text": "<p>We believe better scalp care starts with precision — not complexity.</p>",
+        "points": "Precision micro-infusion\nCuprofuse® concentrated serum\nGHK-Cu led formulation\nA system designed with purpose",
+        "button_label": "Shop the system →",
         "button_link": "/products/the-kit"
       }
     },
