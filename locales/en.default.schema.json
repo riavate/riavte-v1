@@ -273,9 +273,7 @@
         "ingredients_label": "Ingredients label",
         "ingredients_link": "Ingredients link",
         "certificate_label": "Certificate label",
-        "certificate_link": "Certificate link",
-        "show_dynamic_checkout": "Show dynamic checkout",
-        "show_dynamic_checkout_info": "Shows Shopify’s accelerated checkout buttons, such as Shop Pay, under Add to cart."
+        "certificate_link": "Certificate link"
       },
       "blocks": {
         "point": { "name": "Benefit", "text": "Text" },

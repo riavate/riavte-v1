@@ -237,12 +237,6 @@
               {{ 'products.sold_out' | t }}
             {%- endif -%}
           </button>
-
-          {%- if section.settings.show_dynamic_checkout -%}
-            <div class="product-main__checkout">
-              {{ form | payment_button }}
-            </div>
-          {%- endif -%}
         {% endform %}
       {%- endif -%}
     </div>
@@ -507,10 +501,6 @@
     cursor: not-allowed;
   }
 
-  .product-main__checkout {
-    margin-top: 0.75rem;
-  }
-
   @media screen and (max-width: 989px) {
     .product-main__layout,
     .product-main__points,
@@ -619,13 +609,6 @@
       "type": "url",
       "id": "certificate_link",
       "label": "t:sections.product_main.settings.certificate_link"
-    },
-    {
-      "type": "checkbox",
-      "id": "show_dynamic_checkout",
-      "label": "t:sections.product_main.settings.show_dynamic_checkout",
-      "info": "t:sections.product_main.settings.show_dynamic_checkout_info",
-      "default": true
     }
   ],
   "blocks": [
