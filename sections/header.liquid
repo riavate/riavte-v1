@@ -44,8 +44,36 @@
           {%- endfor -%}
         {%- else -%}
           {%- for block in section.blocks -%}
+            {%- liquid
+              assign nav_href = block.settings.link | default: routes.root_url
+              assign nav_path = nav_href | split: '?' | first
+              assign current_path = request.path
+              assign is_current = false
+
+              if nav_path == current_path
+                assign is_current = true
+              endif
+
+              if nav_path != '/'
+                assign localized_path = routes.root_url | append: nav_path
+                if current_path == localized_path
+                  assign is_current = true
+                endif
+              endif
+
+              if request.page_type == 'index'
+                if nav_path == '/' or nav_path == routes.root_url
+                  assign is_current = true
+                endif
+              endif
+            -%}
             <li {{ block.shopify_attributes }}>
-              <a href="{{ block.settings.link | default: routes.root_url }}">
+              <a
+                href="{{ nav_href }}"
+                {% if is_current %}
+                  aria-current="page"
+                {% endif %}
+              >
                 {{ block.settings.label | escape }}
               </a>
             </li>
@@ -134,6 +162,7 @@
   }
 
   .site-header__menu a[aria-current='page'] {
+    color: #2d42a9;
     font-weight: 600;
   }
 
