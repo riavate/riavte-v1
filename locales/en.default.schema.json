@@ -377,6 +377,7 @@
         "principle": {
           "name": "Principle",
           "title": "Title",
+          "kicker": "Kicker",
           "text": "Text"
         }
       }

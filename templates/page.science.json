@@ -25,37 +25,41 @@
         "precision": {
           "type": "principle",
           "settings": {
-            "title": "Precision",
-            "text": "A controlled 0.5 mm micro-infusion device, designed for targeted scalp application."
+            "title": "0.5 mm",
+            "kicker": "Precision",
+            "text": "Controlled micro-infusion designed for precise scalp application."
           }
         },
         "formulation": {
           "type": "principle",
           "settings": {
-            "title": "Formulation",
-            "text": "Cuprofuse®, a concentrated serum led by GHK-Cu (Copper Tripeptide-1)."
+            "title": "Cuprofuse®",
+            "kicker": "Our hero peptide",
+            "text": "Our concentrated serum, led by GHK-Cu and selected scalp-care actives."
           }
         },
         "simplicity": {
           "type": "principle",
           "settings": {
-            "title": "Simplicity",
-            "text": "A considered at-home routine, without a complicated regimen."
+            "title": "Follicle-focused",
+            "kicker": "Targeted application",
+            "text": "A considered application system designed around targeted scalp care."
           }
         },
         "purpose": {
           "type": "principle",
           "settings": {
-            "title": "Purpose",
-            "text": "Focused on the scalp, where the device and formula are designed to meet."
+            "title": "Science-led",
+            "kicker": "Selected actives",
+            "text": "Built around published research into microneedling, peptides and cosmetic scalp-care ingredients."
           }
         }
       },
       "block_order": ["precision", "formulation", "simplicity", "purpose"],
       "settings": {
-        "eyebrow": "Our approach",
+        "eyebrow": "Science at a Glance",
         "heading": "The principles behind Riavâte.",
-        "text": "<p>Four ideas shape the system: a precise device, a concentrated formula, a simple routine, and a clear view of the evidence.</p>"
+        "text": ""
       }
     },
     "science_device": {

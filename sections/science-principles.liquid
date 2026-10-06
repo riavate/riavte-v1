@@ -4,7 +4,7 @@
       <p class="science-principles__eyebrow">{{ section.settings.eyebrow | escape }}</p>
     {%- endif -%}
     {%- if section.settings.heading != blank -%}
-      <h2 class="science-principles__heading">{{ section.settings.heading | escape | replace: '. ', '.<br>' }}</h2>
+      <h2 class="science-principles__heading">{{ section.settings.heading | escape | replace: ' behind ', '<br>behind ' }}</h2>
     {%- endif -%}
     {%- if section.settings.text != blank -%}
       <div class="science-principles__text rte">{{ section.settings.text }}</div>
@@ -15,6 +15,9 @@
           <p class="science-principles__index">0{{ forloop.index }}</p>
           {%- if block.settings.title != blank -%}
             <h3 class="science-principles__title">{{ block.settings.title | escape }}</h3>
+          {%- endif -%}
+          {%- if block.settings.kicker != blank -%}
+            <p class="science-principles__kicker">{{ block.settings.kicker | escape }}</p>
           {%- endif -%}
           {%- if block.settings.text != blank -%}
             <p class="science-principles__item-text">{{ block.settings.text | escape }}</p>
@@ -28,7 +31,7 @@
 {% stylesheet %}
   .science-principles {
     color: #ffffff;
-    background-image: linear-gradient(105deg, #000000 0%, #07101f 42%, #0037ae 100%);
+    background-image: linear-gradient(105deg, #000000 6%, #021433 46%, #0b3ea8 100%);
   }
 
   .science-principles__inner {
@@ -38,20 +41,20 @@
   }
 
   .science-principles__eyebrow {
-    margin: 0 0 1rem;
-    font-size: 0.72rem;
-    font-weight: 600;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.62);
+    margin: 0 0 0.85rem;
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: none;
+    color: rgba(255, 255, 255, 0.88);
   }
 
   .science-principles__heading {
     margin: 0;
-    max-width: 14ch;
-    font-size: clamp(2rem, 3.6vw, 3rem);
+    max-width: 18ch;
+    font-size: clamp(2.15rem, 4vw, 3.15rem);
     font-weight: 800;
-    line-height: 1.05;
+    line-height: 1.02;
     letter-spacing: -0.03em;
     text-transform: uppercase;
   }
@@ -73,7 +76,7 @@
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 0;
-    margin: 3rem 0 0;
+    margin: 2.4rem 0 0;
     padding: 0;
     list-style: none;
     border-top: 1px solid rgba(255, 255, 255, 0.16);
@@ -91,19 +94,28 @@
   }
 
   .science-principles__index {
-    margin: 0 0 0.85rem;
-    font-size: clamp(1.6rem, 2vw, 2rem);
+    margin: 0 0 1.45rem;
+    font-size: clamp(2.2rem, 3vw, 2.85rem);
     font-weight: 500;
     line-height: 1;
-    color: rgba(255, 255, 255, 0.38);
+    color: #ffffff;
   }
 
   .science-principles__title {
-    margin: 0 0 0.45rem;
-    font-size: 0.95rem;
-    font-weight: 700;
+    margin: 0;
+    font-size: 0.92rem;
+    font-weight: 800;
     letter-spacing: 0.04em;
     text-transform: uppercase;
+  }
+
+  .science-principles__kicker {
+    margin: 0.28rem 0 0.85rem;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.72);
   }
 
   .science-principles__item-text {
@@ -154,7 +166,7 @@
       "type": "text",
       "id": "eyebrow",
       "label": "t:sections.science_principles.settings.eyebrow",
-      "default": "Our approach"
+      "default": "Science at a Glance"
     },
     {
       "type": "text",
@@ -178,6 +190,12 @@
           "type": "text",
           "id": "title",
           "label": "t:sections.science_principles.blocks.principle.title",
+          "default": "0.5 mm"
+        },
+        {
+          "type": "text",
+          "id": "kicker",
+          "label": "t:sections.science_principles.blocks.principle.kicker",
           "default": "Precision"
         },
         {
