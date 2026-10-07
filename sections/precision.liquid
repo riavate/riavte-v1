@@ -98,7 +98,6 @@
     --device: 250px;
     --line: 168px;
     position: relative;
-    perspective: 900px;
     width: min(1040px, calc(100% - 3rem));
     height: 430px;
     margin: 4.25rem auto 0.5rem;
@@ -214,33 +213,6 @@
     margin-left: auto;
   }
 
-  @media (prefers-reduced-motion: no-preference) {
-    .precision__stage.is-drawn .precision__line {
-      animation: precision-spin 1.15s cubic-bezier(0.22, 1, 0.36, 1) both;
-    }
-
-    .precision__stage.is-drawn .precision__line--bottom {
-      animation-delay: 0.12s;
-    }
-
-    .precision__stage.is-drawn .precision__lines--right .precision__line--top {
-      animation-delay: 0.18s;
-    }
-
-    .precision__stage.is-drawn .precision__lines--right .precision__line--bottom {
-      animation-delay: 0.3s;
-    }
-  }
-
-  @keyframes precision-spin {
-    from {
-      transform: rotateX(0deg) rotateY(0deg);
-    }
-
-    to {
-      transform: rotateX(360deg) rotateY(360deg);
-    }
-  }
 
   @media screen and (max-width: 989px) {
     .precision__stage {
@@ -346,36 +318,6 @@
     }
   }
 {% endstylesheet %}
-
-{% javascript %}
-  (function () {
-    var stages = document.querySelectorAll('.precision__stage');
-    if (!stages.length) return;
-
-    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (reduce || !('IntersectionObserver' in window)) {
-      stages.forEach(function (stage) {
-        stage.classList.add('is-drawn');
-      });
-      return;
-    }
-
-    var observer = new IntersectionObserver(
-      function (entries) {
-        entries.forEach(function (entry) {
-          if (!entry.isIntersecting) return;
-          entry.target.classList.add('is-drawn');
-          observer.unobserve(entry.target);
-        });
-      },
-      { threshold: 0.35 }
-    );
-
-    stages.forEach(function (stage) {
-      observer.observe(stage);
-    });
-  })();
-{% endjavascript %}
 
 {% schema %}
 {
