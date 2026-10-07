@@ -98,6 +98,7 @@
     --device: 250px;
     --line: 168px;
     position: relative;
+    perspective: 900px;
     width: min(1040px, calc(100% - 3rem));
     height: 430px;
     margin: 4.25rem auto 0.5rem;
@@ -139,12 +140,12 @@
 
   .precision__lines--left .precision__line {
     right: calc(50% + var(--device) / 2 + 16px);
-    transform-origin: right center;
+    transform-origin: center center;
   }
 
   .precision__lines--right .precision__line {
     left: calc(50% + var(--device) / 2 + 16px);
-    transform-origin: left center;
+    transform-origin: center center;
   }
 
   .precision__line--top {
@@ -214,26 +215,30 @@
   }
 
   @media (prefers-reduced-motion: no-preference) {
-    .precision__line {
-      transform: scaleX(0);
-    }
-
     .precision__stage.is-drawn .precision__line {
-      animation: precision-draw 0.95s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+      animation: precision-spin 1.15s cubic-bezier(0.22, 1, 0.36, 1) both;
     }
 
-    .precision__stage.is-drawn .precision__lines--right .precision__line {
-      animation-delay: 0.14s;
+    .precision__stage.is-drawn .precision__line--bottom {
+      animation-delay: 0.12s;
+    }
+
+    .precision__stage.is-drawn .precision__lines--right .precision__line--top {
+      animation-delay: 0.18s;
+    }
+
+    .precision__stage.is-drawn .precision__lines--right .precision__line--bottom {
+      animation-delay: 0.3s;
     }
   }
 
-  @keyframes precision-draw {
+  @keyframes precision-spin {
     from {
-      transform: scaleX(0);
+      transform: rotateX(0deg) rotateY(0deg);
     }
 
     to {
-      transform: scaleX(1);
+      transform: rotateX(360deg) rotateY(360deg);
     }
   }
 
