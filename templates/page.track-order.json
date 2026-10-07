@@ -1,0 +1,43 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "track": {
+      "type": "info-page",
+      "settings": {
+        "layout": "track",
+        "eyebrow": "Support",
+        "heading": "Follow your Riavâte order.",
+        "intro": "<p>Enter your order details below to view the latest available delivery status.</p>",
+        "form_heading": "Track my order"
+      },
+      "blocks": {
+        "find": {
+          "type": "panel",
+          "settings": {
+            "kicker": "Your confirmation",
+            "title": "Where can I find my order number?",
+            "text": "<p>Your order number can be found in the confirmation email sent after your purchase.</p>"
+          }
+        },
+        "trouble": {
+          "type": "panel",
+          "settings": {
+            "kicker": "If it is not showing",
+            "title": "Having trouble tracking your order?",
+            "text": "<p>If tracking information has not appeared yet, please allow time after dispatch for the carrier to update its system.</p><p>Still need help? Contact <a href=\"mailto:support@riavate.com\">support@riavate.com</a> and include your order number.</p>"
+          }
+        }
+      },
+      "block_order": ["find", "trouble"]
+    }
+  },
+  "order": ["track"]
+}

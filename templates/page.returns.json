@@ -1,0 +1,75 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "returns": {
+      "type": "info-page",
+      "settings": {
+        "layout": "article",
+        "eyebrow": "Support",
+        "heading": "Returns, made clear.",
+        "intro": "<p>We want you to feel confident when ordering from Riavâte. If there is an issue with your order, our support team is here to help.</p>",
+        "form_heading": "Contact form"
+      },
+      "blocks": {
+        "returns": {
+          "type": "panel",
+          "settings": {
+            "kicker": "Eligibility",
+            "title": "Returns",
+            "text": "<p>Eligible products may be returned within the timeframe stated with your order, subject to our returns conditions.</p>"
+          }
+        },
+        "hygiene": {
+          "type": "panel",
+          "settings": {
+            "kicker": "Personal use",
+            "title": "Hygiene and product safety",
+            "text": "<p>Because the Riavâte system contains personal-use micro-infusion components, opened, used or unsealed products may not be eligible for return except where the product is faulty or your statutory rights apply.</p>"
+          }
+        },
+        "damaged": {
+          "type": "panel",
+          "settings": {
+            "kicker": "If something is wrong",
+            "title": "Damaged or incorrect orders",
+            "text": "<p>If your order arrives damaged, faulty or incorrect, contact us at <a href=\"mailto:support@riavate.com\">support@riavate.com</a> as soon as possible and include your order number and clear photographs of the issue.</p>"
+          }
+        },
+        "refunds": {
+          "type": "panel",
+          "settings": {
+            "kicker": "After review",
+            "title": "Refunds",
+            "text": "<p>Once an eligible return has been received and reviewed, approved refunds will be issued to the original payment method. Processing times may vary depending on your payment provider.</p>"
+          }
+        },
+        "shipping": {
+          "type": "panel",
+          "settings": {
+            "kicker": "Sending it back",
+            "title": "Return shipping",
+            "text": "<p>Return-shipping responsibilities and costs will depend on the reason for the return and our applicable returns terms.</p>"
+          }
+        },
+        "start": {
+          "type": "panel",
+          "settings": {
+            "kicker": "How to begin",
+            "title": "Start a return",
+            "text": "<p>Email <a href=\"mailto:support@riavate.com\">support@riavate.com</a> with your order number and reason for return.</p>"
+          }
+        }
+      },
+      "block_order": ["returns", "hygiene", "damaged", "refunds", "shipping", "start"]
+    }
+  },
+  "order": ["returns"]
+}

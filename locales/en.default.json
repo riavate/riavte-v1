@@ -105,6 +105,20 @@
       "view_study": "View study"
     }
   },
+  "info_page": {
+    "name": "Name",
+    "email": "Email address",
+    "order": "Order number",
+    "order_optional": "Order number (optional)",
+    "subject": "Subject",
+    "message": "Message",
+    "send": "Send message",
+    "track": "Track my order",
+    "success": "Thank you. Your message has been sent.",
+    "track_success": "Thank you. We have received your tracking request.",
+    "order_placeholder": "Enter your order number",
+    "email_placeholder": "Enter the email address used at checkout"
+  },
   "search": {
     "title": "Search",
     "placeholder": "Search articles, pages, or products",

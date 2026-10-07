@@ -529,6 +529,37 @@
         }
       }
     },
+    "info_page": {
+      "name": "Info page",
+      "settings": {
+        "layout": "Layout",
+        "eyebrow": "Eyebrow",
+        "heading": "Heading",
+        "intro": "Introduction",
+        "updated": "Updated line",
+        "form_heading": "Form heading",
+        "note": "Note"
+      },
+      "options": {
+        "faq": "Questions",
+        "contact": "Contact",
+        "article": "Article",
+        "track": "Tracking"
+      },
+      "blocks": {
+        "question": {
+          "name": "Question",
+          "question": "Question",
+          "answer": "Answer"
+        },
+        "panel": {
+          "name": "Section",
+          "kicker": "Label",
+          "title": "Heading",
+          "text": "Text"
+        }
+      }
+    },
     "product_main": {
       "name": "Product",
       "settings": {

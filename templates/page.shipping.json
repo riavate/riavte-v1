@@ -1,0 +1,75 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "shipping": {
+      "type": "info-page",
+      "settings": {
+        "layout": "article",
+        "eyebrow": "Support",
+        "heading": "From Riavâte to your door.",
+        "intro": "<p>We want receiving your Riavâte order to feel as considered as the product itself. Orders are carefully prepared and dispatched using tracked delivery services where available.</p>",
+        "form_heading": "Contact form"
+      },
+      "blocks": {
+        "processing": {
+          "type": "panel",
+          "settings": {
+            "kicker": "Dispatch",
+            "title": "Order processing",
+            "text": "<p>Orders are typically prepared for dispatch within a few business days.</p>"
+          }
+        },
+        "uk": {
+          "type": "panel",
+          "settings": {
+            "kicker": "United Kingdom",
+            "title": "UK delivery",
+            "text": "<p>Estimated delivery times and the delivery cost are confirmed at checkout.</p>"
+          }
+        },
+        "international": {
+          "type": "panel",
+          "settings": {
+            "kicker": "Worldwide",
+            "title": "International delivery",
+            "text": "<p>International delivery availability, costs and estimated timeframes are calculated according to destination.</p>"
+          }
+        },
+        "tracking": {
+          "type": "panel",
+          "settings": {
+            "kicker": "After dispatch",
+            "title": "Order tracking",
+            "text": "<p>Once your order has been dispatched, you’ll receive a confirmation email containing your tracking information.</p>"
+          }
+        },
+        "customs": {
+          "type": "panel",
+          "settings": {
+            "kicker": "Outside the UK",
+            "title": "Customs and duties",
+            "text": "<p>International orders may be subject to local customs duties, taxes or import charges depending on the destination. Where applicable, these charges are the responsibility of the customer unless stated otherwise at checkout.</p>"
+          }
+        },
+        "help": {
+          "type": "panel",
+          "settings": {
+            "kicker": "Support",
+            "title": "Need help with a delivery?",
+            "text": "<p>Have your order number ready and contact our support team at <a href=\"mailto:support@riavate.com\">support@riavate.com</a>.</p>"
+          }
+        }
+      },
+      "block_order": ["processing", "uk", "international", "tracking", "customs", "help"]
+    }
+  },
+  "order": ["shipping"]
+}
