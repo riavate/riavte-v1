@@ -13,12 +13,12 @@
 
   <div class="precision__stage">
     <div class="precision__lines precision__lines--left">
-      <img class="precision__line precision__line--top" src="{{ 'precision-line-left-top.png' | asset_url }}" alt="" width="1024" height="198">
-      <img class="precision__line precision__line--bottom" src="{{ 'precision-line-left-bottom.png' | asset_url }}" alt="" width="650" height="230">
+      <img class="precision__line precision__line--top" src="{{ 'precision-connector-left-top.png' | asset_url }}" alt="" width="296" height="88">
+      <img class="precision__line precision__line--bottom" src="{{ 'precision-connector-left-bottom.png' | asset_url }}" alt="" width="450" height="144">
     </div>
     <div class="precision__lines precision__lines--right">
-      <img class="precision__line precision__line--top" src="{{ 'precision-line-right-top.png' | asset_url }}" alt="" width="1024" height="199">
-      <img class="precision__line precision__line--bottom" src="{{ 'precision-line-right-bottom.png' | asset_url }}" alt="" width="648" height="230">
+      <img class="precision__line precision__line--top" src="{{ 'precision-connector-right-top.png' | asset_url }}" alt="" width="296" height="88">
+      <img class="precision__line precision__line--bottom" src="{{ 'precision-connector-right-bottom.png' | asset_url }}" alt="" width="450" height="144">
     </div>
     <div class="precision__media">
       <div class="precision__frame">
@@ -133,50 +133,27 @@
   .precision__line {
     position: absolute;
     z-index: 0;
-    height: auto;
     pointer-events: none;
-    transform: rotateX(360deg) rotateY(360deg);
-  }
-
-  .precision__lines--left .precision__line {
-    right: calc(50% + var(--device) / 2 + 16px);
-    transform-origin: center center;
-  }
-
-  .precision__lines--right .precision__line {
-    left: calc(50% + var(--device) / 2 + 16px);
-    transform-origin: center center;
+    object-fit: fill;
   }
 
   .precision__line--top {
-    top: 154px;
-    width: 148px;
-    height: 42px;
-    object-fit: cover;
+    top: 112px;
+    width: 176px;
+    height: 36px;
   }
 
-  .precision__lines--left .precision__line--top {
-    object-position: right top;
-  }
-
-  .precision__lines--right .precision__line--top {
-    object-position: left top;
-  }
+  .precision__lines--left .precision__line--top { left: 250px; }
+  .precision__lines--right .precision__line--top { right: 250px; }
 
   .precision__line--bottom {
-    top: 214px;
-    width: 220px;
-    height: 16px;
-    object-fit: cover;
+    top: 196px;
+    width: 262px;
+    height: 58px;
   }
 
-  .precision__lines--left .precision__line--bottom {
-    object-position: right bottom;
-  }
-
-  .precision__lines--right .precision__line--bottom {
-    object-position: left bottom;
-  }
+  .precision__lines--left .precision__line--bottom { left: 178px; }
+  .precision__lines--right .precision__line--bottom { right: 178px; }
 
   .precision__point h3 {
     margin: 0;
@@ -204,10 +181,10 @@
     width: 210px;
   }
 
-  .precision__point--top-left { top: 86px; left: 8px; }
-  .precision__point--top-right { top: 86px; right: 8px; text-align: right; }
-  .precision__point--bottom-left { top: 292px; left: 8px; }
-  .precision__point--bottom-right { top: 292px; right: 8px; text-align: right; }
+  .precision__point--top-left { top: 8px; left: 112px; width: 220px; }
+  .precision__point--top-right { top: 8px; right: 112px; width: 220px; text-align: right; }
+  .precision__point--bottom-left { top: 262px; left: 8px; width: 164px; }
+  .precision__point--bottom-right { top: 262px; right: 8px; width: 164px; text-align: right; }
 
   .precision__point--top-right p,
   .precision__point--bottom-right p {
@@ -272,7 +249,11 @@
 
     .precision__line,
     .precision__line--top,
-    .precision__line--bottom {
+    .precision__line--bottom,
+    .precision__lines--left .precision__line--top,
+    .precision__lines--right .precision__line--top,
+    .precision__lines--left .precision__line--bottom,
+    .precision__lines--right .precision__line--bottom {
       position: static;
       top: auto;
       right: auto;
