@@ -1,0 +1,208 @@
+<section class="ingredients-glance">
+  <div class="ingredients-glance__intro">
+    {%- if section.settings.eyebrow != blank -%}
+      <p class="ingredients-glance__eyebrow">{{ section.settings.eyebrow | escape }}</p>
+    {%- endif -%}
+    {%- if section.settings.heading != blank -%}
+      <h2 class="ingredients-glance__heading">{{ section.settings.heading | escape }}</h2>
+    {%- endif -%}
+  </div>
+  <div class="ingredients-glance__track">
+    <img class="ingredients-glance__arc ingredients-glance__arc--wide" src="{{ 'ingredients-glance-line-1.svg' | asset_url }}" alt="" width="883" height="110">
+    <img class="ingredients-glance__arc ingredients-glance__arc--mid" src="{{ 'ingredients-glance-line-2.svg' | asset_url }}" alt="" width="607" height="76">
+    <img class="ingredients-glance__arc ingredients-glance__arc--short" src="{{ 'ingredients-glance-line-3.svg' | asset_url }}" alt="" width="335" height="42">
+    {%- for block in section.blocks -%}
+      <article class="ingredients-glance__item ingredients-glance__item--{{ block.settings.position }}" {{ block.shopify_attributes }}>
+        <img
+          src="{{ block.settings.image_name | asset_url }}"
+          alt=""
+          width="134"
+          height="134"
+        >
+        {%- if block.settings.title != blank -%}
+          <h3>{{ block.settings.title | escape }}</h3>
+        {%- endif -%}
+        {%- if block.settings.text != blank -%}
+          <p>{{ block.settings.text | escape }}</p>
+        {%- endif -%}
+      </article>
+    {%- endfor -%}
+  </div>
+</section>
+
+{% stylesheet %}
+  .ingredients-glance {
+    padding: 5.5rem 1.5rem 4.5rem;
+    background: #ffffff;
+    color: #111111;
+    text-align: center;
+  }
+
+  .ingredients-glance__eyebrow {
+    margin: 0 0 0.7rem;
+    background: linear-gradient(90deg, #121a43, #111111);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.26em;
+    text-transform: uppercase;
+  }
+
+  .ingredients-glance__heading {
+    margin: 0;
+    background: linear-gradient(90deg, #111111 16%, #2d42a9 84%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 800;
+    line-height: 1.05;
+  }
+
+  .ingredients-glance__track {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    align-items: start;
+    max-width: 1080px;
+    margin: 3.5rem auto 0;
+  }
+
+  .ingredients-glance__arc {
+    position: absolute;
+    height: auto;
+    pointer-events: none;
+  }
+
+  .ingredients-glance__arc--wide {
+    top: 28px;
+    left: 8%;
+    width: 84%;
+  }
+
+  .ingredients-glance__arc--mid {
+    top: 8px;
+    left: 22%;
+    width: 56%;
+  }
+
+  .ingredients-glance__arc--short {
+    top: 0;
+    left: 34%;
+    width: 32%;
+  }
+
+  .ingredients-glance__item img {
+    width: 134px;
+    height: 134px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  .ingredients-glance__item h3 {
+    margin: 0.85rem 0 0.3rem;
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .ingredients-glance__item p {
+    margin: 0 auto;
+    max-width: 11rem;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.35;
+  }
+
+  .ingredients-glance__item--high {
+    margin-top: 0;
+  }
+
+  .ingredients-glance__item--low {
+    margin-top: 92px;
+  }
+
+  @media screen and (max-width: 989px) {
+    .ingredients-glance__arc {
+      display: none;
+    }
+
+    .ingredients-glance__track {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 2rem 1rem;
+    }
+
+    .ingredients-glance__item--low {
+      margin-top: 0;
+    }
+
+    .ingredients-glance__item img {
+      width: 108px;
+      height: 108px;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:sections.ingredients_glance.name",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "t:sections.ingredients_glance.settings.eyebrow",
+      "default": "What's inside Cuprofuse®"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "t:sections.ingredients_glance.settings.heading",
+      "default": "Formula at a Glance"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "point",
+      "name": "t:sections.ingredients_glance.blocks.point.name",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "t:sections.ingredients_glance.blocks.point.title",
+          "default": "19 ingredients"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "t:sections.ingredients_glance.blocks.point.text",
+          "default": "Precisely considered formula"
+        },
+        {
+          "type": "text",
+          "id": "image_name",
+          "label": "t:sections.ingredients_glance.blocks.point.image_name",
+          "default": "ingredients-glance-count.png"
+        },
+        {
+          "type": "select",
+          "id": "position",
+          "label": "t:sections.ingredients_glance.blocks.point.position",
+          "default": "high",
+          "options": [
+            { "value": "high", "label": "t:sections.ingredients_glance.options.high" },
+            { "value": "low", "label": "t:sections.ingredients_glance.options.low" }
+          ]
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.ingredients_glance.name"
+    }
+  ]
+}
+{% endschema %}

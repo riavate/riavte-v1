@@ -1,0 +1,90 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "faq": {
+      "type": "info-page",
+      "settings": {
+        "layout": "faq",
+        "eyebrow": "",
+        "heading": "Frequently asked questions",
+        "intro": "<p>Answers about the Riavâte system, Cuprofuse®, and your order.</p>",
+        "form_heading": "Contact form"
+      },
+      "blocks": {
+        "q1": {
+          "type": "question",
+          "settings": {
+            "question": "What is the Riavâte Micro-Infusion System?",
+            "answer": "<p>Riavâte is a precision scalp-care system combining controlled 0.5 mm micro-infusion technology with Cuprofuse®, our concentrated serum led by GHK-Cu (Copper Tripeptide-1) and formulated with selected scalp-care ingredients.</p>"
+          }
+        },
+        "q2": {
+          "type": "question",
+          "settings": {
+            "question": "What is Cuprofuse®?",
+            "answer": "<p>Cuprofuse® is Riavâte’s concentrated cosmetic serum formulation. GHK-Cu sits at the heart of the formula alongside ingredients including Niacinamide, Caffeine, Panthenol and selected botanical extracts.</p>"
+          }
+        },
+        "q3": {
+          "type": "question",
+          "settings": {
+            "question": "Why does Riavâte use 0.5 mm micro-infusion?",
+            "answer": "<p>The system is designed for controlled, targeted and consistent application of the Cuprofuse® serum across the scalp.</p>"
+          }
+        },
+        "q4": {
+          "type": "question",
+          "settings": {
+            "question": "What is GHK-Cu?",
+            "answer": "<p>GHK-Cu is a copper peptide, listed in cosmetic formulations as Copper Tripeptide-1. It is the hero peptide at the heart of the Cuprofuse® formulation.</p>"
+          }
+        },
+        "q5": {
+          "type": "question",
+          "settings": {
+            "question": "What ingredients are in Cuprofuse®?",
+            "answer": "<p>Cuprofuse® contains a considered combination of 19 ingredients, including Copper Tripeptide-1, Niacinamide, Caffeine, Panthenol, Panax Ginseng Root Extract and Acetyl Tetrapeptide-3.</p>"
+          }
+        },
+        "q6": {
+          "type": "question",
+          "settings": {
+            "question": "How do I use the Riavâte Micro-Infusion System?",
+            "answer": "<p>Always follow the instructions supplied with your Riavâte kit. Begin with a clean, dry scalp and use the system only as directed.</p>"
+          }
+        },
+        "q7": {
+          "type": "question",
+          "settings": {
+            "question": "Can I use Riavâte on irritated or damaged skin?",
+            "answer": "<p>Do not use the micro-infusion system on broken, irritated or infected areas of the scalp. Please review the complete usage instructions and precautions before use.</p>"
+          }
+        },
+        "q8": {
+          "type": "question",
+          "settings": {
+            "question": "How should I store my Riavâte products?",
+            "answer": "<p>Keep the product in a cool, dry place away from direct sunlight and follow any additional storage instructions shown on the packaging.</p>"
+          }
+        },
+        "q9": {
+          "type": "question",
+          "settings": {
+            "question": "Where can I find my order information?",
+            "answer": "<p>Once your order has been dispatched, you’ll receive tracking information by email. You can also visit our <a href=\"/pages/track-order\">Track Your Order</a> page.</p>"
+          }
+        }
+      },
+      "block_order": ["q1", "q2", "q3", "q4", "q5", "q6", "q7", "q8", "q9"]
+    }
+  },
+  "order": ["faq"]
+}

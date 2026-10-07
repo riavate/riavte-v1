@@ -529,6 +529,37 @@
         }
       }
     },
+    "info_page": {
+      "name": "Info page",
+      "settings": {
+        "layout": "Layout",
+        "eyebrow": "Eyebrow",
+        "heading": "Heading",
+        "intro": "Introduction",
+        "updated": "Updated line",
+        "form_heading": "Form heading",
+        "note": "Note"
+      },
+      "options": {
+        "faq": "Questions",
+        "contact": "Contact",
+        "article": "Article",
+        "track": "Tracking"
+      },
+      "blocks": {
+        "question": {
+          "name": "Question",
+          "question": "Question",
+          "answer": "Answer"
+        },
+        "panel": {
+          "name": "Section",
+          "kicker": "Label",
+          "title": "Heading",
+          "text": "Text"
+        }
+      }
+    },
     "product_main": {
       "name": "Product",
       "settings": {
@@ -590,6 +621,72 @@
       "name": "Product reviews",
       "settings": { "heading": "Heading", "score": "Score", "count_label": "Review count", "badge": "Badge", "button_label": "Button label", "button_link": "Button link", "more_label": "More label", "list_heading": "List heading", "more_button": "More button", "more_link": "More link" },
       "blocks": { "review": { "name": "Review", "image": "Image", "fallback": "Placeholder", "name_label": "Name", "date": "Date", "quote": "Quote" } }
+    },
+    "ingredients_hero": {
+      "name": "Ingredients hero",
+      "settings": {
+        "eyebrow": "Eyebrow",
+        "heading": "Heading",
+        "text": "Text",
+        "button_label": "Button label",
+        "button_link": "Button link",
+        "image": "Image",
+        "image_alt": "Image alt text"
+      }
+    },
+    "ingredients_glance": {
+      "name": "Formula at a glance",
+      "settings": {
+        "eyebrow": "Eyebrow",
+        "heading": "Heading"
+      },
+      "blocks": {
+        "point": {
+          "name": "Point",
+          "title": "Title",
+          "text": "Text",
+          "image_name": "Image file",
+          "position": "Position"
+        }
+      },
+      "options": {
+        "high": "Raised",
+        "low": "Lower"
+      }
+    },
+    "ingredients_cards": {
+      "name": "Ingredient cards",
+      "settings": {
+        "anchor": "Anchor",
+        "tone": "Background",
+        "eyebrow": "Eyebrow",
+        "heading": "Heading",
+        "text": "Text"
+      },
+      "options": {
+        "light": "Light",
+        "dark": "Dark"
+      },
+      "blocks": {
+        "card": {
+          "name": "Ingredient",
+          "index": "Index",
+          "title": "Title",
+          "text": "Text",
+          "why_label": "Why label",
+          "why": "Why we use it",
+          "image": "Image",
+          "image_name": "Image file"
+        }
+      }
+    },
+    "ingredients_system": {
+      "name": "Formulated as a system",
+      "settings": {
+        "eyebrow": "Eyebrow",
+        "heading": "Heading",
+        "text": "Text"
+      }
     },
     "main_cart": { "name": "Cart" },
     "reviews": {

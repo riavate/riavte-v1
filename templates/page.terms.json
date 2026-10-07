@@ -1,0 +1,133 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "terms": {
+      "type": "info-page",
+      "settings": {
+        "layout": "article",
+        "eyebrow": "",
+        "heading": "Terms and conditions",
+        "updated": "Last updated: 7 October 2026",
+        "intro": "<p>These Terms and Conditions govern your use of the Riavâte website and the purchase of products through our online store.</p><p>By accessing our website or placing an order, you agree to these Terms and Conditions.</p>",
+        "form_heading": "Contact form"
+      },
+      "blocks": {
+        "about": {
+          "type": "panel",
+          "settings": {
+            "title": "About Riavâte",
+            "text": "<p>This website is operated by Riavâte, trading as Riavâte.</p><p>Email: <a href=\"mailto:support@riavate.com\">support@riavate.com</a></p>"
+          }
+        },
+        "products": {
+          "type": "panel",
+          "settings": {
+            "title": "Our products",
+            "text": "<p>We make reasonable efforts to ensure that product descriptions, images and information displayed on our website are accurate.</p><p>Product appearance, packaging or presentation may occasionally vary from website imagery without materially changing the nature of the product.</p><p>Always read and follow the instructions, precautions and information supplied with your Riavâte product before use.</p>"
+          }
+        },
+        "orders": {
+          "type": "panel",
+          "settings": {
+            "title": "Orders",
+            "text": "<p>When you place an order, you are making an offer to purchase the selected products.</p><p>Your order is accepted once we provide confirmation in accordance with our ordering process.</p><p>We reserve the right to refuse or cancel an order where reasonably necessary, including in cases involving suspected fraud, incorrect pricing, product unavailability or other legitimate circumstances.</p>"
+          }
+        },
+        "pricing": {
+          "type": "panel",
+          "settings": {
+            "title": "Pricing and payment",
+            "text": "<p>Prices are displayed in euros and will include or exclude applicable taxes as stated on the website or at checkout.</p><p>Payment must be completed using one of the payment methods available at checkout.</p>"
+          }
+        },
+        "shipping": {
+          "type": "panel",
+          "settings": {
+            "title": "Shipping and delivery",
+            "text": "<p>Delivery times displayed on our website are estimates unless expressly stated otherwise.</p><p>Please ensure that the delivery information provided when ordering is complete and accurate.</p><p>For complete information, please review our <a href=\"/pages/shipping\">Shipping and delivery</a> page.</p>"
+          }
+        },
+        "returns": {
+          "type": "panel",
+          "settings": {
+            "title": "Returns and refunds",
+            "text": "<p>Returns and refunds are handled in accordance with our <a href=\"/pages/returns\">Returns and refunds</a> page and your applicable statutory rights.</p><p>Certain opened or used personal-use products may be subject to return restrictions for hygiene and safety reasons where legally permitted.</p>"
+          }
+        },
+        "use": {
+          "type": "panel",
+          "settings": {
+            "title": "Product use",
+            "text": "<p>Riavâte products should be used only as directed and in accordance with the instructions and precautions supplied with the product.</p><p>Do not use the Micro-Infusion System on broken, irritated or infected areas of the scalp.</p><p>If you have concerns about whether the product is appropriate for you, seek advice from an appropriately qualified healthcare professional before use.</p>"
+          }
+        },
+        "cosmetic": {
+          "type": "panel",
+          "settings": {
+            "title": "Cosmetic information",
+            "text": "<p>Information provided on the Riavâte website is intended to describe our products and provide general cosmetic and educational information.</p><p>It should not be considered medical advice, diagnosis or treatment. Individual experiences and cosmetic results may vary.</p>"
+          }
+        },
+        "ip": {
+          "type": "panel",
+          "settings": {
+            "title": "Intellectual property",
+            "text": "<p>Website content, including Riavâte branding, product imagery, graphics, written content and other intellectual property, is owned by or licensed to Riavâte unless otherwise stated.</p><p>Such content may not be reproduced, distributed or commercially used without appropriate permission.</p>"
+          }
+        },
+        "availability": {
+          "type": "panel",
+          "settings": {
+            "title": "Website availability",
+            "text": "<p>We aim to keep our website accurate and accessible, but we cannot guarantee uninterrupted or error-free availability at all times.</p><p>We may update, modify or temporarily suspend parts of the website where reasonably necessary.</p>"
+          }
+        },
+        "liability": {
+          "type": "panel",
+          "settings": {
+            "title": "Limitation of liability",
+            "text": "<p>Nothing in these Terms excludes or limits liability where doing so would be unlawful.</p><p>To the extent permitted by applicable law, our liability will be subject to the limitations set out in these Terms and applicable consumer law.</p>"
+          }
+        },
+        "third": {
+          "type": "panel",
+          "settings": {
+            "title": "Third-party services",
+            "text": "<p>Our website may use or link to third-party services, including payment, delivery and technology providers. Their own terms and privacy policies may apply when you interact with those services.</p>"
+          }
+        },
+        "law": {
+          "type": "panel",
+          "settings": {
+            "title": "Governing law",
+            "text": "<p>These Terms are governed by the laws that apply to your purchase, subject to any mandatory consumer protections that apply to you.</p>"
+          }
+        },
+        "changes": {
+          "type": "panel",
+          "settings": {
+            "title": "Changes to these terms",
+            "text": "<p>We may update these Terms and Conditions periodically. The latest version will always be displayed on this page with its most recent update date.</p>"
+          }
+        },
+        "contact": {
+          "type": "panel",
+          "settings": {
+            "title": "Contact us",
+            "text": "<p>For questions regarding these Terms:</p><p>Riavâte<br>Email: <a href=\"mailto:support@riavate.com\">support@riavate.com</a></p>"
+          }
+        }
+      },
+      "block_order": ["about", "products", "orders", "pricing", "shipping", "returns", "use", "cosmetic", "ip", "availability", "liability", "third", "law", "changes", "contact"]
+    }
+  },
+  "order": ["terms"]
+}

@@ -1,160 +1,21 @@
-<section class="main-cart">
-  <div class="main-cart__inner">
-    <header class="main-cart__header">
-      <div>
-        <p class="main-cart__eyebrow">{{ 'cart.eyebrow' | t }}</p>
-        <h1 class="main-cart__heading">{{ 'cart.title' | t }}</h1>
-      </div>
-      {%- if cart.item_count > 0 -%}
-        {%- if cart.item_count == 1 -%}
-          <p class="main-cart__count">{{ 'cart.item_one' | t }}</p>
-        {%- else -%}
-          <p class="main-cart__count">{{ 'cart.item_other' | t: count: cart.item_count }}</p>
-        {%- endif -%}
-      {%- endif -%}
-    </header>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cart · Riavâte</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0}
+body{font-family:Montserrat,sans-serif;color:#111;background:#fff}
+img{display:block;max-width:100%}
+.site-header{border-bottom:1px solid #eee}
+.site-header__bar{display:flex;align-items:center;justify-content:space-between;max-width:1120px;margin:0 auto;padding:1rem 1.5rem}
+.site-header__logo-image{width:140px;height:auto}
+.site-header__menu{display:flex;gap:1.25rem;list-style:none;padding:0}
+.site-header__menu a{color:#111;text-decoration:none;font-size:13px}
+.site-header__menu a[aria-current]{color:#2d42a9;font-weight:700}
 
-    {%- if cart.item_count == 0 -%}
-      <div class="main-cart__empty">
-        <p class="main-cart__empty-title">{{ 'cart.empty' | t }}</p>
-        <p class="main-cart__empty-note">{{ 'cart.empty_note' | t }}</p>
-        <a class="main-cart__checkout" href="/products/the-kit">{{ 'cart.continue' | t }}</a>
-      </div>
-    {%- else -%}
-      <form class="main-cart__layout" action="{{ routes.cart_url }}" method="post">
-        <ul class="main-cart__items">
-          {%- for item in cart.items -%}
-            <li class="main-cart__item">
-              <a class="main-cart__media" href="{{ item.url }}">
-                {%- if item.image -%}
-                  {{
-                    item.image
-                    | image_url: width: 400
-                    | image_tag: alt: item.title, class: 'main-cart__image', widths: '200, 400'
-                  }}
-                {%- endif -%}
-              </a>
-              <div class="main-cart__details">
-                {%- assign shown_price = item.properties['_Shown price'] -%}
-                {%- assign shown_compare = item.properties['_Compare price'] -%}
-                <div class="main-cart__top">
-                  <div>
-                    <p class="main-cart__title">
-                      <a href="{{ item.url }}">{{ item.product.title | escape }}</a>
-                    </p>
-                    {%- if item.properties.Supply != blank -%}
-                      <p class="main-cart__plan">{{ item.properties.Supply | escape }}</p>
-                    {%- elsif item.selling_plan_allocation != blank -%}
-                      <p class="main-cart__plan">{{ item.selling_plan_allocation.selling_plan.name | escape }}</p>
-                    {%- elsif item.product.has_only_default_variant == false -%}
-                      <p class="main-cart__plan">{{ item.variant.title | escape }}</p>
-                    {%- endif -%}
-                    {%- if item.properties.Treatments != blank -%}
-                      <p class="main-cart__cadence">{{ item.properties.Treatments | escape }}</p>
-                    {%- endif -%}
-                  </div>
-                  <div class="main-cart__price">
-                    {%- if item.final_line_price > 0 -%}
-                      {%- if item.original_line_price > item.final_line_price -%}
-                        <s>{{ item.original_line_price | money }}</s>
-                      {%- endif -%}
-                      <p>{{ item.final_line_price | money }}</p>
-                      {%- if item.quantity > 1 -%}
-                        {%- assign unit_price = item.final_price | money -%}
-                        <span class="main-cart__each">{{ 'cart.each' | t: price: unit_price }}</span>
-                      {%- endif -%}
-                    {%- else -%}
-                      {%- if shown_compare != blank -%}
-                        <s>{{ shown_compare | escape }}</s>
-                      {%- endif -%}
-                      {%- if shown_price != blank -%}
-                        <p>{{ shown_price | escape }}</p>
-                      {%- else -%}
-                        <p>{{ item.final_line_price | money }}</p>
-                      {%- endif -%}
-                    {%- endif -%}
-                  </div>
-                </div>
-                {%- if item.properties.Includes != blank -%}
-                  <div class="main-cart__includes">
-                    <p>{{ 'cart.includes' | t }}</p>
-                    <ul>
-                      {%- assign include_rows = item.properties.Includes | split: ' | ' -%}
-                      {%- for row in include_rows -%}
-                        {%- assign include_item = row | strip -%}
-                        {%- if include_item != blank -%}
-                          <li>{{ include_item | escape }}</li>
-                        {%- endif -%}
-                      {%- endfor -%}
-                    </ul>
-                  </div>
-                {%- endif -%}
-                {%- if item.properties.Offer != blank -%}
-                  <p class="main-cart__badge">{{ item.properties.Offer | escape }}</p>
-                {%- endif -%}
-                <div class="main-cart__actions">
-                  <div class="main-cart__qty">
-                    <button type="button" data-qty="minus" aria-label="{{ 'cart.decrease' | t }}">−</button>
-                    <label>
-                      <span class="visually-hidden">{{ 'cart.quantity' | t }}</span>
-                      <input type="number" name="updates[]" value="{{ item.quantity }}" min="0" inputmode="numeric">
-                    </label>
-                    <button type="button" data-qty="plus" aria-label="{{ 'cart.increase' | t }}">+</button>
-                  </div>
-                  <a class="main-cart__remove" href="{{ item.url_to_remove }}">{{ 'cart.remove' | t }}</a>
-                </div>
-              </div>
-            </li>
-          {%- endfor -%}
-        </ul>
-
-        <aside class="main-cart__summary">
-          <h2>{{ 'cart.summary' | t }}</h2>
-          <ul class="main-cart__plans">
-            {%- for item in cart.items -%}
-              <li>
-                <span>
-                  {{ item.product.title | escape }}
-                  {%- if item.properties.Supply != blank -%}
-                    <small>{{ item.properties.Supply | escape }}</small>
-                  {%- elsif item.selling_plan_allocation != blank -%}
-                    <small>{{ item.selling_plan_allocation.selling_plan.name | escape }}</small>
-                  {%- elsif item.product.has_only_default_variant == false -%}
-                    <small>{{ item.variant.title | escape }}</small>
-                  {%- endif -%}
-                  {%- if item.properties.Treatments != blank -%}
-                    <small>{{ item.properties.Treatments | escape }}</small>
-                  {%- endif -%}
-                </span>
-                {%- if item.final_line_price > 0 -%}
-                  <b>{{ item.final_line_price | money }}</b>
-                {%- elsif item.properties['_Shown price'] != blank -%}
-                  <b>{{ item.properties['_Shown price'] | escape }}</b>
-                {%- else -%}
-                  <b>{{ item.final_line_price | money }}</b>
-                {%- endif -%}
-              </li>
-            {%- endfor -%}
-          </ul>
-          <div class="main-cart__row">
-            <span>{{ 'cart.total' | t }}</span>
-            {%- if cart.total_price > 0 -%}
-              <strong>{{ cart.total_price | money }}</strong>
-            {%- elsif cart.item_count == 1 and cart.items.first.properties['_Shown price'] != blank -%}
-              <strong>{{ cart.items.first.properties['_Shown price'] | escape }}</strong>
-            {%- else -%}
-              <strong>{{ cart.total_price | money }}</strong>
-            {%- endif -%}
-          </div>
-          <p class="main-cart__note">{{ 'cart.shipping_note' | t }}</p>
-          <button class="main-cart__checkout" type="submit" name="checkout">{{ 'cart.checkout' | t }}</button>
-        </aside>
-      </form>
-    {%- endif -%}
-  </div>
-</section>
-
-{% stylesheet %}
   .main-cart {
     padding: 4.5rem 1.5rem 6rem;
     background: #f6f7fa;
@@ -307,10 +168,6 @@
     text-decoration: none;
   }
 
-  .main-cart__title a:hover {
-    color: #2d42a9;
-  }
-
   .main-cart__plan {
     display: inline-flex;
     margin: 0.5rem 0 0;
@@ -413,10 +270,6 @@
     cursor: pointer;
   }
 
-  .main-cart__qty button:hover {
-    background: #f3f5fa;
-  }
-
   .main-cart__qty input {
     width: 1.75rem;
     border: 0;
@@ -443,10 +296,6 @@
     text-transform: uppercase;
   }
 
-  .main-cart__remove:hover {
-    color: #2d42a9;
-  }
-
   .main-cart__price {
     flex-shrink: 0;
     text-align: right;
@@ -457,7 +306,6 @@
     color: #121a43;
     font-size: 16px;
     font-weight: 600;
-    font-variant-numeric: tabular-nums;
   }
 
   .main-cart__price s {
@@ -465,14 +313,6 @@
     margin-bottom: 0.15rem;
     color: #a0a6b5;
     font-size: 12px;
-    font-weight: 500;
-  }
-
-  .main-cart__each {
-    display: block;
-    margin-top: 0.2rem;
-    color: #8b93a7;
-    font-size: 11px;
     font-weight: 500;
   }
 
@@ -544,7 +384,6 @@
     font-size: 1.45rem;
     font-weight: 600;
     letter-spacing: -0.02em;
-    font-variant-numeric: tabular-nums;
   }
 
   .main-cart__note {
@@ -572,10 +411,6 @@
     text-transform: uppercase;
     text-decoration: none;
     cursor: pointer;
-  }
-
-  .main-cart__checkout:hover {
-    filter: brightness(1.08);
   }
 
   .main-cart__empty .main-cart__checkout {
@@ -634,9 +469,93 @@
       font-size: 14px;
     }
   }
-{% endstylesheet %}
 
-{% javascript %}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="site-header__bar">
+    <a href="/"><img class="site-header__logo-image" src="/assets/logo.png" alt="Riavâte"></a>
+    <nav><ul class="site-header__menu">
+      <li><a href="/">Home</a></li>
+      <li><a href="/kit.html">The Kit</a></li>
+      <li><a href="/cart.html" aria-current="page">Cart</a></li>
+    </ul></nav>
+  </div>
+</header>
+<section class="main-cart" data-filled>
+  <div class="main-cart__inner">
+    <header class="main-cart__header">
+      <div>
+        <p class="main-cart__eyebrow">Your bag</p>
+        <h1 class="main-cart__heading">Your cart</h1>
+      </div>
+      <p class="main-cart__count">1 item</p>
+    </header>
+    <form class="main-cart__layout" action="/cart.html" method="get">
+      <ul class="main-cart__items">
+        <li class="main-cart__item">
+          <a class="main-cart__media" href="/kit.html"><img class="main-cart__image" src="/assets/product-compare-kit.png" alt="The Kit"></a>
+          <div class="main-cart__details">
+            <div class="main-cart__top">
+              <div>
+                <p class="main-cart__title"><a href="/kit.html">The Precision Micro-Infusion System for Advanced Scalp Care</a></p>
+                <p class="main-cart__plan">3 month supply</p>
+                <p class="main-cart__cadence">12 weekly treatments</p>
+              </div>
+              <div class="main-cart__price"><s>$406</s><p>$167.00</p></div>
+            </div>
+            <div class="main-cart__includes">
+              <p>Includes</p>
+              <ul>
+                <li>12 × Cuprofuse® Serum Vials</li>
+                <li>12 × 0.5 mm Micro-Infusion Applicators</li>
+              </ul>
+            </div>
+            <p class="main-cart__badge">Best value</p>
+            <div class="main-cart__actions">
+              <div class="main-cart__qty">
+                <button type="button" data-qty="minus" aria-label="Decrease quantity">−</button>
+                <label><span class="visually-hidden">Quantity</span><input type="number" name="updates[]" value="1" min="0"></label>
+                <button type="button" data-qty="plus" aria-label="Increase quantity">+</button>
+              </div>
+              <a class="main-cart__remove" href="/cart.html?empty=1">Remove</a>
+            </div>
+          </div>
+        </li>
+      </ul>
+      <aside class="main-cart__summary">
+        <h2>Summary</h2>
+        <ul class="main-cart__plans">
+          <li>
+            <span>The Precision Micro-Infusion System for Advanced Scalp Care<small>3 month supply</small><small>12 weekly treatments</small></span>
+            <b>$167.00</b>
+          </li>
+        </ul>
+        <div class="main-cart__row"><span>Subtotal</span><strong>$167.00</strong></div>
+        <p class="main-cart__note">Shipping and taxes are calculated at checkout.</p>
+        <button class="main-cart__checkout" type="button">Checkout</button>
+      </aside>
+    </form>
+  </div>
+</section>
+<section class="main-cart" data-empty hidden>
+  <div class="main-cart__inner">
+    <header class="main-cart__header">
+      <div>
+        <p class="main-cart__eyebrow">Your bag</p>
+        <h1 class="main-cart__heading">Your cart</h1>
+      </div>
+    </header>
+    <div class="main-cart__empty">
+      <p class="main-cart__empty-title">Your cart is empty.</p>
+      <p class="main-cart__empty-note">The precision micro-infusion system is ready when you are.</p>
+      <a class="main-cart__checkout" href="/kit.html">Continue shopping</a>
+    </div>
+  </div>
+</section>
+<script>
+
   document.addEventListener('click', function (event) {
     var button = event.target.closest('[data-qty]');
     if (!button) return;
@@ -652,14 +571,11 @@
       input.value = current + 1;
     }
   });
-{% endjavascript %}
 
-{% schema %}
-{
-  "name": "t:sections.main_cart.name",
-  "tag": "section",
-  "enabled_on": { "templates": ["cart"] },
-  "settings": [],
-  "presets": [{ "name": "t:sections.main_cart.name" }]
+if (location.search.indexOf('empty') !== -1) {
+  document.querySelector('[data-filled]').hidden = true;
+  document.querySelector('[data-empty]').hidden = false;
 }
-{% endschema %}
+</script>
+</body>
+</html>

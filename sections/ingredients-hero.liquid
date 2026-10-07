@@ -1,0 +1,194 @@
+<section class="ingredients-hero">
+  <div class="ingredients-hero__copy">
+    {%- if section.settings.eyebrow != blank -%}
+      <p class="ingredients-hero__eyebrow">{{ section.settings.eyebrow | escape }}</p>
+    {%- endif -%}
+    {%- if section.settings.heading != blank -%}
+      <h1 class="ingredients-hero__heading">{{ section.settings.heading | escape }}</h1>
+    {%- endif -%}
+    {%- if section.settings.text != blank -%}
+      <div class="ingredients-hero__text rte">{{ section.settings.text }}</div>
+    {%- endif -%}
+  </div>
+  <div class="ingredients-hero__stage">
+    {%- if section.settings.image != blank -%}
+      {{
+        section.settings.image
+        | image_url: width: 1400
+        | image_tag:
+          widths: '600, 900, 1400',
+          sizes: '(min-width: 750px) 640px, 90vw',
+          alt: section.settings.image_alt,
+          class: 'ingredients-hero__image'
+      }}
+    {%- else -%}
+      <img
+        class="ingredients-hero__image"
+        src="{{ 'ingredients-hero.png' | asset_url }}"
+        alt="{{ section.settings.image_alt | escape }}"
+        width="806"
+        height="1400"
+      >
+    {%- endif -%}
+    {%- if section.settings.button_label != blank -%}
+      <a class="ingredients-hero__button" href="{{ section.settings.button_link | default: '#formula' }}">
+        {{ section.settings.button_label | escape }}
+      </a>
+    {%- endif -%}
+  </div>
+</section>
+
+{% stylesheet %}
+  .ingredients-hero {
+    position: relative;
+    overflow: hidden;
+    padding: 4.75rem 1.5rem 0;
+    text-align: center;
+    color: #ffffff;
+    background: linear-gradient(180deg, #000000 0%, #001433 42%, #00256e 72%, #0037ae 100%);
+  }
+
+  .ingredients-hero__copy {
+    position: relative;
+    z-index: 1;
+    max-width: 760px;
+    margin: 0 auto;
+  }
+
+  .ingredients-hero__eyebrow {
+    margin: 0 0 0.85rem;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.26em;
+    text-transform: uppercase;
+  }
+
+  .ingredients-hero__heading {
+    margin: 0;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+  }
+
+  .ingredients-hero__text {
+    max-width: 58rem;
+    margin: 1.15rem auto 0;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.55;
+  }
+
+  .ingredients-hero__text p {
+    margin: 0 0 0.85rem;
+  }
+
+  .ingredients-hero__text p:first-child {
+    font-weight: 700;
+  }
+
+  .ingredients-hero__text p:last-child {
+    margin-bottom: 0;
+  }
+
+  .ingredients-hero__stage {
+    position: relative;
+    z-index: 1;
+    max-width: 620px;
+    margin: 1.25rem auto 0;
+  }
+
+  .ingredients-hero__image {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .ingredients-hero__button {
+    position: absolute;
+    left: 50%;
+    bottom: 16%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 280px;
+    padding: 0.72rem 1.6rem;
+    border: 1px solid #ffffff;
+    border-radius: 999px;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-decoration: none;
+    text-transform: uppercase;
+    transform: translateX(-50%);
+  }
+
+  @media screen and (max-width: 749px) {
+    .ingredients-hero {
+      padding-top: 3.25rem;
+    }
+
+    .ingredients-hero__button {
+      min-width: 0;
+      width: min(100%, 280px);
+      bottom: 8%;
+      font-size: 13px;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:sections.ingredients_hero.name",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "t:sections.ingredients_hero.settings.eyebrow",
+      "default": "The formula"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "t:sections.ingredients_hero.settings.heading",
+      "default": "Inside Cuprofuse®"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "t:sections.ingredients_hero.settings.text",
+      "default": "<p>19 ingredients. One considered formula.</p><p>Cuprofuse® is our concentrated cosmetic serum, led by GHK-Cu (Copper Tripeptide-1) and formulated with a precisely configured combination of peptides, scalp-conditioning actives, botanical extracts, humectants and supporting ingredients.</p><p>Every ingredient has a purpose — from supporting scalp condition and hydration to maintaining the performance, stability and experience of the formula.</p>"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "t:sections.ingredients_hero.settings.button_label",
+      "default": "Explore the formula ↓"
+    },
+    {
+      "type": "text",
+      "id": "button_link",
+      "label": "t:sections.ingredients_hero.settings.button_link",
+      "default": "#formula"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "t:sections.ingredients_hero.settings.image"
+    },
+    {
+      "type": "text",
+      "id": "image_alt",
+      "label": "t:sections.ingredients_hero.settings.image_alt",
+      "default": "Blue serum poured into a glass bottle"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.ingredients_hero.name"
+    }
+  ]
+}
+{% endschema %}

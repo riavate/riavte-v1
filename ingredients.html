@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Riavâte home</title>
+<title>Ingredients · Riavâte</title>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0}
@@ -481,16 +481,433 @@ p:empty{display:none}
     }
   }
 
+
+
+  .ingredients-hero {
+    position: relative;
+    overflow: hidden;
+    padding: 4.75rem 1.5rem 0;
+    text-align: center;
+    color: #ffffff;
+    background: linear-gradient(180deg, #000000 0%, #001433 42%, #00256e 72%, #0037ae 100%);
+  }
+
+  .ingredients-hero__copy {
+    position: relative;
+    z-index: 1;
+    max-width: 760px;
+    margin: 0 auto;
+  }
+
+  .ingredients-hero__eyebrow {
+    margin: 0 0 0.85rem;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.26em;
+    text-transform: uppercase;
+  }
+
+  .ingredients-hero__heading {
+    margin: 0;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+  }
+
+  .ingredients-hero__text {
+    max-width: 58rem;
+    margin: 1.15rem auto 0;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.55;
+  }
+
+  .ingredients-hero__text p {
+    margin: 0 0 0.85rem;
+  }
+
+  .ingredients-hero__text p:first-child {
+    font-weight: 700;
+  }
+
+  .ingredients-hero__text p:last-child {
+    margin-bottom: 0;
+  }
+
+  .ingredients-hero__stage {
+    position: relative;
+    z-index: 1;
+    max-width: 620px;
+    margin: 1.25rem auto 0;
+  }
+
+  .ingredients-hero__image {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .ingredients-hero__button {
+    position: absolute;
+    left: 50%;
+    bottom: 16%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 280px;
+    padding: 0.72rem 1.6rem;
+    border: 1px solid #ffffff;
+    border-radius: 999px;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-decoration: none;
+    text-transform: uppercase;
+    transform: translateX(-50%);
+  }
+
+  @media screen and (max-width: 749px) {
+    .ingredients-hero {
+      padding-top: 3.25rem;
+    }
+
+    .ingredients-hero__button {
+      min-width: 0;
+      width: min(100%, 280px);
+      bottom: 8%;
+      font-size: 13px;
+    }
+  }
+
+
+  .ingredients-glance {
+    padding: 5.5rem 1.5rem 4.5rem;
+    background: #ffffff;
+    color: #111111;
+    text-align: center;
+  }
+
+  .ingredients-glance__eyebrow {
+    margin: 0 0 0.7rem;
+    background: linear-gradient(90deg, #121a43, #111111);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.26em;
+    text-transform: uppercase;
+  }
+
+  .ingredients-glance__heading {
+    margin: 0;
+    background: linear-gradient(90deg, #111111 16%, #2d42a9 84%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 800;
+    line-height: 1.05;
+  }
+
+  .ingredients-glance__track {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    align-items: start;
+    max-width: 1080px;
+    margin: 3.5rem auto 0;
+  }
+
+  .ingredients-glance__arc {
+    position: absolute;
+    height: auto;
+    pointer-events: none;
+  }
+
+  .ingredients-glance__arc--wide {
+    top: 28px;
+    left: 8%;
+    width: 84%;
+  }
+
+  .ingredients-glance__arc--mid {
+    top: 8px;
+    left: 22%;
+    width: 56%;
+  }
+
+  .ingredients-glance__arc--short {
+    top: 0;
+    left: 34%;
+    width: 32%;
+  }
+
+  .ingredients-glance__item img {
+    width: 134px;
+    height: 134px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  .ingredients-glance__item h3 {
+    margin: 0.85rem 0 0.3rem;
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .ingredients-glance__item p {
+    margin: 0 auto;
+    max-width: 11rem;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.35;
+  }
+
+  .ingredients-glance__item--high {
+    margin-top: 0;
+  }
+
+  .ingredients-glance__item--low {
+    margin-top: 92px;
+  }
+
+  @media screen and (max-width: 989px) {
+    .ingredients-glance__arc {
+      display: none;
+    }
+
+    .ingredients-glance__track {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 2rem 1rem;
+    }
+
+    .ingredients-glance__item--low {
+      margin-top: 0;
+    }
+
+    .ingredients-glance__item img {
+      width: 108px;
+      height: 108px;
+    }
+  }
+
+
+  .ingredients-cards {
+    padding: 4.5rem 1.5rem 5rem;
+  }
+
+  .ingredients-cards--light {
+    background: #ffffff;
+    color: #111111;
+  }
+
+  .ingredients-cards--dark {
+    color: #ffffff;
+    background: linear-gradient(180deg, #000000 0%, #001433 38%, #00256e 70%, #0037ae 100%);
+  }
+
+  .ingredients-cards__inner {
+    max-width: 1120px;
+    margin: 0 auto;
+  }
+
+  .ingredients-cards__intro {
+    max-width: 760px;
+    margin: 0 auto 3rem;
+    text-align: center;
+  }
+
+  .ingredients-cards__eyebrow {
+    margin: 0 0 0.75rem;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.26em;
+    text-transform: uppercase;
+  }
+
+  .ingredients-cards--light .ingredients-cards__eyebrow {
+    color: #111111;
+  }
+
+  .ingredients-cards__heading {
+    margin: 0;
+    font-size: clamp(1.8rem, 3.4vw, 3rem);
+    font-weight: 700;
+    line-height: 1.08;
+    text-transform: uppercase;
+  }
+
+  .ingredients-cards--light .ingredients-cards__heading {
+    background: linear-gradient(90deg, #121a43, #2d42a9);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .ingredients-cards__intro-text {
+    margin-top: 1rem;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.55;
+  }
+
+  .ingredients-cards__intro-text p {
+    margin: 0;
+  }
+
+  .ingredients-cards__grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 2.4rem 2.15rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .ingredients-cards__grid li {
+    overflow: hidden;
+    border-radius: 19px;
+    background: #f6f6f6;
+    color: #111111;
+  }
+
+  .ingredients-cards__media {
+    height: 144px;
+    background: #e7e7e7;
+  }
+
+  .ingredients-cards__image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .ingredients-cards__body {
+    padding: 1.15rem 1.45rem 1.45rem;
+  }
+
+  .ingredients-cards__index {
+    margin: 0;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+  }
+
+  .ingredients-cards__title {
+    margin: 0.55rem 0 0.45rem;
+    background: linear-gradient(90deg, #121a43, #2d42a9);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.25;
+    text-transform: uppercase;
+  }
+
+  .ingredients-cards__text,
+  .ingredients-cards__why {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.45;
+  }
+
+  .ingredients-cards__text p {
+    margin: 0;
+  }
+
+  .ingredients-cards__text a {
+    color: inherit;
+  }
+
+  .ingredients-cards__why-label {
+    margin: 0.95rem 0 0.3rem;
+    color: #0037ae;
+    font-size: 15px;
+    font-weight: 500;
+    text-transform: uppercase;
+  }
+
+  .ingredients-cards__why {
+    margin: 0;
+  }
+
+  @media screen and (max-width: 989px) {
+    .ingredients-cards__grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    .ingredients-cards {
+      padding: 3rem 1rem 3.25rem;
+    }
+
+    .ingredients-cards__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+
+  .ingredients-system {
+    padding: 4.5rem 1.5rem 5.5rem;
+    background: #ffffff;
+    text-align: center;
+    color: #111111;
+  }
+
+  .ingredients-system__eyebrow {
+    margin: 0 0 0.75rem;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.26em;
+  }
+
+  .ingredients-system__heading {
+    margin: 0 auto;
+    max-width: 16ch;
+    background: linear-gradient(90deg, #121a43, #2d42a9);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    line-height: 1.08;
+    text-transform: uppercase;
+  }
+
+  .ingredients-system__text {
+    max-width: 48rem;
+    margin: 1.15rem auto 0;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.55;
+  }
+
+  .ingredients-system__text p {
+    margin: 0 0 0.35rem;
+  }
+
+  .ingredients-system__text p:first-child {
+    margin-bottom: 0.85rem;
+  }
+
 </style>
-<link rel="stylesheet" href="assets/motion.css">
-<script src="assets/motion.js" defer></script>
 </head>
 <body>
 <header class="site-header" data-header>
   <div class="site-header__bar">
     <a class="site-header__logo" href="/"><img class="site-header__logo-image" src="/assets/logo.png" alt="Riavâte" width="156" height="27"></a>
     <nav class="site-header__nav" id="nav"><ul class="site-header__menu">
-      <li><a href="/">Home</a></li><li><a href="/about.html">About</a></li><li><a href="/kit.html">The Kit</a></li><li><a href="/science.html" aria-current="page">Science</a></li><li><a href="/ingredients.html">Ingredients</a></li>
+      <li><a href="/">Home</a></li><li><a href="/about.html">About</a></li><li><a href="/kit.html">The Kit</a></li><li><a href="/science.html">Science</a></li><li><a href="/ingredients.html" aria-current="page">Ingredients</a></li>
     </ul></nav>
     <div class="site-header__actions">
       <a class="site-header__cart" href="/cart.html" aria-label="Cart"><svg width="28" height="28" viewBox="0 0 28 28"><path d="M7 8h14l-1.2 12.2a2 2 0 0 1-2 1.8H10.2a2 2 0 0 1-2-1.8L7 8Z" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10.5 8V6.8A3.5 3.5 0 0 1 14 3.3a3.5 3.5 0 0 1 3.5 3.5V8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></a>
@@ -498,77 +915,35 @@ p:empty{display:none}
     </div>
   </div>
 </header>
-<section class="science-hero"><div class="science-hero__inner">
-  <div class="science-hero__copy"><p class="science-hero__eyebrow">The Riavâte approach</p><h1 class="science-hero__heading">Precision technology.<br>Cuprofuse® formulation.</h1><div class="science-hero__text"><p>Riavâte brings together controlled 0.5 mm micro-infusion technology with Cuprofuse®, our concentrated serum led by GHK-Cu and formulated with a precisely configured combination of selected scalp-care ingredients.</p></div><p class="science-hero__note">One system. Precision in delivery. Purpose in formulation.</p></div>
-  <div><img class="science-hero__image" src="/assets/science-hold.jpg" alt="Riavâte micro-infusion device held between two fingers"></div>
-</div></section>
-<section class="science-principles"><div class="science-principles__inner">
-  <p class="science-principles__eyebrow">Science at a Glance</p>
-  <h2 class="science-principles__heading">The principles<br>behind Riavâte.</h2>
-  <ol class="science-principles__list">
-    <li class="science-principles__item"><p class="science-principles__index">01</p><h3 class="science-principles__title">0.5 mm</h3><p class="science-principles__kicker">Precision</p><p class="science-principles__item-text">Controlled micro-infusion designed for precise scalp application.</p></li>
-    <li class="science-principles__item"><p class="science-principles__index">02</p><h3 class="science-principles__title">Cuprofuse®</h3><p class="science-principles__kicker">Our hero peptide</p><p class="science-principles__item-text">Our concentrated serum, led by GHK-Cu and selected scalp-care actives.</p></li>
-    <li class="science-principles__item"><p class="science-principles__index">03</p><h3 class="science-principles__title">Follicle-focused</h3><p class="science-principles__kicker">Targeted application</p><p class="science-principles__item-text">A considered application system designed around targeted scalp care.</p></li>
-    <li class="science-principles__item"><p class="science-principles__index">04</p><h3 class="science-principles__title">Science-led</h3><p class="science-principles__kicker">Selected actives</p><p class="science-principles__item-text">Built around published research into microneedling, peptides and cosmetic scalp-care ingredients.</p></li>
-  </ol>
-</div></section>
-<section class="science-split science-split--timeline" id="device"><div class="science-split__inner">
-  <div><img class="science-split__image" src="/assets/science-device.jpg" alt="Close view of the Riavâte micro-infusion tip"></div>
-  <div class="science-split__copy"><p class="science-split__eyebrow">Why Micro-Infusion?</p><h2 class="science-split__heading">Precision<br>beyond<br><em>conventional</em><br>application.</h2><div class="science-split__text"><p>Traditional topical products are applied to the scalp surface. Riavâte uses controlled 0.5 mm micro-infusion to create temporary micro-channels during application, providing a more targeted approach to scalp care.</p></div>
-    <ol class="science-split__points">
-      <li><p class="science-split__index">01</p><div><h3>Precision micro-channels</h3><p>0.5 mm micro-infusion creates controlled micro-channels during application.</p></div></li>
-      <li><p class="science-split__index">02</p><div><h3>Targeted application</h3><p>Cuprofuse® is applied directly across the targeted scalp area.</p></div></li>
-      <li><p class="science-split__index">03</p><div><h3>Formula + device</h3><p>The micro-infusion device and concentrated serum are designed to work as one considered system.</p></div></li>
-    </ol>
+<section class="ingredients-hero">
+  <div class="ingredients-hero__copy">
+    <p class="ingredients-hero__eyebrow">The formula</p>
+    <h1 class="ingredients-hero__heading">Inside Cuprofuse®</h1>
+    <div class="ingredients-hero__text rte"><p>19 ingredients. One considered formula.</p><p>Cuprofuse® is our concentrated cosmetic serum, led by GHK-Cu (Copper Tripeptide-1) and formulated with a precisely configured combination of peptides, scalp-conditioning actives, botanical extracts, humectants and supporting ingredients.</p><p>Every ingredient has a purpose — from supporting scalp condition and hydration to maintaining the performance, stability and experience of the formula.</p></div>
   </div>
-</div></section>
-<section class="science-stat" id="peptide"><div class="science-stat__inner">
-  <div><p class="science-stat__eyebrow">Research Spotlight</p><h2 class="science-stat__heading">What does the<br>published<br>evidence show?</h2><div class="science-stat__text"><p>Microneedling has been investigated in clinical research on androgenetic alopecia.</p><p>In a 2013 randomized evaluator-blinded study involving 100 participants, researchers compared weekly 1.5 mm microneedling plus 5% minoxidil against 5% minoxidil alone for 12 weeks.</p></div></div>
-  <div class="science-stat__figure"><p class="science-stat__value">+91.4</p><p class="science-stat__label">Mean hair-count change</p><p class="science-stat__caption">Reported in the microneedling + minoxidil group after 12 weeks in the Dhurat et al. study.</p><div class="science-stat__note"><p class="science-stat__note-title">Important Context</p><p>This research investigated 1.5 mm microneedling combined with minoxidil — not the Riavâte 0.5 mm system. The study is presented as background research on microneedling and should not be interpreted as a clinical result for Riavâte.</p><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3746236/">View study</a></div></div>
-</div></section>
-<section class="science-serum" id="formula"><div class="science-serum__inner">
-  <div><img class="science-serum__image" src="/assets/science-serum.jpg" alt="Riavâte serum vial with molecular forms"></div>
-  <div class="science-serum__copy"><p class="science-serum__eyebrow">Our Hero Peptide</p><h2 class="science-serum__heading">Our concentrated<br>serum<br>Cuprofuse®<br>at the heart of<br>Riavâte.</h2><div class="science-serum__text"><p>Cuprofuse® is more than a single hero ingredient. It brings GHK-Cu together with a precisely configured combination of selected molecules and scalp-care ingredients in one concentrated formula.</p></div><h3 class="science-serum__subheading">GHK-Cu</h3><p class="science-serum__subtext">Copper Tripeptide-1 sits at the heart of Cuprofuse® as its leading peptide, supported by a wider combination of carefully selected cosmetic ingredients.</p>
-    <ul class="science-serum__traits">
-      <li><h3>GHK-Cu<br>LED</h3><p>Leading peptide within Cuprofuse®.</p></li>
-      <li><h3>MULTI-<br>ACTIVE</h3><p>A considered combination of selected scalp-care ingredients.</p></li>
-      <li><h3>CONCENTR<br>ATED</h3><p>Created as a focused cosmetic serum for the Riavâte system.</p></li>
-    </ul>
+  <div class="ingredients-hero__stage">
+    <img class="ingredients-hero__image" src="/assets/ingredients-hero.png" alt="Blue serum poured into a glass bottle">
+    <a class="ingredients-hero__button" href="#formula">Explore the formula ↓</a>
   </div>
-</div></section>
-<section class="science-inside" id="routine"><div class="science-inside__inner">
-  <p class="science-inside__eyebrow">Inside Cuprofuse®</p>
-  <h2 class="science-inside__heading">Selected with<br><em>purpose.</em></h2>
-  <div class="science-inside__text"><p>Cuprofuse® combines its leading peptide GHK-Cu with selected cosmetic actives, each chosen for a considered role within the formula.</p></div>
-  <div class="science-inside__grid">
-    <div class="science-inside__feature"><p class="science-inside__feature-index">01</p><h3 class="science-inside__feature-title">GHK-Cu / COPPER TRIPEPTIDE-1</h3><p class="science-inside__feature-text">The leading peptide at the heart of Cuprofuse®.</p><img class="science-inside__image" src="/assets/science-apply.jpg" alt="Riavâte device applied along the hairline"></div>
-    <ul class="science-inside__rows">
-      <li><p class="science-inside__index">02</p><div><h3>Niacinamide</h3><p class="science-inside__kicker">Scalp barrier support</p></div><p>Helps condition the scalp and support its natural barrier.</p></li>
-      <li><p class="science-inside__index">02</p><div><h3>Caffeine</h3><p class="science-inside__kicker">Scalp care active</p></div><p>A widely studied ingredient used in modern cosmetic scalp-care formulations.</p></li>
-      <li><p class="science-inside__index">02</p><div><h3>Panthenol</h3><p class="science-inside__kicker">Condition + hydration</p></div><p>Helps moisturise and condition the scalp and hair.</p></li>
-      <li><p class="science-inside__index">02</p><div><h3>Adenosine</h3><p class="science-inside__kicker">Targeted active</p></div><p>A cosmetic active explored in published research relating to the appearance of hair.</p></li>
-    </ul>
+</section>
+<section class="ingredients-glance">
+  <div class="ingredients-glance__intro">
+    <p class="ingredients-glance__eyebrow">What's inside Cuprofuse®</p>
+    <h2 class="ingredients-glance__heading">Formula at a Glance</h2>
   </div>
-</div></section>
-<section class="science-note"><div class="science-note__inner"><div class="science-note__copy">
-  <p class="science-note__eyebrow">Transparency — Scientific Note</p>
-  <h2 class="science-note__heading">Understanding<br>the evidence.</h2>
-  <p class="science-note__lede">Independent research Riavâte clinical results</p>
-  <div class="science-note__text"><p>The science behind Riavâte draws from published research across microneedling, follicular delivery and individual cosmetic ingredients used within our approach. These studies help inform the scientific rationale behind the system. Unless explicitly stated, referenced studies were not conducted on the finished Riavâte or Cuprofuse® product.</p></div>
-</div></div></section>
-<section class="science-explore"><div class="science-explore__inner">
-  <div class="science-explore__intro"><p class="science-explore__eyebrow">Scientific References</p><h2 class="science-explore__heading">Explore the<br><em>research.</em></h2><p class="science-explore__text">Independent research informing the science behind our approach.</p></div>
-  <ul class="science-explore__list">
-    <li><details class="science-explore__row"><summary><span class="science-explore__index">01</span><span class="science-explore__kicker">Microneedling</span><span class="science-explore__title">Microneedling and hair-growth research</span><span class="science-explore__plus"></span></summary><div class="science-explore__panel"><p>Published research on microneedling and hair growth. Presented as background, not a clinical result for Riavâte.</p></div></details></li>
-    <li><details class="science-explore__row"><summary><span class="science-explore__index">02</span><span class="science-explore__kicker">Follicular delivery</span><span class="science-explore__title">Hair follicles as storage and penetration pathways</span><span class="science-explore__plus"></span></summary><div class="science-explore__panel"><p>Published work on the hair follicle as a route for storage and penetration of topical ingredients.</p></div></details></li>
-    <li><details class="science-explore__row"><summary><span class="science-explore__index">03</span><span class="science-explore__kicker">Caffeine</span><span class="science-explore__title">Follicular penetration of caffeine</span><span class="science-explore__plus"></span></summary><div class="science-explore__panel"><p>Published research on how caffeine penetrates the hair follicle.</p></div></details></li>
-    <li><details class="science-explore__row"><summary><span class="science-explore__index">04</span><span class="science-explore__kicker">Adenosine</span><span class="science-explore__title">Published topical adenosine research</span><span class="science-explore__plus"></span></summary><div class="science-explore__panel"><p>Published research on topical adenosine. Not a clinical result for Riavâte.</p></div></details></li>
-    <li><details class="science-explore__row"><summary><span class="science-explore__index">05</span><span class="science-explore__kicker">GHK-Cu / copper peptides</span><span class="science-explore__title">Published research relating to copper peptides</span><span class="science-explore__plus"></span></summary><div class="science-explore__panel"><p>Published research on copper peptides, including GHK-Cu. Not a result for the finished Riavâte system.</p></div></details></li>
-  </ul>
-</div></section>
-<section class="science-close">
-  <div class="science-close__media"><img class="science-close__image" src="/assets/about-evolved.jpg" alt=""></div>
-  <div class="science-close__copy"><p class="science-close__eyebrow">The Riavâte System</p><h2 class="science-close__heading">Science-led<br>scalp care.<br>Designed with<br>precision.</h2><div class="science-close__text"><p>Precision micro-infusion meets Cuprofuse® concentrated serum — bringing technology, formulation and modern scalp care together in one considered system.</p></div><a class="science-close__button" href="/kit.html">Discover the system</a></div>
+  <div class="ingredients-glance__track">
+    <img class="ingredients-glance__arc ingredients-glance__arc--wide" src="/assets/ingredients-glance-line-1.svg" alt="">
+    <img class="ingredients-glance__arc ingredients-glance__arc--mid" src="/assets/ingredients-glance-line-2.svg" alt="">
+    <img class="ingredients-glance__arc ingredients-glance__arc--short" src="/assets/ingredients-glance-line-3.svg" alt="">
+    <article class="ingredients-glance__item ingredients-glance__item--high"><img src="/assets/ingredients-glance-count.png" alt="" width="134" height="134"><h3>19 ingredients</h3><p>Precisely considered formula</p></article><article class="ingredients-glance__item ingredients-glance__item--low"><img src="/assets/ingredients-glance-ghk.png" alt="" width="134" height="134"><h3>GHK-Cu led</h3><p>Copper Tripeptide-1</p></article><article class="ingredients-glance__item ingredients-glance__item--low"><img src="/assets/ingredients-glance-active.png" alt="" width="134" height="134"><h3>Multi-active</h3><p>Peptides + scalp-care actives</p></article><article class="ingredients-glance__item ingredients-glance__item--high"><img src="/assets/ingredients-glance-serum.png" alt="" width="134" height="134"><h3>Cuprofuse®</h3><p>Concentrated serum</p></article>
+  </div>
+</section>
+<section class="ingredients-cards ingredients-cards--light" id="formula"><div class="ingredients-cards__inner"><div class="ingredients-cards__intro"><p class="ingredients-cards__eyebrow">The 19 ingredients</p><h2 class="ingredients-cards__heading">Purposefully selected</h2><div class="ingredients-cards__intro-text rte"><p>Each ingredient in Cuprofuse® has been carefully selected to play a considered role within the formula — bringing together peptides, scalp-care actives, botanical extracts and conditioning ingredients in one concentrated serum.</p></div></div><ul class="ingredients-cards__grid"><li><div class="ingredients-cards__media"><img class="ingredients-cards__image" src="/assets/ingredients-01.jpg" alt=""></div><div class="ingredients-cards__body"><p class="ingredients-cards__index">01 — Copper Tripeptide-1</p><h3 class="ingredients-cards__title">GHK-Cu · The hero peptide</h3><div class="ingredients-cards__text rte"><p>The leading peptide at the heart of Cuprofuse®. Selected to anchor our peptide-led approach to modern scalp care.</p></div><p class="ingredients-cards__why-label">Why we use it</p><p class="ingredients-cards__why">To provide Cuprofuse® with its defining copper-peptide component and support the formula's scalp-conditioning strategy.</p></div></li><li><div class="ingredients-cards__media"><img class="ingredients-cards__image" src="/assets/ingredients-02.jpg" alt=""></div><div class="ingredients-cards__body"><p class="ingredients-cards__index">02 — Niacinamide</p><h3 class="ingredients-cards__title">Scalp barrier support</h3><div class="ingredients-cards__text rte"><p>A versatile form of vitamin B3 widely used in modern cosmetic skincare.</p></div><p class="ingredients-cards__why-label">Why we use it</p><p class="ingredients-cards__why">To help condition the scalp and support its natural barrier, creating a well-cared-for environment for healthier-looking hair.</p></div></li><li><div class="ingredients-cards__media"><img class="ingredients-cards__image" src="/assets/ingredients-03.png" alt=""></div><div class="ingredients-cards__body"><p class="ingredients-cards__index">03 — Caffeine</p><h3 class="ingredients-cards__title">Scalp-care active</h3><div class="ingredients-cards__text rte"><p>One of the more extensively studied cosmetic ingredients in topical hair/scalp formulations, although systematic reviews note limitations in the overall quality of clinical evidence.</p></div><p class="ingredients-cards__why-label">Why we use it</p><p class="ingredients-cards__why">Selected as a targeted scalp-care active to complement Cuprofuse®'s multi-active approach.</p></div></li><li><div class="ingredients-cards__media"><img class="ingredients-cards__image" src="/assets/ingredients-04.png" alt=""></div><div class="ingredients-cards__body"><p class="ingredients-cards__index">04 — Adenosine</p><h3 class="ingredients-cards__title">Hair-care active</h3><div class="ingredients-cards__text rte"><p>Adenosine has been investigated in topical hair research, including randomized studies and more recent systematic review evidence.</p></div><p class="ingredients-cards__why-label">Why we use it</p><p class="ingredients-cards__why">Included as a research-backed component within our broader cosmetic scalp-care formula.</p></div></li><li><div class="ingredients-cards__media"><img class="ingredients-cards__image" src="/assets/ingredients-05.jpg" alt=""></div><div class="ingredients-cards__body"><p class="ingredients-cards__index">05 — Panthenol</p><h3 class="ingredients-cards__title">Condition + hydration</h3><div class="ingredients-cards__text rte"><p>Pro-vitamin B5 is widely used as a hair- and skin-conditioning ingredient and humectant.</p></div><p class="ingredients-cards__why-label">Why we use it</p><p class="ingredients-cards__why">To help moisturise and condition the scalp and hair while supporting a comfortable application experience.</p></div></li><li><div class="ingredients-cards__media"><img class="ingredients-cards__image" src="/assets/ingredients-06.png" alt=""></div><div class="ingredients-cards__body"><p class="ingredients-cards__index">06 — Panax Ginseng Root Extract</p><h3 class="ingredients-cards__title">Botanical support</h3><div class="ingredients-cards__text rte"><p>A botanical extract with a long history of cosmetic use.</p></div><p class="ingredients-cards__why-label">Why we use it</p><p class="ingredients-cards__why">Selected as part of Cuprofuse®'s botanical complex to complement the formula's scalp-conditioning approach.</p></div></li><li><div class="ingredients-cards__media"><img class="ingredients-cards__image" src="/assets/ingredients-07.jpg" alt=""></div><div class="ingredients-cards__body"><p class="ingredients-cards__index">07 — Eclipta Prostrata Extract</p><h3 class="ingredients-cards__title">Botanical complex</h3><div class="ingredients-cards__text rte"><p>A plant-derived extract used in cosmetic hair and scalp formulations.</p></div><p class="ingredients-cards__why-label">Why we use it</p><p class="ingredients-cards__why">Included as part of the selected botanical system supporting the overall scalp-care formula.</p></div></li><li><div class="ingredients-cards__media"><img class="ingredients-cards__image" src="/assets/ingredients-08.jpg" alt=""></div><div class="ingredients-cards__body"><p class="ingredients-cards__index">08 — Licorice Root Extract</p><h3 class="ingredients-cards__title">Soothing botanical</h3><div class="ingredients-cards__text rte"><p>Glycyrrhiza glabra is widely used in cosmetics and has published research across topical skincare applications. <a href="https://pubmed.ncbi.nlm.nih.gov/32726104/" target="_blank" rel="noopener">PubMed</a></p></div><p class="ingredients-cards__why-label">Why we use it</p><p class="ingredients-cards__why">To complement the formula with a botanical ingredient selected for scalp-conditioning and soothing-oriented cosmetic care.</p></div></li><li><div class="ingredients-cards__media"><img class="ingredients-cards__image" src="/assets/ingredients-09.jpg" alt=""></div><div class="ingredients-cards__body"><p class="ingredients-cards__index">09 — Camellia Sinensis Leaf Extract</p><h3 class="ingredients-cards__title">Green tea extract</h3><div class="ingredients-cards__text rte"><p>A botanical widely used in cosmetic formulations.</p></div><p class="ingredients-cards__why-label">Why we use it</p><p class="ingredients-cards__why">Selected to contribute antioxidant-oriented botanical support to the overall scalp-care formula.</p></div></li><li><div class="ingredients-cards__media"><img class="ingredients-cards__image" src="/assets/ingredients-10.jpg" alt=""></div><div class="ingredients-cards__body"><p class="ingredients-cards__index">10 — Acetyl Tetrapeptide-3</p><h3 class="ingredients-cards__title">Targeted peptide</h3><div class="ingredients-cards__text rte"><p>A cosmetic peptide incorporated into modern hair and scalp formulations.</p></div><p class="ingredients-cards__why-label">Why we use it</p><p class="ingredients-cards__why">To complement GHK-Cu and strengthen the peptide-led identity of the Cuprofuse® formula.</p></div></li><li><div class="ingredients-cards__media"><img class="ingredients-cards__image" src="/assets/ingredients-11.jpg" alt=""></div><div class="ingredients-cards__body"><p class="ingredients-cards__index">11 — Biotin</p><h3 class="ingredients-cards__title">Soothing botanical</h3><div class="ingredients-cards__text rte"><p>Glycyrrhiza glabra is widely used in cosmetics and has published research across topical skincare applications. <a href="https://pubmed.ncbi.nlm.nih.gov/32726104/" target="_blank" rel="noopener">PubMed</a></p></div><p class="ingredients-cards__why-label">Why we use it</p><p class="ingredients-cards__why">To complement the formula with a botanical ingredient selected for scalp-conditioning and soothing-oriented cosmetic care.</p></div></li><li><div class="ingredients-cards__media"><img class="ingredients-cards__image" src="/assets/ingredients-12.png" alt=""></div><div class="ingredients-cards__body"><p class="ingredients-cards__index">12 — Salicylic Acid</p><h3 class="ingredients-cards__title">Scalp clarity</h3><div class="ingredients-cards__text rte"><p>A well-established cosmetic ingredient used for skin/scalp conditioning and exfoliation-related functions depending on formulation and concentration. Cosmetic safety depends on compliant concentration and formulation. <a href="https://pubmed.ncbi.nlm.nih.gov/41243163/" target="_blank" rel="noopener">PubMed</a></p></div><p class="ingredients-cards__why-label">Why we use it</p><p class="ingredients-cards__why">To support a cleaner, refined scalp environment as part of the complete formula.</p></div></li><li><div class="ingredients-cards__media"><img class="ingredients-cards__image" src="/assets/ingredients-13.png" alt=""></div><div class="ingredients-cards__body"><p class="ingredients-cards__index">13 — Arginine</p><h3 class="ingredients-cards__title">Amino acid</h3><div class="ingredients-cards__text rte"><p>An amino acid used in cosmetic skin and hair formulations.</p></div><p class="ingredients-cards__why-label">Why we use it</p><p class="ingredients-cards__why">Included as a supporting conditioning component within Cuprofuse®'s balanced formula.</p></div></li></ul></div></section>
+<section class="ingredients-cards ingredients-cards--dark" id="purpose"><div class="ingredients-cards__inner"><div class="ingredients-cards__intro"><p class="ingredients-cards__eyebrow">Inside Cuprofuse®</p><h2 class="ingredients-cards__heading">Every part of the formula has a purpose.</h2><div class="ingredients-cards__intro-text rte"><p>Because a sophisticated formula isn't built from hero actives alone. Supporting ingredients help determine hydration, texture, delivery, stability and overall product performance.</p></div></div><ul class="ingredients-cards__grid"><li><div class="ingredients-cards__media"><img class="ingredients-cards__image" src="/assets/ingredients-14.jpg" alt=""></div><div class="ingredients-cards__body"><p class="ingredients-cards__index">14 — Aqua (Water)</p><h3 class="ingredients-cards__title">Formula base</h3><div class="ingredients-cards__text rte"><p>Provides the aqueous foundation that carries the water-compatible components of Cuprofuse®.</p></div></div></li><li><div class="ingredients-cards__media"><img class="ingredients-cards__image" src="/assets/ingredients-15.png" alt=""></div><div class="ingredients-cards__body"><p class="ingredients-cards__index">15 — Butylene Glycol</p><h3 class="ingredients-cards__title">Humectant + solvent</h3><div class="ingredients-cards__text rte"><p>Helps retain moisture while supporting the distribution and sensory feel of the formula.</p></div></div></li><li><div class="ingredients-cards__media"><img class="ingredients-cards__image" src="/assets/ingredients-16.jpg" alt=""></div><div class="ingredients-cards__body"><p class="ingredients-cards__index">16 — Propylene Glycol</p><h3 class="ingredients-cards__title">Solvent + humectant</h3><div class="ingredients-cards__text rte"><p>Helps dissolve and carry selected formula components while contributing to moisture retention.</p></div></div></li><li><div class="ingredients-cards__media"><img class="ingredients-cards__image" src="/assets/ingredients-17.jpg" alt=""></div><div class="ingredients-cards__body"><p class="ingredients-cards__index">17 — 1,2-Hexanediol</p><h3 class="ingredients-cards__title">Formula support</h3><div class="ingredients-cards__text rte"><p>A multifunctional cosmetic ingredient used to support formulation performance and preservation.</p></div></div></li><li><div class="ingredients-cards__media"><img class="ingredients-cards__image" src="/assets/ingredients-18.jpg" alt=""></div><div class="ingredients-cards__body"><p class="ingredients-cards__index">18 — Hydroxyacetophenone</p><h3 class="ingredients-cards__title">Formula protection</h3><div class="ingredients-cards__text rte"><p>Included to support antioxidant/preservation performance and overall formula stability.</p></div></div></li><li><div class="ingredients-cards__media"><img class="ingredients-cards__image" src="/assets/ingredients-19.jpg" alt=""></div><div class="ingredients-cards__body"><p class="ingredients-cards__index">19 — Sodium Citrate</p><h3 class="ingredients-cards__title">Formula balance</h3><div class="ingredients-cards__text rte"><p>Used to help maintain the appropriate pH environment and overall balance of the formula.</p></div></div></li></ul></div></section>
+<section class="ingredients-system">
+  <p class="ingredients-system__eyebrow">Why 19?</p>
+  <h2 class="ingredients-system__heading">Formulated as a system.</h2>
+  <div class="ingredients-system__text rte"><p>Cuprofuse® isn't defined by one ingredient alone.</p><p>GHK-Cu leads the formula, supported by peptides, targeted cosmetic actives, botanical extracts, conditioning ingredients and carefully selected formulation components.</p><p>Each has a different role. Together, they create the complete Cuprofuse® formula.</p></div>
 </section>
 <footer class="site-footer">
   <div class="site-footer__inner">
@@ -597,6 +972,14 @@ document.addEventListener('click', (event) => {
   const header = toggle.closest('[data-header]');
   const open = header.classList.toggle('is-open');
   toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+});
+document.querySelector('.ingredients-hero__button').addEventListener('click', (event) => {
+  const id = event.currentTarget.getAttribute('href');
+  if (!id || !id.startsWith('#')) return;
+  const target = document.querySelector(id);
+  if (!target) return;
+  event.preventDefault();
+  target.scrollIntoView({behavior:'smooth'});
 });
 </script>
 </body></html>

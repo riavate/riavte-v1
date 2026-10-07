@@ -1,0 +1,52 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "contact": {
+      "type": "info-page",
+      "settings": {
+        "layout": "contact",
+        "eyebrow": "",
+        "heading": "We’re here to help.",
+        "intro": "<p>Whether you have a question about your Riavâte system, an existing order or your delivery, our support team is here to help.</p>",
+        "form_heading": "Send a message",
+        "note": "Our team aims to respond as soon as possible."
+      },
+      "blocks": {
+        "support": {
+          "type": "panel",
+          "settings": {
+            "kicker": "Customer support",
+            "title": "Email",
+            "text": "<p><a href=\"mailto:support@riavate.com\">support@riavate.com</a></p>"
+          }
+        },
+        "orders": {
+          "type": "panel",
+          "settings": {
+            "kicker": "Order enquiries",
+            "title": "Include your details",
+            "text": "<p>Please include your full name and order number so our team can assist you as quickly as possible.</p>"
+          }
+        },
+        "general": {
+          "type": "panel",
+          "settings": {
+            "kicker": "General enquiries",
+            "title": "The system",
+            "text": "<p>For questions about Riavâte, Cuprofuse® or our Micro-Infusion System, contact us using the form below.</p>"
+          }
+        }
+      },
+      "block_order": ["support", "orders", "general"]
+    }
+  },
+  "order": ["contact"]
+}

@@ -1,0 +1,517 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Support · Riavâte</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="/assets/base.css" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0}
+body{font-family:Montserrat,sans-serif;background:#fff;color:#121a43}
+.site-header{border-bottom:1px solid #eee}
+.site-header__bar{display:flex;align-items:center;max-width:1120px;margin:0 auto;padding:1rem 1.5rem}
+.site-header__logo-image{width:140px}
+
+  .info-page {
+    padding: 4.75rem 1.5rem 6.5rem;
+    background: #ffffff;
+    color: #121a43;
+  }
+
+  .info-page__inner {
+    width: min(1080px, 100%);
+    margin: 0 auto;
+  }
+
+  .info-page--article .info-page__inner,
+  .info-page--track .info-page__inner {
+    width: min(760px, 100%);
+  }
+
+  .info-page__eyebrow {
+    margin: 0 0 0.85rem;
+    color: #8b93a7;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+  }
+
+  .info-page__header {
+    display: block;
+    height: auto;
+    min-height: 0;
+  }
+
+  .info-page__heading {
+    display: block;
+    margin: 0;
+    color: #121a43;
+    font-size: clamp(2rem, 3.4vw, 2.75rem);
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    line-height: 1.15;
+  }
+
+  .info-page__updated {
+    margin: 1.1rem 0 0;
+    color: #8b93a7;
+    font-size: 13px;
+    font-weight: 500;
+  }
+
+  .info-page__intro {
+    display: block;
+    max-width: 34rem;
+    margin-top: 1.25rem;
+    color: #4b5160;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.7;
+  }
+
+  .info-page__intro p {
+    margin: 0 0 0.75rem;
+  }
+
+  .info-page__intro p:last-child {
+    margin-bottom: 0;
+  }
+
+  .info-page__split {
+    display: grid;
+    grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
+    gap: 3.5rem;
+    align-items: start;
+  }
+
+  .info-page__split > * {
+    min-width: 0;
+  }
+
+  .info-page--faq .info-page__split {
+    grid-template-columns: minmax(220px, 300px) minmax(0, 1fr);
+    gap: 4.5rem;
+  }
+
+  .info-page--faq .info-page__heading {
+    max-width: 7.2em;
+    font-size: clamp(2.15rem, 3.2vw, 2.85rem);
+    line-height: 1.08;
+  }
+
+  .info-page--faq .info-page__intro {
+    max-width: 16rem;
+    margin-top: 1.35rem;
+  }
+
+  .info-page__faqs {
+    counter-reset: question;
+    border-top: 1px solid #e6e9f0;
+  }
+
+  .info-page__faq {
+    border-bottom: 1px solid #e6e9f0;
+    counter-increment: question;
+  }
+
+  .info-page__faq summary {
+    display: grid;
+    grid-template-columns: 2rem minmax(0, 1fr) 1.25rem;
+    gap: 0.75rem;
+    align-items: start;
+    padding: 1.15rem 0;
+    color: #121a43;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.45;
+    cursor: pointer;
+    list-style: none;
+  }
+
+  .info-page__faq summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .info-page__num {
+    padding-top: 0.2rem;
+    color: #8b93a7;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    line-height: 1.45;
+  }
+
+  .info-page__num::before {
+    content: counter(question, decimal-leading-zero);
+  }
+
+  .info-page__q {
+    min-width: 0;
+  }
+
+  .info-page__toggle {
+    padding-top: 0.05rem;
+    color: #2d42a9;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1.2;
+    text-align: right;
+  }
+
+  .info-page__toggle::before {
+    content: "+";
+  }
+
+  .info-page__faq[open] .info-page__toggle::before {
+    content: "–";
+  }
+
+  .info-page__faq:not([open]) > .rte {
+    display: none;
+  }
+
+  .info-page__faq .rte {
+    max-width: 40rem;
+    margin: 0;
+    padding: 0 1.25rem 1.2rem 2.75rem;
+  }
+
+  .info-page--contact .info-page__panels {
+    margin-top: 2.25rem;
+    border-top: 1px solid #e6e9f0;
+  }
+
+  .info-page--contact .info-page__panel {
+    padding: 1.15rem 0;
+    border-bottom: 1px solid #e6e9f0;
+  }
+
+  .info-page__kicker {
+    margin: 0 0 0.3rem;
+    color: #2d42a9;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+
+  .info-page--contact .info-page__panel h2 {
+    margin: 0 0 0.3rem;
+    font-size: 16px;
+  }
+
+  .info-page__form-card h2,
+  .info-page__panel h2 {
+    margin: 0 0 0.45rem;
+    color: #121a43;
+    font-size: 1.15rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.3;
+  }
+
+  .info-page--contact .info-page__form-card {
+    padding: 1.6rem 1.45rem 1.35rem;
+    border-radius: 22px;
+    background: #f6f7fa;
+  }
+
+  .info-page--contact .info-page__form-card h2 {
+    margin-bottom: 1.15rem;
+    font-size: 1.35rem;
+    letter-spacing: -0.03em;
+  }
+
+  .info-page__form {
+    display: grid;
+    gap: 0.9rem;
+  }
+
+  .info-page__fields {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.9rem;
+  }
+
+  .info-page__form label {
+    display: grid;
+    gap: 0.4rem;
+    min-width: 0;
+  }
+
+  .info-page__form label span {
+    display: block;
+    color: #121a43;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1.4;
+  }
+
+  .info-page__form input,
+  .info-page__form textarea {
+    width: 100%;
+    border: 1px solid #e1e5ee;
+    border-radius: 12px;
+    background: #ffffff;
+    color: #121a43;
+    font: inherit;
+    font-size: 15px;
+    padding: 0.85rem 0.9rem;
+  }
+
+  .info-page--contact .info-page__form input,
+  .info-page--contact .info-page__form textarea {
+    border-color: transparent;
+  }
+
+  .info-page__form input:focus,
+  .info-page__form textarea:focus {
+    outline: 2px solid #2d42a9;
+    outline-offset: 1px;
+  }
+
+  .info-page__form textarea {
+    min-height: 140px;
+    resize: vertical;
+  }
+
+  .info-page__form button {
+    min-height: 52px;
+    margin-top: 0.25rem;
+    border: 0;
+    border-radius: 14px;
+    background: linear-gradient(90deg, #121a43, #2d42a9);
+    color: #ffffff;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+
+  .info-page--contact .info-page__form button,
+  .info-page--track .info-page__form button {
+    width: 100%;
+  }
+
+  .info-page__success {
+    margin: 0;
+    padding: 0.85rem 1rem;
+    border-radius: 12px;
+    background: #ffffff;
+    color: #121a43;
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  .info-page__note {
+    margin: 0.9rem 0 0;
+    color: #6d7484;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 1.5;
+  }
+
+  .info-page--article .info-page__panels {
+    counter-reset: part;
+    margin-top: 2.75rem;
+    border-top: 1px solid #e6e9f0;
+  }
+
+  .info-page--article .info-page__panel {
+    padding: 1.55rem 0 1.4rem;
+    border-bottom: 1px solid #eef0f4;
+    counter-increment: part;
+  }
+
+  .info-page--article .info-page__panel h2 {
+    margin: 0;
+    font-size: 1.05rem;
+  }
+
+  .info-page--article .info-page__panel h2::before {
+    display: block;
+    margin-bottom: 0.35rem;
+    color: #8b93a7;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    content: counter(part, decimal-leading-zero);
+  }
+
+  .info-page--article .info-page__panel .rte {
+    margin-top: 0.45rem;
+  }
+
+  .info-page--track .info-page__narrow {
+    width: min(520px, 100%);
+    margin-inline: auto;
+  }
+
+  .info-page--track .info-page__form-card {
+    margin-top: 2rem;
+  }
+
+  .info-page--track .info-page__panels {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.35rem;
+    margin-top: 2.25rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #e6e9f0;
+  }
+
+  .info-page--track .info-page__panel h2 {
+    font-size: 15px;
+  }
+
+  .info-page .rte {
+    color: #4b5160;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 1.7;
+  }
+
+  .info-page .rte p {
+    margin: 0 0 0.7rem;
+  }
+
+  .info-page .rte p:last-child {
+    margin-bottom: 0;
+  }
+
+  .info-page .rte ul {
+    margin: 0.35rem 0 0.7rem;
+    padding: 0;
+    list-style: none;
+  }
+
+  .info-page .rte li {
+    position: relative;
+    margin-top: 0.35rem;
+    padding-left: 0.95rem;
+  }
+
+  .info-page .rte li::before {
+    position: absolute;
+    top: 0.62em;
+    left: 0;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: #2d42a9;
+    content: "";
+  }
+
+  .info-page .rte a {
+    color: #2d42a9;
+    font-weight: 600;
+    text-underline-offset: 3px;
+  }
+
+  @media screen and (max-width: 989px) {
+    .info-page__split {
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    .info-page--faq .info-page__split {
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    .info-page__split {
+      gap: 2.25rem;
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    .info-page {
+      padding: 3rem 1.1rem 4.25rem;
+    }
+
+    .info-page__faq summary {
+      grid-template-columns: 1.7rem minmax(0, 1fr) 1rem;
+      gap: 0.55rem;
+      font-size: 15px;
+    }
+
+    .info-page__faq .rte {
+      padding: 0 0 1.15rem 2.25rem;
+    }
+
+  }
+
+</style>
+</head>
+<body>
+<header class="site-header"><div class="site-header__bar"><img class="site-header__logo-image" src="/assets/logo.png" alt="Riavâte"></div></header>
+<section class="info-page info-page--faq" id="faq">
+  <div class="info-page__inner"><div class="info-page__split">
+    <header class="info-page__header"><h1 class="info-page__heading">Frequently asked questions</h1><div class="info-page__intro rte"><p>Answers about the Riavâte system, Cuprofuse®, and your order.</p></div></header>
+    <div class="info-page__faqs">
+      <details class="info-page__faq" open><summary><span class="info-page__num"></span><span class="info-page__q">What is the Riavâte Micro-Infusion System?</span><span class="info-page__toggle"></span></summary><div class="rte"><p>Riavâte is a precision scalp-care system combining controlled 0.5 mm micro-infusion technology with Cuprofuse®, our concentrated serum led by GHK-Cu (Copper Tripeptide-1) and formulated with selected scalp-care ingredients.</p></div></details>
+      <details class="info-page__faq"><summary><span class="info-page__num"></span><span class="info-page__q">What is Cuprofuse®?</span><span class="info-page__toggle"></span></summary><div class="rte"><p>Cuprofuse® is Riavâte’s concentrated cosmetic serum formulation.</p></div></details>
+      <details class="info-page__faq"><summary><span class="info-page__num"></span><span class="info-page__q">Why does Riavâte use 0.5 mm micro-infusion?</span><span class="info-page__toggle"></span></summary><div class="rte"><p>The system is designed for controlled, targeted and consistent application of the Cuprofuse® serum across the scalp.</p></div></details>
+      <details class="info-page__faq"><summary><span class="info-page__num"></span><span class="info-page__q">Where can I find my order information?</span><span class="info-page__toggle"></span></summary><div class="rte"><p>Once your order has been dispatched, you’ll receive tracking information by email.</p></div></details>
+    </div>
+  </div></div>
+</section>
+<section class="info-page info-page--contact" id="contact">
+  <div class="info-page__inner"><div class="info-page__split">
+    <div class="info-page__aside">
+      <header class="info-page__header"><h1 class="info-page__heading">We’re here to help.</h1><div class="info-page__intro rte"><p>Whether you have a question about your Riavâte system, an existing order or your delivery, our support team is here to help.</p></div></header>
+      <div class="info-page__panels">
+        <article class="info-page__panel"><p class="info-page__kicker">Customer support</p><h2>Email</h2><div class="rte"><p><a href="mailto:support@riavate.com">support@riavate.com</a></p></div></article>
+        <article class="info-page__panel"><p class="info-page__kicker">Order enquiries</p><h2>Include your details</h2><div class="rte"><p>Please include your full name and order number so our team can assist you as quickly as possible.</p></div></article>
+        <article class="info-page__panel"><p class="info-page__kicker">General enquiries</p><h2>The system</h2><div class="rte"><p>For questions about Riavâte, Cuprofuse® or our Micro-Infusion System, contact us using the form below.</p></div></article>
+      </div>
+    </div>
+    <div class="info-page__form-card">
+      <h2>Send a message</h2>
+      <form class="info-page__form">
+        <div class="info-page__fields"><label><span>Name</span><input></label><label><span>Email address</span><input></label></div>
+        <label><span>Order number (optional)</span><input></label>
+        <label><span>Subject</span><input></label>
+        <label><span>Message</span><textarea rows="6"></textarea></label>
+        <button type="button">Send message</button>
+      </form>
+      <p class="info-page__note">Our team aims to respond as soon as possible.</p>
+    </div>
+  </div></div>
+</section>
+<section class="info-page info-page--article" id="shipping">
+  <div class="info-page__inner">
+    <header class="info-page__header"><h1 class="info-page__heading">From Riavâte to your door.</h1><div class="info-page__intro rte"><p>We want receiving your Riavâte order to feel as considered as the product itself. Orders are carefully prepared and dispatched using tracked delivery services where available.</p></div></header>
+    <div class="info-page__panels">
+      <article class="info-page__panel"><h2>Order processing</h2><div class="rte"><p>Orders are typically prepared for dispatch within a few business days.</p></div></article>
+      <article class="info-page__panel"><h2>UK delivery</h2><div class="rte"><p>Estimated delivery times and the delivery cost are confirmed at checkout.</p></div></article>
+      <article class="info-page__panel"><h2>International delivery</h2><div class="rte"><p>International delivery availability, costs and estimated timeframes are calculated according to destination.</p></div></article>
+    </div>
+  </div>
+</section>
+<section class="info-page info-page--article" id="privacy">
+  <div class="info-page__inner">
+    <header class="info-page__header"><h1 class="info-page__heading">Privacy policy</h1><p class="info-page__updated">Last updated: 7 October 2026</p><div class="info-page__intro rte"><p>At Riavâte, we respect your privacy and are committed to protecting your personal information.</p></div></header>
+    <div class="info-page__panels">
+      <article class="info-page__panel"><h2>Information we collect</h2><div class="rte"><p>When you use our website, we may collect information including:</p><ul><li>Your name and contact details</li><li>Billing and delivery address</li><li>Order and transaction information</li></ul></div></article>
+      <article class="info-page__panel"><h2>How we use your information</h2><div class="rte"><p>We may use your personal information to process and fulfil your orders, arrange delivery, and respond to enquiries.</p></div></article>
+    </div>
+  </div>
+</section>
+<section class="info-page info-page--track" id="track">
+  <div class="info-page__inner"><div class="info-page__narrow">
+    <header class="info-page__header"><h1 class="info-page__heading">Follow your Riavâte order.</h1><div class="info-page__intro rte"><p>Enter your order details below to view the latest available delivery status.</p></div></header>
+    <div class="info-page__form-card"><form class="info-page__form">
+      <label><span>Order number</span><input placeholder="Enter your order number"></label>
+      <label><span>Email address</span><input placeholder="Enter the email address used at checkout"></label>
+      <button type="button">Track my order</button>
+    </form></div>
+    <div class="info-page__panels">
+      <article class="info-page__panel"><h2>Where can I find my order number?</h2><div class="rte"><p>Your order number can be found in the confirmation email sent after your purchase.</p></div></article>
+      <article class="info-page__panel"><h2>Having trouble tracking your order?</h2><div class="rte"><p>If tracking information has not appeared yet, please allow time after dispatch for the carrier to update its system.</p></div></article>
+    </div>
+  </div></div>
+</section>
+</body></html>

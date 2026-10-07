@@ -18,21 +18,21 @@
           "type": "column",
           "settings": {
             "heading": "Explore",
-            "links": "The Kit|/products/the-kit\nThe Science|/pages/science\nOur Formula|/\nHow to Use|/\nAbout Riavâte|/pages/about"
+            "links": "The Kit|/products/the-kit\nThe Science|/pages/science\nIngredients|/pages/ingredients\nOur Formula|/\nHow to Use|/\nAbout Riavâte|/pages/about"
           }
         },
         "support": {
           "type": "column",
           "settings": {
             "heading": "Support",
-            "links": "FAQs|/\nContact Us|/\nShipping & Delivery|/\nReturns & Refunds|/\nTrack Your Order|/"
+            "links": "FAQs|/pages/faqs\nContact Us|/pages/contact\nShipping & Delivery|/pages/shipping\nReturns & Refunds|/pages/returns\nTrack Your Order|/pages/track-order"
           }
         },
         "legal": {
           "type": "column",
           "settings": {
             "heading": "Legal",
-            "links": "Privacy Policy|/\nTerms & Conditions|/\nCookie Policy|/\nAccessibility|/"
+            "links": "Privacy Policy|/pages/privacy-policy\nTerms & Conditions|/pages/terms"
           }
         }
       },

@@ -24,13 +24,23 @@
   },
   "cart": {
     "checkout": "Checkout",
-    "title": "Cart",
-    "update": "Update",
+    "title": "Your cart",
+    "eyebrow": "Your bag",
+    "update": "Update cart",
     "remove": "Remove",
     "empty": "Your cart is empty.",
+    "empty_note": "The precision micro-infusion system is ready when you are.",
     "continue": "Continue shopping",
     "quantity": "Quantity",
-    "total": "Total"
+    "decrease": "Decrease quantity",
+    "increase": "Increase quantity",
+    "total": "Subtotal",
+    "summary": "Summary",
+    "shipping_note": "Shipping and taxes are calculated at checkout.",
+    "item_one": "1 item",
+    "item_other": "{{ count }} items",
+    "each": "{{ price }} each",
+    "includes": "Includes"
   },
   "customers": {
     "login": {
@@ -94,6 +104,20 @@
     "science_explore": {
       "view_study": "View study"
     }
+  },
+  "info_page": {
+    "name": "Name",
+    "email": "Email address",
+    "order": "Order number",
+    "order_optional": "Order number (optional)",
+    "subject": "Subject",
+    "message": "Message",
+    "send": "Send message",
+    "track": "Track my order",
+    "success": "Thank you. Your message has been sent.",
+    "track_success": "Thank you. We have received your tracking request.",
+    "order_placeholder": "Enter your order number",
+    "email_placeholder": "Enter the email address used at checkout"
   },
   "search": {
     "title": "Search",
