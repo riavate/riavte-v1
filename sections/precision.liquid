@@ -127,33 +127,54 @@
   }
 
   .precision__lines {
-    position: absolute;
-    top: 148px;
-    z-index: 0;
-    display: flex;
-    flex-direction: column;
-    width: var(--line);
-    pointer-events: none;
-  }
-
-  .precision__lines--left {
-    right: calc(50% + var(--device) / 2 + 10px);
-    transform-origin: right center;
-  }
-
-  .precision__lines--right {
-    left: calc(50% + var(--device) / 2 + 10px);
-    transform-origin: left center;
+    display: contents;
   }
 
   .precision__line {
-    display: block;
-    width: 100%;
+    position: absolute;
+    z-index: 0;
     height: auto;
+    pointer-events: none;
+  }
+
+  .precision__lines--left .precision__line {
+    right: calc(50% + var(--device) / 2 + 16px);
+    transform-origin: right center;
+  }
+
+  .precision__lines--right .precision__line {
+    left: calc(50% + var(--device) / 2 + 16px);
+    transform-origin: left center;
+  }
+
+  .precision__line--top {
+    top: 154px;
+    width: 148px;
+    height: 42px;
+    object-fit: cover;
+  }
+
+  .precision__lines--left .precision__line--top {
+    object-position: right top;
+  }
+
+  .precision__lines--right .precision__line--top {
+    object-position: left top;
   }
 
   .precision__line--bottom {
-    margin-top: -24px;
+    top: 214px;
+    width: 220px;
+    height: 16px;
+    object-fit: cover;
+  }
+
+  .precision__lines--left .precision__line--bottom {
+    object-position: right bottom;
+  }
+
+  .precision__lines--right .precision__line--bottom {
+    object-position: left bottom;
   }
 
   .precision__point h3 {
@@ -182,10 +203,10 @@
     width: 210px;
   }
 
-  .precision__point--top-left { top: 78px; left: 0; }
-  .precision__point--top-right { top: 78px; right: 0; text-align: right; }
-  .precision__point--bottom-left { top: 300px; left: 0; }
-  .precision__point--bottom-right { top: 300px; right: 0; text-align: right; }
+  .precision__point--top-left { top: 86px; left: 8px; }
+  .precision__point--top-right { top: 86px; right: 8px; text-align: right; }
+  .precision__point--bottom-left { top: 292px; left: 8px; }
+  .precision__point--bottom-right { top: 292px; right: 8px; text-align: right; }
 
   .precision__point--top-right p,
   .precision__point--bottom-right p {
@@ -193,15 +214,15 @@
   }
 
   @media (prefers-reduced-motion: no-preference) {
-    .precision__lines {
+    .precision__line {
       transform: scaleX(0);
     }
 
-    .precision__stage.is-drawn .precision__lines {
+    .precision__stage.is-drawn .precision__line {
       animation: precision-draw 0.95s cubic-bezier(0.22, 1, 0.36, 1) forwards;
     }
 
-    .precision__stage.is-drawn .precision__lines--right {
+    .precision__stage.is-drawn .precision__lines--right .precision__line {
       animation-delay: 0.14s;
     }
   }
@@ -260,13 +281,30 @@
     }
 
     .precision__lines {
+      display: flex;
+      flex-direction: column;
+      gap: 1.1rem;
       width: 100%;
       max-width: 168px;
       align-self: center;
     }
 
-    .precision__lines--left { grid-area: lines-left; justify-self: end; }
-    .precision__lines--right { grid-area: lines-right; justify-self: start; }
+    .precision__lines--left { grid-area: lines-left; justify-self: end; align-items: flex-end; }
+    .precision__lines--right { grid-area: lines-right; justify-self: start; align-items: flex-start; }
+
+    .precision__line,
+    .precision__line--top,
+    .precision__line--bottom {
+      position: static;
+      top: auto;
+      right: auto;
+      left: auto;
+      height: auto;
+      object-fit: contain;
+    }
+
+    .precision__line--top { width: 72%; }
+    .precision__line--bottom { width: 100%; }
 
     .precision__point--top-left { grid-area: top-left; }
     .precision__point--top-right { grid-area: top-right; text-align: right; }
