@@ -148,7 +148,6 @@
           </div>
           <p class="main-cart__note">{{ 'cart.shipping_note' | t }}</p>
           <button class="main-cart__checkout" type="submit" name="checkout">{{ 'cart.checkout' | t }}</button>
-          <button class="main-cart__update" type="submit">{{ 'cart.update' | t }}</button>
         </aside>
       </form>
     {%- endif -%}
@@ -577,24 +576,6 @@
 
   .main-cart__checkout:hover {
     filter: brightness(1.08);
-  }
-
-  .main-cart__update {
-    display: block;
-    width: 100%;
-    margin-top: 0.85rem;
-    padding: 0.35rem;
-    border: 0;
-    background: transparent;
-    color: #2d42a9;
-    font-family: inherit;
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    text-decoration: underline;
-    text-underline-offset: 3px;
-    cursor: pointer;
   }
 
   .main-cart__empty .main-cart__checkout {
