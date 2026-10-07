@@ -38,7 +38,8 @@
     "summary": "Summary",
     "shipping_note": "Shipping and taxes are calculated at checkout.",
     "item_one": "1 item",
-    "item_other": "{{ count }} items"
+    "item_other": "{{ count }} items",
+    "each": "{{ price }} each"
   },
   "customers": {
     "login": {

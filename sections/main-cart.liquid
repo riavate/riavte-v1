@@ -1,7 +1,18 @@
 <section class="main-cart">
   <div class="main-cart__inner">
-    <p class="main-cart__eyebrow">{{ 'cart.eyebrow' | t }}</p>
-    <h1 class="main-cart__heading">{{ 'cart.title' | t }}</h1>
+    <header class="main-cart__header">
+      <div>
+        <p class="main-cart__eyebrow">{{ 'cart.eyebrow' | t }}</p>
+        <h1 class="main-cart__heading">{{ 'cart.title' | t }}</h1>
+      </div>
+      {%- if cart.item_count > 0 -%}
+        {%- if cart.item_count == 1 -%}
+          <p class="main-cart__count">{{ 'cart.item_one' | t }}</p>
+        {%- else -%}
+          <p class="main-cart__count">{{ 'cart.item_other' | t: count: cart.item_count }}</p>
+        {%- endif -%}
+      {%- endif -%}
+    </header>
 
     {%- if cart.item_count == 0 -%}
       <div class="main-cart__empty">
@@ -10,12 +21,6 @@
         <a class="main-cart__checkout" href="/products/the-kit">{{ 'cart.continue' | t }}</a>
       </div>
     {%- else -%}
-      {%- if cart.item_count == 1 -%}
-        <p class="main-cart__count">{{ 'cart.item_one' | t }}</p>
-      {%- else -%}
-        <p class="main-cart__count">{{ 'cart.item_other' | t: count: cart.item_count }}</p>
-      {%- endif -%}
-
       <form class="main-cart__layout" action="{{ routes.cart_url }}" method="post">
         <ul class="main-cart__items">
           {%- for item in cart.items -%}
@@ -24,33 +29,43 @@
                 {%- if item.image -%}
                   {{
                     item.image
-                    | image_url: width: 320
-                    | image_tag: alt: item.title, class: 'main-cart__image', widths: '160, 320'
+                    | image_url: width: 400
+                    | image_tag: alt: item.title, class: 'main-cart__image', widths: '200, 400'
                   }}
                 {%- endif -%}
               </a>
               <div class="main-cart__details">
-                <p class="main-cart__title">
-                  <a href="{{ item.url }}">{{ item.product.title | escape }}</a>
-                </p>
-                {%- unless item.product.has_only_default_variant -%}
-                  <p class="main-cart__variant">{{ item.variant.title | escape }}</p>
-                {%- endunless -%}
-                <div class="main-cart__qty">
-                  <button type="button" data-qty="minus" aria-label="{{ 'cart.decrease' | t }}">−</button>
-                  <label>
-                    <span class="visually-hidden">{{ 'cart.quantity' | t }}</span>
-                    <input type="number" name="updates[]" value="{{ item.quantity }}" min="0" inputmode="numeric">
-                  </label>
-                  <button type="button" data-qty="plus" aria-label="{{ 'cart.increase' | t }}">+</button>
+                <div class="main-cart__top">
+                  <div>
+                    <p class="main-cart__title">
+                      <a href="{{ item.url }}">{{ item.product.title | escape }}</a>
+                    </p>
+                    {%- unless item.product.has_only_default_variant -%}
+                      <p class="main-cart__variant">{{ item.variant.title | escape }}</p>
+                    {%- endunless -%}
+                  </div>
+                  <div class="main-cart__price">
+                    {%- if item.original_line_price > item.final_line_price -%}
+                      <s>{{ item.original_line_price | money }}</s>
+                    {%- endif -%}
+                    <p>{{ item.final_line_price | money }}</p>
+                    {%- if item.quantity > 1 -%}
+                      {%- assign unit_price = item.final_price | money -%}
+                      <span class="main-cart__each">{{ 'cart.each' | t: price: unit_price }}</span>
+                    {%- endif -%}
+                  </div>
                 </div>
-                <a class="main-cart__remove" href="{{ item.url_to_remove }}">{{ 'cart.remove' | t }}</a>
-              </div>
-              <div class="main-cart__price">
-                {%- if item.original_line_price > item.final_line_price -%}
-                  <s>{{ item.original_line_price | money }}</s>
-                {%- endif -%}
-                <p>{{ item.final_line_price | money }}</p>
+                <div class="main-cart__actions">
+                  <div class="main-cart__qty">
+                    <button type="button" data-qty="minus" aria-label="{{ 'cart.decrease' | t }}">−</button>
+                    <label>
+                      <span class="visually-hidden">{{ 'cart.quantity' | t }}</span>
+                      <input type="number" name="updates[]" value="{{ item.quantity }}" min="0" inputmode="numeric">
+                    </label>
+                    <button type="button" data-qty="plus" aria-label="{{ 'cart.increase' | t }}">+</button>
+                  </div>
+                  <a class="main-cart__remove" href="{{ item.url_to_remove }}">{{ 'cart.remove' | t }}</a>
+                </div>
               </div>
             </li>
           {%- endfor -%}
@@ -73,22 +88,31 @@
 
 {% stylesheet %}
   .main-cart {
-    padding: 4.25rem 1.5rem 5.5rem;
-    background: #ffffff;
+    padding: 4.5rem 1.5rem 6rem;
+    background: #f6f7fa;
     color: #111111;
   }
 
   .main-cart__inner {
-    width: min(1120px, 100%);
+    width: min(1080px, 100%);
     margin: 0 auto;
   }
 
+  .main-cart__header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid #e6e9f0;
+  }
+
   .main-cart__eyebrow {
-    margin: 0 0 0.55rem;
+    margin: 0 0 0.45rem;
     color: #8b93a7;
-    font-size: 13px;
-    font-weight: 500;
-    letter-spacing: 0.26em;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.28em;
     text-transform: uppercase;
   }
 
@@ -98,124 +122,173 @@
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
-    font-size: clamp(2rem, 4vw, 3rem);
-    font-weight: 700;
-    line-height: 1.05;
-    letter-spacing: -0.02em;
+    font-size: clamp(2.1rem, 4vw, 2.85rem);
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: 0.04em;
     text-transform: uppercase;
   }
 
   .main-cart__count {
-    margin: 0.7rem 0 0;
-    color: #3a3a3a;
-    font-size: 14px;
-    font-weight: 500;
+    margin: 0 0 0.2rem;
+    padding: 0.4rem 0.8rem;
+    border: 1px solid #e1e5ee;
+    border-radius: 999px;
+    background: #ffffff;
+    color: #121a43;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
   }
 
   .main-cart__empty {
-    max-width: 28rem;
-    margin-top: 2.5rem;
+    max-width: 26rem;
+    margin: 4.5rem auto 1rem;
+    text-align: center;
   }
 
   .main-cart__empty-title {
     margin: 0;
-    font-size: 1.15rem;
-    font-weight: 700;
+    color: #121a43;
+    font-size: 1.35rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
   }
 
   .main-cart__empty-note {
-    margin: 0.55rem 0 1.4rem;
-    color: #3a3a3a;
+    margin: 0.7rem 0 1.6rem;
+    color: #5c6370;
     font-size: 15px;
     font-weight: 500;
-    line-height: 1.5;
+    line-height: 1.6;
   }
 
   .main-cart__layout {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) 320px;
-    gap: 1.75rem;
+    grid-template-columns: minmax(0, 1fr) 340px;
+    gap: 1.5rem;
     align-items: start;
-    margin-top: 2rem;
+    margin-top: 1.5rem;
   }
 
   .main-cart__items {
     margin: 0;
     padding: 0;
     list-style: none;
+    overflow: hidden;
+    border: 1px solid #e6e9f0;
+    border-radius: 22px;
+    background: #ffffff;
   }
 
   .main-cart__item {
     display: grid;
-    grid-template-columns: 112px minmax(0, 1fr) auto;
-    gap: 1.1rem;
-    align-items: center;
-    margin-bottom: 0.9rem;
-    padding: 0.9rem;
-    border-radius: 19px;
-    background: #f6f6f6;
+    grid-template-columns: 128px minmax(0, 1fr);
+    gap: 1.25rem;
+    align-items: stretch;
+    padding: 1.25rem;
+    border-bottom: 1px solid #eef0f4;
+  }
+
+  .main-cart__item:last-child {
+    border-bottom: 0;
   }
 
   .main-cart__media {
     display: block;
     overflow: hidden;
-    border-radius: 14px;
-    background: #ffffff;
+    border-radius: 16px;
+    background: #f3f4f8;
   }
 
   .main-cart__image {
     display: block;
-    width: 112px;
-    height: 112px;
-    object-fit: cover;
+    width: 128px;
+    height: 128px;
+    object-fit: contain;
+    padding: 10px;
+  }
+
+  .main-cart__details {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-width: 0;
+    padding: 0.15rem 0.15rem 0.1rem 0;
+  }
+
+  .main-cart__top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
   }
 
   .main-cart__title {
     margin: 0;
-    font-size: 15px;
-    font-weight: 700;
-    line-height: 1.3;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    line-height: 1.35;
   }
 
   .main-cart__title a {
-    color: #111111;
+    color: #121a43;
     text-decoration: none;
   }
 
+  .main-cart__title a:hover {
+    color: #2d42a9;
+  }
+
   .main-cart__variant {
-    margin: 0.25rem 0 0;
-    color: #3a3a3a;
-    font-size: 13px;
-    font-weight: 500;
+    margin: 0.35rem 0 0;
+    color: #6d7484;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .main-cart__actions {
+    display: flex;
+    align-items: center;
+    gap: 1.1rem;
+    margin-top: 1rem;
   }
 
   .main-cart__qty {
     display: inline-flex;
     align-items: center;
-    margin-top: 0.75rem;
-    border: 1px solid #d5d8e2;
+    border: 1px solid #e1e5ee;
     border-radius: 999px;
     background: #ffffff;
   }
 
   .main-cart__qty button {
-    width: 34px;
-    height: 34px;
+    width: 32px;
+    height: 32px;
     border: 0;
+    border-radius: 999px;
     background: transparent;
     color: #121a43;
-    font-size: 18px;
+    font-size: 16px;
     line-height: 1;
     cursor: pointer;
   }
 
+  .main-cart__qty button:hover {
+    background: #f3f5fa;
+  }
+
   .main-cart__qty input {
-    width: 2rem;
+    width: 1.75rem;
     border: 0;
     background: transparent;
-    color: #111111;
+    color: #121a43;
     font: inherit;
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 600;
     text-align: center;
   }
@@ -227,99 +300,138 @@
   }
 
   .main-cart__remove {
-    display: inline-block;
-    margin-top: 0.45rem;
-    margin-left: 0.15rem;
-    color: #2d42a9;
-    font-size: 13px;
+    color: #8b93a7;
+    font-size: 12px;
     font-weight: 600;
+    letter-spacing: 0.08em;
     text-decoration: none;
+    text-transform: uppercase;
+  }
+
+  .main-cart__remove:hover {
+    color: #2d42a9;
   }
 
   .main-cart__price {
+    flex-shrink: 0;
     text-align: right;
-    font-weight: 700;
   }
 
   .main-cart__price p {
     margin: 0;
-    font-size: 15px;
+    color: #121a43;
+    font-size: 16px;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
   }
 
   .main-cart__price s {
     display: block;
     margin-bottom: 0.15rem;
+    color: #a0a6b5;
+    font-size: 12px;
+    font-weight: 500;
+  }
+
+  .main-cart__each {
+    display: block;
+    margin-top: 0.2rem;
     color: #8b93a7;
-    font-size: 13px;
+    font-size: 11px;
     font-weight: 500;
   }
 
   .main-cart__summary {
     position: sticky;
     top: 1.25rem;
-    padding: 1.45rem 1.35rem 1.3rem;
-    border-radius: 19px;
-    background: #f6f6f6;
+    padding: 1.6rem 1.45rem 1.35rem;
+    border: 1px solid #e6e9f0;
+    border-radius: 22px;
+    background: #ffffff;
+    box-shadow: 0 18px 40px rgba(18, 26, 67, 0.05);
   }
 
   .main-cart__summary h2 {
-    margin: 0 0 1.1rem;
+    margin: 0 0 1.25rem;
+    padding-bottom: 0.9rem;
+    border-bottom: 1px solid #eef0f4;
     color: #121a43;
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 0.2em;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.22em;
     text-transform: uppercase;
   }
 
   .main-cart__row {
     display: flex;
+    align-items: baseline;
     justify-content: space-between;
     gap: 1rem;
-    font-size: 16px;
+    color: #5c6370;
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  .main-cart__row strong {
+    color: #121a43;
+    font-size: 1.45rem;
     font-weight: 600;
+    letter-spacing: -0.02em;
+    font-variant-numeric: tabular-nums;
   }
 
   .main-cart__note {
-    margin: 0.75rem 0 1.15rem;
-    color: #3a3a3a;
-    font-size: 13px;
+    margin: 0.85rem 0 1.35rem;
+    color: #8b93a7;
+    font-size: 12px;
     font-weight: 500;
-    line-height: 1.45;
+    line-height: 1.5;
   }
 
-  .main-cart__checkout,
-  .main-cart__update {
+  .main-cart__checkout {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     width: 100%;
-    min-height: 46px;
-    border-radius: 15px;
+    min-height: 52px;
+    border: 0;
+    border-radius: 14px;
+    background: linear-gradient(90deg, #121a43, #2d42a9);
+    color: #ffffff;
     font-family: inherit;
-    font-size: 15px;
-    font-weight: 700;
-    letter-spacing: 0.04em;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
     text-transform: uppercase;
     text-decoration: none;
     cursor: pointer;
   }
 
-  .main-cart__checkout {
-    border: 0;
-    background: linear-gradient(90deg, #121a43, #2d42a9);
-    color: #ffffff;
+  .main-cart__checkout:hover {
+    filter: brightness(1.08);
   }
 
   .main-cart__update {
-    margin-top: 0.65rem;
-    border: 1px solid #121a43;
+    display: block;
+    width: 100%;
+    margin-top: 0.85rem;
+    padding: 0.35rem;
+    border: 0;
     background: transparent;
-    color: #121a43;
+    color: #2d42a9;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    cursor: pointer;
   }
 
   .main-cart__empty .main-cart__checkout {
     width: auto;
-    padding: 0 1.6rem;
+    padding: 0 1.75rem;
   }
 
   .visually-hidden {
@@ -345,21 +457,32 @@
 
   @media screen and (max-width: 749px) {
     .main-cart {
-      padding: 3rem 1rem 3.5rem;
+      padding: 2.75rem 1rem 3.5rem;
+    }
+
+    .main-cart__header {
+      align-items: flex-start;
+      flex-direction: column;
+      gap: 0.85rem;
     }
 
     .main-cart__item {
-      grid-template-columns: 88px minmax(0, 1fr);
+      grid-template-columns: 96px minmax(0, 1fr);
+      gap: 0.9rem;
+      padding: 1rem;
     }
 
     .main-cart__image {
-      width: 88px;
-      height: 88px;
+      width: 96px;
+      height: 96px;
     }
 
-    .main-cart__price {
-      grid-column: 2;
-      text-align: left;
+    .main-cart__title {
+      font-size: 14px;
+    }
+
+    .main-cart__price p {
+      font-size: 14px;
     }
   }
 {% endstylesheet %}
