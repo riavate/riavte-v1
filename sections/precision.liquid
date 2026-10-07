@@ -64,19 +64,19 @@
 
   .precision__heading {
     margin: 0;
-    color: #111111;
-    font-size: clamp(1.85rem, 3.1vw, 2.35rem);
+    color: #1a2a6e;
+    font-size: clamp(1.7rem, 2.6vw, 2.15rem);
     font-weight: 800;
     line-height: 1.15;
     letter-spacing: -0.02em;
   }
 
   .precision__eyebrow {
-    margin: 0.7rem 0 0;
-    color: #1a1a1a;
-    font-size: 13px;
+    margin: 0.85rem 0 0;
+    color: #2c2c2c;
+    font-size: 12px;
     font-weight: 500;
-    letter-spacing: 0.28em;
+    letter-spacing: 0.34em;
     text-transform: uppercase;
   }
 
@@ -89,93 +89,87 @@
   }
 
   .precision__stage {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(190px, 260px) minmax(0, 1fr);
-    grid-template-areas:
-      "top-left media top-right"
-      "bottom-left media bottom-right";
-    column-gap: clamp(8.5rem, 13vw, 11.5rem);
-    row-gap: 3.25rem;
-    align-items: center;
-    width: min(1080px, calc(100% - 3rem));
-    margin-inline: auto;
+    position: relative;
+    width: min(1040px, calc(100% - 3rem));
+    height: 430px;
+    margin: 4.25rem auto 0.5rem;
   }
 
   .precision__media {
-    position: relative;
-    grid-area: media;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
     z-index: 1;
-    width: min(250px, 100%);
+    width: 250px;
+    height: 400px;
     margin-inline: auto;
   }
 
   .precision__frame {
-    height: 270px;
-    overflow: hidden;
+    height: 100%;
   }
 
   .precision__image {
     width: 100%;
-    height: 168%;
+    height: 100%;
     max-height: none;
-    object-fit: cover;
+    object-fit: contain;
     object-position: top center;
   }
 
   .precision__bracket {
     position: absolute;
-    top: 30%;
-    height: 44%;
-    width: clamp(120px, 14vw, 180px);
-    border-color: #d5d5d5;
+    top: 148px;
+    height: 64px;
+    width: 112px;
+    border-color: #d7d7d7;
     border-style: solid;
     pointer-events: none;
   }
 
   .precision__bracket--left {
-    right: calc(100% - 36px);
+    right: calc(100% + 10px);
     border-width: 1px 1px 1px 0;
     transform-origin: right center;
   }
 
   .precision__bracket--right {
-    left: calc(100% - 36px);
+    left: calc(100% + 10px);
     border-width: 1px 0 1px 1px;
     transform-origin: left center;
   }
 
   .precision__point h3 {
     margin: 0;
-    font-size: 14px;
+    color: #111111;
+    font-size: 13px;
     font-weight: 800;
     line-height: 1.3;
-    letter-spacing: 0.01em;
+    letter-spacing: 0.02em;
   }
 
   .precision__point p {
-    margin: 0.4rem 0 0;
-    max-width: 15.5rem;
-    color: #2a2a2a;
+    margin: 0.35rem 0 0;
+    max-width: 14.5rem;
+    color: #3a3a3a;
     font-size: 14px;
     font-weight: 500;
-    line-height: 1.45;
+    line-height: 1.4;
   }
 
   .precision__point--top-left,
-  .precision__point--bottom-left {
-    justify-self: end;
-  }
-
   .precision__point--top-right,
+  .precision__point--bottom-left,
   .precision__point--bottom-right {
-    justify-self: start;
-    text-align: right;
+    position: absolute;
+    width: min(250px, 28%);
   }
 
-  .precision__point--top-left { grid-area: top-left; align-self: start; }
-  .precision__point--bottom-left { grid-area: bottom-left; align-self: end; padding-top: 3.25rem; }
-  .precision__point--top-right { grid-area: top-right; align-self: start; }
-  .precision__point--bottom-right { grid-area: bottom-right; align-self: end; padding-top: 3.25rem; }
+  .precision__point--top-left { top: 78px; left: 8px; }
+  .precision__point--top-right { top: 78px; right: 8px; text-align: right; }
+  .precision__point--bottom-left { top: 300px; left: 8px; }
+  .precision__point--bottom-right { top: 300px; right: 8px; text-align: right; }
 
   .precision__point--top-right p,
   .precision__point--bottom-right p {
@@ -208,16 +202,41 @@
 
   @media screen and (max-width: 989px) {
     .precision__stage {
+      display: grid;
       grid-template-columns: 1fr 1fr;
       grid-template-areas:
         "media media"
         "top-left top-right"
         "bottom-left bottom-right";
+      height: auto;
+      gap: 1.5rem;
     }
 
-    .precision__image {
-      max-height: 320px;
+    .precision__media,
+    .precision__point,
+    .precision__point--top-left,
+    .precision__point--top-right,
+    .precision__point--bottom-left,
+    .precision__point--bottom-right {
+      position: static;
+      top: auto;
+      right: auto;
+      left: auto;
+      width: auto;
+      transform: none;
     }
+
+    .precision__media {
+      grid-area: media;
+      justify-self: center;
+      width: min(220px, 70%);
+      height: 320px;
+    }
+
+    .precision__point--top-left { grid-area: top-left; }
+    .precision__point--top-right { grid-area: top-right; }
+    .precision__point--bottom-left { grid-area: bottom-left; }
+    .precision__point--bottom-right { grid-area: bottom-right; }
 
     .precision__bracket {
       display: none;
