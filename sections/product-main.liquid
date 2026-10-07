@@ -132,6 +132,36 @@
             {%- if product.variants.size > 1 -%}
               {%- for variant in product.variants -%}
                 {%- assign copy = supply_blocks[forloop.index0] -%}
+                {%- assign plan_title = variant.title -%}
+                {%- assign plan_subtitle = '' -%}
+                {%- assign plan_details = '' -%}
+                {%- assign plan_badge = '' -%}
+                {%- assign plan_price = '' -%}
+                {%- assign plan_compare = '' -%}
+                {%- assign plan_selected = false -%}
+                {%- if copy.settings.title != blank -%}
+                  {%- assign plan_title = copy.settings.title -%}
+                {%- endif -%}
+                {%- if copy.settings.subtitle != blank -%}
+                  {%- assign plan_subtitle = copy.settings.subtitle -%}
+                {%- endif -%}
+                {%- if copy.settings.badge != blank -%}
+                  {%- assign plan_badge = copy.settings.badge -%}
+                {%- endif -%}
+                {%- if copy.settings.details != blank -%}
+                  {%- assign plan_details = copy.settings.details | newline_to_br | replace: '<br />', ' | ' | replace: '<br>', ' | ' | strip -%}
+                {%- endif -%}
+                {%- if variant.price == 0 -%}
+                  {%- if copy.settings.price != blank -%}
+                    {%- assign plan_price = copy.settings.price -%}
+                  {%- endif -%}
+                  {%- if copy.settings.compare_price != blank -%}
+                    {%- assign plan_compare = copy.settings.compare_price -%}
+                  {%- endif -%}
+                {%- endif -%}
+                {%- if variant == current_variant -%}
+                  {%- assign plan_selected = true -%}
+                {%- endif -%}
                 <label class="supply-card{% if variant == current_variant %} is-selected{% endif %}">
                   <input
                     class="supply-card__input"
@@ -145,6 +175,15 @@
                       disabled
                     {% endunless %}
                   >
+                  {% render 'supply-properties',
+                    title: plan_title,
+                    subtitle: plan_subtitle,
+                    details: plan_details,
+                    badge: plan_badge,
+                    price: plan_price,
+                    compare_price: plan_compare,
+                    selected: plan_selected
+                  %}
                   <span class="supply-card__top">
                     <span>
                       <span class="supply-card__title">
@@ -183,6 +222,11 @@
               {%- endfor -%}
             {%- else -%}
               {%- for block in supply_blocks -%}
+                {%- assign plan_details = block.settings.details | newline_to_br | replace: '<br />', ' | ' | replace: '<br>', ' | ' | strip -%}
+                {%- assign plan_selected = false -%}
+                {%- if forloop.first -%}
+                  {%- assign plan_selected = true -%}
+                {%- endif -%}
                 <label class="supply-card{% if forloop.first %} is-selected{% endif %}" {{ block.shopify_attributes }}>
                   <input
                     class="supply-card__input"
@@ -193,6 +237,15 @@
                       checked
                     {% endif %}
                   >
+                  {% render 'supply-properties',
+                    title: block.settings.title,
+                    subtitle: block.settings.subtitle,
+                    details: plan_details,
+                    badge: block.settings.badge,
+                    price: block.settings.price,
+                    compare_price: block.settings.compare_price,
+                    selected: plan_selected
+                  %}
                   <span class="supply-card__top">
                     <span>
                       <span class="supply-card__title">{{ block.settings.title | escape }}</span>
@@ -565,7 +618,11 @@
     if (!input) return;
     const form = input.closest('form');
     form.querySelectorAll('.supply-card').forEach((card) => {
-      card.classList.toggle('is-selected', card.contains(input) && input.checked);
+      const selected = card.contains(input) && input.checked;
+      card.classList.toggle('is-selected', selected);
+      card.querySelectorAll('[data-supply-field]').forEach((field) => {
+        field.disabled = !selected;
+      });
     });
   });
 {% endjavascript %}

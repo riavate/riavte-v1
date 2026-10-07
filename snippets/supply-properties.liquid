@@ -1,0 +1,34 @@
+{% doc %}
+  Hidden cart properties for the supply plan selected on the product form.
+  Only the selected card's fields are submitted.
+
+  @param {string} title - Plan name, such as "3 month supply"
+  @param {string} [subtitle] - Cadence, such as "12 weekly treatments"
+  @param {string} [details] - Included items, separated with " | "
+  @param {string} [badge] - Optional offer label
+  @param {string} [price] - Display price from the plan card
+  @param {string} [compare_price] - Display compare-at price from the plan card
+  @param {boolean} [selected] - Whether this plan is the one that will be added
+
+  @example
+  {% render 'supply-properties', title: '3 month supply', selected: true %}
+{% enddoc %}
+
+{%- if title != blank -%}
+  <input type="hidden" name="properties[Supply]" value="{{ title | escape }}" data-supply-field {% unless selected %}disabled{% endunless %}>
+{%- endif -%}
+{%- if subtitle != blank -%}
+  <input type="hidden" name="properties[Treatments]" value="{{ subtitle | escape }}" data-supply-field {% unless selected %}disabled{% endunless %}>
+{%- endif -%}
+{%- if details != blank -%}
+  <input type="hidden" name="properties[Includes]" value="{{ details | escape }}" data-supply-field {% unless selected %}disabled{% endunless %}>
+{%- endif -%}
+{%- if badge != blank -%}
+  <input type="hidden" name="properties[Offer]" value="{{ badge | escape }}" data-supply-field {% unless selected %}disabled{% endunless %}>
+{%- endif -%}
+{%- if price != blank -%}
+  <input type="hidden" name="properties[_Shown price]" value="{{ price | escape }}" data-supply-field {% unless selected %}disabled{% endunless %}>
+{%- endif -%}
+{%- if compare_price != blank -%}
+  <input type="hidden" name="properties[_Compare price]" value="{{ compare_price | escape }}" data-supply-field {% unless selected %}disabled{% endunless %}>
+{%- endif -%}

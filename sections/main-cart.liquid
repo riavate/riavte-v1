@@ -35,26 +35,63 @@
                 {%- endif -%}
               </a>
               <div class="main-cart__details">
+                {%- assign shown_price = item.properties['_Shown price'] -%}
+                {%- assign shown_compare = item.properties['_Compare price'] -%}
                 <div class="main-cart__top">
                   <div>
                     <p class="main-cart__title">
                       <a href="{{ item.url }}">{{ item.product.title | escape }}</a>
                     </p>
-                    {%- unless item.product.has_only_default_variant -%}
-                      <p class="main-cart__variant">{{ item.variant.title | escape }}</p>
-                    {%- endunless -%}
+                    {%- if item.properties.Supply != blank -%}
+                      <p class="main-cart__plan">{{ item.properties.Supply | escape }}</p>
+                    {%- elsif item.selling_plan_allocation != blank -%}
+                      <p class="main-cart__plan">{{ item.selling_plan_allocation.selling_plan.name | escape }}</p>
+                    {%- elsif item.product.has_only_default_variant == false -%}
+                      <p class="main-cart__plan">{{ item.variant.title | escape }}</p>
+                    {%- endif -%}
+                    {%- if item.properties.Treatments != blank -%}
+                      <p class="main-cart__cadence">{{ item.properties.Treatments | escape }}</p>
+                    {%- endif -%}
                   </div>
                   <div class="main-cart__price">
-                    {%- if item.original_line_price > item.final_line_price -%}
-                      <s>{{ item.original_line_price | money }}</s>
-                    {%- endif -%}
-                    <p>{{ item.final_line_price | money }}</p>
-                    {%- if item.quantity > 1 -%}
-                      {%- assign unit_price = item.final_price | money -%}
-                      <span class="main-cart__each">{{ 'cart.each' | t: price: unit_price }}</span>
+                    {%- if item.final_line_price > 0 -%}
+                      {%- if item.original_line_price > item.final_line_price -%}
+                        <s>{{ item.original_line_price | money }}</s>
+                      {%- endif -%}
+                      <p>{{ item.final_line_price | money }}</p>
+                      {%- if item.quantity > 1 -%}
+                        {%- assign unit_price = item.final_price | money -%}
+                        <span class="main-cart__each">{{ 'cart.each' | t: price: unit_price }}</span>
+                      {%- endif -%}
+                    {%- else -%}
+                      {%- if shown_compare != blank -%}
+                        <s>{{ shown_compare | escape }}</s>
+                      {%- endif -%}
+                      {%- if shown_price != blank -%}
+                        <p>{{ shown_price | escape }}</p>
+                      {%- else -%}
+                        <p>{{ item.final_line_price | money }}</p>
+                      {%- endif -%}
                     {%- endif -%}
                   </div>
                 </div>
+                {%- if item.properties.Includes != blank -%}
+                  <div class="main-cart__includes">
+                    <p>{{ 'cart.includes' | t }}</p>
+                    <ul>
+                      {%- assign include_rows = item.properties.Includes | split: ' | ' -%}
+                      {%- for row in include_rows -%}
+                        {%- assign include_item = row | strip -%}
+                        {%- if include_item != blank -%}
+                          <li>{{ include_item | escape }}</li>
+                        {%- endif -%}
+                      {%- endfor -%}
+                    </ul>
+                  </div>
+                {%- endif -%}
+                {%- if item.properties.Offer != blank -%}
+                  <p class="main-cart__badge">{{ item.properties.Offer | escape }}</p>
+                {%- endif -%}
                 <div class="main-cart__actions">
                   <div class="main-cart__qty">
                     <button type="button" data-qty="minus" aria-label="{{ 'cart.decrease' | t }}">−</button>
@@ -73,9 +110,41 @@
 
         <aside class="main-cart__summary">
           <h2>{{ 'cart.summary' | t }}</h2>
+          <ul class="main-cart__plans">
+            {%- for item in cart.items -%}
+              <li>
+                <span>
+                  {{ item.product.title | escape }}
+                  {%- if item.properties.Supply != blank -%}
+                    <small>{{ item.properties.Supply | escape }}</small>
+                  {%- elsif item.selling_plan_allocation != blank -%}
+                    <small>{{ item.selling_plan_allocation.selling_plan.name | escape }}</small>
+                  {%- elsif item.product.has_only_default_variant == false -%}
+                    <small>{{ item.variant.title | escape }}</small>
+                  {%- endif -%}
+                  {%- if item.properties.Treatments != blank -%}
+                    <small>{{ item.properties.Treatments | escape }}</small>
+                  {%- endif -%}
+                </span>
+                {%- if item.final_line_price > 0 -%}
+                  <b>{{ item.final_line_price | money }}</b>
+                {%- elsif item.properties['_Shown price'] != blank -%}
+                  <b>{{ item.properties['_Shown price'] | escape }}</b>
+                {%- else -%}
+                  <b>{{ item.final_line_price | money }}</b>
+                {%- endif -%}
+              </li>
+            {%- endfor -%}
+          </ul>
           <div class="main-cart__row">
             <span>{{ 'cart.total' | t }}</span>
-            <strong>{{ cart.total_price | money }}</strong>
+            {%- if cart.total_price > 0 -%}
+              <strong>{{ cart.total_price | money }}</strong>
+            {%- elsif cart.item_count == 1 and cart.items.first.properties['_Shown price'] != blank -%}
+              <strong>{{ cart.items.first.properties['_Shown price'] | escape }}</strong>
+            {%- else -%}
+              <strong>{{ cart.total_price | money }}</strong>
+            {%- endif -%}
           </div>
           <p class="main-cart__note">{{ 'cart.shipping_note' | t }}</p>
           <button class="main-cart__checkout" type="submit" name="checkout">{{ 'cart.checkout' | t }}</button>
@@ -197,6 +266,7 @@
 
   .main-cart__media {
     display: block;
+    align-self: start;
     overflow: hidden;
     border-radius: 16px;
     background: #f3f4f8;
@@ -242,13 +312,79 @@
     color: #2d42a9;
   }
 
-  .main-cart__variant {
-    margin: 0.35rem 0 0;
-    color: #6d7484;
-    font-size: 12px;
+  .main-cart__plan {
+    display: inline-flex;
+    margin: 0.5rem 0 0;
+    padding: 0.22rem 0.6rem;
+    border-radius: 999px;
+    background: #eef1f8;
+    color: #121a43;
+    font-size: 11px;
     font-weight: 600;
     letter-spacing: 0.08em;
     text-transform: uppercase;
+  }
+
+  .main-cart__cadence {
+    margin: 0.4rem 0 0;
+    color: #5c6370;
+    font-size: 13px;
+    font-weight: 500;
+  }
+
+  .main-cart__includes {
+    margin-top: 0.85rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid #eef0f4;
+  }
+
+  .main-cart__includes p {
+    margin: 0 0 0.35rem;
+    color: #8b93a7;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  .main-cart__includes ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .main-cart__includes li {
+    position: relative;
+    margin: 0.15rem 0 0;
+    padding-left: 0.85rem;
+    color: #3a3a3a;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 1.45;
+  }
+
+  .main-cart__includes li::before {
+    content: "";
+    position: absolute;
+    top: 0.45em;
+    left: 0;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: #2d42a9;
+  }
+
+  .main-cart__badge {
+    display: inline-flex;
+    width: fit-content;
+    margin-top: 0.7rem;
+    padding: 0.2rem 0.65rem;
+    border-radius: 999px;
+    background: linear-gradient(90deg, #121a43, #2d42a9);
+    color: #ffffff;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
   }
 
   .main-cart__actions {
@@ -352,14 +488,46 @@
   }
 
   .main-cart__summary h2 {
-    margin: 0 0 1.25rem;
-    padding-bottom: 0.9rem;
-    border-bottom: 1px solid #eef0f4;
+    margin: 0 0 0.35rem;
     color: #121a43;
     font-size: 12px;
     font-weight: 600;
     letter-spacing: 0.22em;
     text-transform: uppercase;
+  }
+
+  .main-cart__plans {
+    margin: 0 0 1rem;
+    padding: 0.35rem 0 0.9rem;
+    list-style: none;
+    border-bottom: 1px solid #eef0f4;
+  }
+
+  .main-cart__plans li {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: 0.7rem;
+    color: #121a43;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.35;
+  }
+
+  .main-cart__plans small {
+    display: block;
+    margin-top: 0.2rem;
+    color: #6d7484;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .main-cart__plans b {
+    flex-shrink: 0;
+    font-weight: 600;
   }
 
   .main-cart__row {
