@@ -13,7 +13,7 @@
       "type": "info-page",
       "settings": {
         "layout": "track",
-        "eyebrow": "Support",
+        "eyebrow": "",
         "heading": "Follow your Riavâte order.",
         "intro": "<p>Enter your order details below to view the latest available delivery status.</p>",
         "form_heading": "Track my order"

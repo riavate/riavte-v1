@@ -13,7 +13,7 @@
       "type": "info-page",
       "settings": {
         "layout": "faq",
-        "eyebrow": "Support",
+        "eyebrow": "",
         "heading": "Frequently asked questions",
         "intro": "<p>Answers about the Riavâte system, Cuprofuse®, and your order.</p>",
         "form_heading": "Contact form"

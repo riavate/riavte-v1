@@ -1,65 +1,138 @@
 <section class="info-page info-page--{{ section.settings.layout }}">
   <div class="info-page__inner">
-    <header class="info-page__header">
-      {%- if section.settings.eyebrow != blank -%}
-        <p class="info-page__eyebrow">{{ section.settings.eyebrow | escape }}</p>
-      {%- endif -%}
-      {%- if section.settings.heading != blank -%}
-        <h1 class="info-page__heading">{{ section.settings.heading | escape }}</h1>
-      {%- endif -%}
-      {%- if section.settings.updated != blank -%}
-        <p class="info-page__updated">{{ section.settings.updated | escape }}</p>
-      {%- endif -%}
-      {%- if section.settings.intro != blank -%}
-        <div class="info-page__intro rte">{{ section.settings.intro }}</div>
-      {%- endif -%}
-    </header>
-
-    {%- if section.settings.layout == 'track' -%}
-      <div class="info-page__form-card">
-        {%- if section.settings.form_heading != blank -%}
-          <h2>{{ section.settings.form_heading | escape }}</h2>
+    {%- capture info_header -%}
+      <header class="info-page__header">
+        {%- if section.settings.eyebrow != blank -%}
+          <p class="info-page__eyebrow">{{ section.settings.eyebrow | escape }}</p>
         {%- endif -%}
-        {% form 'contact', class: 'info-page__form' %}
-          {%- if form.posted_successfully? -%}
-            <p class="info-page__success">{{ 'info_page.track_success' | t }}</p>
-          {%- endif -%}
-          {{ form.errors | default_errors }}
-          <label>
-            <span>{{ 'info_page.order' | t }}</span>
-            <input type="text" name="contact[order number]" placeholder="{{ 'info_page.order_placeholder' | t }}" required>
-          </label>
-          <label>
-            <span>{{ 'info_page.email' | t }}</span>
-            <input type="email" name="contact[email]" placeholder="{{ 'info_page.email_placeholder' | t }}" autocomplete="email" required>
-          </label>
-          <input type="hidden" name="contact[body]" value="Please send the latest delivery status for this order.">
-          <button type="submit">{{ 'info_page.track' | t }}</button>
-        {% endform %}
-      </div>
-    {%- endif -%}
+        {%- if section.settings.heading != blank -%}
+          <h1 class="info-page__heading">{{ section.settings.heading | escape }}</h1>
+        {%- endif -%}
+        {%- if section.settings.updated != blank -%}
+          <p class="info-page__updated">{{ section.settings.updated | escape }}</p>
+        {%- endif -%}
+        {%- if section.settings.intro != blank -%}
+          <div class="info-page__intro rte">{{ section.settings.intro }}</div>
+        {%- endif -%}
+      </header>
+    {%- endcapture -%}
 
     {%- if section.settings.layout == 'faq' -%}
-      <div class="info-page__faqs">
-        {%- for block in section.blocks -%}
-          {%- if block.type == 'question' -%}
-            <details class="info-page__faq" {{ block.shopify_attributes }}>
-              <summary>{{ block.settings.question | escape }}</summary>
-              <div class="rte">{{ block.settings.answer }}</div>
-            </details>
-          {%- endif -%}
-        {%- endfor -%}
+      <div class="info-page__split">
+        {{ info_header }}
+        <div class="info-page__faqs">
+          {%- for block in section.blocks -%}
+            {%- if block.type == 'question' -%}
+              <details class="info-page__faq" {{ block.shopify_attributes }}>
+                <summary>{{ block.settings.question | escape }}</summary>
+                <div class="rte">{{ block.settings.answer }}</div>
+              </details>
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
       </div>
-    {%- endif -%}
-
-    {%- if section.settings.layout == 'article' or section.settings.layout == 'contact' or section.settings.layout == 'track' -%}
+    {%- elsif section.settings.layout == 'contact' -%}
+      <div class="info-page__split">
+        <div class="info-page__aside">
+          {{ info_header }}
+          <div class="info-page__panels">
+            {%- for block in section.blocks -%}
+              {%- if block.type == 'panel' -%}
+                <article class="info-page__panel" {{ block.shopify_attributes }}>
+                  {%- if block.settings.kicker != blank -%}
+                    <p class="info-page__kicker">{{ block.settings.kicker | escape }}</p>
+                  {%- endif -%}
+                  {%- if block.settings.title != blank -%}
+                    <h2>{{ block.settings.title | escape }}</h2>
+                  {%- endif -%}
+                  {%- if block.settings.text != blank -%}
+                    <div class="rte">{{ block.settings.text }}</div>
+                  {%- endif -%}
+                </article>
+              {%- endif -%}
+            {%- endfor -%}
+          </div>
+        </div>
+        <div class="info-page__form-card">
+          {%- if section.settings.form_heading != blank -%}
+            <h2>{{ section.settings.form_heading | escape }}</h2>
+          {%- endif -%}
+          {% form 'contact', class: 'info-page__form' %}
+            {%- if form.posted_successfully? -%}
+              <p class="info-page__success">{{ 'info_page.success' | t }}</p>
+            {%- endif -%}
+            {{ form.errors | default_errors }}
+            <div class="info-page__fields">
+              <label>
+                <span>{{ 'info_page.name' | t }}</span>
+                <input type="text" name="contact[name]" autocomplete="name" required>
+              </label>
+              <label>
+                <span>{{ 'info_page.email' | t }}</span>
+                <input type="email" name="contact[email]" autocomplete="email" required>
+              </label>
+            </div>
+            <label>
+              <span>{{ 'info_page.order_optional' | t }}</span>
+              <input type="text" name="contact[order number]">
+            </label>
+            <label>
+              <span>{{ 'info_page.subject' | t }}</span>
+              <input type="text" name="contact[subject]">
+            </label>
+            <label>
+              <span>{{ 'info_page.message' | t }}</span>
+              <textarea name="contact[body]" rows="6" required></textarea>
+            </label>
+            <button type="submit">{{ 'info_page.send' | t }}</button>
+          {% endform %}
+          {%- if section.settings.note != blank -%}
+            <p class="info-page__note">{{ section.settings.note | escape }}</p>
+          {%- endif -%}
+        </div>
+      </div>
+    {%- elsif section.settings.layout == 'track' -%}
+      <div class="info-page__narrow">
+        {{ info_header }}
+        <div class="info-page__form-card">
+          {% form 'contact', class: 'info-page__form' %}
+            {%- if form.posted_successfully? -%}
+              <p class="info-page__success">{{ 'info_page.track_success' | t }}</p>
+            {%- endif -%}
+            {{ form.errors | default_errors }}
+            <label>
+              <span>{{ 'info_page.order' | t }}</span>
+              <input type="text" name="contact[order number]" placeholder="{{ 'info_page.order_placeholder' | t }}" required>
+            </label>
+            <label>
+              <span>{{ 'info_page.email' | t }}</span>
+              <input type="email" name="contact[email]" placeholder="{{ 'info_page.email_placeholder' | t }}" autocomplete="email" required>
+            </label>
+            <input type="hidden" name="contact[body]" value="Please send the latest delivery status for this order.">
+            <button type="submit">{{ 'info_page.track' | t }}</button>
+          {% endform %}
+        </div>
+        <div class="info-page__panels">
+          {%- for block in section.blocks -%}
+            {%- if block.type == 'panel' -%}
+              <article class="info-page__panel" {{ block.shopify_attributes }}>
+                {%- if block.settings.title != blank -%}
+                  <h2>{{ block.settings.title | escape }}</h2>
+                {%- endif -%}
+                {%- if block.settings.text != blank -%}
+                  <div class="rte">{{ block.settings.text }}</div>
+                {%- endif -%}
+              </article>
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+      </div>
+    {%- else -%}
+      {{ info_header }}
       <div class="info-page__panels">
         {%- for block in section.blocks -%}
           {%- if block.type == 'panel' -%}
             <article class="info-page__panel" {{ block.shopify_attributes }}>
-              {%- if block.settings.kicker != blank -%}
-                <p>{{ block.settings.kicker | escape }}</p>
-              {%- endif -%}
               {%- if block.settings.title != blank -%}
                 <h2>{{ block.settings.title | escape }}</h2>
               {%- endif -%}
@@ -71,129 +144,96 @@
         {%- endfor -%}
       </div>
     {%- endif -%}
-
-    {%- if section.settings.layout == 'contact' -%}
-      <div class="info-page__form-card">
-        {%- if section.settings.form_heading != blank -%}
-          <h2>{{ section.settings.form_heading | escape }}</h2>
-        {%- endif -%}
-        {% form 'contact', class: 'info-page__form' %}
-          {%- if form.posted_successfully? -%}
-            <p class="info-page__success">{{ 'info_page.success' | t }}</p>
-          {%- endif -%}
-          {{ form.errors | default_errors }}
-          <label>
-            <span>{{ 'info_page.name' | t }}</span>
-            <input type="text" name="contact[name]" autocomplete="name" required>
-          </label>
-          <label>
-            <span>{{ 'info_page.email' | t }}</span>
-            <input type="email" name="contact[email]" autocomplete="email" required>
-          </label>
-          <label>
-            <span>{{ 'info_page.order_optional' | t }}</span>
-            <input type="text" name="contact[order number]">
-          </label>
-          <label>
-            <span>{{ 'info_page.subject' | t }}</span>
-            <input type="text" name="contact[subject]">
-          </label>
-          <label>
-            <span>{{ 'info_page.message' | t }}</span>
-            <textarea name="contact[body]" rows="6" required></textarea>
-          </label>
-          <button type="submit">{{ 'info_page.send' | t }}</button>
-        {% endform %}
-      </div>
-    {%- endif -%}
-
-    {%- if section.settings.note != blank -%}
-      <p class="info-page__note">{{ section.settings.note | escape }}</p>
-    {%- endif -%}
   </div>
 </section>
 
 {% stylesheet %}
   .info-page {
-    padding: 4.5rem 1.5rem 6rem;
-    background: #f6f7fa;
+    padding: 4.75rem 1.5rem 6.5rem;
+    background: #ffffff;
     color: #121a43;
   }
 
   .info-page__inner {
-    width: min(920px, 100%);
+    width: min(1080px, 100%);
     margin: 0 auto;
   }
 
+  .info-page--article .info-page__inner,
+  .info-page--track .info-page__inner {
+    width: min(760px, 100%);
+  }
+
   .info-page__eyebrow {
-    margin: 0 0 0.7rem;
+    margin: 0 0 0.85rem;
     color: #8b93a7;
     font-size: 12px;
     font-weight: 600;
-    letter-spacing: 0.28em;
+    letter-spacing: 0.22em;
     text-transform: uppercase;
   }
 
   .info-page__heading {
     margin: 0;
-    max-width: 12em;
-    background: linear-gradient(90deg, #121a43, #2d42a9);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    font-size: clamp(2.1rem, 4.4vw, 3.4rem);
+    color: #121a43;
+    font-size: clamp(2.15rem, 4vw, 3.15rem);
     font-weight: 600;
-    letter-spacing: -0.03em;
-    line-height: 1.05;
+    letter-spacing: -0.035em;
+    line-height: 1.08;
   }
 
   .info-page__updated {
-    margin: 1rem 0 0;
+    margin: 1.1rem 0 0;
     color: #8b93a7;
     font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
+    font-weight: 500;
   }
 
   .info-page__intro {
-    max-width: 42rem;
-    margin-top: 1.25rem;
-    color: #3a3a3a;
+    max-width: 34rem;
+    margin-top: 1.15rem;
+    color: #4b5160;
     font-size: 16px;
     font-weight: 500;
-    line-height: 1.65;
+    line-height: 1.7;
   }
 
   .info-page__intro p {
-    margin: 0 0 0.8rem;
+    margin: 0 0 0.75rem;
   }
 
-  .info-page__faqs,
-  .info-page__panels,
-  .info-page__form-card {
-    margin-top: 2.25rem;
+  .info-page__intro p:last-child {
+    margin-bottom: 0;
   }
 
-  .info-page__faq,
-  .info-page__panel,
-  .info-page__form-card {
-    border: 1px solid #e6e9f0;
-    border-radius: 20px;
-    background: #ffffff;
+  .info-page__split {
+    display: grid;
+    grid-template-columns: minmax(240px, 0.72fr) minmax(0, 1.28fr);
+    gap: 4.5rem;
+    align-items: start;
+  }
+
+  .info-page--faq .info-page__header {
+    position: sticky;
+    top: 1.5rem;
+  }
+
+  .info-page__faqs {
+    counter-reset: question;
+    border-top: 1px solid #e6e9f0;
   }
 
   .info-page__faq {
-    margin-top: 0.75rem;
-    padding: 0 1.25rem;
+    border-bottom: 1px solid #e6e9f0;
+    counter-increment: question;
   }
 
   .info-page__faq summary {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
-    padding: 1.15rem 0;
+    display: grid;
+    grid-template-columns: 2.25rem minmax(0, 1fr) auto;
+    gap: 0.85rem;
+    align-items: baseline;
+    padding: 1.2rem 0;
     color: #121a43;
     font-size: 16px;
     font-weight: 600;
@@ -206,10 +246,17 @@
     display: none;
   }
 
+  .info-page__faq summary::before {
+    color: #8b93a7;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    content: counter(question, decimal-leading-zero);
+  }
+
   .info-page__faq summary::after {
-    flex-shrink: 0;
     color: #2d42a9;
-    font-size: 22px;
+    font-size: 20px;
     font-weight: 500;
     line-height: 1;
     content: "+";
@@ -220,48 +267,22 @@
   }
 
   .info-page__faq .rte {
-    padding: 0 0 1.2rem;
-    color: #3a3a3a;
-    font-size: 15px;
-    font-weight: 500;
-    line-height: 1.65;
+    max-width: 38rem;
+    padding: 0 2.2rem 1.25rem 3.1rem;
   }
 
-  .info-page--contact .info-page__panels,
-  .info-page--track .info-page__panels {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 0.9rem;
+  .info-page--contact .info-page__panels {
+    margin-top: 2.25rem;
+    border-top: 1px solid #e6e9f0;
   }
 
-  .info-page--track .info-page__panels {
-    grid-template-columns: 1fr 1fr;
+  .info-page--contact .info-page__panel {
+    padding: 1.15rem 0;
+    border-bottom: 1px solid #e6e9f0;
   }
 
-  .info-page--article .info-page__panels {
-    overflow: hidden;
-    border: 1px solid #e6e9f0;
-    border-radius: 22px;
-    background: #ffffff;
-  }
-
-  .info-page--article .info-page__panel {
-    border: 0;
-    border-radius: 0;
-    border-top: 1px solid #eef0f4;
-    background: transparent;
-  }
-
-  .info-page--article .info-page__panel:first-child {
-    border-top: 0;
-  }
-
-  .info-page__panel {
-    padding: 1.35rem 1.3rem 1.25rem;
-  }
-
-  .info-page__panel p {
-    margin: 0 0 0.45rem;
+  .info-page__kicker {
+    margin: 0 0 0.3rem;
     color: #2d42a9;
     font-size: 11px;
     font-weight: 600;
@@ -269,8 +290,14 @@
     text-transform: uppercase;
   }
 
+  .info-page--contact .info-page__panel h2 {
+    margin: 0 0 0.3rem;
+    font-size: 16px;
+  }
+
+  .info-page__form-card h2,
   .info-page__panel h2 {
-    margin: 0 0 0.55rem;
+    margin: 0 0 0.45rem;
     color: #121a43;
     font-size: 1.15rem;
     font-weight: 600;
@@ -278,107 +305,69 @@
     line-height: 1.3;
   }
 
-  .info-page__panel .rte,
-  .info-page .rte {
-    color: #3a3a3a;
-    font-size: 15px;
-    font-weight: 500;
-    line-height: 1.65;
+  .info-page--contact .info-page__form-card {
+    padding: 1.6rem 1.45rem 1.35rem;
+    border-radius: 22px;
+    background: #f6f7fa;
   }
 
-  .info-page .rte p {
-    margin: 0 0 0.75rem;
-    color: #3a3a3a;
-    font-size: 15px;
-    font-weight: 500;
-    letter-spacing: 0;
-    text-transform: none;
-  }
-
-  .info-page .rte p:last-child {
-    margin-bottom: 0;
-  }
-
-  .info-page .rte ul {
-    margin: 0.4rem 0 0;
-    padding: 0;
-    list-style: none;
-  }
-
-  .info-page .rte li {
-    position: relative;
-    margin-top: 0.35rem;
-    padding-left: 0.95rem;
-  }
-
-  .info-page .rte li::before {
-    position: absolute;
-    top: 0.55em;
-    left: 0;
-    width: 4px;
-    height: 4px;
-    border-radius: 50%;
-    background: #2d42a9;
-    content: "";
-  }
-
-  .info-page .rte a {
-    color: #2d42a9;
-    font-weight: 600;
-    text-decoration: none;
-  }
-
-  .info-page .rte a:hover {
-    text-decoration: underline;
-  }
-
-  .info-page__form-card {
-    padding: 1.5rem 1.35rem 1.4rem;
-  }
-
-  .info-page__form-card h2 {
-    margin: 0 0 1.1rem;
-    color: #121a43;
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
+  .info-page--contact .info-page__form-card h2 {
+    margin-bottom: 1.15rem;
+    font-size: 1.35rem;
+    letter-spacing: -0.03em;
   }
 
   .info-page__form {
     display: grid;
-    gap: 0.85rem;
+    gap: 0.9rem;
+  }
+
+  .info-page__fields {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.9rem;
   }
 
   .info-page__form label span {
     display: block;
     margin-bottom: 0.4rem;
     color: #121a43;
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 600;
+    letter-spacing: 0.04em;
   }
 
   .info-page__form input,
   .info-page__form textarea {
     width: 100%;
     border: 1px solid #e1e5ee;
-    border-radius: 14px;
+    border-radius: 12px;
     background: #ffffff;
     color: #121a43;
     font: inherit;
     font-size: 15px;
-    padding: 0.85rem 0.95rem;
+    padding: 0.85rem 0.9rem;
+  }
+
+  .info-page--contact .info-page__form input,
+  .info-page--contact .info-page__form textarea {
+    border-color: transparent;
+  }
+
+  .info-page__form input:focus,
+  .info-page__form textarea:focus {
+    outline: 2px solid #2d42a9;
+    outline-offset: 1px;
   }
 
   .info-page__form textarea {
+    min-height: 140px;
     resize: vertical;
   }
 
   .info-page__form button {
-    justify-self: start;
     min-height: 52px;
-    margin-top: 0.35rem;
-    padding: 0 1.6rem;
+    margin-top: 0.25rem;
     border: 0;
     border-radius: 14px;
     background: linear-gradient(90deg, #121a43, #2d42a9);
@@ -391,35 +380,157 @@
     cursor: pointer;
   }
 
+  .info-page--contact .info-page__form button,
+  .info-page--track .info-page__form button {
+    width: 100%;
+  }
+
   .info-page__success {
     margin: 0;
     padding: 0.85rem 1rem;
-    border-radius: 14px;
-    background: #eef1f8;
+    border-radius: 12px;
+    background: #ffffff;
     color: #121a43;
     font-size: 14px;
     font-weight: 600;
   }
 
   .info-page__note {
-    margin: 1rem 0 0;
-    color: #8b93a7;
+    margin: 0.9rem 0 0;
+    color: #6d7484;
     font-size: 13px;
     font-weight: 500;
     line-height: 1.5;
   }
 
+  .info-page--article .info-page__panels {
+    counter-reset: part;
+    margin-top: 2.75rem;
+    border-top: 1px solid #e6e9f0;
+  }
+
+  .info-page--article .info-page__panel {
+    padding: 1.55rem 0 1.4rem;
+    border-bottom: 1px solid #eef0f4;
+    counter-increment: part;
+  }
+
+  .info-page--article .info-page__panel h2 {
+    margin: 0;
+    font-size: 1.05rem;
+  }
+
+  .info-page--article .info-page__panel h2::before {
+    display: block;
+    margin-bottom: 0.35rem;
+    color: #8b93a7;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    content: counter(part, decimal-leading-zero);
+  }
+
+  .info-page--article .info-page__panel .rte {
+    margin-top: 0.45rem;
+  }
+
+  .info-page--track .info-page__narrow {
+    width: min(520px, 100%);
+    margin-inline: auto;
+  }
+
+  .info-page--track .info-page__form-card {
+    margin-top: 2rem;
+  }
+
+  .info-page--track .info-page__panels {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #e6e9f0;
+  }
+
+  .info-page--track .info-page__panel h2 {
+    font-size: 15px;
+  }
+
+  .info-page .rte {
+    color: #4b5160;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 1.7;
+  }
+
+  .info-page .rte p {
+    margin: 0 0 0.7rem;
+  }
+
+  .info-page .rte p:last-child {
+    margin-bottom: 0;
+  }
+
+  .info-page .rte ul {
+    margin: 0.35rem 0 0.7rem;
+    padding: 0;
+    list-style: none;
+  }
+
+  .info-page .rte li {
+    position: relative;
+    margin-top: 0.35rem;
+    padding-left: 0.95rem;
+  }
+
+  .info-page .rte li::before {
+    position: absolute;
+    top: 0.62em;
+    left: 0;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: #2d42a9;
+    content: "";
+  }
+
+  .info-page .rte a {
+    color: #2d42a9;
+    font-weight: 600;
+    text-underline-offset: 3px;
+  }
+
   @media screen and (max-width: 989px) {
-    .info-page--contact .info-page__panels,
-    .info-page--track .info-page__panels {
+    .info-page__split,
+    .info-page--track .info-page__panels,
+    .info-page__fields {
       grid-template-columns: 1fr;
+    }
+
+    .info-page--faq .info-page__header {
+      position: static;
+    }
+
+    .info-page__split {
+      gap: 2.25rem;
     }
   }
 
   @media screen and (max-width: 749px) {
     .info-page {
-      padding: 3rem 1rem 4rem;
+      padding: 3rem 1.1rem 4.25rem;
     }
+
+    .info-page__faq summary {
+      grid-template-columns: 1.8rem minmax(0, 1fr) auto;
+      gap: 0.55rem;
+      font-size: 15px;
+    }
+
+    .info-page__faq .rte {
+      padding: 0 0 1.15rem 2.35rem;
+    }
+
   }
 {% endstylesheet %}
 
@@ -444,7 +555,7 @@
       "type": "text",
       "id": "eyebrow",
       "label": "t:sections.info_page.settings.eyebrow",
-      "default": "Support"
+      "default": "FAQs"
     },
     {
       "type": "text",
@@ -467,7 +578,7 @@
       "type": "text",
       "id": "form_heading",
       "label": "t:sections.info_page.settings.form_heading",
-      "default": "Contact form"
+      "default": "Send a message"
     },
     {
       "type": "text",
