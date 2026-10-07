@@ -12,9 +12,15 @@
   </div>
 
   <div class="precision__stage">
+    <div class="precision__lines precision__lines--left">
+      <img class="precision__line precision__line--top" src="{{ 'precision-line-left-top.png' | asset_url }}" alt="" width="1024" height="198">
+      <img class="precision__line precision__line--bottom" src="{{ 'precision-line-left-bottom.png' | asset_url }}" alt="" width="650" height="230">
+    </div>
+    <div class="precision__lines precision__lines--right">
+      <img class="precision__line precision__line--top" src="{{ 'precision-line-right-top.png' | asset_url }}" alt="" width="1024" height="199">
+      <img class="precision__line precision__line--bottom" src="{{ 'precision-line-right-bottom.png' | asset_url }}" alt="" width="648" height="230">
+    </div>
     <div class="precision__media">
-      <span class="precision__bracket precision__bracket--left" aria-hidden="true"></span>
-      <span class="precision__bracket precision__bracket--right" aria-hidden="true"></span>
       <div class="precision__frame">
       {%- if section.settings.image != blank -%}
         {{
@@ -89,6 +95,8 @@
   }
 
   .precision__stage {
+    --device: 250px;
+    --line: 168px;
     position: relative;
     width: min(1040px, calc(100% - 3rem));
     height: 430px;
@@ -101,7 +109,7 @@
     left: 0;
     right: 0;
     z-index: 1;
-    width: 250px;
+    width: var(--device);
     height: 400px;
     margin-inline: auto;
   }
@@ -118,26 +126,34 @@
     object-position: top center;
   }
 
-  .precision__bracket {
+  .precision__lines {
     position: absolute;
     top: 148px;
-    height: 64px;
-    width: 112px;
-    border-color: #d7d7d7;
-    border-style: solid;
+    z-index: 0;
+    display: flex;
+    flex-direction: column;
+    width: var(--line);
     pointer-events: none;
   }
 
-  .precision__bracket--left {
-    right: calc(100% + 10px);
-    border-width: 1px 1px 1px 0;
+  .precision__lines--left {
+    right: calc(50% + var(--device) / 2 + 10px);
     transform-origin: right center;
   }
 
-  .precision__bracket--right {
-    left: calc(100% + 10px);
-    border-width: 1px 0 1px 1px;
+  .precision__lines--right {
+    left: calc(50% + var(--device) / 2 + 10px);
     transform-origin: left center;
+  }
+
+  .precision__line {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .precision__line--bottom {
+    margin-top: -24px;
   }
 
   .precision__point h3 {
@@ -163,13 +179,13 @@
   .precision__point--bottom-left,
   .precision__point--bottom-right {
     position: absolute;
-    width: min(250px, 28%);
+    width: 210px;
   }
 
-  .precision__point--top-left { top: 78px; left: 8px; }
-  .precision__point--top-right { top: 78px; right: 8px; text-align: right; }
-  .precision__point--bottom-left { top: 300px; left: 8px; }
-  .precision__point--bottom-right { top: 300px; right: 8px; text-align: right; }
+  .precision__point--top-left { top: 78px; left: 0; }
+  .precision__point--top-right { top: 78px; right: 0; text-align: right; }
+  .precision__point--bottom-left { top: 300px; left: 0; }
+  .precision__point--bottom-right { top: 300px; right: 0; text-align: right; }
 
   .precision__point--top-right p,
   .precision__point--bottom-right p {
@@ -177,15 +193,15 @@
   }
 
   @media (prefers-reduced-motion: no-preference) {
-    .precision__bracket {
+    .precision__lines {
       transform: scaleX(0);
     }
 
-    .precision__stage.is-drawn .precision__bracket {
+    .precision__stage.is-drawn .precision__lines {
       animation: precision-draw 0.95s cubic-bezier(0.22, 1, 0.36, 1) forwards;
     }
 
-    .precision__stage.is-drawn .precision__bracket--right {
+    .precision__stage.is-drawn .precision__lines--right {
       animation-delay: 0.14s;
     }
   }
@@ -202,18 +218,24 @@
 
   @media screen and (max-width: 989px) {
     .precision__stage {
+      --device: 100%;
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: minmax(0, 1fr) minmax(108px, 168px) minmax(0, 1fr);
       grid-template-areas:
-        "media media"
-        "top-left top-right"
-        "bottom-left bottom-right";
+        "top-left . top-right"
+        "lines-left media lines-right"
+        "bottom-left . bottom-right";
+      align-items: center;
+      width: min(720px, calc(100% - 1.5rem));
       height: auto;
-      gap: 1.5rem;
+      margin-top: 2.25rem;
+      column-gap: 0.55rem;
+      row-gap: 0.85rem;
     }
 
     .precision__media,
     .precision__point,
+    .precision__lines,
     .precision__point--top-left,
     .precision__point--top-right,
     .precision__point--bottom-left,
@@ -223,23 +245,36 @@
       right: auto;
       left: auto;
       width: auto;
-      transform: none;
     }
 
     .precision__media {
       grid-area: media;
-      justify-self: center;
-      width: min(220px, 70%);
-      height: 320px;
+      width: 100%;
+      height: auto;
+      margin: 0;
     }
 
-    .precision__point--top-left { grid-area: top-left; }
-    .precision__point--top-right { grid-area: top-right; }
-    .precision__point--bottom-left { grid-area: bottom-left; }
-    .precision__point--bottom-right { grid-area: bottom-right; }
+    .precision__frame,
+    .precision__image {
+      height: auto;
+    }
 
-    .precision__bracket {
-      display: none;
+    .precision__lines {
+      width: 100%;
+      max-width: 168px;
+      align-self: center;
+    }
+
+    .precision__lines--left { grid-area: lines-left; justify-self: end; }
+    .precision__lines--right { grid-area: lines-right; justify-self: start; }
+
+    .precision__point--top-left { grid-area: top-left; }
+    .precision__point--top-right { grid-area: top-right; text-align: right; }
+    .precision__point--bottom-left { grid-area: bottom-left; }
+    .precision__point--bottom-right { grid-area: bottom-right; text-align: right; }
+
+    .precision__point p {
+      max-width: none;
     }
   }
 
@@ -248,30 +283,23 @@
       padding: 3rem 0 2.5rem;
     }
 
+    .precision__intro {
+      margin-bottom: 1.5rem;
+    }
+
     .precision__stage {
-      grid-template-columns: 1fr;
-      grid-template-areas:
-        "media"
-        "top-left"
-        "top-right"
-        "bottom-left"
-        "bottom-right";
+      grid-template-columns: minmax(0, 1fr) minmax(96px, 132px) minmax(0, 1fr);
+      column-gap: 0.4rem;
+      row-gap: 0.7rem;
     }
 
-    .precision__point,
-    .precision__point--top-left,
-    .precision__point--bottom-left,
-    .precision__point--top-right,
-    .precision__point--bottom-right {
-      justify-self: stretch;
-      text-align: left;
+    .precision__point h3 {
+      font-size: 11px;
     }
 
-    .precision__point p,
-    .precision__point--top-right p,
-    .precision__point--bottom-right p {
-      margin-left: 0;
-      max-width: none;
+    .precision__point p {
+      font-size: 12px;
+      line-height: 1.35;
     }
   }
 {% endstylesheet %}
