@@ -1,0 +1,87 @@
+<section class="ingredients-system">
+  {%- if section.settings.eyebrow != blank -%}
+    <p class="ingredients-system__eyebrow">{{ section.settings.eyebrow | escape }}</p>
+  {%- endif -%}
+  {%- if section.settings.heading != blank -%}
+    <h2 class="ingredients-system__heading">{{ section.settings.heading | escape }}</h2>
+  {%- endif -%}
+  {%- if section.settings.text != blank -%}
+    <div class="ingredients-system__text rte">{{ section.settings.text }}</div>
+  {%- endif -%}
+</section>
+
+{% stylesheet %}
+  .ingredients-system {
+    padding: 4.5rem 1.5rem 5.5rem;
+    background: #ffffff;
+    text-align: center;
+    color: #111111;
+  }
+
+  .ingredients-system__eyebrow {
+    margin: 0 0 0.75rem;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.26em;
+  }
+
+  .ingredients-system__heading {
+    margin: 0 auto;
+    max-width: 16ch;
+    background: linear-gradient(90deg, #121a43, #2d42a9);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    line-height: 1.08;
+    text-transform: uppercase;
+  }
+
+  .ingredients-system__text {
+    max-width: 48rem;
+    margin: 1.15rem auto 0;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.55;
+  }
+
+  .ingredients-system__text p {
+    margin: 0 0 0.35rem;
+  }
+
+  .ingredients-system__text p:first-child {
+    margin-bottom: 0.85rem;
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:sections.ingredients_system.name",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "t:sections.ingredients_system.settings.eyebrow",
+      "default": "Why 19?"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "t:sections.ingredients_system.settings.heading",
+      "default": "Formulated as a system."
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "t:sections.ingredients_system.settings.text",
+      "default": "<p>Cuprofuse® isn't defined by one ingredient alone.</p><p>GHK-Cu leads the formula, supported by peptides, targeted cosmetic actives, botanical extracts, conditioning ingredients and carefully selected formulation components.</p><p>Each has a different role. Together, they create the complete Cuprofuse® formula.</p>"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.ingredients_system.name"
+    }
+  ]
+}
+{% endschema %}

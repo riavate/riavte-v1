@@ -45,7 +45,8 @@
         "ingredients": {
           "type": "link",
           "settings": {
-            "label": "Ingredients"
+            "label": "Ingredients",
+            "link": "/pages/ingredients"
           }
         }
       },

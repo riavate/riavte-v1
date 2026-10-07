@@ -18,7 +18,7 @@
           "type": "column",
           "settings": {
             "heading": "Explore",
-            "links": "The Kit|/products/the-kit\nThe Science|/pages/science\nOur Formula|/\nHow to Use|/\nAbout Riavâte|/pages/about"
+            "links": "The Kit|/products/the-kit\nThe Science|/pages/science\nIngredients|/pages/ingredients\nOur Formula|/\nHow to Use|/\nAbout Riavâte|/pages/about"
           }
         },
         "support": {
