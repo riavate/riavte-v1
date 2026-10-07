@@ -7,7 +7,7 @@
       <div class="main-cart__empty">
         <p class="main-cart__empty-title">{{ 'cart.empty' | t }}</p>
         <p class="main-cart__empty-note">{{ 'cart.empty_note' | t }}</p>
-        <a class="main-cart__checkout" href="{{ routes.all_products_collection_url }}">{{ 'cart.continue' | t }}</a>
+        <a class="main-cart__checkout" href="/products/the-kit">{{ 'cart.continue' | t }}</a>
       </div>
     {%- else -%}
       {%- if cart.item_count == 1 -%}
