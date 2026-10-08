@@ -32,16 +32,13 @@
 -%}
 
 {%- style -%}
-  {{ section.settings.heading_font | font_face: font_display: 'swap' }}
-  {{ section.settings.text_font | font_face: font_display: 'swap' }}
-
   #shopify-section-{{ section.id }} {
-    --hero-heading-font-family: {{ section.settings.heading_font.family }}, {{ section.settings.heading_font.fallback_families }};
-    --hero-heading-font-weight: {{ section.settings.heading_font.weight }};
-    --hero-heading-font-style: {{ section.settings.heading_font.style }};
-    --hero-text-font-family: {{ section.settings.text_font.family }}, {{ section.settings.text_font.fallback_families }};
-    --hero-text-font-weight: {{ section.settings.text_font.weight }};
-    --hero-text-font-style: {{ section.settings.text_font.style }};
+    --hero-heading-font-family: Montserrat, sans-serif;
+    --hero-heading-font-weight: 700;
+    --hero-heading-font-style: normal;
+    --hero-text-font-family: Montserrat, sans-serif;
+    --hero-text-font-weight: 500;
+    --hero-text-font-style: normal;
   }
 {%- endstyle -%}
 
