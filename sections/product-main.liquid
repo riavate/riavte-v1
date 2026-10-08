@@ -85,7 +85,10 @@
         {%- for block in section.blocks -%}
           {%- if block.type == 'accordion' -%}
             <details class="product-main__accordion" {{ block.shopify_attributes }}>
-              <summary>{{ block.settings.title | escape }}</summary>
+              <summary>
+                <span>{{ block.settings.title | escape }}</span>
+                <span class="product-main__accordion-icon" aria-hidden="true"></span>
+              </summary>
               <div class="product-main__accordion-body rte">{{ block.settings.content }}</div>
             </details>
           {%- endif -%}
@@ -258,6 +261,10 @@
   }
 
   .product-main__accordion summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
     padding: 0.85rem 0;
     font-size: 14px;
     font-weight: 700;
@@ -269,8 +276,46 @@
     display: none;
   }
 
+  .product-main__accordion-icon {
+    position: relative;
+    flex: 0 0 18px;
+    width: 18px;
+    height: 18px;
+    color: #2d42a9;
+  }
+
+  .product-main__accordion-icon::before,
+  .product-main__accordion-icon::after {
+    position: absolute;
+    background: currentColor;
+    border-radius: 1px;
+    content: "";
+  }
+
+  .product-main__accordion-icon::before {
+    top: 8px;
+    left: 3px;
+    width: 12px;
+    height: 2px;
+  }
+
+  .product-main__accordion-icon::after {
+    top: 3px;
+    left: 8px;
+    width: 2px;
+    height: 12px;
+  }
+
+  .product-main__accordion[open] .product-main__accordion-icon::after {
+    display: none;
+  }
+
+  .product-main__accordion:not([open]) > .product-main__accordion-body {
+    display: none;
+  }
+
   .product-main__accordion-body {
-    padding: 0 0 0.9rem;
+    padding: 0 1.5rem 0.9rem 0;
     font-size: 14px;
     line-height: 1.5;
   }
