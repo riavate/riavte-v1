@@ -18,37 +18,6 @@
         "point_4": { "type": "point", "settings": { "text": "Gold-plated micro-touchpoints" } },
         "point_5": { "type": "point", "settings": { "text": "Supports fuller-looking hair" } },
         "point_6": { "type": "point", "settings": { "text": "Targeted cosmetic formula" } },
-        "supply_1": {
-          "type": "supply",
-          "settings": {
-            "title": "1 month supply",
-            "subtitle": "4 weekly treatments",
-            "details": "4 × Cuprofuse® Serum Vials\n4 × 0.5 mm Micro-Infusion Applicators",
-            "compare_price": "$406",
-            "price": "$167.00"
-          }
-        },
-        "supply_2": {
-          "type": "supply",
-          "settings": {
-            "title": "2 month supply",
-            "subtitle": "8 weekly treatments",
-            "details": "8 × Cuprofuse® Serum Vials\n8 × 0.5 mm Micro-Infusion Applicators",
-            "compare_price": "$406",
-            "price": "$167.00"
-          }
-        },
-        "supply_3": {
-          "type": "supply",
-          "settings": {
-            "title": "3 month supply",
-            "subtitle": "12 weekly treatments",
-            "details": "12 × Cuprofuse® Serum Vials\n12 × 0.5 mm Micro-Infusion Applicators",
-            "compare_price": "$406",
-            "price": "$167.00",
-            "badge": "Best value"
-          }
-        },
         "benefits": {
           "type": "accordion",
           "settings": {
@@ -71,7 +40,7 @@
           }
         }
       },
-      "block_order": ["point_1", "point_2", "point_3", "point_4", "point_5", "point_6", "supply_1", "supply_2", "supply_3", "benefits", "works", "included"],
+      "block_order": ["point_1", "point_2", "point_3", "point_4", "point_5", "point_6", "benefits", "works", "included"],
       "settings": {
         "heading": "The Precision\nMicro-Infusion System for Advanced Scalp Care",
         "text": "A precision-led scalp-care system combining controlled 0.5 mm micro-infusion with Cuprofuse®, our concentrated serum led by GHK-Cu and a precisely configured combination of targeted scalp-care ingredients.",

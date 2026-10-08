@@ -126,42 +126,10 @@
       {%- if product != blank -%}
         {% form 'product', product, class: 'product-main__form' %}
           {%- assign current_variant = product.selected_or_first_available_variant -%}
-          {%- assign supply_blocks = section.blocks | where: 'type', 'supply' -%}
 
-          <div class="product-main__supplies">
-            {%- if product.variants.size > 1 -%}
+          {%- if product.variants.size > 1 -%}
+            <div class="product-main__supplies">
               {%- for variant in product.variants -%}
-                {%- assign copy = supply_blocks[forloop.index0] -%}
-                {%- assign plan_title = variant.title -%}
-                {%- assign plan_subtitle = '' -%}
-                {%- assign plan_details = '' -%}
-                {%- assign plan_badge = '' -%}
-                {%- assign plan_price = '' -%}
-                {%- assign plan_compare = '' -%}
-                {%- assign plan_selected = false -%}
-                {%- if copy.settings.title != blank -%}
-                  {%- assign plan_title = copy.settings.title -%}
-                {%- endif -%}
-                {%- if copy.settings.subtitle != blank -%}
-                  {%- assign plan_subtitle = copy.settings.subtitle -%}
-                {%- endif -%}
-                {%- if copy.settings.badge != blank -%}
-                  {%- assign plan_badge = copy.settings.badge -%}
-                {%- endif -%}
-                {%- if copy.settings.details != blank -%}
-                  {%- assign plan_details = copy.settings.details | newline_to_br | replace: '<br />', ' | ' | replace: '<br>', ' | ' | strip -%}
-                {%- endif -%}
-                {%- if variant.price == 0 -%}
-                  {%- if copy.settings.price != blank -%}
-                    {%- assign plan_price = copy.settings.price -%}
-                  {%- endif -%}
-                  {%- if copy.settings.compare_price != blank -%}
-                    {%- assign plan_compare = copy.settings.compare_price -%}
-                  {%- endif -%}
-                {%- endif -%}
-                {%- if variant == current_variant -%}
-                  {%- assign plan_selected = true -%}
-                {%- endif -%}
                 <label class="supply-card{% if variant == current_variant %} is-selected{% endif %}">
                   <input
                     class="supply-card__input"
@@ -175,28 +143,8 @@
                       disabled
                     {% endunless %}
                   >
-                  {% render 'supply-properties',
-                    title: plan_title,
-                    subtitle: plan_subtitle,
-                    details: plan_details,
-                    badge: plan_badge,
-                    price: plan_price,
-                    compare_price: plan_compare,
-                    selected: plan_selected
-                  %}
                   <span class="supply-card__top">
-                    <span>
-                      <span class="supply-card__title">
-                        {%- if copy.settings.title != blank -%}
-                          {{ copy.settings.title | escape }}
-                        {%- else -%}
-                          {{ variant.title | escape }}
-                        {%- endif -%}
-                      </span>
-                      {%- if copy.settings.subtitle != blank -%}
-                        <span class="supply-card__subtitle">{{ copy.settings.subtitle | escape }}</span>
-                      {%- endif -%}
-                    </span>
+                    <span class="supply-card__title">{{ variant.title | escape }}</span>
                     <span class="supply-card__prices">
                       {%- if variant.compare_at_price > variant.price -%}
                         <s>{{ variant.compare_at_price | money }}</s>
@@ -204,82 +152,12 @@
                       <strong>{{ variant.price | money }}</strong>
                     </span>
                   </span>
-                  {%- if copy.settings.details != blank -%}
-                    <ul class="supply-card__details">
-                      {%- assign rows = copy.settings.details | newline_to_br | split: '<br />' -%}
-                      {%- for row in rows -%}
-                        {%- assign item = row | strip -%}
-                        {%- if item != blank -%}
-                          <li>{{ item | escape }}</li>
-                        {%- endif -%}
-                      {%- endfor -%}
-                    </ul>
-                  {%- endif -%}
-                  {%- if copy.settings.badge != blank -%}
-                    <span class="supply-card__badge">{{ copy.settings.badge | escape }}</span>
-                  {%- endif -%}
                 </label>
               {%- endfor -%}
-            {%- else -%}
-              {%- for block in supply_blocks -%}
-                {%- assign plan_details = block.settings.details | newline_to_br | replace: '<br />', ' | ' | replace: '<br>', ' | ' | strip -%}
-                {%- assign plan_selected = false -%}
-                {%- if forloop.first -%}
-                  {%- assign plan_selected = true -%}
-                {%- endif -%}
-                <label class="supply-card{% if forloop.first %} is-selected{% endif %}" {{ block.shopify_attributes }}>
-                  <input
-                    class="supply-card__input"
-                    type="radio"
-                    name="id"
-                    value="{{ current_variant.id }}"
-                    {% if forloop.first %}
-                      checked
-                    {% endif %}
-                  >
-                  {% render 'supply-properties',
-                    title: block.settings.title,
-                    subtitle: block.settings.subtitle,
-                    details: plan_details,
-                    badge: block.settings.badge,
-                    price: block.settings.price,
-                    compare_price: block.settings.compare_price,
-                    selected: plan_selected
-                  %}
-                  <span class="supply-card__top">
-                    <span>
-                      <span class="supply-card__title">{{ block.settings.title | escape }}</span>
-                      <span class="supply-card__subtitle">{{ block.settings.subtitle | escape }}</span>
-                    </span>
-                    <span class="supply-card__prices">
-                      {%- if block.settings.compare_price != blank -%}
-                        <s>{{ block.settings.compare_price | escape }}</s>
-                      {%- elsif current_variant.compare_at_price > current_variant.price -%}
-                        <s>{{ current_variant.compare_at_price | money }}</s>
-                      {%- endif -%}
-                      {%- if block.settings.price != blank -%}
-                        <strong>{{ block.settings.price | escape }}</strong>
-                      {%- else -%}
-                        <strong>{{ current_variant.price | money }}</strong>
-                      {%- endif -%}
-                    </span>
-                  </span>
-                  <ul class="supply-card__details">
-                    {%- assign rows = block.settings.details | newline_to_br | split: '<br />' -%}
-                    {%- for row in rows -%}
-                      {%- assign item = row | strip -%}
-                      {%- if item != blank -%}
-                        <li>{{ item | escape }}</li>
-                      {%- endif -%}
-                    {%- endfor -%}
-                  </ul>
-                  {%- if block.settings.badge != blank -%}
-                    <span class="supply-card__badge">{{ block.settings.badge | escape }}</span>
-                  {%- endif -%}
-                </label>
-              {%- endfor -%}
-            {%- endif -%}
-          </div>
+            </div>
+          {%- else -%}
+            <input type="hidden" name="id" value="{{ current_variant.id }}">
+          {%- endif -%}
 
           <button class="product-main__submit" type="submit" name="add" {% unless current_variant.available %}disabled{% endunless %}>
             {%- if current_variant.available -%}
