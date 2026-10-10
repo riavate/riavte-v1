@@ -14,48 +14,101 @@
       "blocks": {
         "eyebrow": {
           "type": "eyebrow",
-          "settings": { "text": "PRECISION SCALP CARE" }
+          "settings": {
+            "text": "PRECISION SCALP CARE"
+          }
         },
         "heading": {
           "type": "heading",
-          "settings": { "heading": "A NEW STANDARD IN SCALP CARE." }
+          "settings": {
+            "heading": "A NEW STANDARD IN SCALP CARE."
+          }
         },
         "text": {
           "type": "text",
           "settings": {
-            "text": "Meet Riavâte — a precision-led approach to modern scalp care, combining controlled 0.5 mm micro-infusion technology with Cuprofuse®, our concentrated serum led by GHK-Cu and a precisely configured combination of targeted scalp-care ingredients."
+            "text": "Meet Riavâte — a precision-led approach to modern scalp care, combining controlled gold plated 0.5mm micro-infusion technology with Cuprofuse™, our trademarked concentrated serum led by GHK-Cu and a precisely configured combination of targeted scalp-care ingredients."
           }
         }
       },
-      "block_order": ["eyebrow", "heading", "text"],
-      "settings": {}
+      "block_order": [
+        "eyebrow",
+        "heading",
+        "text"
+      ],
+      "settings": {
+        "image_alt": "Riavâte micro infusion device and serum vials",
+        "image_height": "adapt",
+        "content_alignment": "left",
+        "horizontal_padding": 183,
+        "content_max_width": 496,
+        "text_max_width": 412,
+        "heading_font": "montserrat_n7",
+        "text_font": "montserrat_n5",
+        "heading_size": 48,
+        "heading_size_mobile": 32,
+        "text_color": "#000000",
+        "heading_gradient": true,
+        "gradient_start": "#121a43",
+        "gradient_end": "#2d42a9",
+        "heading_color": "#121a43"
+      }
     },
     "trust": {
       "type": "icon-row",
       "blocks": {
         "precision": {
           "type": "item",
-          "settings": { "icon": "precision", "title": "0.5 mm", "text": "Precision infusion" }
+          "settings": {
+            "icon": "precision",
+            "title": "0.5 mm Gold",
+            "text": "Precision infusion"
+          }
         },
         "scalp": {
           "type": "item",
-          "settings": { "icon": "scalp", "title": "Scalp-focused", "text": "Targeted formula" }
+          "settings": {
+            "icon": "scalp",
+            "title": "Scalp-focused",
+            "text": "Targeted formula"
+          }
         },
         "peptide": {
           "type": "item",
-          "settings": { "icon": "peptide", "title": "GHK-Cu", "text": "Hero copper peptide" }
+          "settings": {
+            "icon": "peptide",
+            "title": "GHK-Cu",
+            "text": "Leading copper peptide"
+          }
         },
         "lab": {
           "type": "item",
-          "settings": { "icon": "lab", "title": "Lab tested", "text": "Quality & consistency" }
+          "settings": {
+            "icon": "lab",
+            "title": "Lab tested",
+            "text": "Quality & consistency"
+          }
         },
         "serum": {
           "type": "item",
-          "settings": { "icon": "serum", "title": "Cuprofuse®", "text": "Concentrated serum" }
+          "settings": {
+            "icon": "serum",
+            "title": "Cuprofuse™",
+            "text": "Concentrated serum"
+          }
         }
       },
-      "block_order": ["precision", "scalp", "peptide", "lab", "serum"],
-      "settings": {}
+      "block_order": [
+        "precision",
+        "scalp",
+        "peptide",
+        "lab",
+        "serum"
+      ],
+      "settings": {
+        "background": "#f7f7f7",
+        "text_color": "#111111"
+      }
     },
     "precision": {
       "type": "precision",
@@ -65,7 +118,7 @@
           "settings": {
             "position": "top-left",
             "title": "EVEN DISTRIBUTION",
-            "text": "Helps distribute the cosmetic serum consistently across the treatment area."
+            "text": "Helps distribute the Cuprofuse™ serum consistently across the treatment area."
           }
         },
         "precision_point": {
@@ -73,7 +126,7 @@
           "settings": {
             "position": "top-right",
             "title": "0.5 MM PRECISION",
-            "text": "Designed for controlled and consistent micro-infusion application."
+            "text": "Designed for controlled and deep delivery of Cuprofuse™."
           }
         },
         "gold": {
@@ -81,7 +134,7 @@
           "settings": {
             "position": "bottom-left",
             "title": "GOLD-PLATED TIPS",
-            "text": "Precision micro-touchpoints engineered for a refined application experience."
+            "text": "Precision micro-touch points engineered for a refined application experience."
           }
         },
         "targeted": {
@@ -93,7 +146,12 @@
           }
         }
       },
-      "block_order": ["even", "precision_point", "gold", "targeted"],
+      "block_order": [
+        "even",
+        "precision_point",
+        "gold",
+        "targeted"
+      ],
       "settings": {
         "heading": "0.5 MM PRECISION",
         "eyebrow": "MICRO-INFUSION",
@@ -104,18 +162,45 @@
     "cuprofuse": {
       "type": "media-with-text",
       "blocks": {
-        "eyebrow": { "type": "eyebrow", "settings": { "text": "INTRODUCING" } },
-        "heading": { "type": "heading", "settings": { "heading": "CUPROFUSE®" } },
-        "subheading": { "type": "subheading", "settings": { "text": "OUR CONCENTRATED SERUM" } },
+        "eyebrow": {
+          "type": "eyebrow",
+          "settings": {
+            "text": "INTRODUCING"
+          }
+        },
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "CUPROFUSE™"
+          }
+        },
+        "subheading": {
+          "type": "subheading",
+          "settings": {
+            "text": "OUR CONCENTRATED SERUM"
+          }
+        },
         "text": {
           "type": "text",
           "settings": {
-            "text": "<p>More than a single hero ingredient. Cuprofuse® brings GHK-Cu together with a precisely configured combination of selected molecules and scalp-care ingredients in one concentrated formula.</p>"
+            "text": "<p>More than a single hero ingredient. Cuprofuse™ brings GHK-Cu together with a precisely configured combination of selected molecules and scalp-care ingredients in one concentrated formula.</p>"
           }
         },
-        "button": { "type": "button", "settings": { "label": "DISCOVER CUPROFUSE® →" } }
+        "button": {
+          "type": "button",
+          "settings": {
+            "label": "DISCOVER CUPROFUSE™ →",
+            "link": ""
+          }
+        }
       },
-      "block_order": ["eyebrow", "heading", "subheading", "text", "button"],
+      "block_order": [
+        "eyebrow",
+        "heading",
+        "subheading",
+        "text",
+        "button"
+      ],
       "settings": {
         "fallback_image": "cuprofuse",
         "image_alt": "Cuprofuse concentrated serum",
@@ -161,7 +246,12 @@
           }
         }
       },
-      "block_order": ["scalp", "fuller", "molecule", "apply"],
+      "block_order": [
+        "scalp",
+        "fuller",
+        "molecule",
+        "apply"
+      ],
       "settings": {
         "eyebrow": "OUR HERO PEPTIDE",
         "heading": "GHK-Cu",
@@ -173,7 +263,9 @@
       "blocks": {
         "heading": {
           "type": "heading",
-          "settings": { "heading": "PRECISION, BEYOND THE SURFACE." }
+          "settings": {
+            "heading": "PRECISION, BEYOND THE SURFACE."
+          }
         },
         "text": {
           "type": "text",
@@ -184,11 +276,15 @@
         "caption": {
           "type": "caption",
           "settings": {
-            "text": "0.5 MM MICRO-INFUSION · CUPROFUSE® CONCENTRATED SERUM · TARGETED SCALP CARE"
+            "text": "0.5 MM MICRO-INFUSION · CUPROFUSE™ CONCENTRATED SERUM · TARGETED SCALP CARE"
           }
         }
       },
-      "block_order": ["heading", "text", "caption"],
+      "block_order": [
+        "heading",
+        "text",
+        "caption"
+      ],
       "settings": {
         "fallback_image": "scalp",
         "image_alt": "Micro-infusion applied to the scalp surface",
@@ -210,7 +306,7 @@
             "badge": "✓ Verified customer",
             "quote": "<p>“My hair looks noticeably fuller.”</p><p>I’ve been consistent with my Riavâte routine and I’m really pleased with how my hair looks and feels. My scalp feels well cared for, and my hair appears fuller and healthier around the areas I was most conscious of.</p>",
             "uses_label": "Sarah uses",
-            "product_name": "Riavâte Hair Micro-Infusion Kit"
+            "product_name": "Riavâte Hair Micro-Infusion System"
           }
         },
         "daniel": {
@@ -222,7 +318,7 @@
             "badge": "✓ Verified customer",
             "quote": "<p>“I can see the difference in my routine.”</p><p>Riavâte feels completely different from the scalp products I’ve used before. The micro-infusion system is precise and straightforward to use, and I’ve noticed an improvement in the overall appearance of my hair.</p>",
             "uses_label": "Daniel uses",
-            "product_name": "Riavâte Hair Micro-Infusion Kit"
+            "product_name": "Riavâte Hair Micro-Infusion System"
           }
         },
         "james": {
@@ -234,30 +330,54 @@
             "badge": "✓ Verified customer",
             "quote": "<p>“My hair looks stronger and healthier.”</p><p>I wanted something that felt more considered than another everyday serum. Riavâte has become part of my regular scalp-care routine, and I’m really happy with how much healthier and fuller my hair appears.</p>",
             "uses_label": "James uses",
-            "product_name": "Riavâte Hair Micro-Infusion Kit"
+            "product_name": "Riavâte Hair Micro-Infusion System"
           }
         }
       },
-      "block_order": ["sarah", "daniel", "james"],
-      "settings": { "heading": "Real Results. Visible Difference." }
+      "block_order": [
+        "sarah",
+        "daniel",
+        "james"
+      ],
+      "settings": {
+        "heading": "Real Results. Visible Difference."
+      }
     },
     "statement": {
       "type": "media-with-text",
       "blocks": {
-        "eyebrow": { "type": "eyebrow", "settings": { "text": "RIAVÂTE BRAND STATEMENT" } },
+        "eyebrow": {
+          "type": "eyebrow",
+          "settings": {
+            "text": "RIAVÂTE BRAND STATEMENT"
+          }
+        },
         "heading": {
           "type": "heading",
-          "settings": { "heading": "Hair care has focused on the surface for long enough." }
+          "settings": {
+            "heading": "Hair care has focused on the surface for long enough."
+          }
         },
         "text": {
           "type": "text",
           "settings": {
-            "text": "<p>Riavâte takes a more precise approach.</p><p>Our Micro-Infusion System pairs controlled 0.5 mm application with <strong>Cuprofuse®</strong>, our concentrated serum led by GHK-Cu and formulated with a precisely configured combination of targeted scalp-care ingredients.</p>"
+            "text": "<p>Riavâte takes a more precise, science and technology-led approach.</p><p>Our Micro-Infusion System pairs controlled, precise application with <strong>Cuprofuse™</strong> — our signature complex, led by GHK-Cu and formulated with a carefully configured blend of targeted scalp-care ingredients.</p><p>At Riavâte, we’re continually researching how today’s technology can make our products better</p><p>We built the concentrate we couldn’t buy — and we’re only getting started!</p>"
           }
         },
-        "button": { "type": "button", "settings": { "label": "Check availability" } }
+        "button": {
+          "type": "button",
+          "settings": {
+            "label": "Check availability",
+            "link": ""
+          }
+        }
       },
-      "block_order": ["eyebrow", "heading", "text", "button"],
+      "block_order": [
+        "eyebrow",
+        "heading",
+        "text",
+        "button"
+      ],
       "settings": {
         "fallback_image": "application",
         "image_alt": "Applying the Riavâte micro-infusion device",
@@ -270,25 +390,70 @@
     "reviews": {
       "type": "reviews",
       "blocks": {
-        "t1": { "type": "thumb", "settings": {} },
-        "t2": { "type": "thumb", "settings": {} },
-        "t3": { "type": "thumb", "settings": {} },
-        "t4": { "type": "thumb", "settings": {} },
-        "t5": { "type": "thumb", "settings": {} },
-        "t6": { "type": "thumb", "settings": {} },
-        "t7": { "type": "thumb", "settings": {} },
-        "t8": { "type": "thumb", "settings": {} }
+        "t1": {
+          "type": "thumb",
+          "settings": {}
+        },
+        "t2": {
+          "type": "thumb",
+          "settings": {}
+        },
+        "t3": {
+          "type": "thumb",
+          "settings": {}
+        },
+        "t4": {
+          "type": "thumb",
+          "settings": {}
+        },
+        "t5": {
+          "type": "thumb",
+          "settings": {}
+        },
+        "t6": {
+          "type": "thumb",
+          "settings": {}
+        },
+        "t7": {
+          "type": "thumb",
+          "settings": {}
+        },
+        "t8": {
+          "type": "thumb",
+          "settings": {}
+        }
       },
-      "block_order": ["t1", "t2", "t3", "t4", "t5", "t6", "t7", "t8"],
+      "block_order": [
+        "t1",
+        "t2",
+        "t3",
+        "t4",
+        "t5",
+        "t6",
+        "t7",
+        "t8"
+      ],
       "settings": {
         "heading": "Customer Reviews",
         "score": "4.80 out of 5",
         "count_label": "Based on 10457 reviews",
         "badge": "✓ Verified customer",
         "button_label": "Write a review",
-        "more_label": "See more"
+        "button_link": "",
+        "more_label": "See more",
+        "more_link": ""
       }
     }
   },
-  "order": ["hero", "trust", "precision", "cuprofuse", "peptide", "beyond", "results", "statement", "reviews"]
+  "order": [
+    "hero",
+    "trust",
+    "precision",
+    "cuprofuse",
+    "peptide",
+    "beyond",
+    "results",
+    "statement",
+    "reviews"
+  ]
 }
