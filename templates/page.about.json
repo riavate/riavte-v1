@@ -13,10 +13,20 @@
       "type": "about-hero",
       "settings": {
         "eyebrow": "About Riavâte",
-        "heading": "A more precise approach to scalp care.",
-        "text": "<p>Riavâte was created around a simple idea: modern scalp care should be considered, targeted and built with precision.</p><p>We bring together precision micro-infusion technology and Cuprofuse™, our concentrated serum led by GHK-Cu, to create a considered approach to modern scalp care.</p>",
+        "heading": "Most things are built to sell.                         Riavâte was built to work.",
+        "text": "<p>It started as a spark — a belief that we could take what the world already knows, marry it with modern technology and real craft, and make something genuinely better than what’s out there. Not louder. Better.<br/><br/>That’s what the name means: <em>to restore, to renew — to make better than before.</em><br/><br/>It begins with scalp care. It won’t end there.</p><p>We built the concentrate we couldn’t buy.</p>",
         "image_alt": "Riavâte micro-infusion device",
-        "labels": "Precision technology\nPeptide-led formula\nModern scalp care"
+        "labels": ""
+      }
+    },
+    "about_hero_tUPjCi": {
+      "type": "about-hero",
+      "settings": {
+        "eyebrow": "About Riavâte",
+        "heading": "We built the concentrate we couldn’t buy.",
+        "text": "<p>The science behind scalp and hair care had moved on.&nbsp;</p><p>What you could actually buy hadn’t — shelf after shelf of watered-down formulas, vague promises, and products that only ever worked at the surface.<br/><br/>So we made our own: a proper, full-strength concentrate, formulated with intent and delivered with precision. The standard we’d want for ourselves.<br/><br/>Because hair is personal — and the care behind it should be too.&nbsp;</p><p></p><p>— Yogi, Founder</p><p>&nbsp;</p><p></p><p></p><p></p><p></p>",
+        "image_alt": "Riavâte micro-infusion device",
+        "labels": ""
       }
     },
     "about_reconsidered": {
@@ -24,9 +34,9 @@
       "settings": {
         "eyebrow": "Why Riavâte",
         "heading": "Scalp care, reconsidered",
-        "text": "<p>Traditional hair-care routines often focus on what happens at the surface. Riavâte takes a more targeted approach.</p><p>Our system combines controlled 0.5 mm micro-infusion with Cuprofuse™, our concentrated serum, creating a simple and considered way to incorporate precision scalp care into your routine.</p>",
+        "text": "<p>Most routines settle for the surface. Riavâte takes a more deliberate, targeted approach: a gold-plated 0.5 mm micro-infusion device paired with Cuprofuse™, our concentrated peptide serum — a simple, controlled ritual you can keep at home.</p>",
         "image_alt": "Riavâte device applied to the scalp",
-        "caption": "0.5 mm controlled micro-infusion"
+        "caption": "Gold 0.5mm controlled micro-infusion"
       }
     },
     "about_pillars": {
@@ -36,28 +46,28 @@
           "type": "pillar",
           "settings": {
             "title": "Precision",
-            "text": "0.5 mm controlled micro-infusion."
+            "text": "Controlled 0.5mm gold plated micro-infusion device, for a precise, consistent application every time."
           }
         },
         "precision": {
           "type": "pillar",
           "settings": {
             "title": "Formulation",
-            "text": "Cuprofuse concentrated serum."
+            "text": "Cuprofuse™, our concentrated peptide serum, powered by GHK-Cu."
           }
         },
         "gold": {
           "type": "pillar",
           "settings": {
             "title": "Simplicity",
-            "text": "Designed for a considered at-home routine."
+            "text": "A considered ritual that fits real life, in minutes."
           }
         },
         "targeted": {
           "type": "pillar",
           "settings": {
             "title": "Purpose",
-            "text": "Focused on targeted scalp care."
+            "text": "Every element chosen for one reason: targeted, honest scalp care."
           }
         }
       },
@@ -225,6 +235,7 @@
   },
   "order": [
     "about_hero",
+    "about_hero_tUPjCi",
     "about_reconsidered",
     "about_pillars",
     "about_formula",
