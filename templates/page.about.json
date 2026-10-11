@@ -170,10 +170,10 @@
     "about_evolved": {
       "type": "about-evolved",
       "settings": {
-        "eyebrow": "This is Riavâte",
-        "heading": "Scalp care has evolved.",
-        "text": "<p>We believe better scalp care starts with precision — not complexity.</p>",
-        "points": "Precision micro-infusion\nCuprofuse™ concentrated serum\nGHK-Cu led formulation\nA system designed with purpose",
+        "eyebrow": "Scalp care has evolved.",
+        "heading": "This is only the beginning.",
+        "text": "<p>Precise. Considered. Made properly — and honest about what it is. Riavâte begins with scalp care, built to a standard we’d want for ourselves.<br/><br/>And we’re only getting started.</p>",
+        "points": "- Precision Science\n- Visible Confidence",
         "button_label": "Shop the system →",
         "button_link": "/products/the-kit",
         "image_alt": "Riavâte device and serum"
