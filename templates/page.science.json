@@ -115,7 +115,7 @@
         "anchor": "peptide",
         "eyebrow": "Research Spotlight",
         "heading": "What does the published evidence show?",
-        "text": "<p>Microneedling has been investigated in clinical research on androgenetic alopecia.</p><p>In a 2013 randomized evaluator-blinded study involving 100 participants, researchers compared weekly 1.5 mm microneedling plus 5% minoxidil against 5% minoxidil alone for 12 weeks.</p>",
+        "text": "<p>Microneedling has been investigated in clinical research on androgenetic alopecia.</p><p>In a 2013 randomized evaluator-blinded study involving 100 participants, researchers compared weekly 1.5 mm microneedling plus 5% minoxidil against 5% topical minoxidil alone for 12 weeks.</p>",
         "value": "+91.4",
         "label": "Mean hair-count change",
         "caption": "Reported in the microneedling + minoxidil group after 12 weeks in the Dhurat et al. study.",
