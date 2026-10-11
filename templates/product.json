@@ -12,12 +12,42 @@
     "main": {
       "type": "product-main",
       "blocks": {
-        "point_1": { "type": "point", "settings": { "text": "0.5 mm precision micro-infusion" } },
-        "point_2": { "type": "point", "settings": { "text": "GHK-Cu led formula" } },
-        "point_3": { "type": "point", "settings": { "text": "Powered by Cuprofuse®" } },
-        "point_4": { "type": "point", "settings": { "text": "Gold-plated micro-touchpoints" } },
-        "point_5": { "type": "point", "settings": { "text": "Supports fuller-looking hair" } },
-        "point_6": { "type": "point", "settings": { "text": "Targeted cosmetic formula" } },
+        "point_1": {
+          "type": "point",
+          "settings": {
+            "text": "0.5 mm precision micro-infusion"
+          }
+        },
+        "point_2": {
+          "type": "point",
+          "settings": {
+            "text": "GHK-Cu led formula"
+          }
+        },
+        "point_3": {
+          "type": "point",
+          "settings": {
+            "text": "Powered by Cuprofuse®"
+          }
+        },
+        "point_4": {
+          "type": "point",
+          "settings": {
+            "text": "Gold-plated micro-touchpoints"
+          }
+        },
+        "point_5": {
+          "type": "point",
+          "settings": {
+            "text": "Supports fuller-looking hair"
+          }
+        },
+        "point_6": {
+          "type": "point",
+          "settings": {
+            "text": "Targeted cosmetic formula"
+          }
+        },
         "benefits": {
           "type": "accordion",
           "settings": {
@@ -40,37 +70,121 @@
           }
         }
       },
-      "block_order": ["point_1", "point_2", "point_3", "point_4", "point_5", "point_6", "benefits", "works", "included"],
+      "block_order": [
+        "point_1",
+        "point_2",
+        "point_3",
+        "point_4",
+        "point_5",
+        "point_6",
+        "benefits",
+        "works",
+        "included"
+      ],
       "settings": {
         "heading": "The Precision\nMicro-Infusion System for Advanced Scalp Care",
-        "text": "A precision-led scalp-care system combining controlled 0.5 mm micro-infusion with Cuprofuse®, our concentrated serum led by GHK-Cu and a precisely configured combination of targeted scalp-care ingredients.",
+        "text": "A precision-led scalp-care system combining controlled 0.5 mm micro-infusion with Cuprofuse™, our concentrated serum led by GHK-Cu and a precisely configured combination of targeted scalp-care ingredients.",
         "rating": "4.80 out of 5",
         "ingredients_label": "Ingredients",
         "ingredients_link": "/pages/ingredients",
-        "certificate_label": "Lab Certificate"
+        "certificate_label": "Lab Certificate",
+        "certificate_link": ""
       }
     },
     "trust": {
       "type": "icon-row",
       "blocks": {
-        "precision": { "type": "item", "settings": { "icon": "precision", "title": "0.5 mm", "text": "Precision infusion" } },
-        "scalp": { "type": "item", "settings": { "icon": "scalp", "title": "Scalp-focused", "text": "Targeted formula" } },
-        "peptide": { "type": "item", "settings": { "icon": "peptide", "title": "GHK-Cu", "text": "Hero copper peptide" } },
-        "lab": { "type": "item", "settings": { "icon": "lab", "title": "Lab tested", "text": "Quality & consistency" } },
-        "serum": { "type": "item", "settings": { "icon": "serum", "title": "Cuprofuse®", "text": "Concentrated serum" } }
+        "precision": {
+          "type": "item",
+          "settings": {
+            "icon": "precision",
+            "title": "0.5 mm",
+            "text": "Precision infusion"
+          }
+        },
+        "scalp": {
+          "type": "item",
+          "settings": {
+            "icon": "scalp",
+            "title": "Scalp-focused",
+            "text": "Targeted formula"
+          }
+        },
+        "peptide": {
+          "type": "item",
+          "settings": {
+            "icon": "peptide",
+            "title": "GHK-Cu",
+            "text": "Hero copper peptide"
+          }
+        },
+        "lab": {
+          "type": "item",
+          "settings": {
+            "icon": "lab",
+            "title": "Lab tested",
+            "text": "Quality & consistency"
+          }
+        },
+        "serum": {
+          "type": "item",
+          "settings": {
+            "icon": "serum",
+            "title": "Cuprofuse®",
+            "text": "Concentrated serum"
+          }
+        }
       },
-      "block_order": ["precision", "scalp", "peptide", "lab", "serum"],
-      "settings": {}
+      "block_order": [
+        "precision",
+        "scalp",
+        "peptide",
+        "lab",
+        "serum"
+      ],
+      "settings": {
+        "background": "#f7f7f7",
+        "text_color": "#111111"
+      }
     },
     "infusion": {
       "type": "product-infusion",
       "blocks": {
-        "step_1": { "type": "step", "settings": { "title": "01 — Micro-infuse", "text": "0.5 mm precision application" } },
-        "step_2": { "type": "step", "settings": { "title": "02 — Deliver", "text": "Cuprofuse® concentrated serum" } },
-        "step_3": { "type": "step", "settings": { "title": "03 — Support", "text": "Supports a healthier-looking scalp" } },
-        "step_4": { "type": "step", "settings": { "title": "04 — Strengthen", "text": "Supports stronger, fuller-looking hair" } }
+        "step_1": {
+          "type": "step",
+          "settings": {
+            "title": "01 — Micro-infuse",
+            "text": "0.5 mm precision application"
+          }
+        },
+        "step_2": {
+          "type": "step",
+          "settings": {
+            "title": "02 — Deliver",
+            "text": "Cuprofuse® concentrated serum"
+          }
+        },
+        "step_3": {
+          "type": "step",
+          "settings": {
+            "title": "03 — Support",
+            "text": "Supports a healthier-looking scalp"
+          }
+        },
+        "step_4": {
+          "type": "step",
+          "settings": {
+            "title": "04 — Strengthen",
+            "text": "Supports stronger, fuller-looking hair"
+          }
+        }
       },
-      "block_order": ["step_1", "step_2", "step_3", "step_4"],
+      "block_order": [
+        "step_1",
+        "step_2",
+        "step_3",
+        "step_4"
+      ],
       "settings": {
         "eyebrow": "How micro-infusion works",
         "heading": "Advanced Scalp Care, Precisely Delivered.",
@@ -81,17 +195,43 @@
     "cuprofuse": {
       "type": "product-cuprofuse",
       "blocks": {
-        "ghk": { "type": "feature", "settings": { "icon": "molecule", "title": "GHK-Cu LED", "text": "Copper peptide at the heart of the formula." } },
-        "precision": { "type": "feature", "settings": { "icon": "fuller", "title": "PRECISION FORMULATED", "text": "A considered combination of selected scalp-care ingredients." } },
-        "system": { "type": "feature", "settings": { "icon": "system", "title": "MADE FOR MICRO-INFUSION", "text": "Developed to complement the Riavâte application system." } }
+        "ghk": {
+          "type": "feature",
+          "settings": {
+            "icon": "molecule",
+            "title": "GHK-Cu LED",
+            "text": "Copper peptide at the heart of the formula."
+          }
+        },
+        "precision": {
+          "type": "feature",
+          "settings": {
+            "icon": "fuller",
+            "title": "PRECISION FORMULATED",
+            "text": "A considered combination of selected scalp-care ingredients."
+          }
+        },
+        "system": {
+          "type": "feature",
+          "settings": {
+            "icon": "system",
+            "title": "MADE FOR MICRO-INFUSION",
+            "text": "Developed to complement the Riavâte application system."
+          }
+        }
       },
-      "block_order": ["ghk", "precision", "system"],
+      "block_order": [
+        "ghk",
+        "precision",
+        "system"
+      ],
       "settings": {
         "eyebrow": "The formula inside Riavâte",
         "heading": "Cuprofuse®",
         "subheading": "Our concentrated serum",
         "text": "More than a single hero ingredient. Cuprofuse® brings GHK-Cu together with a precisely configured combination of selected molecules and scalp-care ingredients in one concentrated formula.",
-        "button_label": "Discover Cuprofuse® →"
+        "button_label": "Discover Cuprofuse® →",
+        "button_link": ""
       }
     },
     "results": {
@@ -125,7 +265,11 @@
           }
         }
       },
-      "block_order": ["shedding", "hairline", "crown"],
+      "block_order": [
+        "shedding",
+        "hairline",
+        "crown"
+      ],
       "settings": {
         "eyebrow": "Real routines. Visible progress.",
         "heading": "Results from the Riavâte Community"
@@ -134,11 +278,36 @@
     "steps": {
       "type": "product-steps",
       "blocks": {
-        "prepare": { "type": "step", "settings": { "fallback": "product-step-1.jpg", "title": "01 — Prepare", "text": "Start with a clean, dry scalp." } },
-        "infuse": { "type": "step", "settings": { "fallback": "product-step-2.jpg", "title": "02 — Infuse", "text": "Apply Cuprofuse® using the Riavâte 0.5 mm Micro-Infusion System across targeted areas." } },
-        "complete": { "type": "step", "settings": { "fallback": "product-step-3.jpg", "title": "03 — Complete", "text": "Finish the application and allow the formula to absorb naturally." } }
+        "prepare": {
+          "type": "step",
+          "settings": {
+            "fallback": "product-step-1.jpg",
+            "title": "01 — Prepare",
+            "text": "Start with a clean, dry scalp."
+          }
+        },
+        "infuse": {
+          "type": "step",
+          "settings": {
+            "fallback": "product-step-2.jpg",
+            "title": "02 — Infuse",
+            "text": "Apply Cuprofuse® using the Riavâte 0.5 mm Micro-Infusion System across targeted areas."
+          }
+        },
+        "complete": {
+          "type": "step",
+          "settings": {
+            "fallback": "product-step-3.jpg",
+            "title": "03 — Complete",
+            "text": "Finish the application and allow the formula to absorb naturally."
+          }
+        }
       },
-      "block_order": ["prepare", "infuse", "complete"],
+      "block_order": [
+        "prepare",
+        "infuse",
+        "complete"
+      ],
       "settings": {
         "eyebrow": "Real routines. Visible progress.",
         "heading": "See How Simple It Is to Use",
@@ -176,17 +345,43 @@
           }
         }
       },
-      "block_order": ["riavate", "transplant", "medication"],
+      "block_order": [
+        "riavate",
+        "transplant",
+        "medication"
+      ],
       "settings": {}
     },
     "guarantee": {
       "type": "product-guarantee",
       "blocks": {
-        "document": { "type": "step", "settings": { "title": "01 — Document", "text": "Take a clear photo before starting and track your progress." } },
-        "consistent": { "type": "step", "settings": { "title": "02 — Stay consistent", "text": "Follow the recommended Riavâte routine consistently." } },
-        "complete": { "type": "step", "settings": { "title": "03 — Complete 120 days", "text": "Give your routine time and compare your progress." } }
+        "document": {
+          "type": "step",
+          "settings": {
+            "title": "01 — Document",
+            "text": "Take a clear photo before starting and track your progress."
+          }
+        },
+        "consistent": {
+          "type": "step",
+          "settings": {
+            "title": "02 — Stay consistent",
+            "text": "Follow the recommended Riavâte routine consistently."
+          }
+        },
+        "complete": {
+          "type": "step",
+          "settings": {
+            "title": "03 — Complete 120 days",
+            "text": "Give your routine time and compare your progress."
+          }
+        }
       },
-      "block_order": ["document", "consistent", "complete"],
+      "block_order": [
+        "document",
+        "consistent",
+        "complete"
+      ],
       "settings": {
         "eyebrow": "Give Riavâte 120 days.",
         "heading": "If you’re not satisfied, we’ll refund you."
@@ -232,18 +427,35 @@
           }
         }
       },
-      "block_order": ["james", "daniel", "oliver", "sophie"],
+      "block_order": [
+        "james",
+        "daniel",
+        "oliver",
+        "sophie"
+      ],
       "settings": {
         "heading": "Customer Reviews",
         "score": "4.80 out of 5",
         "count_label": "Based on 10457 reviews",
         "badge": "✓ Verified Customer",
         "button_label": "Write a review",
+        "button_link": "",
         "more_label": "See more",
         "list_heading": "Reviews 10457",
-        "more_button": "Show more reviews"
+        "more_button": "Show more reviews",
+        "more_link": ""
       }
     }
   },
-  "order": ["main", "trust", "infusion", "cuprofuse", "results", "steps", "compare", "guarantee", "reviews"]
+  "order": [
+    "main",
+    "trust",
+    "infusion",
+    "cuprofuse",
+    "results",
+    "steps",
+    "compare",
+    "guarantee",
+    "reviews"
+  ]
 }

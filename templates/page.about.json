@@ -14,7 +14,8 @@
       "settings": {
         "eyebrow": "About Riavâte",
         "heading": "A more precise approach to scalp care.",
-        "text": "<p>Riavâte was created around a simple idea: modern scalp care should be considered, targeted and built with precision.</p><p>We bring together precision micro-infusion technology and Cuprofuse®, our concentrated serum led by GHK-Cu, to create a considered approach to modern scalp care.</p>",
+        "text": "<p>Riavâte was created around a simple idea: modern scalp care should be considered, targeted and built with precision.</p><p>We bring together precision micro-infusion technology and Cuprofuse™, our concentrated serum led by GHK-Cu, to create a considered approach to modern scalp care.</p>",
+        "image_alt": "Riavâte micro-infusion device",
         "labels": "Precision technology\nPeptide-led formula\nModern scalp care"
       }
     },
@@ -23,7 +24,8 @@
       "settings": {
         "eyebrow": "Why Riavâte",
         "heading": "Scalp care, reconsidered",
-        "text": "<p>Traditional hair-care routines often focus on what happens at the surface. Riavâte takes a more targeted approach.</p><p>Our system combines controlled 0.5 mm micro-infusion with Cuprofuse®, our concentrated serum, creating a simple and considered way to incorporate precision scalp care into your routine.</p>",
+        "text": "<p>Traditional hair-care routines often focus on what happens at the surface. Riavâte takes a more targeted approach.</p><p>Our system combines controlled 0.5 mm micro-infusion with Cuprofuse™, our concentrated serum, creating a simple and considered way to incorporate precision scalp care into your routine.</p>",
+        "image_alt": "Riavâte device applied to the scalp",
         "caption": "0.5 mm controlled micro-infusion"
       }
     },
@@ -41,7 +43,7 @@
           "type": "pillar",
           "settings": {
             "title": "Formulation",
-            "text": "Cuprofuse® concentrated serum."
+            "text": "Cuprofuse concentrated serum."
           }
         },
         "gold": {
@@ -59,7 +61,12 @@
           }
         }
       },
-      "block_order": ["even", "precision", "gold", "targeted"],
+      "block_order": [
+        "even",
+        "precision",
+        "gold",
+        "targeted"
+      ],
       "settings": {
         "eyebrow": "Our philosophy",
         "heading": "Precision in the device. Purpose in the formula.",
@@ -91,12 +98,16 @@
           }
         }
       },
-      "block_order": ["ghk", "precision", "infusion"],
+      "block_order": [
+        "ghk",
+        "precision",
+        "infusion"
+      ],
       "settings": {
         "eyebrow": "At the heart of Riavâte",
-        "heading": "Cuprofuse®",
+        "heading": "Cuprofuse™",
         "subheading": "",
-        "text": "<p>More than a single hero ingredient. Cuprofuse® brings GHK-Cu together with a precisely configured combination of selected molecules and scalp-care ingredients in one concentrated formula.</p><p>At its core is GHK-Cu (Copper Tripeptide-1), selected as the leading peptide within the Cuprofuse® formula.</p>"
+        "text": "<p>More than a single hero ingredient. Cuprofuse™ brings GHK-Cu together with a precisely configured combination of selected molecules and scalp-care ingredients in one concentrated formula.</p><p>At its core is GHK-Cu (Copper Tripeptide-1), selected as the leading peptide within the Cuprofuse® formula.</p>"
       }
     },
     "about_system": {
@@ -117,9 +128,9 @@
           "type": "row",
           "settings": {
             "kicker": "02 — The formula",
-            "title": "Cuprofuse® concentrate",
+            "title": "Cuprofuse™ concentrate",
             "text": "<p>Our concentrated serum, led by GHK-Cu and formulated with a precisely configured combination of selected scalp-care ingredients.</p>",
-            "image_alt": "Cuprofuse serum being measured into a vial",
+            "image_alt": "Cuprofuse™ serum being measured into a vial",
             "fallback": "serum",
             "image_side": "left"
           }
@@ -136,7 +147,11 @@
           }
         }
       },
-      "block_order": ["device", "serum", "kit"],
+      "block_order": [
+        "device",
+        "serum",
+        "kit"
+      ],
       "settings": {
         "eyebrow": "What makes Riavâte different",
         "heading": "One system. Designed with purpose."
@@ -148,9 +163,10 @@
         "eyebrow": "This is Riavâte",
         "heading": "Scalp care has evolved.",
         "text": "<p>We believe better scalp care starts with precision — not complexity.</p>",
-        "points": "Precision micro-infusion\nCuprofuse® concentrated serum\nGHK-Cu led formulation\nA system designed with purpose",
+        "points": "Precision micro-infusion\nCuprofuse™ concentrated serum\nGHK-Cu led formulation\nA system designed with purpose",
         "button_label": "Shop the system →",
-        "button_link": "/products/the-kit"
+        "button_link": "/products/the-kit",
+        "image_alt": "Riavâte device and serum"
       }
     },
     "about_reviews": {
@@ -193,7 +209,12 @@
           }
         }
       },
-      "block_order": ["james", "daniel", "oliver", "sophie"],
+      "block_order": [
+        "james",
+        "daniel",
+        "oliver",
+        "sophie"
+      ],
       "settings": {
         "heading": "Reviews 10457",
         "stars_label": "5 out of 5 stars",

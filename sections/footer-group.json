@@ -18,7 +18,7 @@
           "type": "column",
           "settings": {
             "heading": "Explore",
-            "links": "The Kit|/products/the-kit\nThe Science|/pages/science\nIngredients|/pages/ingredients\nOur Formula|/\nHow to Use|/\nAbout Riavâte|/pages/about"
+            "links": "The System|/products/the-kit\nThe Science|/pages/science\nThe Ingredients|/pages/ingredients\nOur Formula|/\nHow to Use|/\nAbout Riavâte|/pages/about"
           }
         },
         "support": {
@@ -36,18 +36,24 @@
           }
         }
       },
-      "block_order": ["explore", "support", "legal"],
+      "block_order": [
+        "explore",
+        "support",
+        "legal"
+      ],
       "settings": {
         "tagline": "Precision science. Visible confidence.",
         "text": "Science-led scalp care, thoughtfully formulated with GHK-Cu and selected cosmetic actives.",
         "contact_heading": "Contact information",
-        "phone": "+86 18560628679",
-        "email": "info@gasoplus.co.uk",
+        "phone": "",
+        "email": "support@riavate.com",
         "instagram": "https://instagram.com",
         "facebook": "https://facebook.com",
         "tiktok": "https://www.tiktok.com"
       }
     }
   },
-  "order": ["footer"]
+  "order": [
+    "footer"
+  ]
 }
