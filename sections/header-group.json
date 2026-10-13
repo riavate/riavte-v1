@@ -31,7 +31,7 @@
         "kit": {
           "type": "link",
           "settings": {
-            "label": "The System",
+            "label": "The Kit",
             "link": "/products/the-kit"
           }
         },
@@ -50,19 +50,9 @@
           }
         }
       },
-      "block_order": [
-        "home",
-        "about",
-        "kit",
-        "science",
-        "ingredients"
-      ],
-      "settings": {
-        "menu": ""
-      }
+      "block_order": ["home", "about", "kit", "science", "ingredients"],
+      "settings": {}
     }
   },
-  "order": [
-    "header"
-  ]
+  "order": ["header"]
 }
