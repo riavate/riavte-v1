@@ -73,9 +73,16 @@ p:empty {
 
 /** Theme styles below */
 body {
-  font-family: var(--font-primary--family);
+  font-family: Montserrat, sans-serif;
   background-color: var(--color-background);
   color: var(--color-foreground);
+}
+
+button,
+input,
+textarea,
+select {
+  font-family: inherit;
 }
 
 /** Block container layout utilities */

@@ -502,6 +502,10 @@ p:empty{display:none}
   }
 
   .product-main__accordion summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
     padding: 0.85rem 0;
     font-size: 14px;
     font-weight: 700;
@@ -513,8 +517,46 @@ p:empty{display:none}
     display: none;
   }
 
+  .product-main__accordion-icon {
+    position: relative;
+    flex: 0 0 18px;
+    width: 18px;
+    height: 18px;
+    color: #2d42a9;
+  }
+
+  .product-main__accordion-icon::before,
+  .product-main__accordion-icon::after {
+    position: absolute;
+    background: currentColor;
+    border-radius: 1px;
+    content: "";
+  }
+
+  .product-main__accordion-icon::before {
+    top: 8px;
+    left: 3px;
+    width: 12px;
+    height: 2px;
+  }
+
+  .product-main__accordion-icon::after {
+    top: 3px;
+    left: 8px;
+    width: 2px;
+    height: 12px;
+  }
+
+  .product-main__accordion[open] .product-main__accordion-icon::after {
+    display: none;
+  }
+
+  .product-main__accordion:not([open]) > .product-main__accordion-body {
+    display: none;
+  }
+
   .product-main__accordion-body {
-    padding: 0 0 0.9rem;
+    padding: 0 1.5rem 0.9rem 0;
     font-size: 14px;
     line-height: 1.5;
   }
@@ -1555,9 +1597,9 @@ p:empty{display:none}
       <a class="product-main__doc" href="#"><svg width="19" height="20" viewBox="0 0 19 20" aria-hidden="true"><circle cx="9.5" cy="8" r="4.2" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M7.2 11.6 6 18l3.5-1.8L13 18l-1.2-6.4" fill="none" stroke="currentColor" stroke-width="1.2"/></svg><span>Lab Certificate</span></a>
     </div>
     <div class="product-main__accordions">
-      <details class="product-main__accordion"><summary>Key Benefits</summary><div class="product-main__accordion-body"><p>Hair appears stronger and more resilient with continued use. Visible improvements in the appearance of density around the hairline, temples, and crown.</p></div></details>
-      <details class="product-main__accordion"><summary>How It Works</summary><div class="product-main__accordion-body"><p>The 0.5 mm micro-infusion system creates controlled micro-channels so Cuprofuse® can be applied precisely and evenly.</p></div></details>
-      <details class="product-main__accordion"><summary>What's Included</summary><div class="product-main__accordion-body"><p>Cuprofuse® serum vials and matching 0.5 mm micro-infusion applicators.</p></div></details>
+      <details class="product-main__accordion"><summary><span>Key Benefits</span><span class="product-main__accordion-icon" aria-hidden="true"></span></summary><div class="product-main__accordion-body"><p>Hair appears stronger and more resilient with continued use. Visible improvements in the appearance of density around the hairline, temples, and crown.</p></div></details>
+      <details class="product-main__accordion"><summary><span>How It Works</span><span class="product-main__accordion-icon" aria-hidden="true"></span></summary><div class="product-main__accordion-body"><p>The 0.5 mm micro-infusion system creates controlled micro-channels so Cuprofuse® can be applied precisely and evenly.</p></div></details>
+      <details class="product-main__accordion"><summary><span>What's Included</span><span class="product-main__accordion-icon" aria-hidden="true"></span></summary><div class="product-main__accordion-body"><p>Cuprofuse® serum vials and matching 0.5 mm micro-infusion applicators.</p></div></details>
     </div>
   </div>
   <div class="product-main__info">
@@ -1566,11 +1608,6 @@ p:empty{display:none}
     <p class="product-main__description">A precision-led scalp-care system combining controlled 0.5 mm micro-infusion with Cuprofuse®, our concentrated serum led by GHK-Cu and a precisely configured combination of targeted scalp-care ingredients.</p>
     <ul class="product-main__points"><li>0.5 mm precision micro-infusion</li><li>GHK-Cu led formula</li><li>Powered by Cuprofuse®</li><li>Gold-plated micro-touchpoints</li><li>Supports fuller-looking hair</li><li>Targeted cosmetic formula</li></ul>
     <form class="product-main__form" action="#">
-      <div class="product-main__supplies">
-        <label class="supply-card is-selected"><input class="supply-card__input" type="radio" name="supply" checked><span class="supply-card__top"><span><span class="supply-card__title">1 month supply</span><span class="supply-card__subtitle">4 weekly treatments</span></span><span class="supply-card__prices"><s>$406</s><strong>$167.00</strong></span></span><ul class="supply-card__details"><li>4 × Cuprofuse® Serum Vials</li><li>4 × 0.5 mm Micro-Infusion Applicators</li></ul></label>
-        <label class="supply-card"><input class="supply-card__input" type="radio" name="supply"><span class="supply-card__top"><span><span class="supply-card__title">2 month supply</span><span class="supply-card__subtitle">8 weekly treatments</span></span><span class="supply-card__prices"><s>$406</s><strong>$167.00</strong></span></span><ul class="supply-card__details"><li>8 × Cuprofuse® Serum Vials</li><li>8 × 0.5 mm Micro-Infusion Applicators</li></ul></label>
-        <label class="supply-card"><input class="supply-card__input" type="radio" name="supply"><span class="supply-card__top"><span><span class="supply-card__title">3 month supply</span><span class="supply-card__subtitle">12 weekly treatments</span></span><span class="supply-card__prices"><s>$406</s><strong>$167.00</strong></span></span><ul class="supply-card__details"><li>12 × Cuprofuse® Serum Vials</li><li>12 × 0.5 mm Micro-Infusion Applicators</li></ul><span class="supply-card__badge">Best value</span></label>
-      </div>
       <button class="product-main__submit" type="button">Add to cart</button>
     </form>
   </div>
