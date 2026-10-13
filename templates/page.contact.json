@@ -11,14 +11,6 @@
   "sections": {
     "contact": {
       "type": "info-page",
-      "settings": {
-        "layout": "contact",
-        "eyebrow": "",
-        "heading": "We’re here to help.",
-        "intro": "<p>Whether you have a question about your Riavâte system, an existing order or your delivery, our support team is here to help.</p>",
-        "form_heading": "Send a message",
-        "note": "Our team aims to respond as soon as possible."
-      },
       "blocks": {
         "support": {
           "type": "panel",
@@ -31,9 +23,9 @@
         "orders": {
           "type": "panel",
           "settings": {
-            "kicker": "Order enquiries",
+            "kicker": "Stockist enquiries",
             "title": "Include your details",
-            "text": "<p>Please include your full name and order number so our team can assist you as quickly as possible.</p>"
+            "text": "<p>Please include your full name and company name so our team can assist you as quickly as possible.</p>"
           }
         },
         "general": {
@@ -45,8 +37,23 @@
           }
         }
       },
-      "block_order": ["support", "orders", "general"]
+      "block_order": [
+        "support",
+        "orders",
+        "general"
+      ],
+      "settings": {
+        "layout": "contact",
+        "eyebrow": "",
+        "heading": "We’re here to help.",
+        "updated": "",
+        "intro": "<p>Whether you have a question about your Riavâte system, an existing order or your delivery, our support team is here to help.</p>",
+        "form_heading": "Send a message",
+        "note": "Our team aims to respond as soon as possible."
+      }
     }
   },
-  "order": ["contact"]
+  "order": [
+    "contact"
+  ]
 }
