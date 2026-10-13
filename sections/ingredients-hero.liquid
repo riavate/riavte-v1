@@ -27,7 +27,7 @@
         src="{{ 'ingredients-hero.png' | asset_url }}"
         alt="{{ section.settings.image_alt | escape }}"
         width="806"
-        height="1400"
+        height="950"
       >
     {%- endif -%}
   </div>
@@ -95,8 +95,8 @@
   .ingredients-hero__stage {
     position: relative;
     z-index: 1;
-    max-width: 620px;
-    margin: 1.25rem auto 0;
+    max-width: 540px;
+    margin: 0.5rem auto 0;
   }
 
   .ingredients-hero__image {
@@ -163,7 +163,7 @@
       "type": "text",
       "id": "button_label",
       "label": "t:sections.ingredients_hero.settings.button_label",
-      "default": "Explore the formula +"
+      "default": "Explore the formula ↓"
     },
     {
       "type": "text",
