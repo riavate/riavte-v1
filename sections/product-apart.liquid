@@ -1,0 +1,196 @@
+<section class="product-apart">
+  <div class="product-apart__intro">
+    {%- if section.settings.heading != blank -%}
+      <h2 class="product-apart__heading">{{ section.settings.heading | escape }}</h2>
+    {%- endif -%}
+    {%- if section.settings.text != blank -%}
+      <p class="product-apart__text">{{ section.settings.text | escape }}</p>
+    {%- endif -%}
+  </div>
+
+  <div class="product-apart__grid">
+    {%- for block in section.blocks -%}
+      <article class="product-apart__card product-apart__card--{{ block.settings.tone }}" {{ block.shopify_attributes }}>
+        {%- if block.settings.title != blank -%}
+          <h3 class="product-apart__title">{{ block.settings.title | escape }}</h3>
+        {%- endif -%}
+        {%- if block.settings.items != blank -%}
+          <ul class="product-apart__list">
+            {%- assign rows = block.settings.items | newline_to_br | split: '<br />' -%}
+            {%- for row in rows -%}
+              {%- assign item = row | strip -%}
+              {%- if item != blank -%}
+                <li>{{ item | escape }}</li>
+              {%- endif -%}
+            {%- endfor -%}
+          </ul>
+        {%- endif -%}
+      </article>
+    {%- endfor -%}
+  </div>
+</section>
+
+{% stylesheet %}
+  .product-apart {
+    padding: 4.75rem 1.5rem 4.5rem;
+    background: #ffffff;
+    color: #161616;
+  }
+
+  .product-apart__intro {
+    width: min(640px, 100%);
+    margin: 0 auto 2.75rem;
+    text-align: center;
+  }
+
+  .product-apart__heading {
+    margin: 0;
+    color: #121a43;
+    font-size: clamp(1.75rem, 3vw, 2.35rem);
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    line-height: 1.15;
+    text-transform: uppercase;
+  }
+
+  .product-apart__text {
+    margin: 0.85rem 0 0;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 1.5;
+  }
+
+  .product-apart__grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem;
+    width: min(920px, 100%);
+    margin: 0 auto;
+    align-items: stretch;
+  }
+
+  .product-apart__card {
+    margin: 0;
+    padding: 2.1rem 1.7rem 1.35rem;
+    border-radius: 18px;
+  }
+
+  .product-apart__card--featured {
+    color: #ffffff;
+    background-image: linear-gradient(180deg, #1d4ed8 0%, #163aa8 46%, #0b1b52 100%);
+  }
+
+  .product-apart__card--plain {
+    color: #1a1a1a;
+    background: #ffffff;
+    border: 1.5px solid #c5d8f2;
+  }
+
+  .product-apart__title {
+    margin: 0;
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1.2;
+    text-align: center;
+  }
+
+  .product-apart__list {
+    margin: 1.15rem 0 0;
+    padding: 0;
+    list-style: none;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 1.4;
+  }
+
+  .product-apart__list li {
+    position: relative;
+    padding: 0.85rem 0 0.85rem 0.95rem;
+    border-bottom: 1px solid #e6e6e6;
+  }
+
+  .product-apart__card--featured .product-apart__list li {
+    border-bottom-color: rgba(255, 255, 255, 0.45);
+  }
+
+  .product-apart__list li:last-child {
+    border-bottom: 0;
+  }
+
+  .product-apart__list li::before {
+    position: absolute;
+    left: 0;
+    content: "•";
+  }
+
+  @media screen and (max-width: 749px) {
+    .product-apart {
+      padding: 3.25rem 1.25rem 3rem;
+    }
+
+    .product-apart__grid {
+      grid-template-columns: 1fr;
+    }
+
+    .product-apart__title {
+      font-size: 24px;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:sections.product_apart.name",
+  "tag": "section",
+  "enabled_on": { "templates": ["product"] },
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "t:sections.product_apart.settings.heading",
+      "default": "What sets us apart"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "t:sections.product_apart.settings.text",
+      "default": "Riavâte combines precision micro-infusion technology with Cuprofuse® Concentrated Serum, offering a considered approach to modern scalp care."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "column",
+      "name": "t:sections.product_apart.blocks.column.name",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "t:sections.product_apart.blocks.column.title",
+          "default": "Riavâte"
+        },
+        {
+          "type": "select",
+          "id": "tone",
+          "label": "t:sections.product_apart.blocks.column.tone",
+          "options": [
+            { "value": "featured", "label": "t:sections.product_apart.options.featured" },
+            { "value": "plain", "label": "t:sections.product_apart.options.plain" }
+          ],
+          "default": "featured"
+        },
+        {
+          "type": "textarea",
+          "id": "items",
+          "label": "t:sections.product_apart.blocks.column.items",
+          "info": "t:sections.product_apart.blocks.column.items_info",
+          "default": "Gold-plated 0.5 mm single-use heads"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 2,
+  "presets": [
+    { "name": "t:sections.product_apart.name" }
+  ]
+}
+{% endschema %}

@@ -640,6 +640,31 @@
       "blocks": { "column": { "name": "Column", "tone": "Style", "image": "Image", "fallback": "Placeholder", "title": "Title", "rows": "Rows", "rows_info": "One row per line, written as Label|Value." } },
       "options": { "featured": "Featured", "plain": "Plain" }
     },
+    "product_apart": {
+      "name": "What sets us apart",
+      "settings": { "heading": "Heading", "text": "Text" },
+      "blocks": {
+        "column": {
+          "name": "Column",
+          "title": "Title",
+          "tone": "Style",
+          "items": "Points",
+          "items_info": "One point per line."
+        }
+      },
+      "options": { "featured": "Riavâte", "plain": "Comparison" }
+    },
+    "product_promise": {
+      "name": "90-day promise",
+      "settings": {
+        "eyebrow": "Eyebrow",
+        "heading": "Heading",
+        "text": "Text",
+        "link_label": "Link label",
+        "link": "Link",
+        "note": "Note"
+      }
+    },
     "product_guarantee": {
       "name": "Guarantee",
       "settings": { "eyebrow": "Eyebrow", "heading": "Heading", "image": "Image" },

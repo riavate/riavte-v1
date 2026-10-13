@@ -272,6 +272,32 @@
         "button_link": ""
       }
     },
+    "apart": {
+      "type": "product-apart",
+      "blocks": {
+        "riavate": {
+          "type": "column",
+          "settings": {
+            "title": "Riavâte",
+            "tone": "featured",
+            "items": "Gold-plated 0.5 mm single-use heads\nGHK-Cu-led concentrated serum\nFragrance-free formula\nTargeted micro-infusion application\n5 ml sealed serum per application\nSimple at-home routine\nClear, science-led information"
+          }
+        },
+        "serums": {
+          "type": "column",
+          "settings": {
+            "title": "Most Surface Serums",
+            "tone": "plain",
+            "items": "Generally surface application\nFormulas vary\nSome contain fragrance\nApplied directly onto scalp\nQuantity varies\nApplication methods vary\nProduct information varies"
+          }
+        }
+      },
+      "block_order": ["riavate", "serums"],
+      "settings": {
+        "heading": "What sets us apart",
+        "text": "Riavâte combines precision micro-infusion technology with Cuprofuse® Concentrated Serum, offering a considered approach to modern scalp care."
+      }
+    },
     "results": {
       "type": "product-results",
       "blocks": {
@@ -390,39 +416,15 @@
       ],
       "settings": {}
     },
-    "guarantee": {
-      "type": "product-guarantee",
-      "blocks": {
-        "document": {
-          "type": "step",
-          "settings": {
-            "title": "01 — Document",
-            "text": "Take a clear photo before starting and track your progress."
-          }
-        },
-        "consistent": {
-          "type": "step",
-          "settings": {
-            "title": "02 — Stay consistent",
-            "text": "Follow the recommended Riavâte routine consistently."
-          }
-        },
-        "complete": {
-          "type": "step",
-          "settings": {
-            "title": "03 — Complete 120 days",
-            "text": "Give your routine time and compare your progress."
-          }
-        }
-      },
-      "block_order": [
-        "document",
-        "consistent",
-        "complete"
-      ],
+    "promise": {
+      "type": "product-promise",
       "settings": {
-        "eyebrow": "Give Riavâte 120 days.",
-        "heading": "If you’re not satisfied, we’ll refund you."
+        "eyebrow": "The Riavâte promise",
+        "heading": "Try Riavâte for 90 Days.",
+        "text": "We're confident in how it's made. If it's not for you, let us know within 90 days of your order and we'll refund you — simply and without fuss.",
+        "link_label": "See Guarantee Terms +",
+        "link": "/pages/returns",
+        "note": "This is in addition to your statutory rights."
       }
     },
     "reviews": {
@@ -490,10 +492,11 @@
     "trust",
     "infusion",
     "cuprofuse",
+    "apart",
     "results",
     "steps",
     "compare",
-    "guarantee",
+    "promise",
     "reviews"
   ]
 }
