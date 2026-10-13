@@ -440,11 +440,11 @@
 
   .product-main__title {
     margin: 0;
-    max-width: 21rem;
+    max-width: none;
     color: #121a43;
-    font-size: 34px;
+    font-size: 36px;
     font-weight: 700;
-    line-height: 1.15;
+    line-height: 1.12;
   }
 
   @supports (background-clip: text) or (-webkit-background-clip: text) {
@@ -557,8 +557,12 @@
 
   .supply-card:has(.supply-card__input:checked),
   .supply-card.is-selected:has(.supply-card__input:checked) {
-    border-color: #121a43;
-    box-shadow: inset 0 0 0 1px #121a43;
+    border-color: #c8c8c8;
+    box-shadow: none;
+  }
+
+  .product-main__info #subscribee-widget {
+    display: none !important;
   }
 
   .supply-card__input {
