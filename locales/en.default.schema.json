@@ -592,6 +592,8 @@
         "heading": "Heading",
         "text": "Description",
         "rating": "Rating",
+        "guarantee_title": "Guarantee title",
+        "guarantee_text": "Guarantee text",
         "ingredients_label": "Ingredients label",
         "ingredients_link": "Ingredients link",
         "certificate_label": "Certificate label",

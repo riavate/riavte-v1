@@ -21,7 +21,7 @@
         "point_2": {
           "type": "point",
           "settings": {
-            "text": "GHK-Cu led formula"
+            "text": "GHK-Cu Led Formula"
           }
         },
         "point_3": {
@@ -62,10 +62,43 @@
             "content": "<p>The 0.5 mm micro-infusion system creates controlled micro-channels so Cuprofuse® can be applied precisely and evenly across targeted areas of the scalp.</p>"
           }
         },
+        "supply_1": {
+          "type": "supply",
+          "settings": {
+            "title": "1 month supply",
+            "subtitle": "4 Weekly Treatments",
+            "details": "4 × Cuprofuse® Serum Vials\n4 × 0.5 mm Micro-Infusion Applicators",
+            "badge": "",
+            "compare_price": "$406",
+            "price": "$167.00"
+          }
+        },
+        "supply_2": {
+          "type": "supply",
+          "settings": {
+            "title": "2 month supply",
+            "subtitle": "8 Weekly Treatments",
+            "details": "8 × Cuprofuse® Serum Vials\n8 × 0.5 mm Micro-Infusion Applicators",
+            "badge": "",
+            "compare_price": "$406",
+            "price": "$167.00"
+          }
+        },
+        "supply_3": {
+          "type": "supply",
+          "settings": {
+            "title": "3 month supply",
+            "subtitle": "12 Weekly Treatments",
+            "details": "12 × Cuprofuse® Serum Vials\n12 × 0.5 mm Micro-Infusion Applicators",
+            "badge": "Best Value",
+            "compare_price": "$406",
+            "price": "$167.00"
+          }
+        },
         "included": {
           "type": "accordion",
           "settings": {
-            "title": "What's Included",
+            "title": "What's included",
             "content": "<p>Cuprofuse® serum vials and matching 0.5 mm micro-infusion applicators. The number of each depends on the supply you choose.</p>"
           }
         }
@@ -77,6 +110,9 @@
         "point_4",
         "point_5",
         "point_6",
+        "supply_1",
+        "supply_2",
+        "supply_3",
         "benefits",
         "works",
         "included"
@@ -85,6 +121,8 @@
         "heading": "The Precision\nMicro-Infusion System for Advanced Scalp Care",
         "text": "A precision-led scalp-care system combining controlled 0.5 mm micro-infusion with Cuprofuse™, our concentrated serum led by GHK-Cu and a precisely configured combination of targeted scalp-care ingredients.",
         "rating": "4.80 out of 5",
+        "guarantee_title": "90-Day Money-Back Guarantee",
+        "guarantee_text": "Shop with confidence",
         "ingredients_label": "Ingredients",
         "ingredients_link": "/pages/ingredients",
         "certificate_label": "Lab Certificate",
