@@ -30,19 +30,19 @@
         height="1400"
       >
     {%- endif -%}
-    {%- if section.settings.button_label != blank -%}
-      <a class="ingredients-hero__button" href="{{ section.settings.button_link | default: '#formula' }}">
-        {{ section.settings.button_label | escape }}
-      </a>
-    {%- endif -%}
   </div>
+  {%- if section.settings.button_label != blank -%}
+    <a class="ingredients-hero__button" href="{{ section.settings.button_link | default: '#formula' }}">
+      {{ section.settings.button_label | escape }}
+    </a>
+  {%- endif -%}
 </section>
 
 {% stylesheet %}
   .ingredients-hero {
     position: relative;
     overflow: hidden;
-    padding: 4.75rem 1.5rem 0;
+    padding: 4.75rem 1.5rem 4.25rem;
     text-align: center;
     color: #ffffff;
     background: linear-gradient(180deg, #000000 0%, #001433 42%, #00256e 72%, #0037ae 100%);
@@ -106,13 +106,13 @@
   }
 
   .ingredients-hero__button {
-    position: absolute;
-    left: 50%;
-    bottom: 16%;
+    position: relative;
+    z-index: 1;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     min-width: 280px;
+    margin-top: 1.5rem;
     padding: 0.72rem 1.6rem;
     border: 1px solid #ffffff;
     border-radius: 999px;
@@ -122,7 +122,6 @@
     letter-spacing: 0.08em;
     text-decoration: none;
     text-transform: uppercase;
-    transform: translateX(-50%);
   }
 
   @media screen and (max-width: 749px) {
@@ -133,7 +132,6 @@
     .ingredients-hero__button {
       min-width: 0;
       width: min(100%, 280px);
-      bottom: 8%;
       font-size: 13px;
     }
   }
@@ -165,7 +163,7 @@
       "type": "text",
       "id": "button_label",
       "label": "t:sections.ingredients_hero.settings.button_label",
-      "default": "Explore the formula ↓"
+      "default": "Explore the formula +"
     },
     {
       "type": "text",

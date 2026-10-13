@@ -8,6 +8,11 @@
   {%- if section.settings.text != blank -%}
     <div class="ingredients-system__text rte">{{ section.settings.text }}</div>
   {%- endif -%}
+  {%- if section.settings.button_label != blank -%}
+    <a class="ingredients-system__button" href="{{ section.settings.button_link | default: '/products/the-kit' }}">
+      {{ section.settings.button_label | escape }}
+    </a>
+  {%- endif -%}
 </section>
 
 {% stylesheet %}
@@ -27,7 +32,7 @@
 
   .ingredients-system__heading {
     margin: 0 auto;
-    max-width: 16ch;
+    max-width: 18em;
     background: linear-gradient(90deg, #121a43, #2d42a9);
     -webkit-background-clip: text;
     background-clip: text;
@@ -53,6 +58,22 @@
   .ingredients-system__text p:first-child {
     margin-bottom: 0.85rem;
   }
+
+  .ingredients-system__button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1.75rem;
+    padding: 0.75rem 1.55rem;
+    border: 1.5px solid #2d42a9;
+    border-radius: 999px;
+    color: #2d42a9;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
 {% endstylesheet %}
 
 {% schema %}
@@ -75,7 +96,19 @@
       "type": "richtext",
       "id": "text",
       "label": "t:sections.ingredients_system.settings.text",
-      "default": "<p>Cuprofuse® isn't defined by one ingredient alone.</p><p>GHK-Cu leads the formula, supported by peptides, targeted cosmetic actives, botanical extracts, conditioning ingredients and carefully selected formulation components.</p><p>Each has a different role. Together, they create the complete Cuprofuse® formula.</p>"
+      "default": "<p>Cuprofuse® is more than a single hero peptide. It brings together a carefully selected combination of cosmetic actives, botanical extracts and conditioning ingredients, led by GHK-Cu.</p><p>Purposeful formulation. Precision scalp care.</p>"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "t:sections.ingredients_system.settings.button_label",
+      "default": "Discover the micro-infusion kit +"
+    },
+    {
+      "type": "text",
+      "id": "button_link",
+      "label": "t:sections.ingredients_system.settings.button_link",
+      "default": "/products/the-kit"
     }
   ],
   "presets": [
