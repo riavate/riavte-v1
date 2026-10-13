@@ -1,6 +1,6 @@
 <section class="why-surface">
   <div class="why-surface__inner">
-    <header class="why-surface__header">
+    <div class="why-surface__header">
       {%- if section.settings.eyebrow != blank -%}
         <p class="why-surface__eyebrow">{{ section.settings.eyebrow | escape }}</p>
       {%- endif -%}
@@ -10,7 +10,7 @@
       {%- if section.settings.text != blank -%}
         <p class="why-surface__intro">{{ section.settings.text | escape }}</p>
       {%- endif -%}
-    </header>
+    </div>
 
     <div class="why-surface__grid">
       {%- for block in section.blocks -%}
@@ -63,14 +63,14 @@
     </div>
 
     {%- if section.settings.footer_heading != blank or section.settings.footer_text != blank -%}
-      <footer class="why-surface__footer">
+      <div class="why-surface__footer">
         {%- if section.settings.footer_heading != blank -%}
           <p class="why-surface__footer-heading">{{ section.settings.footer_heading | escape }}</p>
         {%- endif -%}
         {%- if section.settings.footer_text != blank -%}
           <p class="why-surface__footer-text">{{ section.settings.footer_text | escape }}</p>
         {%- endif -%}
-      </footer>
+      </div>
     {%- endif -%}
   </div>
 </section>
