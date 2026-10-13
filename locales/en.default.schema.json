@@ -213,6 +213,32 @@
         "bottom_right": "Bottom right"
       }
     },
+    "why_surface": {
+      "name": "Why stop at the surface",
+      "settings": {
+        "eyebrow": "Eyebrow",
+        "heading": "Heading",
+        "text": "Introduction",
+        "footer_heading": "Footer heading",
+        "footer_text": "Footer text"
+      },
+      "blocks": {
+        "approach": {
+          "name": "Approach",
+          "image": "Image",
+          "image_alt": "Image alt text",
+          "fallback": "Placeholder image",
+          "title": "Title",
+          "kicker": "Label",
+          "text": "Text",
+          "note": "Closing line"
+        }
+      },
+      "options": {
+        "surface": "Surface application",
+        "infusion": "Micro-infusion"
+      }
+    },
     "media_with_text": {
       "name": "Media with text",
       "settings": {

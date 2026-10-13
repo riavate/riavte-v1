@@ -1,0 +1,305 @@
+<section class="why-surface">
+  <div class="why-surface__inner">
+    <header class="why-surface__header">
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="why-surface__eyebrow">{{ section.settings.eyebrow | escape }}</p>
+      {%- endif -%}
+      {%- if section.settings.heading != blank -%}
+        <h2 class="why-surface__heading">{{ section.settings.heading | escape }}</h2>
+      {%- endif -%}
+      {%- if section.settings.text != blank -%}
+        <p class="why-surface__intro">{{ section.settings.text | escape }}</p>
+      {%- endif -%}
+    </header>
+
+    <div class="why-surface__grid">
+      {%- for block in section.blocks -%}
+        <article class="why-surface__card" {{ block.shopify_attributes }}>
+          <figure class="why-surface__media">
+            {%- if block.settings.image != blank -%}
+              {{
+                block.settings.image
+                | image_url: width: 1400
+                | image_tag:
+                  widths: '500, 800, 1100, 1400',
+                  sizes: '(min-width: 750px) 40vw, 90vw',
+                  alt: block.settings.image_alt,
+                  loading: 'lazy'
+              }}
+            {%- else -%}
+              {%- if block.settings.fallback == 'infusion' -%}
+                <img
+                  src="{{ 'micro-infusion.jpg' | asset_url }}"
+                  alt="{{ block.settings.image_alt | escape }}"
+                  width="1024"
+                  height="613"
+                  loading="lazy"
+                >
+              {%- else -%}
+                <img
+                  src="{{ 'surface-application.jpg' | asset_url }}"
+                  alt="{{ block.settings.image_alt | escape }}"
+                  width="1024"
+                  height="613"
+                  loading="lazy"
+                >
+              {%- endif -%}
+            {%- endif -%}
+          </figure>
+          {%- if block.settings.title != blank -%}
+            <h3 class="why-surface__title">{{ block.settings.title | escape }}</h3>
+          {%- endif -%}
+          {%- if block.settings.kicker != blank -%}
+            <p class="why-surface__kicker">{{ block.settings.kicker | escape }}</p>
+          {%- endif -%}
+          {%- if block.settings.text != blank -%}
+            <p class="why-surface__text">{{ block.settings.text | escape | newline_to_br }}</p>
+          {%- endif -%}
+          {%- if block.settings.note != blank -%}
+            <p class="why-surface__note">{{ block.settings.note | escape }}</p>
+          {%- endif -%}
+        </article>
+      {%- endfor -%}
+    </div>
+
+    {%- if section.settings.footer_heading != blank or section.settings.footer_text != blank -%}
+      <footer class="why-surface__footer">
+        {%- if section.settings.footer_heading != blank -%}
+          <p class="why-surface__footer-heading">{{ section.settings.footer_heading | escape }}</p>
+        {%- endif -%}
+        {%- if section.settings.footer_text != blank -%}
+          <p class="why-surface__footer-text">{{ section.settings.footer_text | escape }}</p>
+        {%- endif -%}
+      </footer>
+    {%- endif -%}
+  </div>
+</section>
+
+{% stylesheet %}
+  .why-surface {
+    padding: 4.75rem 1.5rem 4.5rem;
+    color: #ffffff;
+    background-image: linear-gradient(90deg, #000000 0%, #07122e 40%, #0c2f86 74%, #1a56d6 100%);
+  }
+
+  .why-surface__inner {
+    width: min(1080px, 100%);
+    margin: 0 auto;
+  }
+
+  .why-surface__header {
+    max-width: 640px;
+    margin: 0 auto 2.5rem;
+    text-align: center;
+  }
+
+  .why-surface__eyebrow {
+    margin: 0;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 3.2px;
+    text-transform: uppercase;
+  }
+
+  .why-surface__heading {
+    margin: 0.7rem 0 0;
+    font-size: clamp(1.85rem, 4vw, 2.75rem);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+  }
+
+  .why-surface__intro {
+    margin: 0.9rem auto 0;
+    max-width: 34rem;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 1.5;
+  }
+
+  .why-surface__grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2.25rem 2rem;
+    align-items: start;
+  }
+
+  .why-surface__media {
+    margin: 0 0 1.15rem;
+    overflow: hidden;
+    border-radius: 18px;
+    line-height: 0;
+  }
+
+  .why-surface__media img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .why-surface__title {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    line-height: 1.3;
+    text-transform: uppercase;
+  }
+
+  .why-surface__kicker {
+    margin: 0.4rem 0 0;
+    font-size: 12px;
+    font-style: italic;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    line-height: 1.4;
+    text-transform: uppercase;
+  }
+
+  .why-surface__text {
+    margin: 0.75rem 0 0;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.55;
+  }
+
+  .why-surface__note {
+    margin: 0.85rem 0 0;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.45;
+  }
+
+  .why-surface__footer {
+    margin-top: 2.75rem;
+    text-align: center;
+  }
+
+  .why-surface__footer-heading {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .why-surface__footer-text {
+    margin: 0.45rem 0 0;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.5;
+  }
+
+  @media screen and (max-width: 749px) {
+    .why-surface {
+      padding: 3.25rem 1.25rem 3rem;
+    }
+
+    .why-surface__grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .why-surface__heading {
+      font-size: 1.75rem;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:sections.why_surface.name",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "t:sections.why_surface.settings.eyebrow",
+      "default": "Why micro-infusion?"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "t:sections.why_surface.settings.heading",
+      "default": "Why stop at the surface?"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "t:sections.why_surface.settings.text",
+      "default": "Discover how Riavâte's 0.5 mm micro-infusion technology takes a more precise approach to scalp application."
+    },
+    {
+      "type": "text",
+      "id": "footer_heading",
+      "label": "t:sections.why_surface.settings.footer_heading",
+      "default": "Precision makes the difference."
+    },
+    {
+      "type": "textarea",
+      "id": "footer_text",
+      "label": "t:sections.why_surface.settings.footer_text",
+      "default": "Two approaches to scalp care. One designed with precision at its core."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "approach",
+      "name": "t:sections.why_surface.blocks.approach.name",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "t:sections.why_surface.blocks.approach.image"
+        },
+        {
+          "type": "text",
+          "id": "image_alt",
+          "label": "t:sections.why_surface.blocks.approach.image_alt",
+          "default": "Scalp application comparison"
+        },
+        {
+          "type": "select",
+          "id": "fallback",
+          "label": "t:sections.why_surface.blocks.approach.fallback",
+          "options": [
+            { "value": "surface", "label": "t:sections.why_surface.options.surface" },
+            { "value": "infusion", "label": "t:sections.why_surface.options.infusion" }
+          ],
+          "default": "surface"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "t:sections.why_surface.blocks.approach.title",
+          "default": "01 — Surface application"
+        },
+        {
+          "type": "text",
+          "id": "kicker",
+          "label": "t:sections.why_surface.blocks.approach.kicker",
+          "default": "The conventional approach"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "t:sections.why_surface.blocks.approach.text",
+          "default": "Traditional scalp serums are applied directly onto the scalp surface, where they spread across the skin before being absorbed or drying."
+        },
+        {
+          "type": "text",
+          "id": "note",
+          "label": "t:sections.why_surface.blocks.approach.note",
+          "default": "Surface application. No controlled micro-channels."
+        }
+      ]
+    }
+  ],
+  "max_blocks": 2,
+  "presets": [
+    {
+      "name": "t:sections.why_surface.name"
+    }
+  ]
+}
+{% endschema %}
