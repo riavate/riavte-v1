@@ -44,7 +44,7 @@
     {%- if section.settings.button_label != blank -%}
       <p class="about-reviews__more">
         <a class="about-reviews__button" href="{{ section.settings.button_link | default: '#' }}">
-          {{ section.settings.button_label | escape }}
+          <span class="about-reviews__button-label">{{ section.settings.button_label | escape }}</span>
         </a>
       </p>
     {%- endif -%}
@@ -177,13 +177,19 @@
     border: 1px solid transparent;
     border-radius: 22px;
     background:
-      linear-gradient(90deg, #121a43 0%, #2d42a9 100%) padding-box,
+      linear-gradient(#ffffff, #ffffff) padding-box,
       linear-gradient(90deg, #121a43 0%, #2d42a9 100%) border-box;
-    color: #ffffff;
+    text-decoration: none;
+  }
+
+  .about-reviews__button-label {
+    background-image: linear-gradient(90deg, #121a43 0%, #2d42a9 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
     font-size: 14px;
     font-weight: 700;
     line-height: 1;
-    text-decoration: none;
   }
 
   @media screen and (max-width: 989px) {
