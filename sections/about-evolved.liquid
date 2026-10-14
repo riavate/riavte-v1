@@ -19,7 +19,16 @@
       <p class="about-evolved__eyebrow">{{ section.settings.eyebrow | escape }}</p>
     {%- endif -%}
     {%- if section.settings.heading != blank -%}
-      <h2 class="about-evolved__heading">{{ section.settings.heading | escape | replace: ' only the ', ' only<br>the ' }}</h2>
+      {%- assign heading_text = section.settings.heading | strip -%}
+      {%- if heading_text contains ' only the ' -%}
+        {%- assign heading_parts = heading_text | split: ' only the ' -%}
+        <h2 class="about-evolved__heading">
+          <span class="about-evolved__heading-line">{{ heading_parts[0] | escape }} only</span>
+          <span class="about-evolved__heading-line">the {{ heading_parts[1] | escape }}</span>
+        </h2>
+      {%- else -%}
+        <h2 class="about-evolved__heading">{{ heading_text | escape }}</h2>
+      {%- endif -%}
     {%- endif -%}
     {%- if section.settings.text != blank -%}
       <div class="about-evolved__text rte">{{ section.settings.text }}</div>
@@ -89,6 +98,11 @@
     letter-spacing: 0.04em;
     text-transform: uppercase;
     text-decoration: none;
+  }
+
+  .about-evolved__heading-line {
+    display: block;
+    white-space: nowrap;
   }
 
   .about-evolved__text {
