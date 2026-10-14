@@ -165,6 +165,7 @@
         "surface_card": {
           "type": "approach",
           "settings": {
+            "image": "shopify://shop_images/Rectangle_74.png",
             "image_alt": "Serum applied on the scalp surface",
             "fallback": "surface",
             "title": "01 — Surface application",
@@ -176,6 +177,7 @@
         "infusion_card": {
           "type": "approach",
           "settings": {
+            "image": "shopify://shop_images/Rectangle_128.png",
             "image_alt": "Riavâte 0.5 mm micro-infusion below the scalp surface",
             "fallback": "infusion",
             "title": "02 — Micro-infusion",
@@ -255,6 +257,7 @@
           "type": "feature",
           "settings": {
             "icon": "scalp",
+            "image": "shopify://shop_images/2e496695e42c76f804f846353125b684a3604c72.png",
             "title": "SCALP CONDITION",
             "text": "Helps support a healthy-looking, well-conditioned scalp."
           }
@@ -263,6 +266,7 @@
           "type": "feature",
           "settings": {
             "icon": "fuller",
+            "image": "shopify://shop_images/64faaa3c8a2c3e3276fcb30faa470cc37811c18e.png",
             "title": "FULLER APPEARANCE",
             "text": "Supports the appearance of fuller and healthier-looking hair."
           }
@@ -271,6 +275,7 @@
           "type": "feature",
           "settings": {
             "icon": "molecule",
+            "image": "shopify://shop_images/802ab36265a115ea5e8bf6e2ae6a939af285baf5.png",
             "title": "PEPTIDE POWER",
             "text": "A copper peptide at the heart of Riavâte’s targeted cosmetic formula."
           }
@@ -279,6 +284,7 @@
           "type": "feature",
           "settings": {
             "icon": "apply",
+            "image": "shopify://shop_images/436b571fca90187f4f8577ede376e3bb65dde9c0.png",
             "title": "TARGETED FORMULA",
             "text": "Combined with selected actives for a considered approach to scalp care."
           }
@@ -324,6 +330,7 @@
         "caption"
       ],
       "settings": {
+        "image": "shopify://shop_images/bafddad28c9577d358ef2d23d09dbb52e30dc5f2.png",
         "fallback_image": "scalp",
         "image_alt": "Micro-infusion applied to the scalp surface",
         "image_position": "right",
@@ -417,6 +424,7 @@
         "button"
       ],
       "settings": {
+        "image": "shopify://shop_images/Rectangle63.png",
         "fallback_image": "application",
         "image_alt": "Applying the Riavâte micro-infusion device",
         "image_position": "left",
@@ -430,35 +438,51 @@
       "blocks": {
         "t1": {
           "type": "thumb",
-          "settings": {}
+          "settings": {
+            "image": "shopify://shop_images/Rectangle63.png"
+          }
         },
         "t2": {
           "type": "thumb",
-          "settings": {}
+          "settings": {
+            "image": "shopify://shop_images/Rectangle63.png"
+          }
         },
         "t3": {
           "type": "thumb",
-          "settings": {}
+          "settings": {
+            "image": "shopify://shop_images/Rectangle63.png"
+          }
         },
         "t4": {
           "type": "thumb",
-          "settings": {}
+          "settings": {
+            "image": "shopify://shop_images/Rectangle63.png"
+          }
         },
         "t5": {
           "type": "thumb",
-          "settings": {}
+          "settings": {
+            "image": "shopify://shop_images/Rectangle63.png"
+          }
         },
         "t6": {
           "type": "thumb",
-          "settings": {}
+          "settings": {
+            "image": "shopify://shop_images/Rectangle63.png"
+          }
         },
         "t7": {
           "type": "thumb",
-          "settings": {}
+          "settings": {
+            "image": "shopify://shop_images/Rectangle63.png"
+          }
         },
-        "t8": {
+        "thumb_n9xRLR": {
           "type": "thumb",
-          "settings": {}
+          "settings": {
+            "image": "shopify://shop_images/Rectangle63.png"
+          }
         }
       },
       "block_order": [
@@ -469,7 +493,7 @@
         "t5",
         "t6",
         "t7",
-        "t8"
+        "thumb_n9xRLR"
       ],
       "settings": {
         "heading": "Customer Reviews",

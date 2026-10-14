@@ -1,0 +1,540 @@
+<section class="riav-how">
+  <div class="riav-how__inner">
+
+    <!-- LEFT: IMAGE COLLAGE -->
+    <div class="riav-how__visual">
+      <div class="riav-how__collage">
+
+        <div class="riav-how__tile">
+          {%- if section.settings.image_1 != blank -%}
+            {{
+              section.settings.image_1
+              | image_url: width: 800
+              | image_tag:
+                widths: '320, 480, 800',
+                sizes: '(min-width: 990px) 19vw, 46vw',
+                alt: section.settings.image_1_alt,
+                class: 'riav-how__image'
+            }}
+          {%- else -%}
+            {{ 'product-1' | placeholder_svg_tag: 'riav-how__placeholder' }}
+          {%- endif -%}
+        </div>
+
+        <div class="riav-how__tile">
+          {%- if section.settings.image_2 != blank -%}
+            {{
+              section.settings.image_2
+              | image_url: width: 800
+              | image_tag:
+                widths: '320, 480, 800',
+                sizes: '(min-width: 990px) 19vw, 46vw',
+                alt: section.settings.image_2_alt,
+                class: 'riav-how__image'
+            }}
+          {%- else -%}
+            {{ 'product-2' | placeholder_svg_tag: 'riav-how__placeholder' }}
+          {%- endif -%}
+        </div>
+
+        <div class="riav-how__tile">
+          {%- if section.settings.image_3 != blank -%}
+            {{
+              section.settings.image_3
+              | image_url: width: 800
+              | image_tag:
+                widths: '320, 480, 800',
+                sizes: '(min-width: 990px) 19vw, 46vw',
+                alt: section.settings.image_3_alt,
+                class: 'riav-how__image'
+            }}
+          {%- else -%}
+            {{ 'product-3' | placeholder_svg_tag: 'riav-how__placeholder' }}
+          {%- endif -%}
+        </div>
+
+        <div class="riav-how__tile">
+          {%- if section.settings.image_4 != blank -%}
+            {{
+              section.settings.image_4
+              | image_url: width: 800
+              | image_tag:
+                widths: '320, 480, 800',
+                sizes: '(min-width: 990px) 19vw, 46vw',
+                alt: section.settings.image_4_alt,
+                class: 'riav-how__image'
+            }}
+          {%- else -%}
+            {{ 'product-4' | placeholder_svg_tag: 'riav-how__placeholder' }}
+          {%- endif -%}
+        </div>
+
+      </div>
+    </div>
+
+    <!-- RIGHT: CONTENT -->
+    <div class="riav-how__content">
+
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="riav-how__eyebrow">
+          {{ section.settings.eyebrow | escape }}
+        </p>
+      {%- endif -%}
+
+      {%- if section.settings.heading != blank -%}
+        <h2 class="riav-how__heading">
+          {{ section.settings.heading | escape }}
+        </h2>
+      {%- endif -%}
+
+      {%- if section.settings.description != blank -%}
+        <div class="riav-how__description rte">
+          {{ section.settings.description }}
+        </div>
+      {%- endif -%}
+
+      <div class="riav-how__steps">
+
+        {%- for i in (1..4) -%}
+          {%- assign title_key = 'step_' | append: i | append: '_title' -%}
+          {%- assign text_key = 'step_' | append: i | append: '_text' -%}
+
+          {%- assign step_title = section.settings[title_key] -%}
+          {%- assign step_text = section.settings[text_key] -%}
+
+          {%- if step_title != blank or step_text != blank -%}
+            <div class="riav-how__step">
+              {%- if step_title != blank -%}
+                <h3 class="riav-how__step-title">
+                  <span class="riav-how__step-number">
+                    0{{ i }}
+                  </span>
+                  <span> — {{ step_title | escape }}</span>
+                </h3>
+              {%- endif -%}
+
+              {%- if step_text != blank -%}
+                <div class="riav-how__step-text">
+                  {{ step_text | escape | newline_to_br }}
+                </div>
+              {%- endif -%}
+            </div>
+          {%- endif -%}
+        {%- endfor -%}
+
+      </div>
+
+      {%- if section.settings.button_label != blank -%}
+        <a
+          class="riav-how__button"
+          {% if section.settings.button_link != blank %}
+            href="{{ section.settings.button_link }}"
+          {% else %}
+            href="#"
+            aria-disabled="true"
+          {% endif %}
+        >
+          <span>{{ section.settings.button_label | escape }}</span>
+          <span aria-hidden="true">→</span>
+        </a>
+      {%- endif -%}
+
+    </div>
+  </div>
+</section>
+
+{% stylesheet %}
+  .riav-how {
+    background: #ffffff;
+    color: #171d49;
+    width: 100%;
+  }
+
+  .riav-how__inner {
+    width: 100%;
+    max-width: 1250px;
+    margin: 0 auto;
+    padding: 64px 32px;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: clamp(40px, 5vw, 80px);
+    align-items: center;
+    box-sizing: border-box;
+  }
+
+  .riav-how__visual {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .riav-how__collage {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: repeat(2, minmax(0, 1fr));
+    gap: 2px;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    border: 4px solid #159cff;
+    border-radius: 21px;
+    box-sizing: border-box;
+    background: #ffffff;
+  }
+
+  .riav-how__tile {
+    min-width: 0;
+    min-height: 0;
+    overflow: hidden;
+    background: #edf2fa;
+  }
+
+  .riav-how__image,
+  .riav-how__placeholder {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .riav-how__placeholder {
+    background: #edf2fa;
+    fill: #b8c8e1;
+  }
+
+  .riav-how__content {
+    min-width: 0;
+    width: 100%;
+  }
+
+  .riav-how__eyebrow {
+    margin: 0 0 16px;
+    font-size: 14px;
+    line-height: 1.4;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #171d49;
+  }
+
+  .riav-how__heading {
+    margin: 0;
+    max-width: 600px;
+    font-size: clamp(28px, 2.4vw, 36px);
+    line-height: 1.2;
+    font-weight: 750;
+    letter-spacing: -0.035em;
+    color: #20285d;
+  }
+
+  .riav-how__description {
+    margin-top: 12px;
+    max-width: 560px;
+    font-size: 15px;
+    line-height: 1.35;
+    font-weight: 400;
+    color: #111111;
+  }
+
+  .riav-how__description p {
+    margin: 0;
+  }
+
+  .riav-how__steps {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    margin-top: 20px;
+  }
+
+  .riav-how__step {
+    margin: 0;
+  }
+
+  .riav-how__step-title {
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.4;
+    font-weight: 500;
+    letter-spacing: 0.005em;
+    text-transform: uppercase;
+    color: #111111;
+  }
+
+  .riav-how__step-number {
+    font-variant-numeric: tabular-nums;
+  }
+
+  .riav-how__step-text {
+    margin-top: 1px;
+    font-size: 15px;
+    line-height: 1.35;
+    font-weight: 400;
+    color: #111111;
+  }
+
+  .riav-how__button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    min-height: 48px;
+    margin-top: 36px;
+    padding: 0 30px;
+    border-radius: 16px;
+    background: linear-gradient(100deg, #171d49 0%, #3547bd 100%);
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 15px;
+    line-height: 1.2;
+    font-weight: 700;
+    text-align: center;
+    transition: opacity 0.2s ease;
+    box-sizing: border-box;
+  }
+
+  .riav-how__button:hover {
+    opacity: 0.88;
+  }
+
+  .riav-how__button[aria-disabled="true"] {
+    cursor: default;
+  }
+
+  @media screen and (min-width: 1400px) {
+    .riav-how__inner {
+      padding-top: 76px;
+      padding-bottom: 76px;
+    }
+  }
+
+  @media screen and (max-width: 989px) {
+    .riav-how__inner {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 32px;
+      padding: 48px 24px;
+    }
+
+    .riav-how__visual {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .riav-how__content {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .riav-how__heading {
+      font-size: clamp(28px, 5vw, 34px);
+    }
+
+    .riav-how__steps {
+      gap: 18px;
+    }
+
+    .riav-how__button {
+      margin-top: 28px;
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    .riav-how__inner {
+      padding: 36px 18px;
+      gap: 28px;
+    }
+
+    .riav-how__collage {
+      border-width: 3px;
+      border-radius: 15px;
+    }
+
+    .riav-how__eyebrow {
+      font-size: 12px;
+      margin-bottom: 12px;
+    }
+
+    .riav-how__heading {
+      font-size: 28px;
+    }
+
+    .riav-how__description,
+    .riav-how__step-title,
+    .riav-how__step-text {
+      font-size: 14px;
+    }
+
+    .riav-how__steps {
+      gap: 16px;
+    }
+
+    .riav-how__button {
+      width: 100%;
+      min-height: 48px;
+      padding: 0 18px;
+      font-size: 14px;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "RIAVATE How It Works",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section content"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Small heading",
+      "default": "HOW IT WORKS"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Main heading",
+      "default": "Precision in Every Step."
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description",
+      "default": "<p>Advanced 0.5 mm micro-infusion meets Cuprofuse® Concentrated Serum for targeted scalp care.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Image collage"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_1",
+      "label": "Image 1 - Top left"
+    },
+    {
+      "type": "text",
+      "id": "image_1_alt",
+      "label": "Image 1 alt text",
+      "default": "Riavâte micro-infusion device"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_2",
+      "label": "Image 2 - Top right"
+    },
+    {
+      "type": "text",
+      "id": "image_2_alt",
+      "label": "Image 2 alt text",
+      "default": "Blue serum dropper"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_3",
+      "label": "Image 3 - Bottom left"
+    },
+    {
+      "type": "text",
+      "id": "image_3_alt",
+      "label": "Image 3 alt text",
+      "default": "Peptide serum molecular imagery"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_4",
+      "label": "Image 4 - Bottom right"
+    },
+    {
+      "type": "text",
+      "id": "image_4_alt",
+      "label": "Image 4 alt text",
+      "default": "Healthy looking hair and scalp"
+    },
+    {
+      "type": "header",
+      "content": "Step 1"
+    },
+    {
+      "type": "text",
+      "id": "step_1_title",
+      "label": "Step title",
+      "default": "MICRO-INFUSE"
+    },
+    {
+      "type": "textarea",
+      "id": "step_1_text",
+      "label": "Step description",
+      "default": "Creates precise micro-channels at the scalp surface."
+    },
+    {
+      "type": "header",
+      "content": "Step 2"
+    },
+    {
+      "type": "text",
+      "id": "step_2_title",
+      "label": "Step title",
+      "default": "DELIVER"
+    },
+    {
+      "type": "textarea",
+      "id": "step_2_text",
+      "label": "Step description",
+      "default": "Applies GHK-Cu-led Cuprofuse® Concentrated Serum."
+    },
+    {
+      "type": "header",
+      "content": "Step 3"
+    },
+    {
+      "type": "text",
+      "id": "step_3_title",
+      "label": "Step title",
+      "default": "SUPPORT"
+    },
+    {
+      "type": "textarea",
+      "id": "step_3_text",
+      "label": "Step description",
+      "default": "Supports a healthier-looking scalp."
+    },
+    {
+      "type": "header",
+      "content": "Step 4"
+    },
+    {
+      "type": "text",
+      "id": "step_4_title",
+      "label": "Step title",
+      "default": "STRENGTHEN"
+    },
+    {
+      "type": "textarea",
+      "id": "step_4_text",
+      "label": "Step description",
+      "default": "Supports stronger, fuller-looking hair."
+    },
+    {
+      "type": "header",
+      "content": "Button"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button text",
+      "default": "EXPLORE THE SCIENCE"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "RIAVATE How It Works"
+    }
+  ]
+}
+{% endschema %}

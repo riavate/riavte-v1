@@ -50,9 +50,19 @@
           }
         }
       },
-      "block_order": ["home", "about", "kit", "science", "ingredients"],
-      "settings": {}
+      "block_order": [
+        "home",
+        "about",
+        "kit",
+        "science",
+        "ingredients"
+      ],
+      "settings": {
+        "menu": ""
+      }
     }
   },
-  "order": ["header"]
+  "order": [
+    "header"
+  ]
 }

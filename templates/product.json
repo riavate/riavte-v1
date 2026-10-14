@@ -48,20 +48,6 @@
             "text": "Targeted cosmetic formula"
           }
         },
-        "benefits": {
-          "type": "accordion",
-          "settings": {
-            "title": "Key Benefits",
-            "content": "<p>Hair appears stronger and more resilient with continued use. Visible improvements in the appearance of density around the hairline, temples, and crown.</p>"
-          }
-        },
-        "works": {
-          "type": "accordion",
-          "settings": {
-            "title": "How It Works",
-            "content": "<p>The 0.5 mm micro-infusion system creates controlled micro-channels so Cuprofuse® can be applied precisely and evenly across targeted areas of the scalp.</p>"
-          }
-        },
         "supply_1": {
           "type": "supply",
           "settings": {
@@ -93,6 +79,20 @@
             "badge": "Best Value",
             "compare_price": "$406",
             "price": "$167.00"
+          }
+        },
+        "benefits": {
+          "type": "accordion",
+          "settings": {
+            "title": "Key Benefits",
+            "content": "<p>Hair appears stronger and more resilient with continued use. Visible improvements in the appearance of density around the hairline, temples, and crown.</p>"
+          }
+        },
+        "works": {
+          "type": "accordion",
+          "settings": {
+            "title": "How It Works",
+            "content": "<p>The 0.5 mm micro-infusion system creates controlled micro-channels so Cuprofuse® can be applied precisely and evenly across targeted areas of the scalp.</p>"
           }
         },
         "included": {
@@ -269,7 +269,7 @@
         "subheading": "Our concentrated serum",
         "text": "More than a single hero ingredient. Cuprofuse® brings GHK-Cu together with a precisely configured combination of selected molecules and scalp-care ingredients in one concentrated formula.",
         "button_label": "Discover Cuprofuse® →",
-        "button_link": ""
+        "button_link": "shopify://pages/science"
       }
     },
     "apart": {
@@ -292,7 +292,10 @@
           }
         }
       },
-      "block_order": ["riavate", "serums"],
+      "block_order": [
+        "riavate",
+        "serums"
+      ],
       "settings": {
         "heading": "What sets us apart",
         "text": "Riavâte combines precision micro-infusion technology with Cuprofuse® Concentrated Serum, offering a considered approach to modern scalp care."
@@ -304,7 +307,9 @@
         "shedding": {
           "type": "result",
           "settings": {
+            "before": "shopify://shop_images/Rectangle_123.png",
             "before_asset": "product-result-2.jpg",
+            "after": "shopify://shop_images/Rectangle_127.png",
             "after_asset": "product-result-2.jpg",
             "title": "Reduced shedding",
             "text": "Hair appears stronger and more resilient with continued use."
@@ -313,7 +318,9 @@
         "hairline": {
           "type": "result",
           "settings": {
+            "before": "shopify://shop_images/Rectangle_122.png",
             "before_asset": "product-result-1.jpg",
+            "after": "shopify://shop_images/Rectangle_124.png",
             "after_asset": "product-result-1.jpg",
             "title": "Fuller-looking hairline",
             "text": "Visible improvements in the appearance of density around the hairline and temples."
@@ -322,7 +329,9 @@
         "crown": {
           "type": "result",
           "settings": {
+            "before": "shopify://shop_images/Rectangle_125.png",
             "before_asset": "product-result-3.jpg",
+            "after": "shopify://shop_images/Rectangle_126.png",
             "after_asset": "product-result-3.jpg",
             "title": "Improved crown coverage",
             "text": "Hair appears fuller, helping reduce the appearance of visible scalp around the crown."
