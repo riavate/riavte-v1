@@ -1,10 +1,15 @@
 {%- liquid
-  assign heading_html = section.settings.heading | escape
-  if section.settings.italic_word != blank
-    assign italic = section.settings.italic_word | escape
-    assign needle = ' ' | append: italic | append: '.'
-    assign wrapped = '<br><em>' | append: italic | append: '.</em>'
-    assign heading_html = heading_html | replace: needle, wrapped
+  assign heading_raw = section.settings.heading | escape
+  assign italic = section.settings.italic_word | escape
+  assign heading_lead = heading_raw
+  if italic != blank
+    assign needle_period = ' ' | append: italic | append: '.'
+    assign needle_plain = ' ' | append: italic
+    if heading_raw contains needle_period
+      assign heading_lead = heading_raw | remove: needle_period | strip
+    elsif heading_raw contains needle_plain
+      assign heading_lead = heading_raw | remove: needle_plain | strip
+    endif
   endif
 -%}
 
@@ -19,7 +24,17 @@
       <p class="science-inside__eyebrow">{{ section.settings.eyebrow | escape }}</p>
     {%- endif -%}
     {%- if section.settings.heading != blank -%}
-      <h2 class="science-inside__heading">{{ heading_html }}</h2>
+      <h2 class="science-inside__heading">
+        {%- if italic != blank -%}
+          <span class="science-inside__heading-lead">{{ heading_lead }}</span>
+          <span class="science-inside__heading-row">
+            <em>{{ italic }}.</em>
+            <span class="science-inside__heading-rule" aria-hidden="true"></span>
+          </span>
+        {%- else -%}
+          {{ heading_raw }}
+        {%- endif -%}
+      </h2>
     {%- endif -%}
     {%- if section.settings.text != blank -%}
       <div class="science-inside__text rte">{{ section.settings.text }}</div>
@@ -104,9 +119,13 @@
   }
 
   .science-inside__heading {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    max-width: none;
     margin: 0;
-    max-width: 11ch;
-    color: #1a2f7a;
+    color: #121a43;
     font-size: clamp(2rem, 3.2vw, 2.7rem);
     font-weight: 800;
     line-height: 1.02;
@@ -114,15 +133,44 @@
     text-transform: uppercase;
   }
 
+  .science-inside__heading-lead {
+    display: block;
+  }
+
+  .science-inside__heading-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+    margin-top: 0.08em;
+  }
+
   .science-inside__heading em {
+    flex: 0 0 auto;
+    font-family: Georgia, 'Times New Roman', serif;
     font-style: italic;
     font-weight: 500;
     letter-spacing: 0;
+    line-height: 1;
     text-transform: none;
+    color: #121a43;
+  }
+
+  .science-inside__heading-rule {
+    flex: 1 1 auto;
+    align-self: center;
+    width: 100%;
+    min-width: 3rem;
+    height: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    border-top: 1px solid #d5dbe6;
+    background: none;
   }
 
   .science-inside__text {
-    max-width: 28rem;
+    max-width: 34rem;
     margin-top: 1.15rem;
     color: #3a4258;
     font-size: 0.9rem;
