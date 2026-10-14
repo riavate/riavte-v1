@@ -1,7 +1,8 @@
-<section class="about-hero">
-  <div class="about-hero__inner">
+```liquid
+<section class="about-hero-alt">
+  <div class="about-hero-alt__inner">
 
-    <div class="about-hero__media">
+    <div class="about-hero-alt__media">
       {%- if section.settings.image != blank -%}
         {{
           section.settings.image
@@ -10,11 +11,11 @@
             widths: '480, 800, 1200',
             sizes: '(min-width: 990px) 46vw, 100vw',
             alt: section.settings.image_alt,
-            class: 'about-hero__image'
+            class: 'about-hero-alt__image'
         }}
       {%- else -%}
         <img
-          class="about-hero__image"
+          class="about-hero-alt__image"
           src="{{ 'about-hero.jpg' | asset_url }}"
           alt="{{ section.settings.image_alt | escape }}"
           width="1024"
@@ -23,21 +24,21 @@
       {%- endif -%}
     </div>
 
-    <div class="about-hero__copy">
+    <div class="about-hero-alt__copy">
       {%- if section.settings.eyebrow != blank -%}
-        <p class="about-hero__eyebrow">
+        <p class="about-hero-alt__eyebrow">
           {{ section.settings.eyebrow | escape }}
         </p>
       {%- endif -%}
 
       {%- if section.settings.heading != blank -%}
-        <h2 class="about-hero__heading">
+        <h2 class="about-hero-alt__heading">
           {{ section.settings.heading | escape }}
         </h2>
       {%- endif -%}
 
       {%- if section.settings.text != blank -%}
-        <div class="about-hero__text rte">
+        <div class="about-hero-alt__text rte">
           {{ section.settings.text }}
         </div>
       {%- endif -%}
@@ -46,7 +47,7 @@
   </div>
 
   {%- if section.settings.labels != blank -%}
-    <ul class="about-hero__labels">
+    <ul class="about-hero-alt__labels">
       {%- assign labels = section.settings.labels | newline_to_br | split: '<br />' -%}
       {%- for label in labels -%}
         {%- assign item = label | strip -%}
@@ -59,12 +60,12 @@
 </section>
 
 {% stylesheet %}
-  .about-hero {
+  .about-hero-alt {
     background: #ffffff;
     color: #121a43;
   }
 
-  .about-hero__inner {
+  .about-hero-alt__inner {
     display: grid;
     grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
     gap: 4rem;
@@ -74,23 +75,21 @@
     padding: 5.5rem 1.5rem 2.5rem;
   }
 
-  /* Image on the left */
-  .about-hero__media {
+  .about-hero-alt__media {
     grid-column: 1;
     grid-row: 1;
+    min-width: 0;
     border-radius: 1.25rem;
     overflow: hidden;
-    min-width: 0;
   }
 
-  /* Text on the right */
-  .about-hero__copy {
+  .about-hero-alt__copy {
     grid-column: 2;
     grid-row: 1;
     min-width: 0;
   }
 
-  .about-hero__eyebrow {
+  .about-hero-alt__eyebrow {
     margin: 0 0 1.25rem;
     font-size: 0.75rem;
     font-weight: 600;
@@ -99,7 +98,7 @@
     color: #8b93a7;
   }
 
-  .about-hero__heading {
+  .about-hero-alt__heading {
     margin: 0;
     max-width: 14ch;
     font-size: clamp(2rem, 4vw, 3.25rem);
@@ -109,7 +108,7 @@
     text-transform: uppercase;
   }
 
-  .about-hero__text {
+  .about-hero-alt__text {
     max-width: 34rem;
     margin-top: 1.5rem;
     font-size: 0.95rem;
@@ -118,15 +117,15 @@
     color: #3d4566;
   }
 
-  .about-hero__text p {
+  .about-hero-alt__text p {
     margin: 0;
   }
 
-  .about-hero__text p + p {
+  .about-hero-alt__text p + p {
     margin-top: 1rem;
   }
 
-  .about-hero__image {
+  .about-hero-alt__image {
     display: block;
     width: 100%;
     height: auto;
@@ -134,7 +133,7 @@
     object-fit: cover;
   }
 
-  .about-hero__labels {
+  .about-hero-alt__labels {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -151,27 +150,23 @@
   }
 
   @media screen and (max-width: 989px) {
-    .about-hero__inner {
-      grid-template-columns: 1fr;
+    .about-hero-alt__inner {
+      grid-template-columns: minmax(0, 1fr);
       gap: 2rem;
       padding: 3.5rem 1.25rem 3rem;
     }
 
-    .about-hero__media {
+    .about-hero-alt__media {
       grid-column: 1;
       grid-row: 1;
     }
 
-    .about-hero__copy {
+    .about-hero-alt__copy {
       grid-column: 1;
       grid-row: 2;
     }
 
-    .about-hero__heading {
-      max-width: 14ch;
-    }
-
-    .about-hero__labels {
+    .about-hero-alt__labels {
       gap: 1rem 1.5rem;
       padding-bottom: 3rem;
     }
@@ -226,3 +221,4 @@
   ]
 }
 {% endschema %}
+```
