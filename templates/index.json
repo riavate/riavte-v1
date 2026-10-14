@@ -404,12 +404,90 @@
             "uses_label": "James uses",
             "product_name": "Riavâte Hair Micro-Infusion System"
           }
+        },
+        "sarah_2": {
+          "type": "card",
+          "settings": {
+            "fallback": "sarah",
+            "name": "Sarah M.",
+            "verified": true,
+            "badge": "✓ Verified customer",
+            "quote": "<p>“My hair looks noticeably fuller.”</p><p>I’ve been consistent with my Riavâte routine and I’m really pleased with how my hair looks and feels. My scalp feels well cared for, and my hair appears fuller and healthier around the areas I was most conscious of.</p>",
+            "uses_label": "Sarah uses",
+            "product_name": "Riavâte Hair Micro-Infusion System"
+          }
+        },
+        "daniel_2": {
+          "type": "card",
+          "settings": {
+            "fallback": "daniel",
+            "name": "Daniel R.",
+            "verified": true,
+            "badge": "✓ Verified customer",
+            "quote": "<p>“I can see the difference in my routine.”</p><p>Riavâte feels completely different from the scalp products I’ve used before. The micro-infusion system is precise and straightforward to use, and I’ve noticed an improvement in the overall appearance of my hair.</p>",
+            "uses_label": "Daniel uses",
+            "product_name": "Riavâte Hair Micro-Infusion System"
+          }
+        },
+        "james_2": {
+          "type": "card",
+          "settings": {
+            "fallback": "james",
+            "name": "James T.",
+            "verified": true,
+            "badge": "✓ Verified customer",
+            "quote": "<p>“My hair looks stronger and healthier.”</p><p>I wanted something that felt more considered than another everyday serum. Riavâte has become part of my regular scalp-care routine, and I’m really happy with how much healthier and fuller my hair appears.</p>",
+            "uses_label": "James uses",
+            "product_name": "Riavâte Hair Micro-Infusion System"
+          }
+        },
+        "sarah_3": {
+          "type": "card",
+          "settings": {
+            "fallback": "sarah",
+            "name": "Sarah M.",
+            "verified": true,
+            "badge": "✓ Verified customer",
+            "quote": "<p>“My hair looks noticeably fuller.”</p><p>I’ve been consistent with my Riavâte routine and I’m really pleased with how my hair looks and feels. My scalp feels well cared for, and my hair appears fuller and healthier around the areas I was most conscious of.</p>",
+            "uses_label": "Sarah uses",
+            "product_name": "Riavâte Hair Micro-Infusion System"
+          }
+        },
+        "daniel_3": {
+          "type": "card",
+          "settings": {
+            "fallback": "daniel",
+            "name": "Daniel R.",
+            "verified": true,
+            "badge": "✓ Verified customer",
+            "quote": "<p>“I can see the difference in my routine.”</p><p>Riavâte feels completely different from the scalp products I’ve used before. The micro-infusion system is precise and straightforward to use, and I’ve noticed an improvement in the overall appearance of my hair.</p>",
+            "uses_label": "Daniel uses",
+            "product_name": "Riavâte Hair Micro-Infusion System"
+          }
+        },
+        "james_3": {
+          "type": "card",
+          "settings": {
+            "fallback": "james",
+            "name": "James T.",
+            "verified": true,
+            "badge": "✓ Verified customer",
+            "quote": "<p>“My hair looks stronger and healthier.”</p><p>I wanted something that felt more considered than another everyday serum. Riavâte has become part of my regular scalp-care routine, and I’m really happy with how much healthier and fuller my hair appears.</p>",
+            "uses_label": "James uses",
+            "product_name": "Riavâte Hair Micro-Infusion System"
+          }
         }
       },
       "block_order": [
         "sarah",
         "daniel",
-        "james"
+        "james",
+        "sarah_2",
+        "daniel_2",
+        "james_2",
+        "sarah_3",
+        "daniel_3",
+        "james_3"
       ],
       "settings": {
         "heading": "Real People. Visible Difference.",
