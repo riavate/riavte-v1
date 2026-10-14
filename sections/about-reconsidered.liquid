@@ -91,31 +91,35 @@
     margin-top: 1rem;
   }
 
-  .about-reconsidered__image {
-    border-radius: 1.15rem;
-  }
-
-  .about-reconsidered__caption {
-    margin: 1.75rem 0 0;
-    font-size: 0.7rem;
-    font-weight: 600;
-    letter-spacing: 0.16em;
-    text-align: right;
-    text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.82);
-  }
-
   .about-reconsidered__media {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1.75rem;
     overflow: visible;
-    text-align: right;
   }
 
   .about-reconsidered__image {
     display: block;
     width: 100%;
     height: auto;
+    margin: 0;
+    border-radius: 1.15rem;
     aspect-ratio: 16 / 11;
     object-fit: cover;
+  }
+
+  .about-reconsidered__caption {
+    display: block;
+    margin: 0;
+    padding: 0;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    line-height: 1.4;
+    text-align: right;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.82);
   }
 
   @media screen and (max-width: 989px) {
