@@ -21,7 +21,7 @@
         "point_2": {
           "type": "point",
           "settings": {
-            "text": "GHK-Cu led formula"
+            "text": "GHK-Cu Led Formula"
           }
         },
         "point_3": {
@@ -62,10 +62,43 @@
             "content": "<p>The 0.5 mm micro-infusion system creates controlled micro-channels so Cuprofuse® can be applied precisely and evenly across targeted areas of the scalp.</p>"
           }
         },
+        "supply_1": {
+          "type": "supply",
+          "settings": {
+            "title": "1 month supply",
+            "subtitle": "4 Weekly Treatments",
+            "details": "4 × Cuprofuse® Serum Vials\n4 × 0.5 mm Micro-Infusion Applicators",
+            "badge": "",
+            "compare_price": "$406",
+            "price": "$167.00"
+          }
+        },
+        "supply_2": {
+          "type": "supply",
+          "settings": {
+            "title": "2 month supply",
+            "subtitle": "8 Weekly Treatments",
+            "details": "8 × Cuprofuse® Serum Vials\n8 × 0.5 mm Micro-Infusion Applicators",
+            "badge": "",
+            "compare_price": "$406",
+            "price": "$167.00"
+          }
+        },
+        "supply_3": {
+          "type": "supply",
+          "settings": {
+            "title": "3 month supply",
+            "subtitle": "12 Weekly Treatments",
+            "details": "12 × Cuprofuse® Serum Vials\n12 × 0.5 mm Micro-Infusion Applicators",
+            "badge": "Best Value",
+            "compare_price": "$406",
+            "price": "$167.00"
+          }
+        },
         "included": {
           "type": "accordion",
           "settings": {
-            "title": "What's Included",
+            "title": "What's included",
             "content": "<p>Cuprofuse® serum vials and matching 0.5 mm micro-infusion applicators. The number of each depends on the supply you choose.</p>"
           }
         }
@@ -77,6 +110,9 @@
         "point_4",
         "point_5",
         "point_6",
+        "supply_1",
+        "supply_2",
+        "supply_3",
         "benefits",
         "works",
         "included"
@@ -85,6 +121,8 @@
         "heading": "The Precision\nMicro-Infusion System for Advanced Scalp Care",
         "text": "A precision-led scalp-care system combining controlled 0.5 mm micro-infusion with Cuprofuse™, our concentrated serum led by GHK-Cu and a precisely configured combination of targeted scalp-care ingredients.",
         "rating": "4.80 out of 5",
+        "guarantee_title": "90-Day Money-Back Guarantee",
+        "guarantee_text": "Shop with confidence",
         "ingredients_label": "Ingredients",
         "ingredients_link": "/pages/ingredients",
         "certificate_label": "Lab Certificate",
@@ -234,6 +272,32 @@
         "button_link": ""
       }
     },
+    "apart": {
+      "type": "product-apart",
+      "blocks": {
+        "riavate": {
+          "type": "column",
+          "settings": {
+            "title": "Riavâte",
+            "tone": "featured",
+            "items": "Gold-plated 0.5 mm single-use heads\nGHK-Cu-led concentrated serum\nFragrance-free formula\nTargeted micro-infusion application\n5 ml sealed serum per application\nSimple at-home routine\nClear, science-led information"
+          }
+        },
+        "serums": {
+          "type": "column",
+          "settings": {
+            "title": "Most Surface Serums",
+            "tone": "plain",
+            "items": "Generally surface application\nFormulas vary\nSome contain fragrance\nApplied directly onto scalp\nQuantity varies\nApplication methods vary\nProduct information varies"
+          }
+        }
+      },
+      "block_order": ["riavate", "serums"],
+      "settings": {
+        "heading": "What sets us apart",
+        "text": "Riavâte combines precision micro-infusion technology with Cuprofuse® Concentrated Serum, offering a considered approach to modern scalp care."
+      }
+    },
     "results": {
       "type": "product-results",
       "blocks": {
@@ -314,77 +378,15 @@
         "video_label": "How to\nuse video"
       }
     },
-    "compare": {
-      "type": "product-compare",
-      "blocks": {
-        "riavate": {
-          "type": "column",
-          "settings": {
-            "tone": "featured",
-            "fallback": "product-compare-kit.png",
-            "title": "Riavâte micro-infusion",
-            "rows": "Approach|0.5 mm precision micro-infusion\nFormula|Cuprofuse® Concentrated Serum\nHero Ingredient|GHK-Cu\nRoutine|At-home targeted scalp care\nCost|From $70 one time"
-          }
-        },
-        "transplant": {
-          "type": "column",
-          "settings": {
-            "tone": "plain",
-            "fallback": "product-compare-transplant.png",
-            "title": "Hair transplant",
-            "rows": "Approach|Surgical hair restoration procedure\nFormula|Not a topical formula\nApproach|Clinical procedure with recovery\nCost|$5,000 to $15,000+"
-          }
-        },
-        "medication": {
-          "type": "column",
-          "settings": {
-            "tone": "plain",
-            "fallback": "product-compare-meds.png",
-            "title": "Minoxidil & medication",
-            "rows": "Approach|Drug-based treatment\nFormula|Pharmaceutical active ingredients\nApproach|Typically requires ongoing use\nCost|$30+ a month forever"
-          }
-        }
-      },
-      "block_order": [
-        "riavate",
-        "transplant",
-        "medication"
-      ],
-      "settings": {}
-    },
-    "guarantee": {
-      "type": "product-guarantee",
-      "blocks": {
-        "document": {
-          "type": "step",
-          "settings": {
-            "title": "01 — Document",
-            "text": "Take a clear photo before starting and track your progress."
-          }
-        },
-        "consistent": {
-          "type": "step",
-          "settings": {
-            "title": "02 — Stay consistent",
-            "text": "Follow the recommended Riavâte routine consistently."
-          }
-        },
-        "complete": {
-          "type": "step",
-          "settings": {
-            "title": "03 — Complete 120 days",
-            "text": "Give your routine time and compare your progress."
-          }
-        }
-      },
-      "block_order": [
-        "document",
-        "consistent",
-        "complete"
-      ],
+    "promise": {
+      "type": "product-promise",
       "settings": {
-        "eyebrow": "Give Riavâte 120 days.",
-        "heading": "If you’re not satisfied, we’ll refund you."
+        "eyebrow": "The Riavâte promise",
+        "heading": "Try Riavâte for 90 Days.",
+        "text": "We're confident in how it's made. If it's not for you, let us know within 90 days of your order and we'll refund you — simply and without fuss.",
+        "link_label": "See Guarantee Terms +",
+        "link": "/pages/returns",
+        "note": "This is in addition to your statutory rights."
       }
     },
     "reviews": {
@@ -452,10 +454,10 @@
     "trust",
     "infusion",
     "cuprofuse",
+    "apart",
     "results",
     "steps",
-    "compare",
-    "guarantee",
+    "promise",
     "reviews"
   ]
 }

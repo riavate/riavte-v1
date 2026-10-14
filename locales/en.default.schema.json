@@ -213,6 +213,32 @@
         "bottom_right": "Bottom right"
       }
     },
+    "why_surface": {
+      "name": "Why stop at the surface",
+      "settings": {
+        "eyebrow": "Eyebrow",
+        "heading": "Heading",
+        "text": "Introduction",
+        "footer_heading": "Footer heading",
+        "footer_text": "Footer text"
+      },
+      "blocks": {
+        "approach": {
+          "name": "Approach",
+          "image": "Image",
+          "image_alt": "Image alt text",
+          "fallback": "Placeholder image",
+          "title": "Title",
+          "kicker": "Label",
+          "text": "Text",
+          "note": "Closing line"
+        }
+      },
+      "options": {
+        "surface": "Surface application",
+        "infusion": "Micro-infusion"
+      }
+    },
     "media_with_text": {
       "name": "Media with text",
       "settings": {
@@ -566,6 +592,8 @@
         "heading": "Heading",
         "text": "Description",
         "rating": "Rating",
+        "guarantee_title": "Guarantee title",
+        "guarantee_text": "Guarantee text",
         "ingredients_label": "Ingredients label",
         "ingredients_link": "Ingredients link",
         "certificate_label": "Certificate label",
@@ -611,6 +639,31 @@
       "name": "Comparison",
       "blocks": { "column": { "name": "Column", "tone": "Style", "image": "Image", "fallback": "Placeholder", "title": "Title", "rows": "Rows", "rows_info": "One row per line, written as Label|Value." } },
       "options": { "featured": "Featured", "plain": "Plain" }
+    },
+    "product_apart": {
+      "name": "What sets us apart",
+      "settings": { "heading": "Heading", "text": "Text" },
+      "blocks": {
+        "column": {
+          "name": "Column",
+          "title": "Title",
+          "tone": "Style",
+          "items": "Points",
+          "items_info": "One point per line."
+        }
+      },
+      "options": { "featured": "Riavâte", "plain": "Comparison" }
+    },
+    "product_promise": {
+      "name": "90-day promise",
+      "settings": {
+        "eyebrow": "Eyebrow",
+        "heading": "Heading",
+        "text": "Text",
+        "link_label": "Link label",
+        "link": "Link",
+        "note": "Note"
+      }
     },
     "product_guarantee": {
       "name": "Guarantee",
@@ -685,7 +738,9 @@
       "settings": {
         "eyebrow": "Eyebrow",
         "heading": "Heading",
-        "text": "Text"
+        "text": "Text",
+        "button_label": "Button label",
+        "button_link": "Button link"
       }
     },
     "main_cart": { "name": "Cart" },

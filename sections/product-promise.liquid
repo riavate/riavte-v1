@@ -1,0 +1,139 @@
+<section class="product-promise">
+  <div class="product-promise__inner">
+    <svg class="product-promise__shield" width="64" height="72" viewBox="0 0 64 72" aria-hidden="true" focusable="false">
+      <path fill="#2fce5a" d="M32 2.5 58 13.2v22.4c0 16.2-10.2 28.6-26 33.9C16.2 64.2 6 51.8 6 35.6V13.2L32 2.5Z"/>
+      <path fill="none" stroke="#ffffff" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" d="M20.5 36.2 28.2 44l15.6-17.2"/>
+    </svg>
+    {%- if section.settings.eyebrow != blank -%}
+      <p class="product-promise__eyebrow">{{ section.settings.eyebrow | escape }}</p>
+    {%- endif -%}
+    {%- if section.settings.heading != blank -%}
+      <h2 class="product-promise__heading">{{ section.settings.heading | escape }}</h2>
+    {%- endif -%}
+    {%- if section.settings.text != blank -%}
+      <p class="product-promise__text">{{ section.settings.text | escape }}</p>
+    {%- endif -%}
+    {%- if section.settings.link != blank and section.settings.link_label != blank -%}
+      <a class="product-promise__link" href="{{ section.settings.link }}">{{ section.settings.link_label | escape }}</a>
+    {%- endif -%}
+    {%- if section.settings.note != blank -%}
+      <p class="product-promise__note">{{ section.settings.note | escape }}</p>
+    {%- endif -%}
+  </div>
+</section>
+
+{% stylesheet %}
+  .product-promise {
+    padding: 5.25rem 1.5rem;
+    color: #ffffff;
+    background-image: linear-gradient(90deg, #05070f 0%, #071433 36%, #0c348c 70%, #1a5ae0 100%);
+    text-align: center;
+  }
+
+  .product-promise__inner {
+    width: min(640px, 100%);
+    margin: 0 auto;
+  }
+
+  .product-promise__shield {
+    display: block;
+    margin: 0 auto;
+  }
+
+  .product-promise__eyebrow {
+    margin: 1.35rem 0 0;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+  }
+
+  .product-promise__heading {
+    margin: 0.7rem 0 0;
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-weight: 700;
+    line-height: 1.15;
+  }
+
+  .product-promise__text {
+    margin: 0.9rem auto 0;
+    max-width: 36rem;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 1.55;
+  }
+
+  .product-promise__link {
+    display: inline-block;
+    margin-top: 1rem;
+    color: #4f8cff;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  .product-promise__link:hover {
+    text-decoration: underline;
+  }
+
+  .product-promise__note {
+    margin: 1.15rem 0 0;
+    color: rgba(255, 255, 255, 0.82);
+    font-size: 13px;
+    font-weight: 500;
+  }
+
+  @media screen and (max-width: 749px) {
+    .product-promise {
+      padding: 3.75rem 1.25rem;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:sections.product_promise.name",
+  "tag": "section",
+  "enabled_on": { "templates": ["product"] },
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "t:sections.product_promise.settings.eyebrow",
+      "default": "The Riavâte promise"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "t:sections.product_promise.settings.heading",
+      "default": "Try Riavâte for 90 Days."
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "t:sections.product_promise.settings.text",
+      "default": "We're confident in how it's made. If it's not for you, let us know within 90 days of your order and we'll refund you — simply and without fuss."
+    },
+    {
+      "type": "text",
+      "id": "link_label",
+      "label": "t:sections.product_promise.settings.link_label",
+      "default": "See Guarantee Terms +"
+    },
+    {
+      "type": "url",
+      "id": "link",
+      "label": "t:sections.product_promise.settings.link"
+    },
+    {
+      "type": "text",
+      "id": "note",
+      "label": "t:sections.product_promise.settings.note",
+      "default": "This is in addition to your statutory rights."
+    }
+  ],
+  "presets": [
+    { "name": "t:sections.product_promise.name" }
+  ]
+}
+{% endschema %}

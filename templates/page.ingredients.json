@@ -14,8 +14,8 @@
       "settings": {
         "eyebrow": "The formula",
         "heading": "Inside Cuprofuse\u00ae",
-        "text": "<p>19 ingredients. One considered formula.</p><p>Cuprofuse\u00ae is our concentrated cosmetic serum, led by GHK-Cu (Copper Tripeptide-1) and formulated with a precisely configured combination of peptides, scalp-conditioning actives, botanical extracts, humectants and supporting ingredients.</p><p>Every ingredient has a purpose \u2014 from supporting scalp condition and hydration to maintaining the performance, stability and experience of the formula.</p>",
-        "button_label": "Explore the formula \u2193",
+        "text": "<p>A considered combination of peptides, scalp-care actives, botanical extracts and conditioning ingredients.</p><p>Led by GHK-Cu (Copper Tripeptide-1), Cuprofuse\u00ae brings together carefully selected ingredients to support scalp condition and the appearance of fuller, healthier-looking hair.</p>",
+        "button_label": "Explore the formula +",
         "button_link": "#formula",
         "image_alt": "Blue serum poured into a glass bottle"
       }
@@ -104,7 +104,7 @@
             "text": "<p>One of the more extensively studied cosmetic ingredients in topical hair/scalp formulations, although systematic reviews note limitations in the overall quality of clinical evidence.</p>",
             "why_label": "Why we use it",
             "why": "Selected as a targeted scalp-care active to complement Cuprofuse\u00ae's multi-active approach.",
-            "image_name": "ingredients-03.png"
+            "image_name": "ingredients-03.jpg"
           }
         },
         "adenosine": {
@@ -137,7 +137,7 @@
             "text": "<p>A botanical extract with a long history of cosmetic use.</p>",
             "why_label": "Why we use it",
             "why": "Selected as part of Cuprofuse\u00ae's botanical complex to complement the formula's scalp-conditioning approach.",
-            "image_name": "ingredients-06.png"
+            "image_name": "ingredients-06.jpg"
           }
         },
         "eclipta": {
@@ -216,6 +216,105 @@
             "why": "Included as a supporting conditioning component within Cuprofuse\u00ae's balanced formula.",
             "image_name": "ingredients-13.png"
           }
+        },
+        "heshouwu": {
+          "type": "card",
+          "settings": {
+            "index": "14 \u2014 He Shou Wu",
+            "title": "Traditional botanical",
+            "text": "<p>A botanical extract used in cosmetic skin and hair formulations.</p>",
+            "why_label": "Why we use it",
+            "why": "To bring a heritage-inspired botanical element into our modern scalp-care formula.",
+            "image_name": "ingredients-20.jpg"
+          }
+        },
+        "hyaluronic": {
+          "type": "card",
+          "settings": {
+            "index": "15 \u2014 Hyaluronic Acid",
+            "title": "Advanced hydration",
+            "text": "<p>A moisture-binding ingredient that helps hydrate the scalp and maintain a comfortable, moisturised feel.</p>",
+            "why_label": "Why we use it",
+            "why": "To help maintain scalp hydration and support moisture retention.",
+            "image_name": "ingredients-21.jpg"
+          }
+        },
+        "trehalose": {
+          "type": "card",
+          "settings": {
+            "index": "16 \u2014 Trehalose",
+            "title": "Moisture protection",
+            "text": "<p>A sugar-derived humectant that helps retain moisture and support scalp hydration.</p>",
+            "why_label": "Why we use it",
+            "why": "To help protect against moisture loss and maintain a hydrated scalp environment.",
+            "image_name": "ingredients-22.jpg"
+          }
+        },
+        "collagen": {
+          "type": "card",
+          "settings": {
+            "index": "17 \u2014 Soluble Collagen",
+            "title": "Conditioning & softness",
+            "text": "<p>A cosmetic conditioning ingredient that helps improve the feel and softness of skin and hair.</p>",
+            "why_label": "Why we use it",
+            "why": "To complement the formula with additional conditioning and moisture-supporting properties.",
+            "image_name": "ingredients-23.jpg"
+          }
+        },
+        "xyli": {
+          "type": "card",
+          "settings": {
+            "index": "18 \u2014 Xylitylglucoside Complex",
+            "title": "Moisture balance",
+            "text": "<p>A sugar-derived moisturising complex used to support skin hydration and moisture balance.</p>",
+            "why_label": "Why we use it",
+            "why": "To help maintain a comfortable, well-hydrated scalp as part of the formula's moisturising system.",
+            "image_name": "ingredients-24.jpg"
+          }
+        },
+        "glycerin": {
+          "type": "card",
+          "settings": {
+            "index": "19 \u2014 Glycerin",
+            "title": "Essential hydration",
+            "text": "<p>A widely used humectant that attracts water and helps maintain skin moisture.</p>",
+            "why_label": "Why we use it",
+            "why": "To help keep the scalp hydrated and support the formula's overall moisturising performance.",
+            "image_name": "ingredients-25.jpg"
+          }
+        },
+        "allantoin": {
+          "type": "card",
+          "settings": {
+            "index": "20 \u2014 Allantoin",
+            "title": "Scalp comfort",
+            "text": "<p>A skin-conditioning ingredient valued for its soothing properties and ability to support a comfortable-feeling scalp.</p>",
+            "why_label": "Why we use it",
+            "why": "To help condition the scalp and complement the formula's gentle scalp-care approach.",
+            "image_name": "ingredients-26.jpg"
+          }
+        },
+        "glucan": {
+          "type": "card",
+          "settings": {
+            "index": "21 \u2014 Beta-Glucan",
+            "title": "Soothing & hydration",
+            "text": "<p>A polysaccharide ingredient known for its moisturising and skin-conditioning properties.</p>",
+            "why_label": "Why we use it",
+            "why": "To provide additional hydration and support a comfortable-feeling scalp.",
+            "image_name": "ingredients-27.jpg"
+          }
+        },
+        "theanine": {
+          "type": "card",
+          "settings": {
+            "index": "22 \u2014 Theanine",
+            "title": "Amino acid care",
+            "text": "<p>An amino acid compound included as part of a considered cosmetic scalp-care formulation.</p>",
+            "why_label": "Why we use it",
+            "why": "To complement the formula's selected conditioning ingredients and amino acid components.",
+            "image_name": "ingredients-28.jpg"
+          }
         }
       },
       "block_order": [
@@ -231,7 +330,16 @@
         "peptide",
         "biotin",
         "salicylic",
-        "arginine"
+        "arginine",
+        "heshouwu",
+        "hyaluronic",
+        "trehalose",
+        "collagen",
+        "xyli",
+        "glycerin",
+        "allantoin",
+        "glucan",
+        "theanine"
       ],
       "settings": {
         "anchor": "formula",
@@ -247,7 +355,7 @@
         "water": {
           "type": "card",
           "settings": {
-            "index": "14 \u2014 Aqua (Water)",
+            "index": "23 \u2014 Aqua (Water)",
             "title": "Formula base",
             "text": "<p>Provides the aqueous foundation that carries the water-compatible components of Cuprofuse\u00ae.</p>",
             "why_label": "Why we use it",
@@ -258,7 +366,7 @@
         "butylene": {
           "type": "card",
           "settings": {
-            "index": "15 \u2014 Butylene Glycol",
+            "index": "24 \u2014 Butylene Glycol",
             "title": "Humectant + solvent",
             "text": "<p>Helps retain moisture while supporting the distribution and sensory feel of the formula.</p>",
             "why_label": "Why we use it",
@@ -269,7 +377,7 @@
         "propylene": {
           "type": "card",
           "settings": {
-            "index": "16 \u2014 Propylene Glycol",
+            "index": "25 \u2014 Propylene Glycol",
             "title": "Solvent + humectant",
             "text": "<p>Helps dissolve and carry selected formula components while contributing to moisture retention.</p>",
             "why_label": "Why we use it",
@@ -280,7 +388,7 @@
         "hexanediol": {
           "type": "card",
           "settings": {
-            "index": "17 \u2014 1,2-Hexanediol",
+            "index": "26 \u2014 1,2-Hexanediol",
             "title": "Formula support",
             "text": "<p>A multifunctional cosmetic ingredient used to support formulation performance and preservation.</p>",
             "why_label": "Why we use it",
@@ -291,7 +399,7 @@
         "hydroxy": {
           "type": "card",
           "settings": {
-            "index": "18 \u2014 Hydroxyacetophenone",
+            "index": "27 \u2014 Hydroxyacetophenone",
             "title": "Formula protection",
             "text": "<p>Included to support antioxidant/preservation performance and overall formula stability.</p>",
             "why_label": "Why we use it",
@@ -302,7 +410,7 @@
         "citrate": {
           "type": "card",
           "settings": {
-            "index": "19 \u2014 Sodium Citrate",
+            "index": "28 \u2014 Sodium Citrate",
             "title": "Formula balance",
             "text": "<p>Used to help maintain the appropriate pH environment and overall balance of the formula.</p>",
             "why_label": "Why we use it",
@@ -324,15 +432,17 @@
         "tone": "dark",
         "eyebrow": "Inside Cuprofuse\u00ae",
         "heading": "Every part of the formula has a purpose.",
-        "text": "<p>Because a sophisticated formula isn't built from hero actives alone. Supporting ingredients help determine hydration, texture, delivery, stability and overall product performance.</p>"
+        "text": "<p>Cuprofuse\u00ae combines complementary cosmetic ingredients in a carefully considered approach to scalp care.</p>"
       }
     },
     "ingredients_system": {
       "type": "ingredients-system",
       "settings": {
-        "eyebrow": "Why 19?",
+        "eyebrow": "More than individual ingredients",
         "heading": "Formulated as a system.",
-        "text": "<p>Cuprofuse\u00ae isn't defined by one ingredient alone.</p><p>GHK-Cu leads the formula, supported by peptides, targeted cosmetic actives, botanical extracts, conditioning ingredients and carefully selected formulation components.</p><p>Each has a different role. Together, they create the complete Cuprofuse\u00ae formula.</p>"
+        "text": "<p>Cuprofuse\u00ae is more than a single hero peptide. It brings together a carefully selected combination of cosmetic actives, botanical extracts and conditioning ingredients, led by GHK-Cu.</p><p>Purposeful formulation. Precision scalp care.</p>",
+        "button_label": "Discover the micro-infusion kit +",
+        "button_link": "/products/the-kit"
       }
     }
   },

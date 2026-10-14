@@ -159,6 +159,44 @@
         "image_alt": "Riavâte 0.5 mm micro-infusion device"
       }
     },
+    "surface": {
+      "type": "why-surface",
+      "blocks": {
+        "surface_card": {
+          "type": "approach",
+          "settings": {
+            "image_alt": "Serum applied on the scalp surface",
+            "fallback": "surface",
+            "title": "01 — Surface application",
+            "kicker": "The conventional approach",
+            "text": "Traditional scalp serums are applied directly onto the scalp surface, where they spread across the skin before being absorbed or drying.",
+            "note": "Surface application. No controlled micro-channels."
+          }
+        },
+        "infusion_card": {
+          "type": "approach",
+          "settings": {
+            "image_alt": "Riavâte 0.5 mm micro-infusion below the scalp surface",
+            "fallback": "infusion",
+            "title": "02 — Micro-infusion",
+            "kicker": "The Riavâte approach",
+            "text": "Riavâte's gold-plated 0.5 mm microneedles create controlled micro-channels at the scalp surface, supporting precise, targeted application of Cuprofuse® Concentrated Serum.",
+            "note": "Precision micro-channels. Targeted scalp application."
+          }
+        }
+      },
+      "block_order": [
+        "surface_card",
+        "infusion_card"
+      ],
+      "settings": {
+        "eyebrow": "Why micro-infusion?",
+        "heading": "Why stop at the surface?",
+        "text": "Discover how Riavâte's 0.5 mm micro-infusion technology takes a more precise approach to scalp application.",
+        "footer_heading": "Precision makes the difference.",
+        "footer_text": "Two approaches to scalp care. One designed with precision at its core."
+      }
+    },
     "cuprofuse": {
       "type": "media-with-text",
       "blocks": {
@@ -449,6 +487,7 @@
     "hero",
     "trust",
     "precision",
+    "surface",
     "cuprofuse",
     "peptide",
     "beyond",
