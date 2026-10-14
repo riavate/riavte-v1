@@ -61,29 +61,32 @@
 
 {% stylesheet %}
   .precision {
-    padding: 4.5rem 0 3.5rem;
+    padding: 4.75rem 0 4rem;
     background: #ffffff;
     color: #111111;
   }
 
   .precision__intro {
     width: min(780px, calc(100% - 2.5rem));
-    margin: 0 auto 2.5rem;
+    margin: 0 auto 1.5rem;
     text-align: center;
   }
 
   .precision__heading {
     margin: 0;
-    color: #1a2a6e;
-    font-size: clamp(1.7rem, 2.6vw, 2.15rem);
+    color: #121a43;
+    font-family: Montserrat, sans-serif;
+    font-size: clamp(1.75rem, 2.8vw, 2.25rem);
     font-weight: 800;
-    line-height: 1.15;
+    line-height: 1.1;
     letter-spacing: -0.02em;
+    text-transform: uppercase;
   }
 
   .precision__eyebrow {
-    margin: 0.85rem 0 0;
-    color: #2c2c2c;
+    margin: 0.7rem 0 0;
+    color: #111111;
+    font-family: Montserrat, sans-serif;
     font-size: 12px;
     font-weight: 500;
     letter-spacing: 0.34em;
@@ -99,17 +102,16 @@
   }
 
   .precision__stage {
-    --device: 230px;
-    --line: 168px;
+    --device: 250px;
     position: relative;
-    width: min(960px, calc(100% - 4rem));
-    height: 420px;
-    margin: 3.25rem auto 0.5rem;
+    width: min(1080px, calc(100% - 3rem));
+    height: 520px;
+    margin: 2.5rem auto 0;
   }
 
   .precision__media {
     position: absolute;
-    top: 18px;
+    top: 8px;
     left: 0;
     right: 0;
     z-index: 1;
@@ -135,40 +137,45 @@
     position: absolute;
     z-index: 0;
     display: block;
-    border: 0 solid #d4d4d4;
+    box-sizing: border-box;
+    border: 0 solid #c8c8c8;
     pointer-events: none;
   }
 
   .precision__arm--top-left,
   .precision__arm--top-right {
-    top: 116px;
-    width: 132px;
-    height: 0;
+    top: 92px;
+    width: 170px;
+    height: 58px;
     border-top-width: 1px;
   }
 
   .precision__arm--top-left {
-    right: calc(50% + 86px);
+    right: calc(50% + 78px);
+    border-right-width: 1px;
   }
 
   .precision__arm--top-right {
-    left: calc(50% + 86px);
+    left: calc(50% + 78px);
+    border-left-width: 1px;
   }
 
   .precision__arm--bottom-left,
   .precision__arm--bottom-right {
-    top: 250px;
-    width: 148px;
-    height: 0;
-    border-top-width: 1px;
+    top: 248px;
+    width: 170px;
+    height: 52px;
+    border-bottom-width: 1px;
   }
 
   .precision__arm--bottom-left {
-    right: calc(50% + 90px);
+    right: calc(50% + 78px);
+    border-right-width: 1px;
   }
 
   .precision__arm--bottom-right {
-    left: calc(50% + 90px);
+    left: calc(50% + 78px);
+    border-left-width: 1px;
   }
 
   .precision__line {
@@ -178,37 +185,22 @@
     object-fit: fill;
   }
 
-  .precision__line--top {
-    top: 128px;
-    width: 168px;
-    height: 42px;
-  }
-
-  .precision__lines--left .precision__line--top { left: calc(50% - 250px); }
-  .precision__lines--right .precision__line--top { right: calc(50% - 250px); }
-
-  .precision__line--bottom {
-    top: 248px;
-    width: 230px;
-    height: 64px;
-  }
-
-  .precision__lines--left .precision__line--bottom { left: calc(50% - 300px); }
-  .precision__lines--right .precision__line--bottom { right: calc(50% - 300px); }
-
   .precision__point h3 {
     margin: 0;
     color: #111111;
+    font-family: Montserrat, sans-serif;
     font-size: 13px;
     font-weight: 800;
     line-height: 1.3;
-    letter-spacing: 0.02em;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
   }
 
   .precision__point p {
-    margin: 0.35rem 0 0;
-    max-width: 14.5rem;
-    color: #3a3a3a;
+    margin: 0.4rem 0 0;
+    max-width: 15rem;
+    color: #222222;
+    font-family: Montserrat, sans-serif;
     font-size: 14px;
     font-weight: 500;
     line-height: 1.4;
@@ -219,40 +211,45 @@
   .precision__point--bottom-left,
   .precision__point--bottom-right {
     position: absolute;
-    width: 196px;
+    width: 220px;
   }
 
   .precision__point--top-left {
-    top: 76px;
-    right: calc(50% + 228px);
+    top: 18px;
+    right: calc(50% + 250px);
     left: auto;
+    text-align: right;
   }
 
   .precision__point--top-right {
-    top: 76px;
-    left: calc(50% + 228px);
+    top: 18px;
+    left: calc(50% + 250px);
     right: auto;
-    text-align: right;
+    text-align: left;
   }
 
   .precision__point--bottom-left {
-    top: 208px;
-    right: calc(50% + 248px);
+    top: 308px;
+    right: calc(50% + 250px);
     left: auto;
-    width: 188px;
+    text-align: right;
   }
 
   .precision__point--bottom-right {
-    top: 208px;
-    left: calc(50% + 248px);
+    top: 308px;
+    left: calc(50% + 250px);
     right: auto;
-    width: 188px;
-    text-align: right;
+    text-align: left;
+  }
+
+  .precision__point--top-left p,
+  .precision__point--bottom-left p {
+    margin-left: auto;
   }
 
   .precision__point--top-right p,
   .precision__point--bottom-right p {
-    margin-left: auto;
+    margin-right: auto;
   }
 
 
