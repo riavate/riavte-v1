@@ -22,27 +22,14 @@
     </div>
     <div class="precision__media">
       <div class="precision__frame">
-      {%- if section.settings.image != blank -%}
-        {{
-          section.settings.image
-          | image_url: width: 900
-          | image_tag:
-            widths: '300, 500, 700, 900',
-            sizes: '(min-width: 750px) 320px, 70vw',
-            alt: section.settings.image_alt,
-            loading: 'lazy',
-            class: 'precision__image'
-        }}
-      {%- else -%}
         <img
           class="precision__image"
           src="{{ 'precision-device.jpg' | asset_url }}"
           alt="{{ section.settings.image_alt | escape }}"
-          width="256"
-          height="384"
+          width="834"
+          height="1024"
           loading="lazy"
         >
-      {%- endif -%}
       </div>
     </div>
 
@@ -132,28 +119,28 @@
 
   .precision__line {
     position: absolute;
-    z-index: 0;
+    z-index: 2;
     pointer-events: none;
     object-fit: fill;
   }
 
   .precision__line--top {
     top: 112px;
-    width: 176px;
+    width: 190px;
     height: 36px;
   }
 
-  .precision__lines--left .precision__line--top { left: 250px; }
-  .precision__lines--right .precision__line--top { right: 250px; }
+  .precision__lines--left .precision__line--top { left: 280px; }
+  .precision__lines--right .precision__line--top { right: 280px; }
 
   .precision__line--bottom {
     top: 196px;
-    width: 262px;
+    width: 275px;
     height: 58px;
   }
 
-  .precision__lines--left .precision__line--bottom { left: 178px; }
-  .precision__lines--right .precision__line--bottom { right: 178px; }
+  .precision__lines--left .precision__line--bottom { left: 210px; }
+  .precision__lines--right .precision__line--bottom { right: 210px; }
 
   .precision__point h3 {
     margin: 0;
@@ -181,10 +168,10 @@
     width: 210px;
   }
 
-  .precision__point--top-left { top: 8px; left: 112px; width: 220px; }
-  .precision__point--top-right { top: 8px; right: 112px; width: 220px; text-align: right; }
-  .precision__point--bottom-left { top: 262px; left: 8px; width: 164px; }
-  .precision__point--bottom-right { top: 262px; right: 8px; width: 164px; text-align: right; }
+  .precision__point--top-left { top: 8px; left: 140px; width: 220px; }
+  .precision__point--top-right { top: 8px; right: 140px; width: 220px; text-align: right; }
+  .precision__point--bottom-left { top: 262px; left: 36px; width: 164px; }
+  .precision__point--bottom-right { top: 262px; right: 36px; width: 164px; text-align: right; }
 
   .precision__point--top-right p,
   .precision__point--bottom-right p {
