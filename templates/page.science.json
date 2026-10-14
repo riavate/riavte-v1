@@ -106,7 +106,9 @@
         "fallback": "science-device.jpg",
         "image_alt": "Close view of the Riavâte micro-infusion tip",
         "image_side": "left",
-        "points_style": "timeline"
+        "points_style": "timeline",
+        "button_label": "Shop now",
+        "button_link": "shopify://products/the-kit"
       }
     },
     "science_stat": {
@@ -163,7 +165,9 @@
         "subheading": "GHK-Cu",
         "subtext": "Copper Tripeptide-1 sits at the heart of Cuprofuse® as its leading peptide, supported by a wider combination of carefully selected cosmetic ingredients.",
         "fallback": "science-serum.jpg",
-        "image_alt": "Riavâte serum vial with molecular forms"
+        "image_alt": "Riavâte serum vial with molecular forms",
+        "button_label": "Shop now",
+        "button_link": "shopify://products/the-kit"
       }
     },
     "science_purpose": {
@@ -181,7 +185,7 @@
         "caffeine": {
           "type": "active",
           "settings": {
-            "index": "02",
+            "index": "03",
             "title": "Caffeine",
             "kicker": "Scalp care active",
             "text": "A widely studied ingredient used in modern cosmetic scalp-care formulations."
@@ -190,7 +194,7 @@
         "panthenol": {
           "type": "active",
           "settings": {
-            "index": "02",
+            "index": "04",
             "title": "Panthenol",
             "kicker": "Condition + hydration",
             "text": "Helps moisturise and condition the scalp and hair."
@@ -199,7 +203,7 @@
         "adenosine": {
           "type": "active",
           "settings": {
-            "index": "02",
+            "index": "05",
             "title": "Adenosine",
             "kicker": "Targeted active",
             "text": "A cosmetic active explored in published research relating to the appearance of hair."
@@ -214,13 +218,13 @@
       ],
       "settings": {
         "anchor": "routine",
-        "eyebrow": "Inside Cuprofuse™",
+        "eyebrow": "Inside Cuprofuse®",
         "heading": "Selected with purpose.",
         "italic_word": "purpose",
-        "text": "<p>Cuprofuse™ combines its leading peptide GHK-Cu with selected cosmetic actives, each chosen for a considered role within the formula.</p>",
+        "text": "<p>Cuprofuse® combines its leading peptide GHK-Cu with selected cosmetic actives, each chosen for a considered role within the formula.</p>",
         "feature_index": "01",
         "feature_title": "GHK-Cu / COPPER TRIPEPTIDE-1",
-        "feature_text": "The leading peptide at the heart of Cuprofuse™.",
+        "feature_text": "The leading peptide at the heart of Cuprofuse®.",
         "fallback": "science-apply.jpg",
         "image_alt": "Riavâte device applied along the hairline"
       }
@@ -302,7 +306,7 @@
       "settings": {
         "eyebrow": "The Riavâte System",
         "heading": "Science-led scalp care. Designed with precision.",
-        "text": "<p>Precision micro-infusion meets Cuprofuse™ concentrated serum — bringing technology, formulation and modern scalp care together in one considered system.</p>",
+        "text": "<p>Precision micro-infusion meets Cuprofuse® concentrated serum — bringing technology, formulation and modern scalp care together in one considered system.</p>",
         "button_label": "Discover the system",
         "button_link": "/products/the-kit"
       }

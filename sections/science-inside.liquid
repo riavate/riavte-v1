@@ -1,10 +1,15 @@
 {%- liquid
-  assign heading_html = section.settings.heading | escape
-  if section.settings.italic_word != blank
-    assign italic = section.settings.italic_word | escape
-    assign needle = ' ' | append: italic | append: '.'
-    assign wrapped = '<br><em>' | append: italic | append: '.</em>'
-    assign heading_html = heading_html | replace: needle, wrapped
+  assign heading_raw = section.settings.heading | escape
+  assign italic = section.settings.italic_word | escape
+  assign heading_lead = heading_raw
+  if italic != blank
+    assign needle_period = ' ' | append: italic | append: '.'
+    assign needle_plain = ' ' | append: italic
+    if heading_raw contains needle_period
+      assign heading_lead = heading_raw | remove: needle_period | strip
+    elsif heading_raw contains needle_plain
+      assign heading_lead = heading_raw | remove: needle_plain | strip
+    endif
   endif
 -%}
 
@@ -19,7 +24,15 @@
       <p class="science-inside__eyebrow">{{ section.settings.eyebrow | escape }}</p>
     {%- endif -%}
     {%- if section.settings.heading != blank -%}
-      <h2 class="science-inside__heading">{{ heading_html }}</h2>
+      <h2 class="science-inside__heading">
+        {%- if italic != blank -%}
+          <span class="science-inside__heading-lead">{{ heading_lead }}</span>
+          <span class="science-inside__heading-rule" aria-hidden="true"></span>
+          <em class="science-inside__heading-purpose">{{ italic }}.</em>
+        {%- else -%}
+          {{ heading_raw }}
+        {%- endif -%}
+      </h2>
     {%- endif -%}
     {%- if section.settings.text != blank -%}
       <div class="science-inside__text rte">{{ section.settings.text }}</div>
@@ -96,38 +109,68 @@
 
   .science-inside__eyebrow {
     margin: 0 0 0.9rem;
-    color: #8b93a7;
-    font-size: 0.72rem;
-    font-weight: 600;
-    letter-spacing: 0.18em;
+    color: #000;
+    font-family: Montserrat, sans-serif;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    font-style: normal;
+    line-height: 1;
+    letter-spacing: 0.26em;
     text-transform: uppercase;
   }
 
   .science-inside__heading {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    max-width: none;
     margin: 0;
-    max-width: 11ch;
-    color: #1a2f7a;
-    font-size: clamp(2rem, 3.2vw, 2.7rem);
-    font-weight: 800;
-    line-height: 1.02;
-    letter-spacing: -0.03em;
+    color: #121a43;
+    font-family: Montserrat, sans-serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 1;
+    letter-spacing: 0;
+  }
+
+  .science-inside__heading-lead {
+    display: block;
+    font-weight: 700;
+    font-style: normal;
     text-transform: uppercase;
   }
 
-  .science-inside__heading em {
-    font-style: italic;
+  .science-inside__heading-rule {
+    display: block;
+    width: 100%;
+    height: 0;
+    margin: 0.12em 0 0.08em;
+    padding: 0;
+    border: 0;
+    border-top: 1.5px solid #121a43;
+    background: none;
+  }
+
+  .science-inside__heading-purpose {
+    display: block;
     font-weight: 500;
+    font-style: italic;
     letter-spacing: 0;
+    line-height: 1;
     text-transform: none;
+    color: #121a43;
   }
 
   .science-inside__text {
-    max-width: 28rem;
+    max-width: 34rem;
     margin-top: 1.15rem;
-    color: #3a4258;
-    font-size: 0.9rem;
+    color: #000;
+    font-family: Montserrat, sans-serif;
+    font-size: 0.875rem;
     font-weight: 500;
-    line-height: 1.6;
+    font-style: normal;
+    line-height: 1;
+    letter-spacing: 0;
   }
 
   .science-inside__text p {
@@ -152,20 +195,29 @@
 
   .science-inside__feature-title {
     margin: 0;
-    color: #1a2f7a;
-    font-size: 0.95rem;
-    font-weight: 800;
-    line-height: 1.35;
-    letter-spacing: 0.02em;
+    font-family: Montserrat, sans-serif;
+    font-size: 1.5rem;
+    font-weight: 500;
+    font-style: normal;
+    line-height: 1;
+    letter-spacing: 0;
+    text-transform: uppercase;
+    background: linear-gradient(90deg, #121a43 0%, #2d42a9 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
   }
 
   .science-inside__feature-text {
-    max-width: 16rem;
+    max-width: 18rem;
     margin: 0.55rem 0 0;
-    color: #3a4258;
-    font-size: 0.86rem;
+    color: #000;
+    font-family: Montserrat, sans-serif;
+    font-size: 0.875rem;
     font-weight: 500;
-    line-height: 1.5;
+    font-style: normal;
+    line-height: 1;
+    letter-spacing: 0;
   }
 
   .science-inside__image {
@@ -185,7 +237,7 @@
 
   .science-inside__rows li {
     display: grid;
-    grid-template-columns: 2.2rem minmax(8.5rem, 11rem) minmax(0, 1fr);
+    grid-template-columns: 2.2rem minmax(10rem, 14rem) minmax(0, 1fr);
     gap: 0.75rem 1.15rem;
     align-items: start;
     padding: 1.15rem 0;
@@ -201,28 +253,40 @@
 
   .science-inside__rows h3 {
     margin: 0;
-    color: #1a2f7a;
-    font-size: 0.92rem;
-    font-weight: 800;
-    letter-spacing: 0.04em;
+    font-family: Montserrat, sans-serif;
+    font-size: 1.5rem;
+    font-weight: 500;
+    font-style: normal;
+    line-height: 1;
+    letter-spacing: 0;
     text-transform: uppercase;
+    background: linear-gradient(90deg, #121a43 0%, #2d42a9 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
   }
 
   .science-inside__kicker {
     margin: 0.28rem 0 0;
-    color: #8b93a7;
-    font-size: 0.62rem;
-    font-weight: 600;
-    letter-spacing: 0.12em;
+    color: #000;
+    font-family: Montserrat, sans-serif;
+    font-size: 0.5rem;
+    font-weight: 500;
+    font-style: normal;
+    line-height: 1;
+    letter-spacing: 0.26em;
     text-transform: uppercase;
   }
 
   .science-inside__rows li > p {
     margin: 0;
-    color: #5c6578;
-    font-size: 0.86rem;
+    color: #000;
+    font-family: Montserrat, sans-serif;
+    font-size: 0.875rem;
     font-weight: 500;
-    line-height: 1.5;
+    font-style: normal;
+    line-height: 1;
+    letter-spacing: 0;
   }
 
   @media screen and (max-width: 989px) {

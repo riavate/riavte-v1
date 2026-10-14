@@ -280,6 +280,10 @@
     },
     "results": {
       "name": "Results",
+      "settings": {
+        "button_label": "Button label",
+        "button_link": "Button link"
+      },
       "blocks": {
         "card": {
           "name": "Result",
@@ -420,7 +424,9 @@
         "image_alt": "Image alt text",
         "image_side": "Image side",
         "italic_word": "Italic word",
-        "points_style": "Points style"
+        "points_style": "Points style",
+        "button_label": "Button label",
+        "button_link": "Button link"
       },
       "options": {
         "left": "Left",
@@ -463,7 +469,9 @@
         "subtext": "Subtext",
         "image": "Image",
         "fallback": "Placeholder image",
-        "image_alt": "Image alt text"
+        "image_alt": "Image alt text",
+        "button_label": "Button label",
+        "button_link": "Button link"
       },
       "blocks": {
         "trait": {
@@ -714,7 +722,9 @@
         "tone": "Background",
         "eyebrow": "Eyebrow",
         "heading": "Heading",
-        "text": "Text"
+        "text": "Text",
+        "button_label": "Button label",
+        "button_link": "Button link"
       },
       "options": {
         "light": "Light",

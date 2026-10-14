@@ -20,33 +20,16 @@
       <img class="precision__line precision__line--top" src="{{ 'precision-connector-right-top.png' | asset_url }}" alt="" width="296" height="88">
       <img class="precision__line precision__line--bottom" src="{{ 'precision-connector-right-bottom.png' | asset_url }}" alt="" width="450" height="144">
     </div>
-    <span class="precision__arm precision__arm--top-left"></span>
-    <span class="precision__arm precision__arm--top-right"></span>
-    <span class="precision__arm precision__arm--bottom-left"></span>
-    <span class="precision__arm precision__arm--bottom-right"></span>
     <div class="precision__media">
       <div class="precision__frame">
-      {%- if section.settings.image != blank -%}
-        {{
-          section.settings.image
-          | image_url: width: 900
-          | image_tag:
-            widths: '300, 500, 700, 900',
-            sizes: '(min-width: 750px) 280px, 70vw',
-            alt: section.settings.image_alt,
-            loading: 'lazy',
-            class: 'precision__image'
-        }}
-      {%- else -%}
         <img
           class="precision__image"
-          src="{{ 'precision-device.png' | asset_url }}"
+          src="{{ 'precision-device.jpg' | asset_url }}"
           alt="{{ section.settings.image_alt | escape }}"
-          width="509"
-          height="746"
+          width="834"
+          height="1024"
           loading="lazy"
         >
-      {%- endif -%}
       </div>
     </div>
 
@@ -99,102 +82,65 @@
   }
 
   .precision__stage {
-    --device: 230px;
+    --device: 250px;
     --line: 168px;
     position: relative;
-    width: min(960px, calc(100% - 4rem));
-    height: 420px;
-    margin: 3.25rem auto 0.5rem;
+    width: min(1040px, calc(100% - 3rem));
+    height: 430px;
+    margin: 4.25rem auto 0.5rem;
   }
 
   .precision__media {
     position: absolute;
-    top: 18px;
+    top: 0;
     left: 0;
     right: 0;
     z-index: 1;
     width: var(--device);
+    height: 400px;
     margin-inline: auto;
   }
 
   .precision__frame {
-    height: auto;
+    height: 100%;
   }
 
   .precision__image {
-    display: block;
     width: 100%;
-    height: auto;
+    height: 100%;
+    max-height: none;
+    object-fit: contain;
+    object-position: top center;
   }
 
   .precision__lines {
-    display: none;
-  }
-
-  .precision__arm {
-    position: absolute;
-    z-index: 0;
-    display: block;
-    border: 0 solid #d4d4d4;
-    pointer-events: none;
-  }
-
-  .precision__arm--top-left,
-  .precision__arm--top-right {
-    top: 116px;
-    width: 132px;
-    height: 0;
-    border-top-width: 1px;
-  }
-
-  .precision__arm--top-left {
-    right: calc(50% + 86px);
-  }
-
-  .precision__arm--top-right {
-    left: calc(50% + 86px);
-  }
-
-  .precision__arm--bottom-left,
-  .precision__arm--bottom-right {
-    top: 250px;
-    width: 148px;
-    height: 0;
-    border-top-width: 1px;
-  }
-
-  .precision__arm--bottom-left {
-    right: calc(50% + 90px);
-  }
-
-  .precision__arm--bottom-right {
-    left: calc(50% + 90px);
+    display: contents;
   }
 
   .precision__line {
     position: absolute;
-    z-index: 0;
+    z-index: 2;
     pointer-events: none;
     object-fit: fill;
   }
 
   .precision__line--top {
-    top: 128px;
-    width: 168px;
-    height: 42px;
+    top: 72px;
+    width: 130px;
+    height: 36px;
   }
 
-  .precision__lines--left .precision__line--top { left: calc(50% - 250px); }
-  .precision__lines--right .precision__line--top { right: calc(50% - 250px); }
+  .precision__lines--left .precision__line--top { left: 255px; }
+  .precision__lines--right .precision__line--top { right: 255px; }
 
   .precision__line--bottom {
-    top: 248px;
-    width: 230px;
-    height: 64px;
+    top: 156px;
+    width: 200px;
+    height: 58px;
   }
 
-  .precision__lines--left .precision__line--bottom { left: calc(50% - 300px); }
-  .precision__lines--right .precision__line--bottom { right: calc(50% - 300px); }
+  .precision__lines--left .precision__line--bottom { left: 185px; }
+  .precision__lines--right .precision__line--bottom { right: 185px; }
 
   .precision__point h3 {
     margin: 0;
@@ -207,11 +153,11 @@
 
   .precision__point p {
     margin: 0.35rem 0 0;
-    max-width: 14.5rem;
+    max-width: 100%;
     color: #3a3a3a;
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 500;
-    line-height: 1.4;
+    line-height: 1.35;
   }
 
   .precision__point--top-left,
@@ -219,36 +165,13 @@
   .precision__point--bottom-left,
   .precision__point--bottom-right {
     position: absolute;
-    width: 196px;
+    width: 250px;
   }
 
-  .precision__point--top-left {
-    top: 76px;
-    right: calc(50% + 228px);
-    left: auto;
-  }
-
-  .precision__point--top-right {
-    top: 76px;
-    left: calc(50% + 228px);
-    right: auto;
-    text-align: right;
-  }
-
-  .precision__point--bottom-left {
-    top: 208px;
-    right: calc(50% + 248px);
-    left: auto;
-    width: 188px;
-  }
-
-  .precision__point--bottom-right {
-    top: 208px;
-    left: calc(50% + 248px);
-    right: auto;
-    width: 188px;
-    text-align: right;
-  }
+  .precision__point--top-left { top: -22px; left: 90px; width: 250px; }
+  .precision__point--top-right { top: -22px; right: 90px; width: 250px; text-align: right; }
+  .precision__point--bottom-left { top: 232px; left: 8px; width: 250px; }
+  .precision__point--bottom-right { top: 232px; right: 8px; width: 250px; text-align: right; }
 
   .precision__point--top-right p,
   .precision__point--bottom-right p {
@@ -306,10 +229,6 @@
       width: 100%;
       max-width: 168px;
       align-self: center;
-    }
-
-    .precision__arm {
-      display: none;
     }
 
     .precision__lines--left { grid-area: lines-left; justify-self: end; align-items: flex-end; }

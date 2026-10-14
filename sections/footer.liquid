@@ -13,17 +13,11 @@
               class: 'site-footer__logo-image'
           }}
         {%- else -%}
-          <img
-            class="site-footer__logo-image"
-            src="{{ 'logo-white.png' | asset_url }}"
-            alt="{{ shop.name | escape }}"
-            width="212"
-            height="37"
-          >
+          <span class="site-footer__logo-text">{{ shop.name | upcase | escape }}</span>
         {%- endif -%}
       </a>
       {%- if section.settings.tagline != blank -%}
-        <p class="site-footer__tagline">{{ section.settings.tagline | escape }}</p>
+        <p class="site-footer__tagline">{{ section.settings.tagline | escape | newline_to_br }}</p>
       {%- endif -%}
       {%- if section.settings.text != blank -%}
         <p class="site-footer__text">{{ section.settings.text | escape }}</p>
@@ -64,36 +58,35 @@
             {%- endif -%}
           {%- endfor -%}
         </ul>
+        {%- if forloop.first -%}
+          <div class="site-footer__social">
+            {%- if section.settings.instagram != blank -%}
+              <a href="{{ section.settings.instagram }}" aria-label="{{ 'footer.instagram' | t }}">
+                <img src="{{ 'social-instagram.png' | asset_url }}" alt="" width="35" height="35">
+              </a>
+            {%- endif -%}
+            {%- if section.settings.facebook != blank -%}
+              <a href="{{ section.settings.facebook }}" aria-label="{{ 'footer.facebook' | t }}">
+                <img src="{{ 'social-facebook.png' | asset_url }}" alt="" width="35" height="35">
+              </a>
+            {%- endif -%}
+            {%- if section.settings.tiktok != blank -%}
+              <a href="{{ section.settings.tiktok }}" aria-label="{{ 'footer.tiktok' | t }}">
+                <img src="{{ 'social-tiktok.png' | asset_url }}" alt="" width="31" height="31">
+              </a>
+            {%- endif -%}
+          </div>
+        {%- endif -%}
       </div>
     {%- endfor -%}
-  </div>
-
-  <div class="site-footer__social">
-    {%- if section.settings.instagram != blank -%}
-      <a href="{{ section.settings.instagram }}" aria-label="{{ 'footer.instagram' | t }}">
-        <img src="{{ 'social-instagram.png' | asset_url }}" alt="" width="35" height="35">
-      </a>
-    {%- endif -%}
-    {%- if section.settings.facebook != blank -%}
-      <a href="{{ section.settings.facebook }}" aria-label="{{ 'footer.facebook' | t }}">
-        <img src="{{ 'social-facebook.png' | asset_url }}" alt="" width="35" height="35">
-      </a>
-    {%- endif -%}
-    {%- if section.settings.tiktok != blank -%}
-      <a href="{{ section.settings.tiktok }}" aria-label="{{ 'footer.tiktok' | t }}">
-        <img src="{{ 'social-tiktok.png' | asset_url }}" alt="" width="31" height="31">
-      </a>
-    {%- endif -%}
   </div>
 </footer>
 
 {% stylesheet %}
   .site-footer {
-    display: flex;
-    flex-direction: column;
     margin-top: 0;
     color: #ffffff;
-    background-image: linear-gradient(124deg, #000000 11%, #0037ae 87%);
+    background-image: linear-gradient(105deg, #000000 0%, #000814 28%, #001a5c 62%, #0037ae 100%);
   }
 
   .site-footer a {
@@ -103,11 +96,16 @@
 
   .site-footer__inner {
     display: grid;
-    grid-template-columns: minmax(220px, 1.4fr) repeat(3, minmax(140px, 1fr));
-    gap: 2.5rem 2rem;
+    grid-template-columns: minmax(220px, 1.45fr) repeat(3, minmax(130px, 1fr));
+    gap: 2.75rem 2.25rem;
+    align-items: start;
     width: min(1120px, calc(100% - 2.5rem));
     margin-inline: auto;
-    padding: 4.5rem 0 1.5rem;
+    padding: 4.75rem 0 4rem;
+  }
+
+  .site-footer__logo {
+    display: inline-block;
   }
 
   .site-footer__logo-image {
@@ -116,40 +114,57 @@
     max-width: 212px;
   }
 
+  .site-footer__logo-text {
+    display: block;
+    color: #fff;
+    font-family: Montserrat, sans-serif;
+    font-size: clamp(2rem, 3vw, 2.75rem);
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    line-height: 1;
+    text-transform: uppercase;
+  }
+
   .site-footer__tagline {
-    margin: 1.4rem 0 0;
-    font-size: 15px;
-    font-weight: 800;
-    line-height: 1.4;
+    margin: 1.35rem 0 0;
+    font-family: Montserrat, sans-serif;
+    font-size: 0.9375rem;
+    font-weight: 700;
+    line-height: 1.35;
   }
 
   .site-footer__text {
-    max-width: 20rem;
+    max-width: 18rem;
     margin: 0.85rem 0 0;
-    font-size: 15px;
+    font-family: Montserrat, sans-serif;
+    font-size: 0.875rem;
     font-weight: 500;
     line-height: 1.45;
   }
 
   .site-footer__contact-label {
-    margin: 1.6rem 0 0.45rem;
-    font-size: 15px;
-    font-weight: 800;
+    margin: 1.75rem 0 0.45rem;
+    font-family: Montserrat, sans-serif;
+    font-size: 0.9375rem;
+    font-weight: 700;
   }
 
   .site-footer__contact {
     display: block;
-    margin-top: 0.35rem;
-    font-size: 12px;
+    margin-top: 0.3rem;
+    font-family: Montserrat, sans-serif;
+    font-size: 0.75rem;
     font-weight: 500;
     line-height: 1.5;
   }
 
   .site-footer__heading {
-    margin: 0 0 0.9rem;
-    font-size: 15px;
-    font-weight: 800;
-    letter-spacing: 0.04em;
+    margin: 0 0 0.95rem;
+    font-family: Montserrat, sans-serif;
+    font-size: 0.9375rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
   }
 
   .site-footer__links {
@@ -160,11 +175,11 @@
 
   .site-footer__links a {
     display: inline-block;
-    padding: 0.35rem 0;
-    font-size: 15px;
-    font-weight: 500;
+    padding: 0.32rem 0;
+    font-family: Montserrat, sans-serif;
+    font-size: 0.9375rem;
+    font-weight: 400;
     line-height: 1.4;
-    text-transform: capitalize;
   }
 
   .site-footer__links a:hover,
@@ -178,9 +193,7 @@
     display: flex;
     align-items: center;
     gap: 0.65rem;
-    width: min(1120px, calc(100% - 2.5rem));
-    margin-inline: auto;
-    padding: 0 0 3rem;
+    margin-top: 1.75rem;
   }
 
   .site-footer__social img {
@@ -202,7 +215,7 @@
   @media screen and (max-width: 749px) {
     .site-footer__inner {
       grid-template-columns: 1fr;
-      padding-top: 3rem;
+      padding: 3.25rem 0 3rem;
     }
   }
 {% endstylesheet %}
@@ -220,7 +233,7 @@
       "type": "text",
       "id": "tagline",
       "label": "t:sections.footer.settings.tagline",
-      "default": "Precision science. Visible confidence."
+      "default": "Precision science.\nVisible confidence."
     },
     {
       "type": "textarea",
@@ -244,7 +257,7 @@
       "type": "text",
       "id": "email",
       "label": "t:sections.footer.settings.email",
-      "default": "info@gasoplus.co.uk"
+      "default": "support@riavate.com"
     },
     {
       "type": "url",
@@ -278,7 +291,7 @@
           "id": "links",
           "label": "t:sections.footer.blocks.column.links",
           "info": "t:sections.footer.blocks.column.links_info",
-          "default": "The Kit|/products/the-kit\nThe Science|/pages/science\nOur Formula|/\nHow to Use|/\nAbout Riavâte|/pages/about"
+          "default": "The Kit|/products/the-kit\nThe Science|/pages/science\nOur Formula|/pages/ingredients\nHow to Use|/\nAbout Riavâte|/pages/about"
         }
       ]
     }

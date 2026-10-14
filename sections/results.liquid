@@ -1,59 +1,97 @@
-<section class="results">
+<section class="results" data-results-carousel>
   {%- if section.settings.heading != blank -%}
     <h2 class="results__heading">{{ section.settings.heading | escape }}</h2>
   {%- endif -%}
 
-  <ul class="results__grid">
-    {%- for block in section.blocks -%}
-      {%- liquid
-        assign fallback = block.settings.fallback
-        assign fallback_width = 379
-        assign fallback_height = 260
-        if fallback == 'daniel' or fallback == 'james'
-          assign fallback_width = 379
-          assign fallback_height = 260
-        endif
-      -%}
-      <li class="results__card" {{ block.shopify_attributes }}>
-        <div class="results__photo">
-          {%- if block.settings.image != blank -%}
-            {{
-              block.settings.image
-              | image_url: width: 800
-              | image_tag:
-                widths: '320, 480, 720',
-                sizes: '(min-width: 990px) 320px, 100vw',
-                alt: block.settings.name,
-                loading: 'lazy',
-                class: 'results__image'
-            }}
-          {%- elsif fallback == 'daniel' -%}
-            <img class="results__image" src="{{ 'result-daniel.jpg' | asset_url }}" alt="{{ block.settings.name | escape }}" width="{{ fallback_width }}" height="{{ fallback_height }}" loading="lazy">
-          {%- elsif fallback == 'james' -%}
-            <img class="results__image" src="{{ 'result-james.jpg' | asset_url }}" alt="{{ block.settings.name | escape }}" width="{{ fallback_width }}" height="{{ fallback_height }}" loading="lazy">
-          {%- else -%}
-            <img class="results__image" src="{{ 'result-sarah.jpg' | asset_url }}" alt="{{ block.settings.name | escape }}" width="{{ fallback_width }}" height="{{ fallback_height }}" loading="lazy">
-          {%- endif -%}
-        </div>
-        <div class="results__body">
-          <div class="results__meta">
-            <p class="results__name">{{ block.settings.name | escape }}</p>
-            {%- if block.settings.verified -%}
-              <p class="results__badge">{{ block.settings.badge | escape }}</p>
-            {%- endif -%}
-          </div>
-          <div class="results__quote">{{ block.settings.quote }}</div>
-          <div class="results__product">
-            <img src="{{ 'kit-thumb.jpg' | asset_url }}" alt="" width="42" height="42">
-            <p>
-              <strong>{{ block.settings.uses_label | escape }}</strong><br>
-              {{ block.settings.product_name | escape }}
-            </p>
-          </div>
-        </div>
-      </li>
-    {%- endfor -%}
-  </ul>
+  <div class="results__carousel">
+    <button
+      class="results__nav results__nav--prev"
+      type="button"
+      aria-label="{{ 'sections.results.previous' | t }}"
+      data-results-prev
+    >
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M14.5 6.5L9 12l5.5 5.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+
+    <div class="results__viewport" data-results-viewport>
+      <ul class="results__track" data-results-track>
+        {%- for block in section.blocks -%}
+          {%- liquid
+            assign fallback = block.settings.fallback
+            assign fallback_width = 379
+            assign fallback_height = 260
+          -%}
+          <li class="results__card" {{ block.shopify_attributes }}>
+            <div class="results__photo">
+              {%- if block.settings.image != blank -%}
+                {{
+                  block.settings.image
+                  | image_url: width: 800
+                  | image_tag:
+                    widths: '320, 480, 720',
+                    sizes: '(min-width: 990px) 320px, 100vw',
+                    alt: block.settings.name,
+                    loading: 'lazy',
+                    class: 'results__image'
+                }}
+              {%- elsif fallback == 'daniel' -%}
+                <img class="results__image" src="{{ 'result-daniel.jpg' | asset_url }}" alt="{{ block.settings.name | escape }}" width="{{ fallback_width }}" height="{{ fallback_height }}" loading="lazy">
+              {%- elsif fallback == 'james' -%}
+                <img class="results__image" src="{{ 'result-james.jpg' | asset_url }}" alt="{{ block.settings.name | escape }}" width="{{ fallback_width }}" height="{{ fallback_height }}" loading="lazy">
+              {%- else -%}
+                <img class="results__image" src="{{ 'result-sarah.jpg' | asset_url }}" alt="{{ block.settings.name | escape }}" width="{{ fallback_width }}" height="{{ fallback_height }}" loading="lazy">
+              {%- endif -%}
+            </div>
+            <div class="results__body">
+              <div class="results__meta">
+                <p class="results__name">{{ block.settings.name | escape }}</p>
+                {%- if block.settings.verified -%}
+                  <p class="results__badge">{{ block.settings.badge | escape }}</p>
+                {%- endif -%}
+              </div>
+              <div class="results__quote">{{ block.settings.quote }}</div>
+              <div class="results__product">
+                <img src="{{ 'kit-thumb.jpg' | asset_url }}" alt="" width="42" height="42">
+                <p>
+                  <strong>{{ block.settings.uses_label | escape }}</strong><br>
+                  {{ block.settings.product_name | escape }}
+                </p>
+              </div>
+            </div>
+          </li>
+        {%- endfor -%}
+      </ul>
+    </div>
+
+    <button
+      class="results__nav results__nav--next"
+      type="button"
+      aria-label="{{ 'sections.results.next' | t }}"
+      data-results-next
+    >
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M9.5 6.5L15 12l-5.5 5.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+  </div>
+
+  <div
+    class="results__dots"
+    data-results-dots
+    role="tablist"
+    aria-label="{{ 'sections.results.pages' | t }}"
+  ></div>
+
+  {%- if section.settings.button_label != blank -%}
+    <a
+      class="results__cta"
+      href="{{ section.settings.button_link | default: routes.all_products_collection_url }}"
+    >
+      {{ section.settings.button_label | escape }}
+    </a>
+  {%- endif -%}
 </section>
 
 {% stylesheet %}
@@ -75,19 +113,35 @@
     color: transparent;
   }
 
-  .results__grid {
+  .results__carousel {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 1.5rem;
-    width: min(1080px, calc(100% - 2.5rem));
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 0.75rem;
+    width: min(1180px, calc(100% - 1.5rem));
     margin: 0 auto;
+  }
+
+  .results__viewport {
+    overflow: hidden;
+    width: 100%;
+  }
+
+  .results__track {
+    display: flex;
+    gap: 1.5rem;
+    margin: 0;
     padding: 0;
     list-style: none;
+    transition: transform 0.45s ease;
+    will-change: transform;
   }
 
   .results__card {
     display: flex;
+    flex: 0 0 calc((100% - 3rem) / 3);
     flex-direction: column;
+    min-width: 0;
     overflow: hidden;
     border-radius: 19px;
     background: #f6f6f6;
@@ -173,9 +227,99 @@
     line-height: 1.35;
   }
 
+  .results__nav {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border: 1px solid #d0d0d0;
+    border-radius: 50%;
+    background: #ffffff;
+    color: #9a9a9a;
+    cursor: pointer;
+    transition: border-color 0.2s ease, color 0.2s ease, background-color 0.2s ease;
+  }
+
+  .results__nav:hover {
+    border-color: #2d42a9;
+    color: #2d42a9;
+  }
+
+  .results__nav:disabled {
+    opacity: 0.45;
+    cursor: default;
+  }
+
+  .results__nav svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .results__dots {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.55rem;
+    margin: 1.5rem 0 0;
+  }
+
+  .results__dot {
+    width: 8px;
+    height: 8px;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: #d9d9d9;
+    cursor: pointer;
+  }
+
+  .results__dot.is-active {
+    background: #7a7a7a;
+  }
+
+  .results__cta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: min(305px, calc(100% - 2.5rem));
+    height: 43px;
+    margin: 1.75rem auto 0;
+    padding: 0 1.25rem;
+    border-radius: 15px;
+    background: linear-gradient(90deg, #121a43 0%, #2d42a9 100%);
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    line-height: 1;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+
+  .results__cta:hover {
+    filter: brightness(1.05);
+  }
+
   @media screen and (max-width: 989px) {
-    .results__grid {
-      grid-template-columns: 1fr 1fr;
+    .results__carousel {
+      gap: 0.5rem;
+      width: min(920px, calc(100% - 1rem));
+    }
+
+    .results__card {
+      flex-basis: calc((100% - 1.5rem) / 2);
+    }
+
+    .results__track {
+      gap: 1.5rem;
+    }
+
+    .results__nav {
+      width: 40px;
+      height: 40px;
     }
   }
 
@@ -184,12 +328,132 @@
       padding: 3rem 0;
     }
 
-    .results__grid {
-      grid-template-columns: 1fr;
-      max-width: 420px;
+    .results__carousel {
+      grid-template-columns: auto minmax(0, 1fr) auto;
+      width: calc(100% - 0.75rem);
+    }
+
+    .results__card {
+      flex-basis: 100%;
+    }
+
+    .results__track {
+      gap: 1rem;
+    }
+
+    .results__nav {
+      width: 36px;
+      height: 36px;
+    }
+
+    .results__cta {
+      height: 43px;
+      margin-top: 1.5rem;
     }
   }
 {% endstylesheet %}
+
+{% javascript %}
+  (function () {
+    function perView() {
+      if (window.matchMedia('(max-width: 749px)').matches) return 1;
+      if (window.matchMedia('(max-width: 989px)').matches) return 2;
+      return 3;
+    }
+
+    function initCarousel(root) {
+      var viewport = root.querySelector('[data-results-viewport]');
+      var track = root.querySelector('[data-results-track]');
+      var prev = root.querySelector('[data-results-prev]');
+      var next = root.querySelector('[data-results-next]');
+      var dotsWrap = root.querySelector('[data-results-dots]');
+      if (!viewport || !track || !prev || !next || !dotsWrap) return;
+
+      var cards = Array.prototype.slice.call(track.children);
+      if (!cards.length) return;
+
+      var index = 0;
+      var pageLabel = dotsWrap.getAttribute('aria-label') || 'Pages';
+
+      function pageCount() {
+        return Math.max(1, cards.length - perView() + 1);
+      }
+
+      function renderDots() {
+        var count = pageCount();
+        dotsWrap.innerHTML = '';
+        for (var i = 0; i < count; i += 1) {
+          var button = document.createElement('button');
+          button.type = 'button';
+          button.className = 'results__dot' + (i === index ? ' is-active' : '');
+          button.setAttribute('aria-label', pageLabel + ' ' + (i + 1));
+          button.setAttribute('aria-current', i === index ? 'true' : 'false');
+          button.dataset.index = String(i);
+          dotsWrap.appendChild(button);
+        }
+      }
+
+      function syncDots() {
+        var dots = dotsWrap.querySelectorAll('.results__dot');
+        for (var i = 0; i < dots.length; i += 1) {
+          var active = i === index;
+          dots[i].classList.toggle('is-active', active);
+          dots[i].setAttribute('aria-current', active ? 'true' : 'false');
+        }
+      }
+
+      function update() {
+        var max = pageCount() - 1;
+        if (index > max) index = max;
+        if (index < 0) index = 0;
+
+        var card = track.children[0];
+        if (!card) return;
+        var styles = window.getComputedStyle(track);
+        var gap = parseFloat(styles.columnGap || styles.gap) || 0;
+        var step = card.getBoundingClientRect().width + gap;
+        track.style.transform = 'translate3d(' + (-index * step) + 'px, 0, 0)';
+        syncDots();
+      }
+
+      function goTo(nextIndex) {
+        var max = pageCount() - 1;
+        if (max <= 0) return;
+        if (nextIndex < 0) index = max;
+        else if (nextIndex > max) index = 0;
+        else index = nextIndex;
+        update();
+      }
+
+      prev.addEventListener('click', function () {
+        goTo(index - 1);
+      });
+      next.addEventListener('click', function () {
+        goTo(index + 1);
+      });
+      dotsWrap.addEventListener('click', function (event) {
+        var target = event.target.closest('.results__dot');
+        if (!target) return;
+        goTo(Number(target.dataset.index) || 0);
+      });
+
+      var resizeTimer;
+      window.addEventListener('resize', function () {
+        window.clearTimeout(resizeTimer);
+        resizeTimer = window.setTimeout(function () {
+          var count = pageCount();
+          if (dotsWrap.children.length !== count) renderDots();
+          update();
+        }, 120);
+      });
+
+      renderDots();
+      update();
+    }
+
+    document.querySelectorAll('[data-results-carousel]').forEach(initCarousel);
+  })();
+{% endjavascript %}
 
 {% schema %}
 {
@@ -200,6 +464,17 @@
       "id": "heading",
       "label": "t:sections.precision.settings.heading",
       "default": "Real results. Visible difference."
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "t:sections.results.settings.button_label",
+      "default": "Shop now"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "t:sections.results.settings.button_link"
     }
   ],
   "blocks": [
