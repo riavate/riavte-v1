@@ -273,6 +273,7 @@
           "type": "feature",
           "settings": {
             "icon": "molecule",
+            "image": "shopify://shop_images/802ab36265a115ea5e8bf6e2ae6a939af285baf5.png",
             "title": "PEPTIDE POWER",
             "text": "A copper peptide at the heart of Riavâte’s targeted cosmetic formula."
           }
@@ -327,6 +328,7 @@
         "caption"
       ],
       "settings": {
+        "image": "shopify://shop_images/bafddad28c9577d358ef2d23d09dbb52e30dc5f2.png",
         "fallback_image": "scalp",
         "image_alt": "Micro-infusion applied to the scalp surface",
         "image_position": "right",
