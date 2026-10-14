@@ -106,7 +106,9 @@
         "fallback": "science-device.jpg",
         "image_alt": "Close view of the Riavâte micro-infusion tip",
         "image_side": "left",
-        "points_style": "timeline"
+        "points_style": "timeline",
+        "button_label": "Shop now",
+        "button_link": "shopify://products/the-kit"
       }
     },
     "science_stat": {
@@ -163,7 +165,9 @@
         "subheading": "GHK-Cu",
         "subtext": "Copper Tripeptide-1 sits at the heart of Cuprofuse® as its leading peptide, supported by a wider combination of carefully selected cosmetic ingredients.",
         "fallback": "science-serum.jpg",
-        "image_alt": "Riavâte serum vial with molecular forms"
+        "image_alt": "Riavâte serum vial with molecular forms",
+        "button_label": "Shop now",
+        "button_link": "shopify://products/the-kit"
       }
     },
     "science_purpose": {
