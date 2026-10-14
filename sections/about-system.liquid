@@ -5,7 +5,15 @@
         <p class="about-system__eyebrow">{{ section.settings.eyebrow | escape }}</p>
       {%- endif -%}
       {%- if section.settings.heading != blank -%}
-        <h2 class="about-system__heading">{{ section.settings.heading | escape | replace: '. ', '.<br>' }}</h2>
+        {%- assign heading_parts = section.settings.heading | split: '. ' -%}
+        <h2 class="about-system__heading">
+          {%- if heading_parts.size > 1 -%}
+            <span class="about-system__heading-line">{{ heading_parts[0] | escape }}.</span>
+            <span class="about-system__heading-line">{{ heading_parts[1] | escape }}</span>
+          {%- else -%}
+            {{ section.settings.heading | escape }}
+          {%- endif -%}
+        </h2>
       {%- endif -%}
     </div>
     <ol class="about-system__list">
@@ -64,7 +72,9 @@
   }
 
   .about-system__intro {
-    margin-bottom: 4.5rem;
+    margin-bottom: 0;
+    padding-bottom: 2.375rem;
+    border-bottom: 1px solid #e4e7ee;
   }
 
   .about-system__eyebrow {
@@ -77,10 +87,9 @@
   }
 
   .about-system__heading {
-    max-width: 12em;
     margin: 0;
     font-family: Montserrat, sans-serif;
-    font-size: clamp(2rem, 4vw, 48px);
+    font-size: clamp(1.75rem, 4vw, 48px);
     font-weight: 700;
     font-style: normal;
     line-height: 1;
@@ -93,9 +102,14 @@
     -webkit-text-fill-color: transparent;
   }
 
+  .about-system__heading-line {
+    display: block;
+    white-space: nowrap;
+  }
+
   .about-system__list {
     display: grid;
-    gap: 4.75rem;
+    gap: 0;
     margin: 0;
     padding: 0;
     list-style: none;
@@ -106,6 +120,15 @@
     grid-template-columns: 4.25rem minmax(0, 1fr) minmax(220px, 38%);
     gap: 1.25rem 2.25rem;
     align-items: center;
+    padding-block: 2.375rem;
+  }
+
+  .about-system__row:last-child {
+    padding-bottom: 0;
+  }
+
+  .about-system__row + .about-system__row {
+    border-top: 1px solid #e4e7ee;
   }
 
   .about-system__index {
