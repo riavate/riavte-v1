@@ -387,44 +387,6 @@
         "video_label": "How to\nuse video"
       }
     },
-    "compare": {
-      "type": "product-compare",
-      "blocks": {
-        "riavate": {
-          "type": "column",
-          "settings": {
-            "tone": "featured",
-            "fallback": "product-compare-kit.png",
-            "title": "Riavâte micro-infusion",
-            "rows": "Approach|0.5 mm precision micro-infusion\nFormula|Cuprofuse® Concentrated Serum\nHero Ingredient|GHK-Cu\nRoutine|At-home targeted scalp care\nCost|From $70 one time"
-          }
-        },
-        "transplant": {
-          "type": "column",
-          "settings": {
-            "tone": "plain",
-            "fallback": "product-compare-transplant.png",
-            "title": "Hair transplant",
-            "rows": "Approach|Surgical hair restoration procedure\nFormula|Not a topical formula\nApproach|Clinical procedure with recovery\nCost|$5,000 to $15,000+"
-          }
-        },
-        "medication": {
-          "type": "column",
-          "settings": {
-            "tone": "plain",
-            "fallback": "product-compare-meds.png",
-            "title": "Minoxidil & medication",
-            "rows": "Approach|Drug-based treatment\nFormula|Pharmaceutical active ingredients\nApproach|Typically requires ongoing use\nCost|$30+ a month forever"
-          }
-        }
-      },
-      "block_order": [
-        "riavate",
-        "transplant",
-        "medication"
-      ],
-      "settings": {}
-    },
     "promise": {
       "type": "product-promise",
       "settings": {
@@ -504,7 +466,6 @@
     "apart",
     "results",
     "steps",
-    "compare",
     "promise",
     "reviews"
   ]
