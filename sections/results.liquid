@@ -375,12 +375,8 @@
       var index = 0;
       var pageLabel = dotsWrap.getAttribute('aria-label') || 'Pages';
 
-      function maxIndex() {
-        return Math.max(0, cards.length - perView());
-      }
-
       function pageCount() {
-        return maxIndex() + 1;
+        return Math.max(1, cards.length - perView() + 1);
       }
 
       function renderDots() {
@@ -397,17 +393,7 @@
         }
       }
 
-      function update() {
-        var max = maxIndex();
-        if (index > max) index = max;
-        if (index < 0) index = 0;
-
-        var card = cards[0];
-        var styles = window.getComputedStyle(track);
-        var gap = parseFloat(styles.columnGap || styles.gap) || 0;
-        var step = card.getBoundingClientRect().width + gap;
-        track.style.transform = 'translate3d(' + (-index * step) + 'px, 0, 0)';
-
+      function syncDots() {
         var dots = dotsWrap.querySelectorAll('.results__dot');
         for (var i = 0; i < dots.length; i += 1) {
           var active = i === index;
@@ -416,9 +402,23 @@
         }
       }
 
+      function update() {
+        var max = pageCount() - 1;
+        if (index > max) index = max;
+        if (index < 0) index = 0;
+
+        var card = track.children[0];
+        if (!card) return;
+        var styles = window.getComputedStyle(track);
+        var gap = parseFloat(styles.columnGap || styles.gap) || 0;
+        var step = card.getBoundingClientRect().width + gap;
+        track.style.transform = 'translate3d(' + (-index * step) + 'px, 0, 0)';
+        syncDots();
+      }
+
       function goTo(nextIndex) {
-        var max = maxIndex();
-        if (max === 0) return;
+        var max = pageCount() - 1;
+        if (max <= 0) return;
         if (nextIndex < 0) index = max;
         else if (nextIndex > max) index = 0;
         else index = nextIndex;
