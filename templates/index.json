@@ -422,6 +422,7 @@
         "button"
       ],
       "settings": {
+        "image": "shopify://shop_images/Rectangle63.png",
         "fallback_image": "application",
         "image_alt": "Applying the Riavâte micro-infusion device",
         "image_position": "left",
