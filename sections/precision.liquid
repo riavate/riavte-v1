@@ -64,7 +64,6 @@
     padding: 5rem 0 4.5rem;
     background: #ffffff;
     color: #111111;
-    overflow: hidden;
   }
 
   .precision__intro {
@@ -103,19 +102,19 @@
   }
 
   .precision__stage {
-    --device: 230px;
-    --arm-inset: 72px;
-    --arm-width: 132px;
-    --point-offset: 210px;
+    --device: 248px;
+    --arm-inset: 78px;
+    --arm-width: 148px;
+    --point-offset: 240px;
     position: relative;
-    width: min(1120px, calc(100% - 2.5rem));
-    height: 560px;
-    margin: 2rem auto 0;
+    width: min(1180px, calc(100% - 2rem));
+    height: 520px;
+    margin: 1.75rem auto 0;
   }
 
   .precision__media {
     position: absolute;
-    top: 36px;
+    top: 8px;
     left: 0;
     right: 0;
     z-index: 1;
@@ -149,9 +148,9 @@
   /* Outer vertical + inner horizontal L-arms matching the design */
   .precision__arm--top-left,
   .precision__arm--top-right {
-    top: 88px;
+    top: 72px;
     width: var(--arm-width);
-    height: 96px;
+    height: 54px;
     border-bottom-width: 1px;
   }
 
@@ -167,9 +166,9 @@
 
   .precision__arm--bottom-left,
   .precision__arm--bottom-right {
-    top: 250px;
+    top: 148px;
     width: var(--arm-width);
-    height: 88px;
+    height: 72px;
     border-top-width: 1px;
   }
 
@@ -217,32 +216,32 @@
   .precision__point--bottom-right {
     position: absolute;
     z-index: 2;
-    width: 230px;
+    width: 220px;
   }
 
   .precision__point--top-left {
-    top: 8px;
+    top: 0;
     right: calc(50% + var(--point-offset));
     left: auto;
     text-align: left;
   }
 
   .precision__point--top-right {
-    top: 8px;
+    top: 0;
     left: calc(50% + var(--point-offset));
     right: auto;
     text-align: left;
   }
 
   .precision__point--bottom-left {
-    top: 348px;
+    top: 230px;
     right: calc(50% + var(--point-offset));
     left: auto;
     text-align: left;
   }
 
   .precision__point--bottom-right {
-    top: 348px;
+    top: 230px;
     left: calc(50% + var(--point-offset));
     right: auto;
     text-align: left;
