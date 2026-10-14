@@ -255,6 +255,7 @@
           "type": "feature",
           "settings": {
             "icon": "scalp",
+            "image": "shopify://shop_images/64faaa3c8a2c3e3276fcb30faa470cc37811c18e.png",
             "title": "SCALP CONDITION",
             "text": "Helps support a healthy-looking, well-conditioned scalp."
           }
@@ -263,6 +264,7 @@
           "type": "feature",
           "settings": {
             "icon": "fuller",
+            "image": "shopify://shop_images/64faaa3c8a2c3e3276fcb30faa470cc37811c18e.png",
             "title": "FULLER APPEARANCE",
             "text": "Supports the appearance of fuller and healthier-looking hair."
           }
