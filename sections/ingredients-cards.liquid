@@ -24,7 +24,19 @@
           <p class="ingredients-cards__eyebrow">{{ section.settings.eyebrow | escape }}</p>
         {%- endif -%}
         {%- if section.settings.heading != blank -%}
-          <h2 class="ingredients-cards__heading">{{ section.settings.heading | escape }}</h2>
+          <h2 class="ingredients-cards__heading">
+            {%- if section.settings.tone == 'dark' -%}
+              {%- assign purpose_heading_parts = section.settings.heading | split: ' has a purpose' -%}
+              {%- if purpose_heading_parts.size > 1 -%}
+                <span class="ingredients-cards__heading-line">{{ purpose_heading_parts[0] | escape }}</span>
+                <span class="ingredients-cards__heading-line">has a purpose{{ purpose_heading_parts[1] | escape }}</span>
+              {%- else -%}
+                {{ section.settings.heading | escape }}
+              {%- endif -%}
+            {%- else -%}
+              {{ section.settings.heading | escape }}
+            {%- endif -%}
+          </h2>
         {%- endif -%}
         {%- if section.settings.text != blank -%}
           <div class="ingredients-cards__intro-text rte">{{ section.settings.text }}</div>
@@ -185,13 +197,18 @@
   }
 
   .ingredients-cards--dark .ingredients-cards__heading {
-    max-width: 18ch;
+    max-width: none;
     margin-inline: auto;
     color: #ffffff;
     background: none;
     -webkit-background-clip: unset;
     background-clip: unset;
     -webkit-text-fill-color: #ffffff;
+  }
+
+  .ingredients-cards--dark .ingredients-cards__heading-line {
+    display: block;
+    white-space: nowrap;
   }
 
   .ingredients-cards--dark .ingredients-cards__intro-text {
