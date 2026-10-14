@@ -12,48 +12,42 @@
   </div>
 
   <div class="precision__stage">
-    <img
-      class="precision__line precision__line--top-left"
-      src="{{ 'precision-line-top-left.png' | asset_url }}"
-      alt=""
-      width="1024"
-      height="200"
-      loading="lazy"
-    >
-    <img
-      class="precision__line precision__line--top-right"
-      src="{{ 'precision-line-top-right.png' | asset_url }}"
-      alt=""
-      width="1024"
-      height="200"
-      loading="lazy"
-    >
-    <img
-      class="precision__line precision__line--bottom-left"
-      src="{{ 'precision-line-bottom-left.png' | asset_url }}"
-      alt=""
-      width="651"
-      height="232"
-      loading="lazy"
-    >
-    <img
-      class="precision__line precision__line--bottom-right"
-      src="{{ 'precision-line-bottom-right.png' | asset_url }}"
-      alt=""
-      width="652"
-      height="232"
-      loading="lazy"
-    >
-
+    <div class="precision__lines precision__lines--left">
+      <img class="precision__line precision__line--top" src="{{ 'precision-connector-left-top.png' | asset_url }}" alt="" width="296" height="88">
+      <img class="precision__line precision__line--bottom" src="{{ 'precision-connector-left-bottom.png' | asset_url }}" alt="" width="450" height="144">
+    </div>
+    <div class="precision__lines precision__lines--right">
+      <img class="precision__line precision__line--top" src="{{ 'precision-connector-right-top.png' | asset_url }}" alt="" width="296" height="88">
+      <img class="precision__line precision__line--bottom" src="{{ 'precision-connector-right-bottom.png' | asset_url }}" alt="" width="450" height="144">
+    </div>
+    <span class="precision__arm precision__arm--top-left"></span>
+    <span class="precision__arm precision__arm--top-right"></span>
+    <span class="precision__arm precision__arm--bottom-left"></span>
+    <span class="precision__arm precision__arm--bottom-right"></span>
     <div class="precision__media">
-      <img
-        class="precision__image"
-        src="{{ 'precision-bottle.jpg' | asset_url }}"
-        alt="{{ section.settings.image_alt | escape }}"
-        width="723"
-        height="1024"
-        loading="lazy"
-      >
+      <div class="precision__frame">
+      {%- if section.settings.image != blank -%}
+        {{
+          section.settings.image
+          | image_url: width: 900
+          | image_tag:
+            widths: '300, 500, 700, 900',
+            sizes: '(min-width: 750px) 280px, 70vw',
+            alt: section.settings.image_alt,
+            loading: 'lazy',
+            class: 'precision__image'
+        }}
+      {%- else -%}
+        <img
+          class="precision__image"
+          src="{{ 'precision-device.png' | asset_url }}"
+          alt="{{ section.settings.image_alt | escape }}"
+          width="509"
+          height="746"
+          loading="lazy"
+        >
+      {%- endif -%}
+      </div>
     </div>
 
     {%- for block in section.blocks -%}
@@ -67,61 +61,64 @@
 
 {% stylesheet %}
   .precision {
-    padding: 4.75rem 0 4.5rem;
-    background: #000000;
-    color: #ffffff;
+    padding: 4.5rem 0 3.5rem;
+    background: #ffffff;
+    color: #111111;
   }
 
   .precision__intro {
     width: min(780px, calc(100% - 2.5rem));
-    margin: 0 auto 0.5rem;
+    margin: 0 auto 2.5rem;
     text-align: center;
   }
 
   .precision__heading {
     margin: 0;
-    color: #ffffff;
-    font-family: Montserrat, sans-serif;
-    font-size: clamp(1.85rem, 3vw, 2.35rem);
+    color: #1a2a6e;
+    font-size: clamp(1.7rem, 2.6vw, 2.15rem);
     font-weight: 800;
-    line-height: 1.05;
+    line-height: 1.15;
     letter-spacing: -0.02em;
-    text-transform: uppercase;
   }
 
   .precision__eyebrow {
-    margin: 0.65rem 0 0;
-    color: #ffffff;
-    font-family: Montserrat, sans-serif;
-    font-size: 11px;
+    margin: 0.85rem 0 0;
+    color: #2c2c2c;
+    font-size: 12px;
     font-weight: 500;
-    letter-spacing: 0.38em;
+    letter-spacing: 0.34em;
     text-transform: uppercase;
   }
 
   .precision__text {
     margin: 0.85rem auto 0;
     max-width: 46rem;
-    color: rgba(255, 255, 255, 0.82);
     font-size: 14px;
     font-weight: 500;
     line-height: 1.45;
   }
 
   .precision__stage {
+    --device: 230px;
+    --line: 168px;
     position: relative;
-    width: min(1120px, calc(100% - 1.5rem));
-    aspect-ratio: 1120 / 640;
-    margin: 0.75rem auto 0;
+    width: min(960px, calc(100% - 4rem));
+    height: 420px;
+    margin: 3.25rem auto 0.5rem;
   }
 
   .precision__media {
     position: absolute;
-    top: 0;
-    left: 50%;
+    top: 18px;
+    left: 0;
+    right: 0;
     z-index: 1;
-    width: 34%;
-    transform: translateX(-50%);
+    width: var(--device);
+    margin-inline: auto;
+  }
+
+  .precision__frame {
+    height: auto;
   }
 
   .precision__image {
@@ -130,58 +127,89 @@
     height: auto;
   }
 
-  .precision__line {
+  .precision__lines {
+    display: none;
+  }
+
+  .precision__arm {
     position: absolute;
     z-index: 0;
     display: block;
+    border: 0 solid #d4d4d4;
+    pointer-events: none;
+  }
+
+  .precision__arm--top-left,
+  .precision__arm--top-right {
+    top: 116px;
+    width: 132px;
+    height: 0;
+    border-top-width: 1px;
+  }
+
+  .precision__arm--top-left {
+    right: calc(50% + 86px);
+  }
+
+  .precision__arm--top-right {
+    left: calc(50% + 86px);
+  }
+
+  .precision__arm--bottom-left,
+  .precision__arm--bottom-right {
+    top: 250px;
+    width: 148px;
+    height: 0;
+    border-top-width: 1px;
+  }
+
+  .precision__arm--bottom-left {
+    right: calc(50% + 90px);
+  }
+
+  .precision__arm--bottom-right {
+    left: calc(50% + 90px);
+  }
+
+  .precision__line {
+    position: absolute;
+    z-index: 0;
     pointer-events: none;
     object-fit: fill;
   }
 
-  .precision__line--top-left {
-    top: 18%;
-    right: 52%;
-    width: 28%;
-    height: 18%;
+  .precision__line--top {
+    top: 128px;
+    width: 168px;
+    height: 42px;
   }
 
-  .precision__line--top-right {
-    top: 18%;
-    left: 52%;
-    width: 28%;
-    height: 18%;
+  .precision__lines--left .precision__line--top { left: calc(50% - 250px); }
+  .precision__lines--right .precision__line--top { right: calc(50% - 250px); }
+
+  .precision__line--bottom {
+    top: 248px;
+    width: 230px;
+    height: 64px;
   }
 
-  .precision__line--bottom-left {
-    top: 48%;
-    right: 52%;
-    width: 28%;
-    height: 22%;
-  }
-
-  .precision__line--bottom-right {
-    top: 48%;
-    left: 52%;
-    width: 28%;
-    height: 22%;
-  }
+  .precision__lines--left .precision__line--bottom { left: calc(50% - 300px); }
+  .precision__lines--right .precision__line--bottom { right: calc(50% - 300px); }
 
   .precision__point h3 {
     margin: 0;
-    color: #ffffff;
-    font-family: Montserrat, sans-serif;
-    font-size: clamp(11px, 1.15vw, 13px);
+    color: #111111;
+    font-size: 13px;
     font-weight: 800;
-    line-height: 1.25;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
+    line-height: 1.3;
+    letter-spacing: 0.02em;
   }
 
   .precision__point p {
-    margin: 0.4rem 0 0;
-    color: rgba(255, 255, 255, 0.88);
-    font-family: Montserrat, sans-serif;
-    font-size: clamp(12px, 1.2vw, 14px);
+    margin: 0.35rem 0 0;
+    max-width: 14.5rem;
+    color: #3a3a3a;
+    font-size: 14px;
     font-weight: 500;
     line-height: 1.4;
   }
@@ -191,61 +219,63 @@
   .precision__point--bottom-left,
   .precision__point--bottom-right {
     position: absolute;
-    z-index: 2;
-    width: 20%;
+    width: 196px;
   }
 
   .precision__point--top-left {
-    top: 4%;
-    left: 2%;
-    text-align: right;
+    top: 76px;
+    right: calc(50% + 228px);
+    left: auto;
   }
 
   .precision__point--top-right {
-    top: 4%;
-    right: 2%;
-    text-align: left;
-  }
-
-  .precision__point--bottom-left {
-    top: 72%;
-    left: 2%;
-    text-align: left;
-  }
-
-  .precision__point--bottom-right {
-    top: 72%;
-    right: 2%;
+    top: 76px;
+    left: calc(50% + 228px);
+    right: auto;
     text-align: right;
   }
 
-  .precision__point--top-left p {
-    margin-left: auto;
+  .precision__point--bottom-left {
+    top: 208px;
+    right: calc(50% + 248px);
+    left: auto;
+    width: 188px;
   }
 
+  .precision__point--bottom-right {
+    top: 208px;
+    left: calc(50% + 248px);
+    right: auto;
+    width: 188px;
+    text-align: right;
+  }
+
+  .precision__point--top-right p,
   .precision__point--bottom-right p {
     margin-left: auto;
   }
 
+
   @media screen and (max-width: 989px) {
     .precision__stage {
+      --device: 100%;
       display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(120px, 180px) minmax(0, 1fr);
+      grid-template-columns: minmax(0, 1fr) minmax(108px, 168px) minmax(0, 1fr);
       grid-template-areas:
         "top-left . top-right"
-        "line-left media line-right"
+        "lines-left media lines-right"
         "bottom-left . bottom-right";
       align-items: center;
       width: min(720px, calc(100% - 1.5rem));
-      aspect-ratio: auto;
       height: auto;
-      column-gap: 0.35rem;
+      margin-top: 2.25rem;
+      column-gap: 0.55rem;
       row-gap: 0.85rem;
     }
 
     .precision__media,
     .precision__point,
-    .precision__line,
+    .precision__lines,
     .precision__point--top-left,
     .precision__point--top-right,
     .precision__point--bottom-left,
@@ -255,54 +285,77 @@
       right: auto;
       left: auto;
       width: auto;
-      height: auto;
-      transform: none;
     }
 
     .precision__media {
       grid-area: media;
       width: 100%;
+      height: auto;
+      margin: 0;
     }
 
-    .precision__line--top-left,
-    .precision__line--bottom-left {
-      grid-area: line-left;
+    .precision__frame,
+    .precision__image {
+      height: auto;
+    }
+
+    .precision__lines {
+      display: flex;
+      flex-direction: column;
+      gap: 1.1rem;
       width: 100%;
-      max-width: 140px;
-      justify-self: end;
+      max-width: 168px;
+      align-self: center;
     }
 
-    .precision__line--top-right,
-    .precision__line--bottom-right {
-      grid-area: line-right;
-      width: 100%;
-      max-width: 140px;
-      justify-self: start;
-    }
-
-    .precision__line--bottom-left,
-    .precision__line--bottom-right {
+    .precision__arm {
       display: none;
     }
 
-    .precision__point--top-left { grid-area: top-left; text-align: left; }
+    .precision__lines--left { grid-area: lines-left; justify-self: end; align-items: flex-end; }
+    .precision__lines--right { grid-area: lines-right; justify-self: start; align-items: flex-start; }
+
+    .precision__line,
+    .precision__line--top,
+    .precision__line--bottom,
+    .precision__lines--left .precision__line--top,
+    .precision__lines--right .precision__line--top,
+    .precision__lines--left .precision__line--bottom,
+    .precision__lines--right .precision__line--bottom {
+      position: static;
+      top: auto;
+      right: auto;
+      left: auto;
+      height: auto;
+      object-fit: contain;
+    }
+
+    .precision__line--top { width: 72%; }
+    .precision__line--bottom { width: 100%; }
+
+    .precision__point--top-left { grid-area: top-left; }
     .precision__point--top-right { grid-area: top-right; text-align: right; }
     .precision__point--bottom-left { grid-area: bottom-left; }
     .precision__point--bottom-right { grid-area: bottom-right; text-align: right; }
 
-    .precision__point--top-left p,
-    .precision__point--bottom-right p {
-      margin-left: 0;
+    .precision__point p {
+      max-width: none;
     }
   }
 
   @media screen and (max-width: 749px) {
     .precision {
-      padding: 3rem 0 2.75rem;
+      padding: 3rem 0 2.5rem;
+    }
+
+    .precision__intro {
+      margin-bottom: 1.5rem;
     }
 
     .precision__stage {
-      grid-template-columns: minmax(0, 1fr) minmax(96px, 140px) minmax(0, 1fr);
+      grid-template-columns: minmax(0, 1fr) minmax(96px, 132px) minmax(0, 1fr);
+      column-gap: 0.4rem;
+      row-gap: 0.7rem;
     }
 
     .precision__point h3 {
@@ -311,6 +364,7 @@
 
     .precision__point p {
       font-size: 12px;
+      line-height: 1.35;
     }
   }
 {% endstylesheet %}
