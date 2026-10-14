@@ -165,6 +165,7 @@
         "surface_card": {
           "type": "approach",
           "settings": {
+            "image": "shopify://shop_images/Rectangle_74.png",
             "image_alt": "Serum applied on the scalp surface",
             "fallback": "surface",
             "title": "01 — Surface application",
@@ -176,6 +177,7 @@
         "infusion_card": {
           "type": "approach",
           "settings": {
+            "image": "shopify://shop_images/Rectangle_128.png",
             "image_alt": "Riavâte 0.5 mm micro-infusion below the scalp surface",
             "fallback": "infusion",
             "title": "02 — Micro-infusion",
