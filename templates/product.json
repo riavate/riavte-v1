@@ -413,6 +413,7 @@
         "daniel": {
           "type": "review",
           "settings": {
+            "image": "shopify://shop_images/Rectangle_123_69b5416e-d8c7-40f4-8bb8-d9784ef89e2d.png",
             "fallback": "product-review-2.jpg",
             "name": "Daniel M.",
             "date": "02 September 2026",
