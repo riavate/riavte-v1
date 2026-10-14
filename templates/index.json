@@ -230,7 +230,7 @@
           "type": "button",
           "settings": {
             "label": "DISCOVER CUPROFUSE™ →",
-            "link": ""
+            "link": "shopify://pages/science"
           }
         }
       },
@@ -337,6 +337,29 @@
         "heading_size": 32,
         "heading_size_mobile": 28,
         "padding": 72
+      }
+    },
+    "how_it_works_home_89pyNd": {
+      "type": "how-it-works-home",
+      "name": "RIAVATE How It Works",
+      "settings": {
+        "eyebrow": "HOW IT WORKS",
+        "heading": "Precision in Every Step.",
+        "description": "<p>Advanced 0.5 mm micro-infusion meets Cuprofuse® Concentrated Serum for targeted scalp care.</p>",
+        "image_1_alt": "Riavâte micro-infusion device",
+        "image_2_alt": "Blue serum dropper",
+        "image_3_alt": "Peptide serum molecular imagery",
+        "image_4_alt": "Healthy looking hair and scalp",
+        "step_1_title": "MICRO-INFUSE",
+        "step_1_text": "Creates precise micro-channels at the scalp surface.",
+        "step_2_title": "DELIVER",
+        "step_2_text": "Applies GHK-Cu-led Cuprofuse® Concentrated Serum.",
+        "step_3_title": "SUPPORT",
+        "step_3_text": "Supports a healthier-looking scalp.",
+        "step_4_title": "STRENGTHEN",
+        "step_4_text": "Supports stronger, fuller-looking hair.",
+        "button_label": "EXPLORE THE SCIENCE",
+        "button_link": ""
       }
     },
     "results": {
@@ -515,6 +538,7 @@
     "cuprofuse",
     "peptide",
     "beyond",
+    "how_it_works_home_89pyNd",
     "results",
     "statement",
     "reviews"
