@@ -103,6 +103,11 @@
   "sections": {
     "science_explore": {
       "view_study": "View study"
+    },
+    "results": {
+      "previous": "Previous results",
+      "next": "Next results",
+      "pages": "Results pages"
     }
   },
   "info_page": {

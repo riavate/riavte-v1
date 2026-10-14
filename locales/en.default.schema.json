@@ -280,6 +280,10 @@
     },
     "results": {
       "name": "Results",
+      "settings": {
+        "button_label": "Button label",
+        "button_link": "Button link"
+      },
       "blocks": {
         "card": {
           "name": "Result",

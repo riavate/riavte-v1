@@ -69,7 +69,6 @@
           "type": "item",
           "settings": {
             "icon": "scalp",
-            "image": "shopify://shop_images/15d0d1cc65f9549366eec7beca89500f0564b2e5.png",
             "title": "Scalp-focused",
             "text": "Targeted formula"
           }
@@ -78,7 +77,6 @@
           "type": "item",
           "settings": {
             "icon": "peptide",
-            "image": "shopify://shop_images/414f066272facbee4ddb773ebfb6b8edbd6a3d34.png",
             "title": "GHK-Cu",
             "text": "One of the most researched peptides"
           }
@@ -87,7 +85,6 @@
           "type": "item",
           "settings": {
             "icon": "lab",
-            "image": "shopify://shop_images/87d6c4fffa7671e9baf1b973c7c228c188121bf4.png",
             "title": "Lab tested",
             "text": "Quality & consistency"
           }
@@ -96,7 +93,6 @@
           "type": "item",
           "settings": {
             "icon": "serum",
-            "image": "shopify://shop_images/7661e1c10f55d71a117acc7a98df23c273e51fcf.png",
             "title": "Cuprofuse™",
             "text": "Concentrated serum"
           }
@@ -416,7 +412,9 @@
         "james"
       ],
       "settings": {
-        "heading": "Real People. Visible Difference."
+        "heading": "Real People. Visible Difference.",
+        "button_label": "Shop now",
+        "button_link": "shopify://products/the-kit"
       }
     },
     "statement": {
