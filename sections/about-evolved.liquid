@@ -66,9 +66,10 @@
   .about-evolved__copy {
     position: relative;
     z-index: 1;
-    width: min(34rem, calc(100% - 3rem));
-    margin: 0 8% 0 auto;
-    padding: 5.5rem 0;
+    box-sizing: border-box;
+    width: min(32rem, calc(50% - 2.5rem));
+    margin: 0 auto 0 50%;
+    padding: 5.5rem 1.5rem 5.5rem 1.25rem;
     text-align: center;
   }
 
@@ -135,6 +136,7 @@
   @media screen and (max-width: 989px) {
     .about-evolved__copy {
       z-index: 2;
+      width: min(34rem, calc(100% - 3rem));
       margin: 0 auto;
       padding: 4.5rem 0;
     }
