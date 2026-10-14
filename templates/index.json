@@ -476,9 +476,11 @@
             "image": "shopify://shop_images/Rectangle63.png"
           }
         },
-        "t8": {
+        "thumb_n9xRLR": {
           "type": "thumb",
-          "settings": {}
+          "settings": {
+            "image": "shopify://shop_images/Rectangle63.png"
+          }
         }
       },
       "block_order": [
@@ -489,7 +491,7 @@
         "t5",
         "t6",
         "t7",
-        "t8"
+        "thumb_n9xRLR"
       ],
       "settings": {
         "heading": "Customer Reviews",
