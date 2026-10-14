@@ -32,7 +32,7 @@
           "type": "column",
           "settings": {
             "heading": "Legal",
-            "links": "Privacy Policy|/pages/privacy-policy\nTerms & Conditions|/pages/terms\nCookie Policy|/pages/cookie-policy\nAccessibility|/pages/accessibility"
+            "links": "Privacy Policy|/pages/privacy-policy\nTerms & Conditions|/pages/terms"
           }
         }
       },
