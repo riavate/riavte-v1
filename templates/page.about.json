@@ -31,17 +31,6 @@
         "labels": ""
       }
     },
-    "about_hero_tUPjCi": {
-      "type": "about-hero",
-      "disabled": true,
-      "settings": {
-        "eyebrow": "About Riavâte",
-        "heading": "WHY I BUILT RIAVÂTE",
-        "text": "<p>I’ll be honest — watching my hair thin after COVID knocked my confidence more than I expected. I looked at what was out there and wasn’t convinced: underdosed formulas, overstated claims, little real precision.<br/><br/>So I built the alternative. I assembled an expert team from across Europe and developed our own concentrate — full-strength, science-led, and delivered through precision micro-infusion rather than guesswork.<br/><br/>That’s Riavâte. Built for myself first, to a standard worth keeping.</p><p></p><p>— Yogi, Founder</p>",
-        "image_alt": "Riavâte micro-infusion device",
-        "labels": ""
-      }
-    },
     "about_reconsidered": {
       "type": "about-reconsidered",
       "settings": {
@@ -249,7 +238,6 @@
   "order": [
     "about_hero",
     "about_hero_new_N8EmCT",
-    "about_hero_tUPjCi",
     "about_reconsidered",
     "about_pillars",
     "about_formula",
