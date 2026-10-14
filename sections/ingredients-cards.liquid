@@ -1,3 +1,16 @@
+{%- liquid
+  assign button_label = section.settings.button_label
+  assign button_link = section.settings.button_link
+  if button_label == blank
+    if section.settings.tone == 'dark'
+      assign button_label = 'Discover the system'
+    endif
+  endif
+  if button_link == blank
+    assign button_link = '/products/the-kit'
+  endif
+-%}
+
 <section
   class="ingredients-cards ingredients-cards--{{ section.settings.tone }}"
   {% if section.settings.anchor != blank %}
@@ -61,13 +74,10 @@
         </li>
       {%- endfor -%}
     </ul>
-    {%- if section.settings.button_label != blank -%}
+    {%- if button_label != blank -%}
       <div class="ingredients-cards__actions">
-        <a
-          class="ingredients-cards__button"
-          href="{{ section.settings.button_link | default: '/products/the-kit' }}"
-        >
-          {{ section.settings.button_label | escape }}
+        <a class="ingredients-cards__button" href="{{ button_link }}">
+          {{ button_label | escape }}
         </a>
       </div>
     {%- endif -%}
@@ -85,6 +95,7 @@
   }
 
   .ingredients-cards--dark {
+    padding: 2.5rem 1.25rem 4.5rem;
     color: #111111;
     background: #ffffff;
   }
@@ -99,10 +110,10 @@
     width: min(1078px, 100%);
     max-width: 1078px;
     margin: 0 auto;
-    padding: 3.25rem 1.5rem 3rem;
+    padding: 3.75rem 2rem 3.25rem;
     border-radius: 19px;
     color: #ffffff;
-    background: linear-gradient(180deg, #000000 0%, #001433 38%, #00256e 70%, #0037ae 100%);
+    background: linear-gradient(180deg, #000000 0%, #001433 36%, #00256e 68%, #0037ae 100%);
   }
 
   .ingredients-cards__intro {
@@ -112,13 +123,13 @@
   }
 
   .ingredients-cards--dark .ingredients-cards__intro {
-    max-width: 40rem;
-    margin: 0 auto 2.75rem;
+    max-width: 38rem;
+    margin: 0 auto 2.85rem;
     color: #ffffff;
   }
 
   .ingredients-cards__eyebrow {
-    margin: 0 0 0.75rem;
+    margin: 0 0 0.85rem;
     color: #000;
     font-family: Montserrat, sans-serif;
     font-size: 0.9375rem;
@@ -154,13 +165,13 @@
   }
 
   .ingredients-cards__intro-text {
-    margin-top: 1rem;
+    margin-top: 1.1rem;
     color: #000;
     font-family: Montserrat, sans-serif;
     font-size: 0.875rem;
     font-weight: 500;
     font-style: normal;
-    line-height: 1;
+    line-height: 1.45;
     letter-spacing: 0;
     text-align: center;
   }
@@ -170,11 +181,11 @@
   }
 
   .ingredients-cards--dark .ingredients-cards__eyebrow {
-    color: #ffffff;
+    color: rgba(255, 255, 255, 0.88);
   }
 
   .ingredients-cards--dark .ingredients-cards__heading {
-    max-width: 22ch;
+    max-width: 18ch;
     margin-inline: auto;
     color: #ffffff;
     background: none;
@@ -184,15 +195,17 @@
   }
 
   .ingredients-cards--dark .ingredients-cards__intro-text {
-    max-width: 36rem;
+    max-width: 34rem;
+    margin-inline: auto;
     color: rgba(255, 255, 255, 0.92);
+    line-height: 1.5;
   }
 
   .ingredients-cards__grid {
     display: grid;
     grid-template-columns: repeat(3, 336px);
     justify-content: center;
-    gap: 1.35rem 1.25rem;
+    gap: 1.5rem 1.35rem;
     margin: 0;
     padding: 0;
     list-style: none;
@@ -210,13 +223,22 @@
     padding: 0;
   }
 
+  .ingredients-cards--dark .ingredients-cards__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.35rem 1.15rem;
+  }
+
   .ingredients-cards--dark .ingredients-cards__grid li {
+    width: 100%;
+    max-width: none;
+    min-height: 0;
+    height: 100%;
     background: #ffffff;
   }
 
   .ingredients-cards__media {
     flex: 0 0 144px;
-    width: 336px;
+    width: 100%;
     height: 144px;
     overflow: hidden;
     border-radius: 19px 19px 0 0;
@@ -234,25 +256,29 @@
     display: flex;
     flex: 1 1 auto;
     flex-direction: column;
-    padding: 1.35rem 1.4rem 1.5rem;
+    padding: 1.25rem 1.3rem 1.45rem;
+  }
+
+  .ingredients-cards--dark .ingredients-cards__body {
+    padding: 1.15rem 1.2rem 1.35rem;
   }
 
   .ingredients-cards__index {
     margin: 0;
     color: #000;
     font-family: Montserrat, sans-serif;
-    font-size: 0.75rem;
+    font-size: 0.72rem;
     font-weight: 500;
-    letter-spacing: 0.18em;
-    line-height: 1.2;
+    letter-spacing: 0.16em;
+    line-height: 1.25;
     text-transform: uppercase;
   }
 
   .ingredients-cards__title {
-    margin: 0.65rem 0 0.55rem;
-    color: #121a43;
+    margin: 0.55rem 0 0.5rem;
+    color: #1a2f7a;
     font-family: Montserrat, sans-serif;
-    font-size: 1rem;
+    font-size: 0.95rem;
     font-weight: 700;
     line-height: 1.2;
     letter-spacing: 0.02em;
@@ -261,9 +287,9 @@
 
   .ingredients-cards__text,
   .ingredients-cards__why {
-    color: #000;
+    color: #111;
     font-family: Montserrat, sans-serif;
-    font-size: 0.875rem;
+    font-size: 0.84rem;
     font-weight: 400;
     line-height: 1.45;
   }
@@ -293,16 +319,17 @@
   .ingredients-cards__actions {
     display: flex;
     justify-content: center;
-    margin-top: 2.5rem;
+    margin-top: 2.75rem;
   }
 
   .ingredients-cards__button {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    min-height: 2.7rem;
-    padding: 0.75rem 1.75rem;
-    border: 1px solid rgba(255, 255, 255, 0.9);
+    min-width: 13.5rem;
+    min-height: 2.85rem;
+    padding: 0.8rem 1.9rem;
+    border: 1px solid rgba(255, 255, 255, 0.92);
     border-radius: 999px;
     color: #ffffff;
     font-family: Montserrat, sans-serif;
@@ -312,11 +339,12 @@
     text-decoration: none;
     text-transform: uppercase;
     background: transparent;
+    transition: background 0.2s ease;
   }
 
   .ingredients-cards__button:hover,
   .ingredients-cards__button:focus-visible {
-    background: rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.1);
   }
 
   .ingredients-cards--light .ingredients-cards__button {
@@ -324,28 +352,16 @@
     color: #121a43;
   }
 
-  .ingredients-cards--dark .ingredients-cards__grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-
-  .ingredients-cards--dark .ingredients-cards__grid li {
-    width: 100%;
-    max-width: none;
-    min-height: 0;
-  }
-
-  .ingredients-cards--dark .ingredients-cards__media {
-    width: 100%;
-  }
-
   @media screen and (max-width: 1100px) {
     .ingredients-cards__grid,
     .ingredients-cards--dark .ingredients-cards__grid {
-      grid-template-columns: repeat(2, minmax(0, 336px));
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      justify-content: stretch;
     }
 
-    .ingredients-cards--dark .ingredients-cards__grid li {
-      max-width: 336px;
+    .ingredients-cards__grid li {
+      width: 100%;
+      max-width: none;
     }
   }
 
@@ -354,14 +370,22 @@
       padding: 3rem 1rem 3.25rem;
     }
 
-    .ingredients-cards__grid {
-      grid-template-columns: minmax(0, 336px);
+    .ingredients-cards--dark {
+      padding: 1.5rem 0.85rem 3rem;
     }
 
-    .ingredients-cards__grid li,
-    .ingredients-cards__media {
-      width: 100%;
-      max-width: 336px;
+    .ingredients-cards--dark .ingredients-cards__inner {
+      padding: 2.5rem 1rem 2.35rem;
+    }
+
+    .ingredients-cards__grid,
+    .ingredients-cards--dark .ingredients-cards__grid {
+      grid-template-columns: 1fr;
+      gap: 1.1rem;
+    }
+
+    .ingredients-cards__actions {
+      margin-top: 2rem;
     }
   }
 {% endstylesheet %}
