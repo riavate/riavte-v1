@@ -61,6 +61,16 @@
         </li>
       {%- endfor -%}
     </ul>
+    {%- if section.settings.button_label != blank -%}
+      <div class="ingredients-cards__actions">
+        <a
+          class="ingredients-cards__button"
+          href="{{ section.settings.button_link | default: '/products/the-kit' }}"
+        >
+          {{ section.settings.button_label | escape }}
+        </a>
+      </div>
+    {%- endif -%}
   </div>
 </section>
 
@@ -84,6 +94,17 @@
     margin: 0 auto;
   }
 
+  .ingredients-cards--dark .ingredients-cards__inner {
+    box-sizing: border-box;
+    width: min(1078px, 100%);
+    max-width: 1078px;
+    margin: 0 auto;
+    padding: 3.25rem 1.5rem 3rem;
+    border-radius: 19px;
+    color: #ffffff;
+    background: linear-gradient(180deg, #000000 0%, #001433 38%, #00256e 70%, #0037ae 100%);
+  }
+
   .ingredients-cards__intro {
     max-width: 760px;
     margin: 0 auto 3rem;
@@ -91,19 +112,9 @@
   }
 
   .ingredients-cards--dark .ingredients-cards__intro {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    box-sizing: border-box;
-    width: min(1078px, 100%);
-    max-width: 1078px;
-    min-height: 339px;
-    margin: 0 auto 3rem;
-    padding: 2.5rem 2rem;
-    border-radius: 19px;
+    max-width: 40rem;
+    margin: 0 auto 2.75rem;
     color: #ffffff;
-    background: linear-gradient(180deg, #000000 0%, #001433 38%, #00256e 70%, #0037ae 100%);
   }
 
   .ingredients-cards__eyebrow {
@@ -279,9 +290,62 @@
     margin: 0;
   }
 
+  .ingredients-cards__actions {
+    display: flex;
+    justify-content: center;
+    margin-top: 2.5rem;
+  }
+
+  .ingredients-cards__button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 2.7rem;
+    padding: 0.75rem 1.75rem;
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    border-radius: 999px;
+    color: #ffffff;
+    font-family: Montserrat, sans-serif;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-decoration: none;
+    text-transform: uppercase;
+    background: transparent;
+  }
+
+  .ingredients-cards__button:hover,
+  .ingredients-cards__button:focus-visible {
+    background: rgba(255, 255, 255, 0.08);
+  }
+
+  .ingredients-cards--light .ingredients-cards__button {
+    border-color: #121a43;
+    color: #121a43;
+  }
+
+  .ingredients-cards--dark .ingredients-cards__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .ingredients-cards--dark .ingredients-cards__grid li {
+    width: 100%;
+    max-width: none;
+    min-height: 0;
+  }
+
+  .ingredients-cards--dark .ingredients-cards__media {
+    width: 100%;
+  }
+
   @media screen and (max-width: 1100px) {
-    .ingredients-cards__grid {
+    .ingredients-cards__grid,
+    .ingredients-cards--dark .ingredients-cards__grid {
       grid-template-columns: repeat(2, minmax(0, 336px));
+    }
+
+    .ingredients-cards--dark .ingredients-cards__grid li {
+      max-width: 336px;
     }
   }
 
@@ -339,6 +403,16 @@
       "id": "text",
       "label": "t:sections.ingredients_cards.settings.text",
       "default": "<p>Each ingredient in Cuprofuse® has been carefully selected to play a considered role within the formula.</p>"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "t:sections.ingredients_cards.settings.button_label"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "t:sections.ingredients_cards.settings.button_link"
     }
   ],
   "blocks": [

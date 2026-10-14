@@ -722,7 +722,9 @@
         "tone": "Background",
         "eyebrow": "Eyebrow",
         "heading": "Heading",
-        "text": "Text"
+        "text": "Text",
+        "button_label": "Button label",
+        "button_link": "Button link"
       },
       "options": {
         "light": "Light",
