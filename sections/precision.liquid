@@ -20,22 +20,29 @@
       <img class="precision__line precision__line--top" src="{{ 'precision-connector-right-top.png' | asset_url }}" alt="" width="296" height="88">
       <img class="precision__line precision__line--bottom" src="{{ 'precision-connector-right-bottom.png' | asset_url }}" alt="" width="450" height="144">
     </div>
-
-    <span class="precision__arm precision__arm--top-left" aria-hidden="true"></span>
-    <span class="precision__arm precision__arm--top-right" aria-hidden="true"></span>
-    <span class="precision__arm precision__arm--bottom-left" aria-hidden="true"></span>
-    <span class="precision__arm precision__arm--bottom-right" aria-hidden="true"></span>
-
     <div class="precision__media">
       <div class="precision__frame">
+      {%- if section.settings.image != blank -%}
+        {{
+          section.settings.image
+          | image_url: width: 900
+          | image_tag:
+            widths: '300, 500, 700, 900',
+            sizes: '(min-width: 750px) 320px, 70vw',
+            alt: section.settings.image_alt,
+            loading: 'lazy',
+            class: 'precision__image'
+        }}
+      {%- else -%}
         <img
           class="precision__image"
           src="{{ 'precision-device.jpg' | asset_url }}"
           alt="{{ section.settings.image_alt | escape }}"
-          width="834"
-          height="1024"
+          width="256"
+          height="384"
           loading="lazy"
         >
+      {%- endif -%}
       </div>
     </div>
 
@@ -50,32 +57,29 @@
 
 {% stylesheet %}
   .precision {
-    padding: 4.5rem 0 3.75rem;
+    padding: 4.5rem 0 3.5rem;
     background: #ffffff;
     color: #111111;
   }
 
   .precision__intro {
     width: min(780px, calc(100% - 2.5rem));
-    margin: 0 auto 1.25rem;
+    margin: 0 auto 2.5rem;
     text-align: center;
   }
 
   .precision__heading {
     margin: 0;
-    color: #121a43;
-    font-family: Montserrat, sans-serif;
-    font-size: clamp(1.75rem, 2.8vw, 2.25rem);
+    color: #1a2a6e;
+    font-size: clamp(1.7rem, 2.6vw, 2.15rem);
     font-weight: 800;
-    line-height: 1.1;
+    line-height: 1.15;
     letter-spacing: -0.02em;
-    text-transform: uppercase;
   }
 
   .precision__eyebrow {
-    margin: 0.7rem 0 0;
-    color: #111111;
-    font-family: Montserrat, sans-serif;
+    margin: 0.85rem 0 0;
+    color: #2c2c2c;
     font-size: 12px;
     font-weight: 500;
     letter-spacing: 0.34em;
@@ -91,101 +95,79 @@
   }
 
   .precision__stage {
-    --device: 240px;
-    --arm-gap: 28px;
-    --arm-width: 150px;
-    --arm-height: 52px;
+    --device: 250px;
+    --line: 168px;
     position: relative;
-    width: min(1080px, calc(100% - 2.5rem));
-    height: 500px;
-    margin: 1.5rem auto 0;
+    width: min(1040px, calc(100% - 3rem));
+    height: 430px;
+    margin: 4.25rem auto 0.5rem;
   }
 
   .precision__media {
     position: absolute;
-    top: 28px;
-    left: 50%;
+    top: 0;
+    left: 0;
+    right: 0;
     z-index: 1;
     width: var(--device);
-    transform: translateX(-50%);
+    height: 400px;
+    margin-inline: auto;
   }
 
   .precision__frame {
-    height: auto;
+    height: 100%;
   }
 
   .precision__image {
-    display: block;
     width: 100%;
-    height: auto;
+    height: 100%;
+    max-height: none;
+    object-fit: contain;
+    object-position: top center;
   }
 
   .precision__lines {
-    display: none;
+    display: contents;
   }
 
-  .precision__arm {
+  .precision__line {
     position: absolute;
-    z-index: 2;
-    box-sizing: border-box;
-    border: 0 solid #c8c8c8;
+    z-index: 0;
     pointer-events: none;
+    object-fit: fill;
   }
 
-  /* Top arms: vertical under text, then horizontal toward bottle (gap before image) */
-  .precision__arm--top-left,
-  .precision__arm--top-right {
-    top: 96px;
-    width: var(--arm-width);
-    height: var(--arm-height);
-    border-bottom-width: 1px;
+  .precision__line--top {
+    top: 112px;
+    width: 176px;
+    height: 36px;
   }
 
-  .precision__arm--top-left {
-    right: calc(50% + var(--device) / 2 + var(--arm-gap));
-    border-left-width: 1px;
+  .precision__lines--left .precision__line--top { left: 250px; }
+  .precision__lines--right .precision__line--top { right: 250px; }
+
+  .precision__line--bottom {
+    top: 196px;
+    width: 262px;
+    height: 58px;
   }
 
-  .precision__arm--top-right {
-    left: calc(50% + var(--device) / 2 + var(--arm-gap));
-    border-right-width: 1px;
-  }
-
-  /* Bottom arms: horizontal toward bottle, vertical down to text */
-  .precision__arm--bottom-left,
-  .precision__arm--bottom-right {
-    top: 210px;
-    width: var(--arm-width);
-    height: 56px;
-    border-top-width: 1px;
-  }
-
-  .precision__arm--bottom-left {
-    right: calc(50% + var(--device) / 2 + var(--arm-gap));
-    border-left-width: 1px;
-  }
-
-  .precision__arm--bottom-right {
-    left: calc(50% + var(--device) / 2 + var(--arm-gap));
-    border-right-width: 1px;
-  }
+  .precision__lines--left .precision__line--bottom { left: 178px; }
+  .precision__lines--right .precision__line--bottom { right: 178px; }
 
   .precision__point h3 {
     margin: 0;
     color: #111111;
-    font-family: Montserrat, sans-serif;
     font-size: 13px;
     font-weight: 800;
-    line-height: 1.25;
+    line-height: 1.3;
     letter-spacing: 0.02em;
-    text-transform: uppercase;
   }
 
   .precision__point p {
-    margin: 0.4rem 0 0;
-    max-width: 15rem;
-    color: #2a2a2a;
-    font-family: Montserrat, sans-serif;
+    margin: 0.35rem 0 0;
+    max-width: 14.5rem;
+    color: #3a3a3a;
     font-size: 14px;
     font-weight: 500;
     line-height: 1.4;
@@ -196,49 +178,21 @@
   .precision__point--bottom-left,
   .precision__point--bottom-right {
     position: absolute;
-    z-index: 3;
-    width: 230px;
+    width: 210px;
   }
 
-  /* Text above top L-arms / below bottom L-arms; stem sits under inner edge of text */
-  .precision__point--top-left {
-    top: 6px;
-    right: calc(50% + var(--device) / 2 + var(--arm-gap) + var(--arm-width));
-    left: auto;
-    text-align: left;
-  }
-
-  .precision__point--top-right {
-    top: 6px;
-    left: calc(50% + var(--device) / 2 + var(--arm-gap) + var(--arm-width));
-    right: auto;
-    text-align: right;
-  }
-
-  .precision__point--bottom-left {
-    top: 278px;
-    right: calc(50% + var(--device) / 2 + var(--arm-gap) + var(--arm-width));
-    left: auto;
-    text-align: left;
-  }
-
-  .precision__point--bottom-right {
-    top: 278px;
-    left: calc(50% + var(--device) / 2 + var(--arm-gap) + var(--arm-width));
-    right: auto;
-    text-align: right;
-  }
+  .precision__point--top-left { top: 8px; left: 112px; width: 220px; }
+  .precision__point--top-right { top: 8px; right: 112px; width: 220px; text-align: right; }
+  .precision__point--bottom-left { top: 262px; left: 8px; width: 164px; }
+  .precision__point--bottom-right { top: 262px; right: 8px; width: 164px; text-align: right; }
 
   .precision__point--top-right p,
   .precision__point--bottom-right p {
     margin-left: auto;
   }
 
-  @media screen and (max-width: 989px) {
-    .precision__arm {
-      display: none;
-    }
 
+  @media screen and (max-width: 989px) {
     .precision__stage {
       --device: 100%;
       display: grid;
@@ -267,7 +221,6 @@
       right: auto;
       left: auto;
       width: auto;
-      transform: none;
     }
 
     .precision__media {
@@ -294,10 +247,17 @@
     .precision__lines--left { grid-area: lines-left; justify-self: end; align-items: flex-end; }
     .precision__lines--right { grid-area: lines-right; justify-self: start; align-items: flex-start; }
 
-    .precision__line {
+    .precision__line,
+    .precision__line--top,
+    .precision__line--bottom,
+    .precision__lines--left .precision__line--top,
+    .precision__lines--right .precision__line--top,
+    .precision__lines--left .precision__line--bottom,
+    .precision__lines--right .precision__line--bottom {
       position: static;
-      display: block;
-      width: auto;
+      top: auto;
+      right: auto;
+      left: auto;
       height: auto;
       object-fit: contain;
     }
@@ -305,9 +265,9 @@
     .precision__line--top { width: 72%; }
     .precision__line--bottom { width: 100%; }
 
-    .precision__point--top-left { grid-area: top-left; text-align: left; }
+    .precision__point--top-left { grid-area: top-left; }
     .precision__point--top-right { grid-area: top-right; text-align: right; }
-    .precision__point--bottom-left { grid-area: bottom-left; text-align: left; }
+    .precision__point--bottom-left { grid-area: bottom-left; }
     .precision__point--bottom-right { grid-area: bottom-right; text-align: right; }
 
     .precision__point p {
