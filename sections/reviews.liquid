@@ -3,7 +3,10 @@
     <h2 class="reviews__heading">{{ section.settings.heading | escape }}</h2>
     <div class="reviews__top">
       <div>
-        <p class="reviews__score">{{ section.settings.score | escape }}</p>
+        <p class="reviews__score">
+          <span class="reviews__stars" aria-hidden="true">★★★★★</span>
+          {{ section.settings.score | escape }}
+        </p>
         <p class="reviews__count">{{ section.settings.count_label | escape }}</p>
         {%- if section.settings.badge != blank -%}
           <p class="reviews__badge">{{ section.settings.badge | escape }}</p>
@@ -123,6 +126,12 @@
     margin: 0;
     font-size: 14px;
     font-weight: 500;
+  }
+
+  .reviews__stars {
+    margin-right: 0.35rem;
+    color: #2d42a9;
+    letter-spacing: 0.08em;
   }
 
   .reviews__count {
