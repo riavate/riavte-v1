@@ -27,10 +27,8 @@
       <h2 class="science-inside__heading">
         {%- if italic != blank -%}
           <span class="science-inside__heading-lead">{{ heading_lead }}</span>
-          <span class="science-inside__heading-row">
-            <em>{{ italic }}.</em>
-            <span class="science-inside__heading-rule" aria-hidden="true"></span>
-          </span>
+          <span class="science-inside__heading-rule" aria-hidden="true"></span>
+          <em class="science-inside__heading-purpose">{{ italic }}.</em>
         {%- else -%}
           {{ heading_raw }}
         {%- endif -%}
@@ -126,47 +124,38 @@
     max-width: none;
     margin: 0;
     color: #121a43;
-    font-size: clamp(2rem, 3.2vw, 2.7rem);
-    font-weight: 800;
-    line-height: 1.02;
-    letter-spacing: -0.03em;
-    text-transform: uppercase;
+    font-family: Montserrat, sans-serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 1;
+    letter-spacing: 0;
   }
 
   .science-inside__heading-lead {
     display: block;
+    font-weight: 700;
+    font-style: normal;
+    text-transform: uppercase;
   }
 
-  .science-inside__heading-row {
-    display: flex;
-    align-items: baseline;
-    gap: 1.1rem;
+  .science-inside__heading-rule {
+    display: block;
     width: 100%;
-    margin-top: 0.12em;
+    height: 0;
+    margin: 0.12em 0 0.08em;
+    padding: 0;
+    border: 0;
+    border-top: 1.5px solid #121a43;
+    background: none;
   }
 
-  .science-inside__heading em {
-    flex: 0 0 auto;
-    font-family: Georgia, 'Times New Roman', serif;
-    font-style: italic;
+  .science-inside__heading-purpose {
+    display: block;
     font-weight: 500;
+    font-style: italic;
     letter-spacing: 0;
     line-height: 1;
     text-transform: none;
     color: #121a43;
-  }
-
-  .science-inside__heading-rule {
-    flex: 1 1 auto;
-    width: 100%;
-    min-width: 3rem;
-    height: 0;
-    margin: 0;
-    margin-bottom: 0.18em;
-    padding: 0;
-    border: 0;
-    border-top: 1px solid #cfd5e2;
-    background: none;
   }
 
   .science-inside__text {
