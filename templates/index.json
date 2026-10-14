@@ -176,6 +176,7 @@
         "infusion_card": {
           "type": "approach",
           "settings": {
+            "image": "shopify://shop_images/e8c760773e530a35892a5a0c287c6b0c75d0a563.png",
             "image_alt": "Riavâte 0.5 mm micro-infusion below the scalp surface",
             "fallback": "infusion",
             "title": "02 — Micro-infusion",
