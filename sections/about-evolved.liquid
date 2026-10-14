@@ -19,7 +19,7 @@
       <p class="about-evolved__eyebrow">{{ section.settings.eyebrow | escape }}</p>
     {%- endif -%}
     {%- if section.settings.heading != blank -%}
-      <h2 class="about-evolved__heading">{{ section.settings.heading | escape | replace: ' has ', '<br>has ' }}</h2>
+      <h2 class="about-evolved__heading">{{ section.settings.heading | escape | replace: ' only the ', ' only<br>the ' }}</h2>
     {%- endif -%}
     {%- if section.settings.text != blank -%}
       <div class="about-evolved__text rte">{{ section.settings.text }}</div>
@@ -85,13 +85,10 @@
     margin: 0;
     font-size: clamp(2.1rem, 4.2vw, 3.35rem);
     font-weight: 500;
-    line-height: 1.2;
+    line-height: 1.15;
     letter-spacing: 0.04em;
     text-transform: uppercase;
-    text-decoration: underline;
-    text-decoration-color: #3b82f6;
-    text-decoration-thickness: 2px;
-    text-underline-offset: 0.22em;
+    text-decoration: none;
   }
 
   .about-evolved__text {
