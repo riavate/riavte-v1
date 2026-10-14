@@ -122,30 +122,42 @@
 
   /* Anchored to L-line tips in precision-device-lines.jpg (1024x607) */
   .precision__point--top-left {
-    top: 3.5%;
-    left: 1.5%;
-    width: 26%;
+    top: 2%;
+    left: 1%;
+    width: 10%;
     text-align: right;
   }
 
   .precision__point--top-right {
-    top: 3.5%;
-    right: 1.5%;
-    width: 26%;
+    top: 2%;
+    right: 1%;
+    width: 10%;
     text-align: left;
   }
 
+  .precision__point--top-left h3,
+  .precision__point--top-right h3 {
+    font-size: clamp(10px, 1.05vw, 12px);
+    letter-spacing: 0.02em;
+  }
+
+  .precision__point--top-left p,
+  .precision__point--top-right p {
+    font-size: clamp(11px, 1.05vw, 12.5px);
+    line-height: 1.35;
+  }
+
   .precision__point--bottom-left {
-    top: 71.5%;
-    left: 2%;
-    width: 26%;
+    top: 72.5%;
+    left: 2.5%;
+    width: 25%;
     text-align: left;
   }
 
   .precision__point--bottom-right {
-    top: 71.5%;
-    right: 2%;
-    width: 26%;
+    top: 72.5%;
+    right: 2.5%;
+    width: 25%;
     text-align: right;
   }
 
