@@ -194,6 +194,7 @@
     line-height: 1;
     letter-spacing: 0.03em;
     color: #d9d9d9;
+    -webkit-text-fill-color: #d9d9d9;
   }
 
   .science-inside__feature-title {
@@ -247,7 +248,7 @@
     border-top: 1px solid #e4e8ef;
   }
 
-  .science-inside__index {
+  .science-inside__rows .science-inside__index {
     margin: 0.15rem 0 0;
     font-family: Montserrat, sans-serif;
     font-size: 20px;
@@ -256,6 +257,7 @@
     line-height: 1;
     letter-spacing: 0.03em;
     color: #d9d9d9;
+    -webkit-text-fill-color: #d9d9d9;
   }
 
   .science-inside__rows h3 {
@@ -285,7 +287,7 @@
     text-transform: uppercase;
   }
 
-  .science-inside__rows li > p {
+  .science-inside__rows li > p:not(.science-inside__index) {
     margin: 0;
     color: #000;
     font-family: Montserrat, sans-serif;
