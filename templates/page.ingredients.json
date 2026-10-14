@@ -346,7 +346,9 @@
         "tone": "light",
         "eyebrow": "The 22 ingredients",
         "heading": "Purposefully selected",
-        "text": "<p>Each ingredient in Cuprofuse\u00ae has been carefully selected to play a considered role within the formula \u2014 bringing together peptides, scalp-care actives, botanical extracts and conditioning ingredients in one concentrated serum.</p>"
+        "text": "<p>Each ingredient in Cuprofuse\u00ae has been carefully selected to play a considered role within the formula \u2014 bringing together peptides, scalp-care actives, botanical extracts and conditioning ingredients in one concentrated serum.</p>",
+        "button_label": "Discover the system",
+        "button_link": "/products/the-kit"
       }
     },
     "ingredients_purpose": {
