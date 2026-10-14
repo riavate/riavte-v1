@@ -37,7 +37,7 @@
             {{
               block.settings.image
               | image_url: width: 160
-              | image_tag: widths: '56, 112', sizes: '28px', alt: '', class: 'peptide__icon-image'
+              | image_tag: widths: '80, 160', sizes: '52px', alt: '', class: 'peptide__icon-image'
             }}
           {%- else -%}
             {%- case block.settings.icon -%}
@@ -105,9 +105,9 @@
 
   .peptide__molecule {
     position: absolute;
-    top: -3.5rem;
-    right: -1.25rem;
-    width: min(470px, 36vw);
+    top: -2.5rem;
+    right: -0.5rem;
+    width: min(390px, 30vw);
     pointer-events: none;
   }
 
@@ -190,24 +190,20 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 28px;
-    height: 28px;
-    margin: 0 auto 0.7rem;
+    height: 58px;
+    margin-bottom: 0.85rem;
     color: #ffffff;
   }
 
   .peptide__icon svg {
-    display: block;
-    width: 28px !important;
-    height: 28px !important;
+    width: 52px;
+    height: 52px;
   }
 
   .peptide__icon img,
   .peptide__icon-image {
-    display: block;
-    width: 28px !important;
-    max-width: 28px !important;
-    height: 28px !important;
+    width: 52px;
+    height: 52px;
     object-fit: contain;
   }
 
@@ -230,9 +226,9 @@
 
   @media screen and (max-width: 989px) {
     .peptide__molecule {
-      top: -2rem;
-      right: -4rem;
-      width: 220px;
+      top: -1.5rem;
+      right: -3rem;
+      width: 190px;
     }
 
     .peptide__intro {
