@@ -436,31 +436,45 @@
       "blocks": {
         "t1": {
           "type": "thumb",
-          "settings": {}
+          "settings": {
+            "image": "shopify://shop_images/Rectangle63.png"
+          }
         },
         "t2": {
           "type": "thumb",
-          "settings": {}
+          "settings": {
+            "image": "shopify://shop_images/Rectangle63.png"
+          }
         },
         "t3": {
           "type": "thumb",
-          "settings": {}
+          "settings": {
+            "image": "shopify://shop_images/Rectangle63.png"
+          }
         },
         "t4": {
           "type": "thumb",
-          "settings": {}
+          "settings": {
+            "image": "shopify://shop_images/Rectangle63.png"
+          }
         },
         "t5": {
           "type": "thumb",
-          "settings": {}
+          "settings": {
+            "image": "shopify://shop_images/Rectangle63.png"
+          }
         },
         "t6": {
           "type": "thumb",
-          "settings": {}
+          "settings": {
+            "image": "shopify://shop_images/Rectangle63.png"
+          }
         },
         "t7": {
           "type": "thumb",
-          "settings": {}
+          "settings": {
+            "image": "shopify://shop_images/Rectangle63.png"
+          }
         },
         "t8": {
           "type": "thumb",
