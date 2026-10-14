@@ -106,9 +106,9 @@
 
   .peptide__molecule {
     position: absolute;
-    top: -1.25rem;
-    right: -5.5rem;
-    width: min(42vw, 460px);
+    top: -4.5rem;
+    right: -4.25rem;
+    width: min(500px, 38vw);
     pointer-events: none;
   }
 
@@ -121,7 +121,7 @@
   .peptide__intro {
     position: relative;
     z-index: 1;
-    width: min(640px, 100%);
+    width: min(560px, calc(100% - 220px));
     margin: 0 auto 3.25rem;
     text-align: center;
   }
@@ -162,7 +162,7 @@
   }
 
   .peptide__text p:last-child {
-    max-width: 46rem;
+    max-width: 38rem;
     margin-right: auto;
     margin-left: auto;
   }
@@ -227,17 +227,13 @@
 
   @media screen and (max-width: 989px) {
     .peptide__molecule {
-      top: -0.5rem;
-      right: -3.5rem;
-      width: 240px;
-      opacity: 0.9;
+      top: -2rem;
+      right: -4rem;
+      width: 220px;
     }
 
     .peptide__intro {
-      width: min(520px, calc(100% - 7rem));
-      margin-right: auto;
-      margin-left: 0;
-      text-align: left;
+      width: min(520px, calc(100% - 8rem));
     }
 
     .peptide__text p:last-child {
