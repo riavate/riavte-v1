@@ -11,19 +11,52 @@
         <p class="product-reviews__badge">{{ section.settings.badge | escape }}</p>
       </div>
       {%- if section.settings.button_label != blank -%}
-        <a class="product-reviews__write" href="{{ section.settings.button_link | default: '#' }}">{{ section.settings.button_label | escape }}</a>
+        <a class="product-reviews__write" href="{{ section.settings.button_link | default: '#' }}">
+          <span class="product-reviews__write-label">{{ section.settings.button_label | escape }}</span>
+        </a>
       {%- endif -%}
     </div>
-    <ul class="product-reviews__thumbs">
-      {%- for i in (1..8) -%}
-        <li>
-          <img src="{{ 'product-review-thumb.jpg' | asset_url }}" alt="" width="86" height="83">
-          {%- if forloop.last -%}
-            <span>{{ section.settings.more_label | escape }}</span>
-          {%- endif -%}
-        </li>
-      {%- endfor -%}
-    </ul>
+    <div class="product-reviews__gallery">
+      <ul class="product-reviews__thumbs">
+        {%- for i in (1..8) -%}
+          {%- liquid
+            assign is_last = false
+            if forloop.last
+              assign is_last = true
+            endif
+          -%}
+          <li class="product-reviews__thumb-item{% if is_last %} product-reviews__thumb-item--last{% endif %}">
+            {%- if is_last and section.settings.more_label != blank -%}
+              <a
+                class="product-reviews__more-card"
+                href="{{ section.settings.more_link | default: routes.root_url }}"
+              >
+                <span class="product-reviews__more-media">
+                  <img
+                    class="product-reviews__thumb"
+                    src="{{ 'product-review-thumb.jpg' | asset_url }}"
+                    alt=""
+                    width="86"
+                    height="83"
+                    loading="lazy"
+                  >
+                </span>
+                <span class="product-reviews__more-label">{{ section.settings.more_label | escape }}</span>
+              </a>
+            {%- else -%}
+              <img
+                class="product-reviews__thumb"
+                src="{{ 'product-review-thumb.jpg' | asset_url }}"
+                alt=""
+                width="86"
+                height="83"
+                loading="lazy"
+              >
+            {%- endif -%}
+          </li>
+        {%- endfor -%}
+      </ul>
+    </div>
   </div>
 
   <div class="product-reviews__list-head">
@@ -48,7 +81,9 @@
   </ul>
   {%- if section.settings.more_button != blank -%}
     <p class="product-reviews__more">
-      <a href="{{ section.settings.more_link | default: '#' }}">{{ section.settings.more_button | escape }}</a>
+      <a class="product-reviews__more-btn" href="{{ section.settings.more_link | default: '#' }}">
+        <span class="product-reviews__more-btn-label">{{ section.settings.more_button | escape }}</span>
+      </a>
     </p>
   {%- endif -%}
 </section>
@@ -114,52 +149,96 @@
     font-size: 12px;
   }
 
-  .product-reviews__write,
-  .product-reviews__more a {
+  .product-reviews__write {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    min-width: 224px;
-    min-height: 44px;
-    border: 1px solid #121a43;
+    box-sizing: border-box;
+    width: 221px;
+    max-width: 100%;
+    height: 43px;
+    padding: 0 1rem;
+    border: 1px solid transparent;
     border-radius: 15px;
-    color: #121a43;
+    background:
+      linear-gradient(#ffffff, #ffffff) padding-box,
+      linear-gradient(90deg, #121a43 0%, #2d42a9 100%) border-box;
     text-decoration: none;
-    font-size: 16px;
+  }
+
+  .product-reviews__write-label {
+    background-image: linear-gradient(90deg, #121a43 0%, #2d42a9 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    font-size: 15px;
     font-weight: 700;
+    line-height: 1;
+  }
+
+  .product-reviews__gallery {
+    margin: 1.1rem 0 0;
   }
 
   .product-reviews__thumbs {
     display: grid;
-    grid-template-columns: repeat(8, minmax(0, 1fr));
+    grid-template-columns: repeat(7, minmax(0, 1fr)) minmax(120px, 1.35fr);
     gap: 0.7rem;
-    margin: 1.1rem 0 0;
+    margin: 0;
     padding: 0;
     list-style: none;
   }
 
-  .product-reviews__thumbs li {
-    position: relative;
-    border-radius: 16px;
-    overflow: hidden;
+  .product-reviews__thumb-item {
+    min-width: 0;
   }
 
-  .product-reviews__thumbs img {
+  .product-reviews__thumb {
+    display: block;
     width: 100%;
-    aspect-ratio: 1;
+    height: 81px;
+    border-radius: 16px;
     object-fit: cover;
   }
 
-  .product-reviews__thumbs span {
-    position: absolute;
-    inset: 0;
+  .product-reviews__more-card {
     display: flex;
     align-items: center;
-    justify-content: center;
-    background: rgba(0, 0, 0, 0.53);
-    color: #fff;
+    gap: 0.65rem;
+    width: 100%;
+    height: 100%;
+    color: #4a4a4a;
+    text-decoration: none;
+  }
+
+  .product-reviews__more-media {
+    position: relative;
+    display: block;
+    flex: 1 1 auto;
+    min-width: 0;
+    overflow: hidden;
+    border-radius: 16px;
+  }
+
+  .product-reviews__more-media::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: rgba(0, 0, 0, 0.45);
+  }
+
+  .product-reviews__more-media .product-reviews__thumb {
+    width: 100%;
+  }
+
+  .product-reviews__more-label {
+    flex: 0 0 auto;
     font-size: 14px;
     font-weight: 500;
+    line-height: 1.2;
+    white-space: nowrap;
+    color: #4a4a4a;
   }
 
   .product-reviews__list-head {
@@ -225,14 +304,40 @@
     text-align: center;
   }
 
-  .product-reviews__more a {
+  .product-reviews__more-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    width: 224px;
+    max-width: 100%;
+    height: 44px;
+    padding: 0 1.25rem;
+    border: 1px solid transparent;
     border-radius: 22px;
-    font-weight: 500;
+    background:
+      linear-gradient(#ffffff, #ffffff) padding-box,
+      linear-gradient(90deg, #121a43 0%, #2d42a9 100%) border-box;
+    text-decoration: none;
+  }
+
+  .product-reviews__more-btn-label {
+    background-image: linear-gradient(90deg, #121a43 0%, #2d42a9 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1;
   }
 
   @media screen and (max-width: 989px) {
     .product-reviews__thumbs {
-      grid-template-columns: repeat(4, minmax(0, 1fr));
+      grid-template-columns: repeat(3, minmax(0, 1fr)) minmax(110px, 1.2fr);
+    }
+
+    .product-reviews__thumb-item:nth-child(n + 5):not(.product-reviews__thumb-item--last) {
+      display: none;
     }
 
     .product-reviews__list {
@@ -246,9 +351,25 @@
   }
 
   @media screen and (max-width: 549px) {
-    .product-reviews__list,
-    .product-reviews__thumbs {
+    .product-reviews__list {
       grid-template-columns: 1fr;
+    }
+
+    .product-reviews__thumbs {
+      grid-template-columns: repeat(2, minmax(0, 1fr)) minmax(100px, 1.15fr);
+    }
+
+    .product-reviews__thumb-item:nth-child(n + 4):not(.product-reviews__thumb-item--last) {
+      display: none;
+    }
+
+    .product-reviews__thumb {
+      height: 72px;
+      border-radius: 12px;
+    }
+
+    .product-reviews__more-media {
+      border-radius: 12px;
     }
   }
 {% endstylesheet %}
