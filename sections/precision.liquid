@@ -12,6 +12,17 @@
   </div>
 
   <div class="precision__stage">
+    <svg class="precision__connectors" viewBox="0 0 1180 480" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+      {%- comment -%} Top-left: down then right into device {%- endcomment -%}
+      <path d="M340 78 V168 H505" stroke="#cfcfcf" stroke-width="1" vector-effect="non-scaling-stroke"/>
+      {%- comment -%} Top-right: down then left into device {%- endcomment -%}
+      <path d="M840 78 V168 H675" stroke="#cfcfcf" stroke-width="1" vector-effect="non-scaling-stroke"/>
+      {%- comment -%} Bottom-left: up then right into device {%- endcomment -%}
+      <path d="M340 318 V228 H505" stroke="#cfcfcf" stroke-width="1" vector-effect="non-scaling-stroke"/>
+      {%- comment -%} Bottom-right: up then left into device {%- endcomment -%}
+      <path d="M840 318 V228 H675" stroke="#cfcfcf" stroke-width="1" vector-effect="non-scaling-stroke"/>
+    </svg>
+
     <div class="precision__lines precision__lines--left">
       <img class="precision__line precision__line--top" src="{{ 'precision-connector-left-top.png' | asset_url }}" alt="" width="296" height="88">
       <img class="precision__line precision__line--bottom" src="{{ 'precision-connector-left-bottom.png' | asset_url }}" alt="" width="450" height="144">
@@ -20,33 +31,30 @@
       <img class="precision__line precision__line--top" src="{{ 'precision-connector-right-top.png' | asset_url }}" alt="" width="296" height="88">
       <img class="precision__line precision__line--bottom" src="{{ 'precision-connector-right-bottom.png' | asset_url }}" alt="" width="450" height="144">
     </div>
-    <span class="precision__arm precision__arm--top-left"></span>
-    <span class="precision__arm precision__arm--top-right"></span>
-    <span class="precision__arm precision__arm--bottom-left"></span>
-    <span class="precision__arm precision__arm--bottom-right"></span>
+
     <div class="precision__media">
       <div class="precision__frame">
-      {%- if section.settings.image != blank -%}
-        {{
-          section.settings.image
-          | image_url: width: 900
-          | image_tag:
-            widths: '300, 500, 700, 900',
-            sizes: '(min-width: 750px) 280px, 70vw',
-            alt: section.settings.image_alt,
-            loading: 'lazy',
-            class: 'precision__image'
-        }}
-      {%- else -%}
-        <img
-          class="precision__image"
-          src="{{ 'precision-device.png' | asset_url }}"
-          alt="{{ section.settings.image_alt | escape }}"
-          width="509"
-          height="746"
-          loading="lazy"
-        >
-      {%- endif -%}
+        {%- if section.settings.image != blank -%}
+          {{
+            section.settings.image
+            | image_url: width: 900
+            | image_tag:
+              widths: '300, 500, 700, 900',
+              sizes: '(min-width: 750px) 280px, 70vw',
+              alt: section.settings.image_alt,
+              loading: 'lazy',
+              class: 'precision__image'
+          }}
+        {%- else -%}
+          <img
+            class="precision__image"
+            src="{{ 'precision-device.png' | asset_url }}"
+            alt="{{ section.settings.image_alt | escape }}"
+            width="509"
+            height="746"
+            loading="lazy"
+          >
+        {%- endif -%}
       </div>
     </div>
 
@@ -61,14 +69,14 @@
 
 {% stylesheet %}
   .precision {
-    padding: 5rem 0 4.5rem;
+    padding: 4.75rem 0 4.25rem;
     background: #ffffff;
     color: #111111;
   }
 
   .precision__intro {
     width: min(780px, calc(100% - 2.5rem));
-    margin: 0 auto 0.25rem;
+    margin: 0 auto;
     text-align: center;
   }
 
@@ -102,24 +110,29 @@
   }
 
   .precision__stage {
-    --device: 248px;
-    --arm-inset: 78px;
-    --arm-width: 148px;
-    --point-offset: 240px;
+    --device: 236px;
     position: relative;
     width: min(1180px, calc(100% - 2rem));
-    height: 520px;
-    margin: 1.75rem auto 0;
+    height: 480px;
+    margin: 1.5rem auto 0;
+  }
+
+  .precision__connectors {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
   }
 
   .precision__media {
     position: absolute;
-    top: 8px;
-    left: 0;
-    right: 0;
+    top: 12px;
+    left: 50%;
     z-index: 1;
     width: var(--device);
-    margin-inline: auto;
+    transform: translateX(-50%);
   }
 
   .precision__frame {
@@ -134,52 +147,6 @@
 
   .precision__lines {
     display: none;
-  }
-
-  .precision__arm {
-    position: absolute;
-    z-index: 0;
-    display: block;
-    box-sizing: border-box;
-    border: 0 solid #cfcfcf;
-    pointer-events: none;
-  }
-
-  /* Outer vertical + inner horizontal L-arms matching the design */
-  .precision__arm--top-left,
-  .precision__arm--top-right {
-    top: 72px;
-    width: var(--arm-width);
-    height: 54px;
-    border-bottom-width: 1px;
-  }
-
-  .precision__arm--top-left {
-    right: calc(50% + var(--arm-inset));
-    border-left-width: 1px;
-  }
-
-  .precision__arm--top-right {
-    left: calc(50% + var(--arm-inset));
-    border-right-width: 1px;
-  }
-
-  .precision__arm--bottom-left,
-  .precision__arm--bottom-right {
-    top: 148px;
-    width: var(--arm-width);
-    height: 72px;
-    border-top-width: 1px;
-  }
-
-  .precision__arm--bottom-left {
-    right: calc(50% + var(--arm-inset));
-    border-left-width: 1px;
-  }
-
-  .precision__arm--bottom-right {
-    left: calc(50% + var(--arm-inset));
-    border-right-width: 1px;
   }
 
   .precision__line {
@@ -202,7 +169,7 @@
 
   .precision__point p {
     margin: 0.45rem 0 0;
-    max-width: 15.5rem;
+    max-width: 15.25rem;
     color: #1a1a1a;
     font-family: Montserrat, sans-serif;
     font-size: 13.5px;
@@ -220,45 +187,34 @@
   }
 
   .precision__point--top-left {
-    top: 0;
-    right: calc(50% + var(--point-offset));
-    left: auto;
+    top: 4px;
+    left: 110px;
     text-align: left;
   }
 
   .precision__point--top-right {
-    top: 0;
-    left: calc(50% + var(--point-offset));
-    right: auto;
+    top: 4px;
+    right: 110px;
     text-align: left;
   }
 
   .precision__point--bottom-left {
-    top: 230px;
-    right: calc(50% + var(--point-offset));
-    left: auto;
+    top: 328px;
+    left: 110px;
     text-align: left;
   }
 
   .precision__point--bottom-right {
-    top: 230px;
-    left: calc(50% + var(--point-offset));
-    right: auto;
+    top: 328px;
+    right: 110px;
     text-align: left;
   }
 
-  .precision__point--top-left p,
-  .precision__point--bottom-left p {
-    margin-left: 0;
-    margin-right: auto;
-  }
-
-  .precision__point--top-right p,
-  .precision__point--bottom-right p {
-    margin-right: auto;
-  }
-
   @media screen and (max-width: 989px) {
+    .precision__connectors {
+      display: none;
+    }
+
     .precision__stage {
       --device: 100%;
       display: grid;
@@ -287,6 +243,7 @@
       right: auto;
       left: auto;
       width: auto;
+      transform: none;
     }
 
     .precision__media {
@@ -308,10 +265,6 @@
       width: 100%;
       max-width: 168px;
       align-self: center;
-    }
-
-    .precision__arm {
-      display: none;
     }
 
     .precision__lines--left { grid-area: lines-left; justify-self: end; align-items: flex-end; }
@@ -348,10 +301,6 @@
   @media screen and (max-width: 749px) {
     .precision {
       padding: 3rem 0 2.5rem;
-    }
-
-    .precision__intro {
-      margin-bottom: 1.5rem;
     }
 
     .precision__stage {
