@@ -102,8 +102,8 @@
     --device: 230px;
     --line: 168px;
     position: relative;
-    width: min(1040px, calc(100% - 3rem));
-    height: 430px;
+    width: min(960px, calc(100% - 4rem));
+    height: 420px;
     margin: 3.25rem auto 0.5rem;
   }
 
@@ -141,34 +141,34 @@
 
   .precision__arm--top-left,
   .precision__arm--top-right {
-    top: 112px;
-    width: 190px;
+    top: 116px;
+    width: 132px;
     height: 0;
     border-top-width: 1px;
   }
 
   .precision__arm--top-left {
-    right: calc(50% + 72px);
+    right: calc(50% + 86px);
   }
 
   .precision__arm--top-right {
-    left: calc(50% + 72px);
+    left: calc(50% + 86px);
   }
 
   .precision__arm--bottom-left,
   .precision__arm--bottom-right {
-    top: 252px;
-    width: 230px;
+    top: 250px;
+    width: 148px;
     height: 0;
     border-top-width: 1px;
   }
 
   .precision__arm--bottom-left {
-    right: calc(50% + 78px);
+    right: calc(50% + 90px);
   }
 
   .precision__arm--bottom-right {
-    left: calc(50% + 78px);
+    left: calc(50% + 90px);
   }
 
   .precision__line {
@@ -219,13 +219,36 @@
   .precision__point--bottom-left,
   .precision__point--bottom-right {
     position: absolute;
-    width: 210px;
+    width: 196px;
   }
 
-  .precision__point--top-left { top: 72px; left: 36px; width: 230px; }
-  .precision__point--top-right { top: 72px; right: 36px; width: 230px; text-align: right; }
-  .precision__point--bottom-left { top: 214px; left: 12px; width: 200px; }
-  .precision__point--bottom-right { top: 214px; right: 12px; width: 200px; text-align: right; }
+  .precision__point--top-left {
+    top: 76px;
+    right: calc(50% + 228px);
+    left: auto;
+  }
+
+  .precision__point--top-right {
+    top: 76px;
+    left: calc(50% + 228px);
+    right: auto;
+    text-align: right;
+  }
+
+  .precision__point--bottom-left {
+    top: 208px;
+    right: calc(50% + 248px);
+    left: auto;
+    width: 188px;
+  }
+
+  .precision__point--bottom-right {
+    top: 208px;
+    left: calc(50% + 248px);
+    right: auto;
+    width: 188px;
+    text-align: right;
+  }
 
   .precision__point--top-right p,
   .precision__point--bottom-right p {
