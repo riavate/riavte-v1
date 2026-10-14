@@ -119,28 +119,28 @@
 
   .precision__line {
     position: absolute;
-    z-index: 0;
+    z-index: 2;
     pointer-events: none;
     object-fit: fill;
   }
 
   .precision__line--top {
     top: 112px;
-    width: 176px;
+    width: 200px;
     height: 36px;
   }
 
-  .precision__lines--left .precision__line--top { left: 250px; }
-  .precision__lines--right .precision__line--top { right: 250px; }
+  .precision__lines--left .precision__line--top { left: 290px; }
+  .precision__lines--right .precision__line--top { right: 290px; }
 
   .precision__line--bottom {
     top: 196px;
-    width: 262px;
+    width: 280px;
     height: 58px;
   }
 
-  .precision__lines--left .precision__line--bottom { left: 178px; }
-  .precision__lines--right .precision__line--bottom { right: 178px; }
+  .precision__lines--left .precision__line--bottom { left: 220px; }
+  .precision__lines--right .precision__line--bottom { right: 220px; }
 
   .precision__point h3 {
     margin: 0;
@@ -165,13 +165,14 @@
   .precision__point--bottom-left,
   .precision__point--bottom-right {
     position: absolute;
+    z-index: 3;
     width: 210px;
   }
 
-  .precision__point--top-left { top: 8px; left: 112px; width: 220px; }
-  .precision__point--top-right { top: 8px; right: 112px; width: 220px; text-align: right; }
-  .precision__point--bottom-left { top: 262px; left: 8px; width: 164px; }
-  .precision__point--bottom-right { top: 262px; right: 8px; width: 164px; text-align: right; }
+  .precision__point--top-left { top: 8px; left: 150px; width: 220px; }
+  .precision__point--top-right { top: 8px; right: 150px; width: 220px; text-align: right; }
+  .precision__point--bottom-left { top: 262px; left: 48px; width: 164px; }
+  .precision__point--bottom-right { top: 262px; right: 48px; width: 164px; text-align: right; }
 
   .precision__point--top-right p,
   .precision__point--bottom-right p {
