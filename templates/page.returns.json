@@ -11,20 +11,13 @@
   "sections": {
     "returns": {
       "type": "info-page",
-      "settings": {
-        "layout": "article",
-        "eyebrow": "",
-        "heading": "Returns, made clear.",
-        "intro": "<p>We want you to feel confident when ordering from Riavâte. If there is an issue with your order, our support team is here to help.</p>",
-        "form_heading": "Contact form"
-      },
       "blocks": {
         "returns": {
           "type": "panel",
           "settings": {
             "kicker": "Eligibility",
             "title": "Returns",
-            "text": "<p>Eligible products may be returned within the timeframe stated with your order, subject to our returns conditions.</p>"
+            "text": "<p>Under the Consumer Contracts Regulations 2013 you may cancel most online orders within <strong>14 days of receiving them</strong>, for any reason, and receive a refund. To cancel, email <strong>support@riavate.com</strong> with your order number before the 14 days end. You then return the goods within 14 days.<br/><br/><strong>Important hygiene exception See section 2 relating to hygiene exception</strong></p>"
           }
         },
         "hygiene": {
@@ -32,7 +25,7 @@
           "settings": {
             "kicker": "Personal use",
             "title": "Hygiene and product safety",
-            "text": "<p>Because the Riavâte system contains personal-use micro-infusion components, opened, used or unsealed products may not be eligible for return except where the product is faulty or your statutory rights apply.</p>"
+            "text": "<p>Because Riavâte is a skin-contact system that includes sealed serum vials and single-use micro-infusion heads, items that are <strong>sealed for health or hygiene reasons cannot be returned once that seal is broken</strong>. This means:</p><ul><li><strong>Unopened, unused</strong> systems with hygiene seals intact — returnable within 14 days for a refund.</li><li><strong>Opened or unsealed</strong> vials or micro-infusion heads — not returnable on a change of mind, for hygiene and safety reasons.</li><li><strong>Used single-use heads</strong> must never be returned; dispose of them safely as described in the instructions.</li></ul>"
           }
         },
         "damaged": {
@@ -40,7 +33,7 @@
           "settings": {
             "kicker": "If something is wrong",
             "title": "Damaged or incorrect orders",
-            "text": "<p>If your order arrives damaged, faulty or incorrect, contact us at <a href=\"mailto:support@riavate.com\">support@riavate.com</a> as soon as possible and include your order number and clear photographs of the issue.</p>"
+            "text": "<p>If your order arrives damaged, faulty or incorrect, contact us at <a href=\"mailto:support@riavate.com\">support@riavate.com</a> within 14 days of your order and include your order number and clear photographs of the issue.</p>"
           }
         },
         "refunds": {
@@ -48,7 +41,7 @@
           "settings": {
             "kicker": "After review",
             "title": "Refunds",
-            "text": "<p>Once an eligible return has been received and reviewed, approved refunds will be issued to the original payment method. Processing times may vary depending on your payment provider.</p>"
+            "text": "<p>Approved refunds are made to your original payment method within <strong>14 days</strong> of us receiving the returned goods (or your cancellation notice, if no goods are being returned). For change-of-mind returns, you pay the return postage and we recommend a tracked service, as items remain your responsibility until they reach us.</p>"
           }
         },
         "shipping": {
@@ -68,8 +61,26 @@
           }
         }
       },
-      "block_order": ["returns", "hygiene", "damaged", "refunds", "shipping", "start"]
+      "block_order": [
+        "returns",
+        "hygiene",
+        "damaged",
+        "refunds",
+        "shipping",
+        "start"
+      ],
+      "settings": {
+        "layout": "article",
+        "eyebrow": "",
+        "heading": "Returns, made clear.",
+        "updated": "",
+        "intro": "<p>We want you to feel confident when ordering from Riavâte. If there is an issue with your order, our support team is here to help.</p><p></p><p><em>Seller: Riavate Biotech Ltd (\"Riavâte\"), company no. </em>17493302<em>, registered office </em>Upper Floor, Old Foundry 7 Victoria Street, Syston, Leicester, England, LE7 2LF<em>, support@riavate.com.</em></p><p>This policy applies to purchases from riavate.com. It sits alongside — and does not reduce — your legal rights.</p>",
+        "form_heading": "Contact form",
+        "note": ""
+      }
     }
   },
-  "order": ["returns"]
+  "order": [
+    "returns"
+  ]
 }
