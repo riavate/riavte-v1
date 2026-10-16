@@ -154,156 +154,14 @@
       {%- if product != blank -%}
         {% form 'product', product, class: 'product-main__form' %}
           {%- assign current_variant = product.selected_or_first_available_variant -%}
-          {%- assign supply_blocks = section.blocks | where: 'type', 'supply' -%}
+          <input type="hidden" name="id" value="{{ current_variant.id }}">
 
-          {%- if product.variants.size > 1 -%}
-            <div class="product-main__supplies">
-              {%- for variant in product.variants -%}
-                {%- assign copy = supply_blocks[forloop.index0] -%}
-                {%- assign plan_title = variant.title -%}
-                {%- assign plan_subtitle = '' -%}
-                {%- assign plan_details = '' -%}
-                {%- assign plan_badge = '' -%}
-                {%- assign plan_selected = false -%}
-                {%- if copy.settings.title != blank -%}
-                  {%- assign plan_title = copy.settings.title -%}
-                {%- endif -%}
-                {%- if copy.settings.subtitle != blank -%}
-                  {%- assign plan_subtitle = copy.settings.subtitle -%}
-                {%- endif -%}
-                {%- if copy.settings.badge != blank -%}
-                  {%- assign plan_badge = copy.settings.badge -%}
-                {%- endif -%}
-                {%- if copy.settings.details != blank -%}
-                  {%- assign plan_details = copy.settings.details | newline_to_br | replace: '<br />', ' | ' | replace: '<br>', ' | ' | strip -%}
-                {%- endif -%}
-                {%- if variant == current_variant -%}
-                  {%- assign plan_selected = true -%}
-                {%- endif -%}
-                <label class="supply-card{% if variant == current_variant %} is-selected{% endif %}">
-                  <input
-                    class="supply-card__input"
-                    type="radio"
-                    name="id"
-                    value="{{ variant.id }}"
-                    {% if variant == current_variant %}
-                      checked
-                    {% endif %}
-                    {% unless variant.available %}
-                      disabled
-                    {% endunless %}
-                  >
-                  {% render 'supply-properties',
-                    title: plan_title,
-                    subtitle: plan_subtitle,
-                    details: plan_details,
-                    badge: plan_badge,
-                    selected: plan_selected
-                  %}
-                  <span class="supply-card__top">
-                    <span>
-                      <span class="supply-card__title">
-                        {%- if copy.settings.title != blank -%}
-                          {{ copy.settings.title | escape }}
-                        {%- else -%}
-                          {{ variant.title | escape }}
-                        {%- endif -%}
-                      </span>
-                      {%- if copy.settings.subtitle != blank -%}
-                        <span class="supply-card__subtitle">{{ copy.settings.subtitle | escape }}</span>
-                      {%- endif -%}
-                    </span>
-                    <span class="supply-card__prices">
-                      {%- if variant.compare_at_price > variant.price -%}
-                        <s>{{ variant.compare_at_price | money }}</s>
-                      {%- endif -%}
-                      <strong>{{ variant.price | money }}</strong>
-                    </span>
-                  </span>
-                  {%- if copy.settings.details != blank -%}
-                    <ul class="supply-card__details">
-                      {%- assign rows = copy.settings.details | newline_to_br | split: '<br />' -%}
-                      {%- for row in rows -%}
-                        {%- assign item = row | strip -%}
-                        {%- if item != blank -%}
-                          <li>{{ item | escape }}</li>
-                        {%- endif -%}
-                      {%- endfor -%}
-                    </ul>
-                  {%- endif -%}
-                  {%- if copy.settings.badge != blank -%}
-                    <span class="supply-card__badge">{{ copy.settings.badge | escape }}</span>
-                  {%- endif -%}
-                </label>
-              {%- endfor -%}
-            </div>
-          {%- elsif supply_blocks.size > 0 -%}
-            <div class="product-main__supplies">
-              {%- for block in supply_blocks -%}
-                {%- assign plan_details = block.settings.details | newline_to_br | replace: '<br />', ' | ' | replace: '<br>', ' | ' | strip -%}
-                {%- assign plan_selected = false -%}
-                {%- if forloop.first -%}
-                  {%- assign plan_selected = true -%}
-                {%- endif -%}
-                <label class="supply-card{% if forloop.first %} is-selected{% endif %}" {{ block.shopify_attributes }}>
-                  <input
-                    class="supply-card__input"
-                    type="radio"
-                    name="id"
-                    value="{{ current_variant.id }}"
-                    {% if forloop.first %}
-                      checked
-                    {% endif %}
-                  >
-                  {% render 'supply-properties',
-                    title: block.settings.title,
-                    subtitle: block.settings.subtitle,
-                    details: plan_details,
-                    badge: block.settings.badge,
-                    price: block.settings.price,
-                    compare_price: block.settings.compare_price,
-                    selected: plan_selected
-                  %}
-                  <span class="supply-card__top">
-                    <span>
-                      <span class="supply-card__title">{{ block.settings.title | escape }}</span>
-                      {%- if block.settings.subtitle != blank -%}
-                        <span class="supply-card__subtitle">{{ block.settings.subtitle | escape }}</span>
-                      {%- endif -%}
-                    </span>
-                    <span class="supply-card__prices">
-                      {%- if block.settings.compare_price != blank -%}
-                        <s>{{ block.settings.compare_price | escape }}</s>
-                      {%- elsif current_variant.compare_at_price > current_variant.price -%}
-                        <s>{{ current_variant.compare_at_price | money }}</s>
-                      {%- endif -%}
-                      {%- if block.settings.price != blank -%}
-                        <strong>{{ block.settings.price | escape }}</strong>
-                      {%- else -%}
-                        <strong>{{ current_variant.price | money }}</strong>
-                      {%- endif -%}
-                    </span>
-                  </span>
-                  {%- if block.settings.details != blank -%}
-                    <ul class="supply-card__details">
-                      {%- assign rows = block.settings.details | newline_to_br | split: '<br />' -%}
-                      {%- for row in rows -%}
-                        {%- assign item = row | strip -%}
-                        {%- if item != blank -%}
-                          <li>{{ item | escape }}</li>
-                        {%- endif -%}
-                      {%- endfor -%}
-                    </ul>
-                  {%- endif -%}
-                  {%- if block.settings.badge != blank -%}
-                    <span class="supply-card__badge">{{ block.settings.badge | escape }}</span>
-                  {%- endif -%}
-                </label>
-              {%- endfor -%}
-            </div>
-          {%- else -%}
-            <input type="hidden" name="id" value="{{ current_variant.id }}">
-          {%- endif -%}
+          {%- comment -%} Beez / other app blocks render purchase options and pricing. {%- endcomment -%}
+          {%- for block in section.blocks -%}
+            {%- if block.type == '@app' -%}
+              {% render block %}
+            {%- endif -%}
+          {%- endfor -%}
 
           <button class="product-main__submit" type="submit" name="add" {% unless current_variant.available %}disabled{% endunless %}>
             {%- if current_variant.available -%}
@@ -735,18 +593,6 @@
     });
   });
 
-  document.addEventListener('change', (event) => {
-    const input = event.target.closest('.supply-card__input');
-    if (!input) return;
-    const form = input.closest('form');
-    form.querySelectorAll('.supply-card').forEach((card) => {
-      const selected = card.contains(input) && input.checked;
-      card.classList.toggle('is-selected', selected);
-      card.querySelectorAll('[data-supply-field]').forEach((field) => {
-        field.disabled = !selected;
-      });
-    });
-  });
 {% endjavascript %}
 
 {% schema %}
@@ -813,6 +659,9 @@
   ],
   "blocks": [
     {
+      "type": "@app"
+    },
+    {
       "type": "point",
       "name": "t:sections.product_main.blocks.point.name",
       "settings": [
@@ -821,47 +670,6 @@
           "id": "text",
           "label": "t:sections.product_main.blocks.point.text",
           "default": "0.5 mm precision micro-infusion"
-        }
-      ]
-    },
-    {
-      "type": "supply",
-      "name": "t:sections.product_main.blocks.supply.name",
-      "settings": [
-        {
-          "type": "text",
-          "id": "title",
-          "label": "t:sections.product_main.blocks.supply.title",
-          "default": "1 month supply"
-        },
-        {
-          "type": "text",
-          "id": "subtitle",
-          "label": "t:sections.product_main.blocks.supply.subtitle",
-          "default": "4 weekly treatments"
-        },
-        {
-          "type": "textarea",
-          "id": "details",
-          "label": "t:sections.product_main.blocks.supply.details",
-          "default": "4 × Cuprofuse® Serum Vials\n4 × 0.5 mm Micro-Infusion Applicators"
-        },
-        {
-          "type": "text",
-          "id": "badge",
-          "label": "t:sections.product_main.blocks.supply.badge"
-        },
-        {
-          "type": "text",
-          "id": "compare_price",
-          "label": "t:sections.product_main.blocks.supply.compare_price",
-          "info": "t:sections.product_main.blocks.supply.price_info"
-        },
-        {
-          "type": "text",
-          "id": "price",
-          "label": "t:sections.product_main.blocks.supply.price",
-          "info": "t:sections.product_main.blocks.supply.price_info"
         }
       ]
     },

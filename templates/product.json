@@ -48,39 +48,6 @@
             "text": "Targeted cosmetic formula"
           }
         },
-        "supply_1": {
-          "type": "supply",
-          "settings": {
-            "title": "1 month supply",
-            "subtitle": "4 Weekly Treatments",
-            "details": "4 × Cuprofuse® Serum Vials\n4 × 0.5 mm Micro-Infusion Applicators",
-            "badge": "",
-            "compare_price": "$406",
-            "price": "$167.00"
-          }
-        },
-        "supply_2": {
-          "type": "supply",
-          "settings": {
-            "title": "2 month supply",
-            "subtitle": "8 Weekly Treatments",
-            "details": "8 × Cuprofuse® Serum Vials\n8 × 0.5 mm Micro-Infusion Applicators",
-            "badge": "",
-            "compare_price": "$406",
-            "price": "$167.00"
-          }
-        },
-        "supply_3": {
-          "type": "supply",
-          "settings": {
-            "title": "3 month supply",
-            "subtitle": "12 Weekly Treatments",
-            "details": "12 × Cuprofuse® Serum Vials\n12 × 0.5 mm Micro-Infusion Applicators",
-            "badge": "Best Value",
-            "compare_price": "$406",
-            "price": "$167.00"
-          }
-        },
         "benefits": {
           "type": "accordion",
           "settings": {
@@ -110,9 +77,6 @@
         "point_4",
         "point_5",
         "point_6",
-        "supply_1",
-        "supply_2",
-        "supply_3",
         "benefits",
         "works",
         "included"
