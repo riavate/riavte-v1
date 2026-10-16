@@ -1,0 +1,77 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "guarantee": {
+      "type": "info-page",
+      "blocks": {
+        "promise": {
+          "type": "panel",
+          "settings": {
+            "kicker": "90 days",
+            "title": "Our guarantee",
+            "text": "<p>We're confident in how Riavâte is made. If it's not for you, let us know within <strong>90 days of your order</strong> and we'll refund you — simply and without fuss.</p><p>This guarantee is in addition to your statutory rights.</p>"
+          }
+        },
+        "how": {
+          "type": "panel",
+          "settings": {
+            "kicker": "How it works",
+            "title": "How to claim",
+            "text": "<p>Email <a href=\"mailto:support@riavate.com\">support@riavate.com</a> within 90 days of your order with:</p><ul><li>Your order number</li><li>A short note explaining why you'd like a refund</li></ul><p>Our support team will confirm next steps. You do not need to return opened or used product for a guarantee claim unless we ask you to for a specific reason.</p>"
+          }
+        },
+        "refunds": {
+          "type": "panel",
+          "settings": {
+            "kicker": "Refunds",
+            "title": "What you'll receive",
+            "text": "<p>Approved guarantee refunds are made to your original payment method. We'll confirm timing when we process your claim.</p>"
+          }
+        },
+        "statutory": {
+          "type": "panel",
+          "settings": {
+            "kicker": "Your rights",
+            "title": "Statutory rights and returns",
+            "text": "<p>This guarantee does not affect your legal rights under UK consumer law, including your right to cancel most online orders within 14 days where those rights apply.</p><p>For change-of-mind returns within the 14-day cooling-off period, please also see our <a href=\"/pages/returns\">Returns &amp; Refunds</a> policy, including the hygiene exception for unsealed skin-contact products.</p>"
+          }
+        },
+        "contact": {
+          "type": "panel",
+          "settings": {
+            "kicker": "Support",
+            "title": "Contact us",
+            "text": "<p>Questions about the guarantee? Email <a href=\"mailto:support@riavate.com\">support@riavate.com</a>.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "promise",
+        "how",
+        "refunds",
+        "statutory",
+        "contact"
+      ],
+      "settings": {
+        "layout": "article",
+        "eyebrow": "",
+        "heading": "Guarantee",
+        "updated": "",
+        "intro": "<p>Try Riavâte with confidence. Our 90-day guarantee is designed to be clear, fair and easy to use.</p><p><em>Seller: Riavate Biotech Ltd (\"Riavâte\"), company no. 17493302, registered office Upper Floor, Old Foundry 7 Victoria Street, Syston, Leicester, England, LE7 2LF, support@riavate.com.</em></p>",
+        "form_heading": "Contact form",
+        "note": ""
+      }
+    }
+  },
+  "order": [
+    "guarantee"
+  ]
+}
