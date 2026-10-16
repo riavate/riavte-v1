@@ -247,8 +247,8 @@
           "settings": {
             "kicker": "Microneedling",
             "title": "Microneedling and hair-growth research",
-            "text": "Published research on microneedling and hair growth. Presented as background, not a clinical result for Riavâte.",
-            "link": ""
+            "text": "Dhurat R, Sukesh M, Avhad G, et al. A randomized evaluator-blinded study of effect of microneedling in androgenetic alopecia: a pilot study. Int J Trichology. 2013;5(1):6–11.\n→ PubMed 23960389 · full text (open access): PMC3746236",
+            "link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3746236/"
           }
         },
         "follicular": {
@@ -256,8 +256,8 @@
           "settings": {
             "kicker": "Follicular delivery",
             "title": "Hair follicles as storage and penetration pathways",
-            "text": "Published work on the hair follicle as a route for storage and penetration of topical ingredients.",
-            "link": ""
+            "text": "Lademann J, Richter H, Teichmann A, et al. Hair follicles – a long-term reservoir for drug delivery. Skin Pharmacol Physiol. 2006;19(4):232–236.\n→ Karger — Skin Pharmacol Physiol, Vol 19 Issue 4",
+            "link": "https://karger.com/spp/issue/19/4"
           }
         },
         "caffeine": {
@@ -265,8 +265,8 @@
           "settings": {
             "kicker": "Caffeine",
             "title": "Follicular penetration of caffeine",
-            "text": "Published research on how caffeine penetrates the hair follicle.",
-            "link": ""
+            "text": "Otberg N, Patzelt A, Rasulev U, et al. The role of hair follicles in the percutaneous absorption of caffeine. Br J Clin Pharmacol. 2008;65(4):488–492.",
+            "link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2291387/"
           }
         },
         "adenosine": {
@@ -274,8 +274,8 @@
           "settings": {
             "kicker": "Adenosine",
             "title": "Published topical adenosine research",
-            "text": "Published research on topical adenosine. Not a clinical result for Riavâte.",
-            "link": ""
+            "text": "Iwabuchi T, Ideta R, Ehama R, et al. Topical adenosine increases the proportion of thick hair in Caucasian men with androgenetic alopecia. J Dermatol. 2016;43(5):567–570.\n→ PubMed 26508659\n(There’s a companion study in Japanese men too — PubMed 25925959",
+            "link": "https://pubmed.ncbi.nlm.nih.gov/26508659/"
           }
         },
         "peptide": {
@@ -283,8 +283,8 @@
           "settings": {
             "kicker": "GHK-Cu / copper peptides",
             "title": "Published research relating to copper peptides",
-            "text": "Published research on copper peptides, including GHK-Cu. Not a result for the finished Riavâte system.",
-            "link": ""
+            "text": "Pickart L, Margolina A. Regenerative and Protective Actions of the GHK-Cu Peptide in the Light of the New Gene Data. Int J Mol Sci. 2018;19(7):1987.\n→ PubMed 29986520 · full text (open access): PMC6073405\n\n(A thorough review of GHK-Cu’s studied roles in tissue remodelling and repair — the broad “why copper peptides are studied” reference, by the researcher who discovered GHK.)",
+            "link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6073405/"
           }
         }
       },
