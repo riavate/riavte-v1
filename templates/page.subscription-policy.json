@@ -1,0 +1,77 @@
+{
+  "sections": {
+    "subscription": {
+      "type": "info-page",
+      "blocks": {
+        "overview": {
+          "type": "panel",
+          "settings": {
+            "kicker": "Overview",
+            "title": "How subscriptions work",
+            "text": "<p>If you choose a Riavâte subscription (for example a monthly supply), you agree that we will supply products on a recurring basis and charge the payment method you provide at the frequency shown at checkout, until you cancel.</p><p>Subscription details — including supply size, price, and delivery cadence — are shown before you complete your order.</p>"
+          }
+        },
+        "billing": {
+          "type": "panel",
+          "settings": {
+            "kicker": "Billing",
+            "title": "Payments and renewals",
+            "text": "<p>Your first payment is taken at checkout. Later payments are taken automatically before each renewal shipment, using the payment method on your account.</p><p>If a renewal payment fails, we may retry the charge and/or pause or cancel the subscription until payment succeeds. We'll use the contact details on your order to help resolve payment issues where we can.</p>"
+          }
+        },
+        "changes": {
+          "type": "panel",
+          "settings": {
+            "kicker": "Flexibility",
+            "title": "Skipping, changing or pausing",
+            "text": "<p>Depending on the subscription tools available on your account or in the confirmation emails we send, you may be able to skip a delivery, change supply size, update your address, or pause your subscription.</p><p>If you need help making a change, email <a href=\"mailto:support@riavate.com\">support@riavate.com</a> before your next renewal date.</p>"
+          }
+        },
+        "cancel": {
+          "type": "panel",
+          "settings": {
+            "kicker": "Cancellation",
+            "title": "How to cancel",
+            "text": "<p>You can cancel your subscription at any time. To avoid being charged for the next cycle, cancel before the renewal date shown in your account or confirmation emails.</p><p>To cancel, use the subscription management link in your emails where available, or email <a href=\"mailto:support@riavate.com\">support@riavate.com</a> with your order number and ask us to cancel.</p><p>Cancellation stops future renewals. It does not automatically cancel or refund an order that has already been charged or dispatched, except where our Returns or Guarantee policies apply.</p>"
+          }
+        },
+        "returns": {
+          "type": "panel",
+          "settings": {
+            "kicker": "Returns & guarantee",
+            "title": "Returns and the 90-day guarantee",
+            "text": "<p>Subscription orders are covered by our <a href=\"/pages/returns\">Returns &amp; Refunds</a> policy and our <a href=\"/pages/guarantee\">Guarantee</a>, including the hygiene rules for unsealed skin-contact products.</p><p>Your statutory rights under UK consumer law also continue to apply.</p>"
+          }
+        },
+        "contact": {
+          "type": "panel",
+          "settings": {
+            "kicker": "Support",
+            "title": "Contact us",
+            "text": "<p>For subscription questions, email <a href=\"mailto:support@riavate.com\">support@riavate.com</a>.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "overview",
+        "billing",
+        "changes",
+        "cancel",
+        "returns",
+        "contact"
+      ],
+      "settings": {
+        "layout": "article",
+        "eyebrow": "",
+        "heading": "Subscription policy",
+        "updated": "",
+        "intro": "<p>This policy explains how Riavâte subscriptions work, how billing renews, and how you can change or cancel.</p><p><em>Seller: Riavate Biotech Ltd (\"Riavâte\"), company no. 17493302, registered office Upper Floor, Old Foundry 7 Victoria Street, Syston, Leicester, England, LE7 2LF, support@riavate.com.</em></p>",
+        "form_heading": "Contact form",
+        "note": ""
+      }
+    }
+  },
+  "order": [
+    "subscription"
+  ]
+}
