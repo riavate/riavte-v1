@@ -523,7 +523,7 @@
         "button": {
           "type": "button",
           "settings": {
-            "label": "Check availability",
+            "label": "CHECK AVAILABILITY",
             "link": "shopify://products/the-kit"
           }
         }
