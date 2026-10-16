@@ -231,6 +231,7 @@
     },
     "science_note": {
       "type": "science-note",
+      "disabled": true,
       "settings": {
         "eyebrow": "Transparency — Scientific Note",
         "heading": "Understanding the evidence.",
