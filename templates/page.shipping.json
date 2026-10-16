@@ -11,13 +11,6 @@
   "sections": {
     "shipping": {
       "type": "info-page",
-      "settings": {
-        "layout": "article",
-        "eyebrow": "",
-        "heading": "From Riavâte to your door.",
-        "intro": "<p>We want receiving your Riavâte order to feel as considered as the product itself. Orders are carefully prepared and dispatched using tracked delivery services where available.</p>",
-        "form_heading": "Contact form"
-      },
       "blocks": {
         "processing": {
           "type": "panel",
@@ -31,8 +24,24 @@
           "type": "panel",
           "settings": {
             "kicker": "United Kingdom",
-            "title": "UK delivery",
-            "text": "<p>Estimated delivery times and the delivery cost are confirmed at checkout.</p>"
+            "title": "Dispatch & delivery times",
+            "text": "<ul><li>Orders are dispatched within <strong>[1–2] business days</strong> of your order (excluding weekends and bank holidays).</li><li>UK delivery is typically <strong>[2–4] business days</strong> from dispatch via <strong>[Royal Mail / DPD]</strong>.</li><li>You'll receive tracking by email once your order ships.</li><li>These are estimates, not guarantees; delays outside our control (e.g. courier or weather) can occur.</li></ul>"
+          }
+        },
+        "panel_MHkHyn": {
+          "type": "panel",
+          "settings": {
+            "kicker": "",
+            "title": "Shipping costs",
+            "text": "<p>Shipping is free on all UK orders over £30 otherwise £5.95 at checkout. Any applicable costs are shown before you pay.</p>"
+          }
+        },
+        "tracking": {
+          "type": "panel",
+          "settings": {
+            "kicker": "After dispatch",
+            "title": "Addresses, risk and undelivered parcels",
+            "text": "<p>Please check your delivery address carefully; we can't be responsible for orders sent to an incorrectly entered address. Risk in the goods passes to you on delivery. If a parcel is returned to us as undeliverable or unclaimed, we'll contact you to arrange redelivery (a further charge may apply) or a refund of the item value.</p><p>[International orders may be subject to local customs duties or taxes, which are the recipient's responsibility.]</p>"
           }
         },
         "international": {
@@ -41,14 +50,6 @@
             "kicker": "Worldwide",
             "title": "International delivery",
             "text": "<p>International delivery availability, costs and estimated timeframes are calculated according to destination.</p>"
-          }
-        },
-        "tracking": {
-          "type": "panel",
-          "settings": {
-            "kicker": "After dispatch",
-            "title": "Order tracking",
-            "text": "<p>Once your order has been dispatched, you’ll receive a confirmation email containing your tracking information.</p>"
           }
         },
         "customs": {
@@ -68,8 +69,27 @@
           }
         }
       },
-      "block_order": ["processing", "uk", "international", "tracking", "customs", "help"]
+      "block_order": [
+        "processing",
+        "uk",
+        "panel_MHkHyn",
+        "tracking",
+        "international",
+        "customs",
+        "help"
+      ],
+      "settings": {
+        "layout": "article",
+        "eyebrow": "Shipping & Delivery Policy",
+        "heading": "From Riavâte to your door.",
+        "updated": "Seller: Riavate Biotech Ltd (\"Riavâte\"), support@riavate.com",
+        "intro": "<p>We want receiving your Riavâte order to feel as considered as the product itself. Orders are carefully prepared and dispatched using tracked delivery services where available.</p>",
+        "form_heading": "Contact form",
+        "note": ""
+      }
     }
   },
-  "order": ["shipping"]
+  "order": [
+    "shipping"
+  ]
 }
