@@ -129,7 +129,7 @@
           "type": "row",
           "settings": {
             "kicker": "01 — The device",
-            "title": "0.5 mm precision",
+            "title": "0.5MM PRECISION",
             "text": "<p>24 Gold-plated 0.5mm micro-infusion needles, for controlled, precise application.</p>",
             "image_alt": "Gold-plated micro-infusion tips",
             "fallback": "needles",
@@ -140,7 +140,7 @@
           "type": "row",
           "settings": {
             "kicker": "02 — The formula",
-            "title": "Cuprofuse™ Complex",
+            "title": "CUPROFUSE™ COMPLEX",
             "text": "<p>A full-strength concentrate powered by GHK-Cu, fragrance-free and considered.</p>",
             "image_alt": "Cuprofuse™ serum being measured into a vial",
             "fallback": "serum",
