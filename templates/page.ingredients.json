@@ -296,6 +296,17 @@
             "image_name": "ingredients-01.jpg"
           }
         },
+        "xyli": {
+          "type": "card",
+          "settings": {
+            "index": "2 — Xylitylglucoside Complex",
+            "title": "Moisture balance",
+            "text": "<p>A sugar-derived moisturising complex used to support skin hydration and moisture balance.</p>",
+            "why_label": "Why we use it",
+            "why": "To help maintain a comfortable, well-hydrated scalp as part of the formula's moisturising system.",
+            "image_name": "ingredients-24.jpg"
+          }
+        },
         "ginseng": {
           "type": "card",
           "settings": {
@@ -351,17 +362,6 @@
             "image_name": "ingredients-20.jpg"
           }
         },
-        "xyli": {
-          "type": "card",
-          "settings": {
-            "index": "18 — Xylitylglucoside Complex",
-            "title": "Moisture balance",
-            "text": "<p>A sugar-derived moisturising complex used to support skin hydration and moisture balance.</p>",
-            "why_label": "Why we use it",
-            "why": "To help maintain a comfortable, well-hydrated scalp as part of the formula's moisturising system.",
-            "image_name": "ingredients-24.jpg"
-          }
-        },
         "allantoin": {
           "type": "card",
           "settings": {
@@ -405,12 +405,12 @@
         "trehalose",
         "collagen",
         "card_6LmzX8",
+        "xyli",
         "ginseng",
         "licorice",
         "tea",
         "salicylic",
         "heshouwu",
-        "xyli",
         "allantoin",
         "glucan"
       ],
