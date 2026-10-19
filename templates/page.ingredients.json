@@ -344,6 +344,18 @@
             "image_name": "ingredients-27.jpg"
           }
         },
+        "card_WNqEe4": {
+          "type": "card",
+          "settings": {
+            "index": "24 — CITRIC ACID",
+            "title": "PRECISION pH CONTROL",
+            "text": "<p>A skin-conditioning ingredient valued for its soothing properties and ability to support a comfortable-feeling scalp.</p>",
+            "why_label": "Why we use it",
+            "why": "An organic acid commonly used in cosmetic formulations to adjust pH.",
+            "image": "shopify://shop_images/a6cf5df8278eed7982f8ad6919cd5e422d579739.jpg",
+            "image_name": "ingredients-01.jpg"
+          }
+        },
         "ginseng": {
           "type": "card",
           "settings": {
@@ -424,6 +436,7 @@
         "card_RfgiTk",
         "allantoin",
         "glucan",
+        "card_WNqEe4",
         "ginseng",
         "licorice",
         "tea",
