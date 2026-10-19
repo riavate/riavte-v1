@@ -130,6 +130,17 @@
             "image_name": "ingredients-04.png"
           }
         },
+        "biotin": {
+          "type": "card",
+          "settings": {
+            "index": "06 — Biotin",
+            "title": "Soothing botanical",
+            "text": "<p>Glycyrrhiza glabra is widely used in cosmetics and has published research across topical skincare applications. <a href=\"https://pubmed.ncbi.nlm.nih.gov/32726104/\" target=\"_blank\">PubMed</a></p>",
+            "why_label": "Why we use it",
+            "why": "To complement the formula with a botanical ingredient selected for scalp-conditioning and soothing-oriented cosmetic care.",
+            "image_name": "ingredients-11.jpg"
+          }
+        },
         "panthenol": {
           "type": "card",
           "settings": {
@@ -183,17 +194,6 @@
             "why_label": "Why we use it",
             "why": "Selected to contribute antioxidant-oriented botanical support to the overall scalp-care formula.",
             "image_name": "ingredients-09.jpg"
-          }
-        },
-        "biotin": {
-          "type": "card",
-          "settings": {
-            "index": "11 — Biotin",
-            "title": "Soothing botanical",
-            "text": "<p>Glycyrrhiza glabra is widely used in cosmetics and has published research across topical skincare applications. <a href=\"https://pubmed.ncbi.nlm.nih.gov/32726104/\" target=\"_blank\" rel=\"noopener\">PubMed</a></p>",
-            "why_label": "Why we use it",
-            "why": "To complement the formula with a botanical ingredient selected for scalp-conditioning and soothing-oriented cosmetic care.",
-            "image_name": "ingredients-11.jpg"
           }
         },
         "salicylic": {
@@ -324,12 +324,12 @@
         "caffeine",
         "peptide",
         "adenosine",
+        "biotin",
         "panthenol",
         "ginseng",
         "eclipta",
         "licorice",
         "tea",
-        "biotin",
         "salicylic",
         "arginine",
         "heshouwu",
