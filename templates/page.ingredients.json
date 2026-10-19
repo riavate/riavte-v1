@@ -228,12 +228,25 @@
         "panthenol": {
           "type": "card",
           "settings": {
-            "index": "1 — Panthenol",
+            "index": "14 — Panthenol",
             "title": "Condition + hydration",
             "text": "<p>Pro-vitamin B5 is widely used as a hair- and skin-conditioning ingredient and humectant.</p>",
             "why_label": "Why we use it",
             "why": "To help moisturise and condition the scalp and hair while supporting a comfortable application experience.",
+            "image": "shopify://shop_images/514a13087cbfccf7615811b795bdced3287fc08d_1.jpg",
             "image_name": "ingredients-05.jpg"
+          }
+        },
+        "hyaluronic": {
+          "type": "card",
+          "settings": {
+            "index": "15 — SODIUM HYALURONATE",
+            "title": "Advanced hydration",
+            "text": "<p>A form of hyaluronic acid valued for its moisture-binding and skin-hydrating properties.</p>",
+            "why_label": "Why we use it",
+            "why": "To help retain moisture and support a hydrated, well-conditioned scalp.",
+            "image": "shopify://shop_images/32a776279a3358de0c3b31fc95c2329a07b6f95e_1.jpg",
+            "image_name": "ingredients-21.jpg"
           }
         },
         "ginseng": {
@@ -289,17 +302,6 @@
             "why_label": "Why we use it",
             "why": "To bring a heritage-inspired botanical element into our modern scalp-care formula.",
             "image_name": "ingredients-20.jpg"
-          }
-        },
-        "hyaluronic": {
-          "type": "card",
-          "settings": {
-            "index": "15 — Hyaluronic Acid",
-            "title": "Advanced hydration",
-            "text": "<p>A moisture-binding ingredient that helps hydrate the scalp and maintain a comfortable, moisturised feel.</p>",
-            "why_label": "Why we use it",
-            "why": "To help maintain scalp hydration and support moisture retention.",
-            "image_name": "ingredients-21.jpg"
           }
         },
         "trehalose": {
@@ -384,12 +386,12 @@
         "arginine",
         "theanine",
         "panthenol",
+        "hyaluronic",
         "ginseng",
         "licorice",
         "tea",
         "salicylic",
         "heshouwu",
-        "hyaluronic",
         "trehalose",
         "collagen",
         "xyli",
