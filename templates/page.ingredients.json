@@ -249,6 +249,18 @@
             "image_name": "ingredients-21.jpg"
           }
         },
+        "glycerin": {
+          "type": "card",
+          "settings": {
+            "index": "16 — Glycerin",
+            "title": "Essential hydration",
+            "text": "<p>A widely used humectant that attracts water and helps maintain skin moisture.</p>",
+            "why_label": "Why we use it",
+            "why": "To help keep the scalp hydrated and support the formula's overall moisturising performance.",
+            "image": "shopify://shop_images/fccd16c84c23e39993a7bfb831982f9d177587ae_1.jpg",
+            "image_name": "ingredients-25.jpg"
+          }
+        },
         "ginseng": {
           "type": "card",
           "settings": {
@@ -337,17 +349,6 @@
             "image_name": "ingredients-24.jpg"
           }
         },
-        "glycerin": {
-          "type": "card",
-          "settings": {
-            "index": "19 — Glycerin",
-            "title": "Essential hydration",
-            "text": "<p>A widely used humectant that attracts water and helps maintain skin moisture.</p>",
-            "why_label": "Why we use it",
-            "why": "To help keep the scalp hydrated and support the formula's overall moisturising performance.",
-            "image_name": "ingredients-25.jpg"
-          }
-        },
         "allantoin": {
           "type": "card",
           "settings": {
@@ -387,6 +388,7 @@
         "theanine",
         "panthenol",
         "hyaluronic",
+        "glycerin",
         "ginseng",
         "licorice",
         "tea",
@@ -395,7 +397,6 @@
         "trehalose",
         "collagen",
         "xyli",
-        "glycerin",
         "allantoin",
         "glucan"
       ],
