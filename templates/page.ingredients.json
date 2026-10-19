@@ -320,6 +320,17 @@
             "image_name": "ingredients-01.jpg"
           }
         },
+        "allantoin": {
+          "type": "card",
+          "settings": {
+            "index": "22 — Allantoin",
+            "title": "Scalp comfort",
+            "text": "<p>A skin-conditioning ingredient valued for its soothing properties and ability to support a comfortable-feeling scalp.</p>",
+            "why_label": "Why we use it",
+            "why": "To help condition the scalp and complement the formula's gentle scalp-care approach.",
+            "image_name": "ingredients-26.jpg"
+          }
+        },
         "ginseng": {
           "type": "card",
           "settings": {
@@ -375,17 +386,6 @@
             "image_name": "ingredients-20.jpg"
           }
         },
-        "allantoin": {
-          "type": "card",
-          "settings": {
-            "index": "20 — Allantoin",
-            "title": "Scalp comfort",
-            "text": "<p>A skin-conditioning ingredient valued for its soothing properties and ability to support a comfortable-feeling scalp.</p>",
-            "why_label": "Why we use it",
-            "why": "To help condition the scalp and complement the formula's gentle scalp-care approach.",
-            "image_name": "ingredients-26.jpg"
-          }
-        },
         "glucan": {
           "type": "card",
           "settings": {
@@ -420,12 +420,12 @@
         "card_6LmzX8",
         "xyli",
         "card_RfgiTk",
+        "allantoin",
         "ginseng",
         "licorice",
         "tea",
         "salicylic",
         "heshouwu",
-        "allantoin",
         "glucan"
       ],
       "settings": {
