@@ -273,6 +273,17 @@
             "image_name": "ingredients-22.jpg"
           }
         },
+        "collagen": {
+          "type": "card",
+          "settings": {
+            "index": "18 — Soluble Collagen",
+            "title": "Conditioning & softness",
+            "text": "<p>A cosmetic conditioning ingredient that helps improve the feel and softness of skin and hair.</p>",
+            "why_label": "Why we use it",
+            "why": "To complement the formula with additional conditioning and moisture-supporting properties.",
+            "image_name": "ingredients-23.jpg"
+          }
+        },
         "ginseng": {
           "type": "card",
           "settings": {
@@ -328,17 +339,6 @@
             "image_name": "ingredients-20.jpg"
           }
         },
-        "collagen": {
-          "type": "card",
-          "settings": {
-            "index": "17 — Soluble Collagen",
-            "title": "Conditioning & softness",
-            "text": "<p>A cosmetic conditioning ingredient that helps improve the feel and softness of skin and hair.</p>",
-            "why_label": "Why we use it",
-            "why": "To complement the formula with additional conditioning and moisture-supporting properties.",
-            "image_name": "ingredients-23.jpg"
-          }
-        },
         "xyli": {
           "type": "card",
           "settings": {
@@ -391,12 +391,12 @@
         "hyaluronic",
         "glycerin",
         "trehalose",
+        "collagen",
         "ginseng",
         "licorice",
         "tea",
         "salicylic",
         "heshouwu",
-        "collagen",
         "xyli",
         "allantoin",
         "glucan"
