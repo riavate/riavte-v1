@@ -201,6 +201,30 @@
             "image_name": "ingredients-01.jpg"
           }
         },
+        "arginine": {
+          "type": "card",
+          "settings": {
+            "index": "12 — Arginine",
+            "title": "Amino acid",
+            "text": "<p>An amino acid used in cosmetic skin and hair formulations.</p>",
+            "why_label": "Why we use it",
+            "why": "Included as a supporting conditioning component within Cuprofuse®'s balanced formula.",
+            "image": "shopify://shop_images/f47753ccef58073c16ca508e05beeb3cc8c5c86f_1.png",
+            "image_name": "ingredients-13.png"
+          }
+        },
+        "theanine": {
+          "type": "card",
+          "settings": {
+            "index": "13 — Theanine",
+            "title": "Amino acid care",
+            "text": "<p>An amino acid compound included as part of a considered cosmetic scalp-care formulation.</p>",
+            "why_label": "Why we use it",
+            "why": "To complement the formula's selected conditioning ingredients and amino acid components.",
+            "image": "shopify://shop_images/5bdb1f93870e24557ef42cb8e741c6be6cd9d55b_1.jpg",
+            "image_name": "ingredients-28.jpg"
+          }
+        },
         "panthenol": {
           "type": "card",
           "settings": {
@@ -254,17 +278,6 @@
             "why_label": "Why we use it",
             "why": "To support a cleaner, refined scalp environment as part of the complete formula.",
             "image_name": "ingredients-12.png"
-          }
-        },
-        "arginine": {
-          "type": "card",
-          "settings": {
-            "index": "13 — Arginine",
-            "title": "Amino acid",
-            "text": "<p>An amino acid used in cosmetic skin and hair formulations.</p>",
-            "why_label": "Why we use it",
-            "why": "Included as a supporting conditioning component within Cuprofuse®'s balanced formula.",
-            "image_name": "ingredients-13.png"
           }
         },
         "heshouwu": {
@@ -354,17 +367,6 @@
             "why": "To provide additional hydration and support a comfortable-feeling scalp.",
             "image_name": "ingredients-27.jpg"
           }
-        },
-        "theanine": {
-          "type": "card",
-          "settings": {
-            "index": "22 — Theanine",
-            "title": "Amino acid care",
-            "text": "<p>An amino acid compound included as part of a considered cosmetic scalp-care formulation.</p>",
-            "why_label": "Why we use it",
-            "why": "To complement the formula's selected conditioning ingredients and amino acid components.",
-            "image_name": "ingredients-28.jpg"
-          }
         }
       },
       "block_order": [
@@ -379,12 +381,13 @@
         "eclipta",
         "card_ahfgq9",
         "card_jnE3TT",
+        "arginine",
+        "theanine",
         "panthenol",
         "ginseng",
         "licorice",
         "tea",
         "salicylic",
-        "arginine",
         "heshouwu",
         "hyaluronic",
         "trehalose",
@@ -392,8 +395,7 @@
         "xyli",
         "glycerin",
         "allantoin",
-        "glucan",
-        "theanine"
+        "glucan"
       ],
       "settings": {
         "anchor": "formula",
