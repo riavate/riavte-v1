@@ -308,6 +308,18 @@
             "image_name": "ingredients-24.jpg"
           }
         },
+        "card_RfgiTk": {
+          "type": "card",
+          "settings": {
+            "index": "21 — XYLITOL",
+            "title": "SKIN MOISTURE SUPPORT",
+            "text": "<p>A sugar alcohol used in cosmetics for its humectant and moisturising properties.</p>",
+            "why_label": "Why we use it",
+            "why": "To complement the serum's moisture-supporting ingredients and maintain a hydrated scalp feel.",
+            "image": "shopify://shop_images/04a94d48284df9256b347604c8112b92be3c2f2c.jpg",
+            "image_name": "ingredients-01.jpg"
+          }
+        },
         "ginseng": {
           "type": "card",
           "settings": {
@@ -407,6 +419,7 @@
         "collagen",
         "card_6LmzX8",
         "xyli",
+        "card_RfgiTk",
         "ginseng",
         "licorice",
         "tea",
