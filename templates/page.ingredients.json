@@ -399,7 +399,7 @@
         "water": {
           "type": "card",
           "settings": {
-            "index": "23 — Aqua (Water)",
+            "index": "Aqua (Water)",
             "title": "Formula base",
             "text": "<p>Provides the aqueous foundation that carries the water-compatible components of Cuprofuse®.</p>",
             "why_label": "Why we use it",
@@ -410,7 +410,7 @@
         "butylene": {
           "type": "card",
           "settings": {
-            "index": "24 — Butylene Glycol",
+            "index": "Butylene Glycol",
             "title": "Humectant + solvent",
             "text": "<p>Helps retain moisture while supporting the distribution and sensory feel of the formula.</p>",
             "why_label": "Why we use it",
@@ -421,7 +421,7 @@
         "propylene": {
           "type": "card",
           "settings": {
-            "index": "25 — Propylene Glycol",
+            "index": "Propylene Glycol",
             "title": "Solvent + humectant",
             "text": "<p>Helps dissolve and carry selected formula components while contributing to moisture retention.</p>",
             "why_label": "Why we use it",
@@ -432,7 +432,7 @@
         "hexanediol": {
           "type": "card",
           "settings": {
-            "index": "26 — 1,2-Hexanediol",
+            "index": "1,2-Hexanediol",
             "title": "Formula support",
             "text": "<p>A multifunctional cosmetic ingredient used to support formulation performance and preservation.</p>",
             "why_label": "Why we use it",
@@ -443,7 +443,7 @@
         "hydroxy": {
           "type": "card",
           "settings": {
-            "index": "27 — Hydroxyacetophenone",
+            "index": "Hydroxyacetophenone",
             "title": "Formula protection",
             "text": "<p>Included to support antioxidant/preservation performance and overall formula stability.</p>",
             "why_label": "Why we use it",
@@ -454,7 +454,7 @@
         "citrate": {
           "type": "card",
           "settings": {
-            "index": "28 — Sodium Citrate",
+            "index": "Sodium Citrate",
             "title": "Formula balance",
             "text": "<p>Used to help maintain the appropriate pH environment and overall balance of the formula.</p>",
             "why_label": "Why we use it",
