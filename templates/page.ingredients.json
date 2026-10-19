@@ -328,7 +328,19 @@
             "text": "<p>A skin-conditioning ingredient valued for its soothing properties and ability to support a comfortable-feeling scalp.</p>",
             "why_label": "Why we use it",
             "why": "To help condition the scalp and complement the formula's gentle scalp-care approach.",
+            "image": "shopify://shop_images/4df1a9277f7d37a75fccf747bc4f3f5767640217_1.jpg",
             "image_name": "ingredients-26.jpg"
+          }
+        },
+        "glucan": {
+          "type": "card",
+          "settings": {
+            "index": "23 — Beta-Glucan",
+            "title": "Soothing & hydration",
+            "text": "<p>A polysaccharide ingredient known for its moisturising and skin-conditioning properties.</p>",
+            "why_label": "Why we use it",
+            "why": "To provide additional hydration and support a comfortable-feeling scalp.",
+            "image_name": "ingredients-27.jpg"
           }
         },
         "ginseng": {
@@ -385,17 +397,6 @@
             "why": "To bring a heritage-inspired botanical element into our modern scalp-care formula.",
             "image_name": "ingredients-20.jpg"
           }
-        },
-        "glucan": {
-          "type": "card",
-          "settings": {
-            "index": "21 — Beta-Glucan",
-            "title": "Soothing & hydration",
-            "text": "<p>A polysaccharide ingredient known for its moisturising and skin-conditioning properties.</p>",
-            "why_label": "Why we use it",
-            "why": "To provide additional hydration and support a comfortable-feeling scalp.",
-            "image_name": "ingredients-27.jpg"
-          }
         }
       },
       "block_order": [
@@ -421,12 +422,12 @@
         "xyli",
         "card_RfgiTk",
         "allantoin",
+        "glucan",
         "ginseng",
         "licorice",
         "tea",
         "salicylic",
-        "heshouwu",
-        "glucan"
+        "heshouwu"
       ],
       "settings": {
         "anchor": "formula",
