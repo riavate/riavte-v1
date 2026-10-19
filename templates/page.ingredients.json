@@ -336,10 +336,11 @@
           "type": "card",
           "settings": {
             "index": "23 — Beta-Glucan",
-            "title": "Soothing & hydration",
-            "text": "<p>A polysaccharide ingredient known for its moisturising and skin-conditioning properties.</p>",
+            "title": "MOISTURE + SKIN COMFORT",
+            "text": "<p>A polysaccharide valued in skincare for its moisturising and skin-conditioning properties.</p>",
             "why_label": "Why we use it",
-            "why": "To provide additional hydration and support a comfortable-feeling scalp.",
+            "why": "To support scalp hydration and contribute to a comfortable, conditioned feel.",
+            "image": "shopify://shop_images/822966aaec9a64995e2e51ee160abbe162480f0d_1.jpg",
             "image_name": "ingredients-27.jpg"
           }
         },
