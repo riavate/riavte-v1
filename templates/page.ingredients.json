@@ -153,6 +153,18 @@
             "image_name": "ingredients-01.jpg"
           }
         },
+        "card_hVfwtz": {
+          "type": "card",
+          "settings": {
+            "index": "08 — POLYGONUM MULTIFLORUM ROOT EXTRACT",
+            "title": "TRADITIONAL BOTANICAL CARE",
+            "text": "<p>Also known as He Shou Wu, this botanical root extract has a long history of traditional hair-care use.</p>",
+            "why_label": "Why we use it",
+            "why": "To complement our modern formulation with a root-derived botanical ingredient associated with traditional hair-care practices.",
+            "image": "shopify://shop_images/12537b6ffd158a6521a55cb44ade5f3245a65ed2.jpg",
+            "image_name": "ingredients-01.jpg"
+          }
+        },
         "panthenol": {
           "type": "card",
           "settings": {
@@ -338,6 +350,7 @@
         "adenosine",
         "biotin",
         "card_cnfG8m",
+        "card_hVfwtz",
         "panthenol",
         "ginseng",
         "eclipta",
