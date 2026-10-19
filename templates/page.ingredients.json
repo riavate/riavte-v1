@@ -35,7 +35,7 @@
         "ghk": {
           "type": "point",
           "settings": {
-            "title": "GHK-Cu led",
+            "title": "GHK-Cu POWERED",
             "text": "Copper Tripeptide-1",
             "image_name": "ingredients-glance-ghk.png",
             "position": "low"
