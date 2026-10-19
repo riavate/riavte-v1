@@ -355,61 +355,6 @@
             "image": "shopify://shop_images/a6cf5df8278eed7982f8ad6919cd5e422d579739.jpg",
             "image_name": "ingredients-01.jpg"
           }
-        },
-        "ginseng": {
-          "type": "card",
-          "settings": {
-            "index": "06 — Panax Ginseng Root Extract",
-            "title": "Botanical support",
-            "text": "<p>A botanical extract with a long history of cosmetic use.</p>",
-            "why_label": "Why we use it",
-            "why": "Selected as part of Cuprofuse®'s botanical complex to complement the formula's scalp-conditioning approach.",
-            "image_name": "ingredients-06.jpg"
-          }
-        },
-        "licorice": {
-          "type": "card",
-          "settings": {
-            "index": "08 — Licorice Root Extract",
-            "title": "Soothing botanical",
-            "text": "<p>Glycyrrhiza glabra is widely used in cosmetics and has published research across topical skincare applications. <a href=\"https://pubmed.ncbi.nlm.nih.gov/32726104/\" target=\"_blank\" rel=\"noopener\">PubMed</a></p>",
-            "why_label": "Why we use it",
-            "why": "To complement the formula with a botanical ingredient selected for scalp-conditioning and soothing-oriented cosmetic care.",
-            "image_name": "ingredients-08.jpg"
-          }
-        },
-        "tea": {
-          "type": "card",
-          "settings": {
-            "index": "09 — Camellia Sinensis Leaf Extract",
-            "title": "Green tea extract",
-            "text": "<p>A botanical widely used in cosmetic formulations.</p>",
-            "why_label": "Why we use it",
-            "why": "Selected to contribute antioxidant-oriented botanical support to the overall scalp-care formula.",
-            "image_name": "ingredients-09.jpg"
-          }
-        },
-        "salicylic": {
-          "type": "card",
-          "settings": {
-            "index": "12 — Salicylic Acid",
-            "title": "Scalp clarity",
-            "text": "<p>A well-established cosmetic ingredient used for skin/scalp conditioning and exfoliation-related functions depending on formulation and concentration. Cosmetic safety depends on compliant concentration and formulation. <a href=\"https://pubmed.ncbi.nlm.nih.gov/41243163/\" target=\"_blank\" rel=\"noopener\">PubMed</a></p>",
-            "why_label": "Why we use it",
-            "why": "To support a cleaner, refined scalp environment as part of the complete formula.",
-            "image_name": "ingredients-12.png"
-          }
-        },
-        "heshouwu": {
-          "type": "card",
-          "settings": {
-            "index": "14 — He Shou Wu",
-            "title": "Traditional botanical",
-            "text": "<p>A botanical extract used in cosmetic skin and hair formulations.</p>",
-            "why_label": "Why we use it",
-            "why": "To bring a heritage-inspired botanical element into our modern scalp-care formula.",
-            "image_name": "ingredients-20.jpg"
-          }
         }
       },
       "block_order": [
@@ -436,12 +381,7 @@
         "card_RfgiTk",
         "allantoin",
         "glucan",
-        "card_WNqEe4",
-        "ginseng",
-        "licorice",
-        "tea",
-        "salicylic",
-        "heshouwu"
+        "card_WNqEe4"
       ],
       "settings": {
         "anchor": "formula",
@@ -536,7 +476,7 @@
         "tone": "dark",
         "eyebrow": "Inside Cuprofuse®",
         "heading": "Every part of the formula has a purpose.",
-        "text": "<p>Cuprofuse® combines complementary cosmetic ingredients in a carefully considered approach to scalp care.</p>",
+        "text": "<p>Cuprofuse™ combines complementary cosmetic ingredients in a carefully considered approach to scalp care.</p>",
         "button_label": "Discover the system",
         "button_link": "/products/the-kit"
       }
