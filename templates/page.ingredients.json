@@ -107,6 +107,17 @@
             "image_name": "ingredients-03.jpg"
           }
         },
+        "peptide": {
+          "type": "card",
+          "settings": {
+            "index": "04 — Acetyl Tetrapeptide-3",
+            "title": "Targeted peptide",
+            "text": "<p>A cosmetic peptide incorporated into modern hair and scalp formulations.</p>",
+            "why_label": "Why we use it",
+            "why": "To complement GHK-Cu and strengthen the peptide-led identity of the Cuprofuse® formula.",
+            "image_name": "ingredients-10.jpg"
+          }
+        },
         "adenosine": {
           "type": "card",
           "settings": {
@@ -171,17 +182,6 @@
             "why_label": "Why we use it",
             "why": "Selected to contribute antioxidant-oriented botanical support to the overall scalp-care formula.",
             "image_name": "ingredients-09.jpg"
-          }
-        },
-        "peptide": {
-          "type": "card",
-          "settings": {
-            "index": "10 — Acetyl Tetrapeptide-3",
-            "title": "Targeted peptide",
-            "text": "<p>A cosmetic peptide incorporated into modern hair and scalp formulations.</p>",
-            "why_label": "Why we use it",
-            "why": "To complement GHK-Cu and strengthen the peptide-led identity of the Cuprofuse® formula.",
-            "image_name": "ingredients-10.jpg"
           }
         },
         "biotin": {
@@ -321,13 +321,13 @@
         "ghk",
         "niacinamide",
         "caffeine",
+        "peptide",
         "adenosine",
         "panthenol",
         "ginseng",
         "eclipta",
         "licorice",
         "tea",
-        "peptide",
         "biotin",
         "salicylic",
         "arginine",
