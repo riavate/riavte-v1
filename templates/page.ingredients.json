@@ -165,6 +165,18 @@
             "image_name": "ingredients-01.jpg"
           }
         },
+        "eclipta": {
+          "type": "card",
+          "settings": {
+            "index": "09 — ECLIPTA PROSTRATA EXTRACT",
+            "title": "BOTANICAL HAIR-CARE HERITAGE",
+            "text": "<p>Also known as Bhringraj, this plant extract has traditionally been associated with hair-care routines.</p>",
+            "why_label": "Why we use it",
+            "why": "To introduce a botanical scalp-conditioning ingredient into our carefully balanced multi-active formula.",
+            "image": "shopify://shop_images/504a39e5b43ee9c7e172abc854484ae3a5bbc02d.png",
+            "image_name": "ingredients-07.jpg"
+          }
+        },
         "panthenol": {
           "type": "card",
           "settings": {
@@ -185,17 +197,6 @@
             "why_label": "Why we use it",
             "why": "Selected as part of Cuprofuse®'s botanical complex to complement the formula's scalp-conditioning approach.",
             "image_name": "ingredients-06.jpg"
-          }
-        },
-        "eclipta": {
-          "type": "card",
-          "settings": {
-            "index": "07 — Eclipta Prostrata Extract",
-            "title": "Botanical complex",
-            "text": "<p>A plant-derived extract used in cosmetic hair and scalp formulations.</p>",
-            "why_label": "Why we use it",
-            "why": "Included as part of the selected botanical system supporting the overall scalp-care formula.",
-            "image_name": "ingredients-07.jpg"
           }
         },
         "licorice": {
@@ -351,9 +352,9 @@
         "biotin",
         "card_cnfG8m",
         "card_hVfwtz",
+        "eclipta",
         "panthenol",
         "ginseng",
-        "eclipta",
         "licorice",
         "tea",
         "salicylic",
