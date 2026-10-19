@@ -284,6 +284,18 @@
             "image_name": "ingredients-23.jpg"
           }
         },
+        "card_6LmzX8": {
+          "type": "card",
+          "settings": {
+            "index": "19 — ANHYDROXYLITOL",
+            "title": "HYDRATION COMPLEX",
+            "text": "<p>A sugar-derived humectant commonly used alongside complementary moisturising ingredients.</p>",
+            "why_label": "Why we use it",
+            "why": "To help support moisture balance as part of Cuprofuse™'s combined hydration system.",
+            "image": "shopify://shop_images/d278e4e557422e8859598fa19eb856d8a128bab2.jpg",
+            "image_name": "ingredients-01.jpg"
+          }
+        },
         "ginseng": {
           "type": "card",
           "settings": {
@@ -392,6 +404,7 @@
         "glycerin",
         "trehalose",
         "collagen",
+        "card_6LmzX8",
         "ginseng",
         "licorice",
         "tea",
