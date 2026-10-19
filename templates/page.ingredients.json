@@ -53,8 +53,8 @@
         "serum": {
           "type": "point",
           "settings": {
-            "title": "Cuprofuse®",
-            "text": "Concentrated serum",
+            "title": "CUPROFUSE™",
+            "text": "Complex Serum",
             "image_name": "ingredients-glance-serum.png",
             "position": "high"
           }
