@@ -299,11 +299,11 @@
         "xyli": {
           "type": "card",
           "settings": {
-            "index": "2 — Xylitylglucoside Complex",
-            "title": "Moisture balance",
-            "text": "<p>A sugar-derived moisturising complex used to support skin hydration and moisture balance.</p>",
+            "index": "20 —XYLITYLGLUCOSIDE",
+            "title": "MOISTURE-BINDING SUPPORT",
+            "text": "<p>A sugar-derived ingredient used in cosmetic moisturising systems.</p>",
             "why_label": "Why we use it",
-            "why": "To help maintain a comfortable, well-hydrated scalp as part of the formula's moisturising system.",
+            "why": "To contribute to the formula's hydration-focused approach and support moisture retention.",
             "image_name": "ingredients-24.jpg"
           }
         },
