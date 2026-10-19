@@ -177,6 +177,18 @@
             "image_name": "ingredients-07.jpg"
           }
         },
+        "card_ahfgq9": {
+          "type": "card",
+          "settings": {
+            "index": "10 — CAMELLIA SINENSIS (GREEN TEA) LEAF EXTRACT",
+            "title": "BOTANICAL ANTIOXIDANT CARE",
+            "text": "<p>A green tea leaf extract containing naturally occurring polyphenols and valued for its cosmetic antioxidant properties.</p>",
+            "why_label": "Why we use it",
+            "why": "To complement Cuprofuse™ with a botanical ingredient selected for antioxidant and skin-conditioning support.",
+            "image": "shopify://shop_images/4f504ded5abda968bbdd2e6748908d2b0289abe6.jpg",
+            "image_name": "ingredients-01.jpg"
+          }
+        },
         "panthenol": {
           "type": "card",
           "settings": {
@@ -353,6 +365,7 @@
         "card_cnfG8m",
         "card_hVfwtz",
         "eclipta",
+        "card_ahfgq9",
         "panthenol",
         "ginseng",
         "licorice",
