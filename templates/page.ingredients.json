@@ -261,6 +261,18 @@
             "image_name": "ingredients-25.jpg"
           }
         },
+        "trehalose": {
+          "type": "card",
+          "settings": {
+            "index": "17 — Trehalose",
+            "title": "Moisture protection",
+            "text": "<p>A sugar-derived humectant that helps retain moisture and support scalp hydration.</p>",
+            "why_label": "Why we use it",
+            "why": "To help protect against moisture loss and maintain a hydrated scalp environment.",
+            "image": "shopify://shop_images/d98c6c477e3edfdbe93fc6d3056e47d2df80052f_1.jpg",
+            "image_name": "ingredients-22.jpg"
+          }
+        },
         "ginseng": {
           "type": "card",
           "settings": {
@@ -314,17 +326,6 @@
             "why_label": "Why we use it",
             "why": "To bring a heritage-inspired botanical element into our modern scalp-care formula.",
             "image_name": "ingredients-20.jpg"
-          }
-        },
-        "trehalose": {
-          "type": "card",
-          "settings": {
-            "index": "16 — Trehalose",
-            "title": "Moisture protection",
-            "text": "<p>A sugar-derived humectant that helps retain moisture and support scalp hydration.</p>",
-            "why_label": "Why we use it",
-            "why": "To help protect against moisture loss and maintain a hydrated scalp environment.",
-            "image_name": "ingredients-22.jpg"
           }
         },
         "collagen": {
@@ -389,12 +390,12 @@
         "panthenol",
         "hyaluronic",
         "glycerin",
+        "trehalose",
         "ginseng",
         "licorice",
         "tea",
         "salicylic",
         "heshouwu",
-        "trehalose",
         "collagen",
         "xyli",
         "allantoin",
