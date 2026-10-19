@@ -189,6 +189,18 @@
             "image_name": "ingredients-01.jpg"
           }
         },
+        "card_jnE3TT": {
+          "type": "card",
+          "settings": {
+            "index": "11 — GLYCYRRHIZA GLABRA (LICORICE) ROOT EXTRACT",
+            "title": "BOTANICAL COMFORT",
+            "text": "<p>A licorice-root-derived botanical extract widely used in cosmetic skincare formulations.</p>",
+            "why_label": "Why we use it",
+            "why": "To support the serum's gentle scalp-conditioning approach with a carefully selected botanical ingredient.",
+            "image": "shopify://shop_images/e4b2aaeff4429b42615fb37b6dd563e8cb0f8a77.png",
+            "image_name": "ingredients-01.jpg"
+          }
+        },
         "panthenol": {
           "type": "card",
           "settings": {
@@ -366,6 +378,7 @@
         "card_hVfwtz",
         "eclipta",
         "card_ahfgq9",
+        "card_jnE3TT",
         "panthenol",
         "ginseng",
         "licorice",
