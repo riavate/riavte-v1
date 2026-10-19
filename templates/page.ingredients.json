@@ -141,6 +141,18 @@
             "image_name": "ingredients-11.jpg"
           }
         },
+        "card_cnfG8m": {
+          "type": "card",
+          "settings": {
+            "index": "07 — PANAX GINSENG ROOT EXTRACT",
+            "title": "BOTANICAL SCALP CARE",
+            "text": "<p>A botanical extract derived from ginseng root, traditionally valued in personal-care formulations.</p>",
+            "why_label": "Why we use it",
+            "why": "To bring a carefully selected botanical conditioning ingredient into our science-led scalp-care formula.",
+            "image": "shopify://shop_images/f656cdcefdb5f7db346456ec3c422535810eb381.jpg",
+            "image_name": "ingredients-01.jpg"
+          }
+        },
         "panthenol": {
           "type": "card",
           "settings": {
@@ -325,6 +337,7 @@
         "peptide",
         "adenosine",
         "biotin",
+        "card_cnfG8m",
         "panthenol",
         "ginseng",
         "eclipta",
