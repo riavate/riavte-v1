@@ -1,4 +1,4 @@
-<section class="product-steps">
+<section id="how-to-use" class="product-steps">
   <div class="product-steps__intro">
     <p class="product-steps__eyebrow">{{ section.settings.eyebrow | escape }}</p>
     <h2 class="product-steps__heading">{{ section.settings.heading | escape }}</h2>
@@ -31,6 +31,7 @@
     width: min(1212px, calc(100% - 2.5rem));
     margin: 0 auto;
     padding: 3.5rem 0 2rem;
+    scroll-margin-top: 1rem;
   }
 
   .product-steps__eyebrow {
@@ -135,6 +136,59 @@
     }
   }
 {% endstylesheet %}
+
+{% javascript %}
+(function () {
+  var id = 'how-to-use';
+
+  function stickyOffset() {
+    var gap = 16;
+    var offset = 0;
+    var nodes = document.querySelectorAll('.site-header, .section-header');
+
+    for (var i = 0; i < nodes.length; i++) {
+      var style = window.getComputedStyle(nodes[i]);
+      if (style.position !== 'sticky' && style.position !== 'fixed') continue;
+      var rect = nodes[i].getBoundingClientRect();
+      if (rect.height > 0 && rect.bottom > offset) offset = rect.bottom;
+    }
+
+    return Math.ceil(offset) + gap;
+  }
+
+  function align(smooth) {
+    if (window.location.hash !== '#' + id) return;
+    var el = document.getElementById(id);
+    if (!el) return;
+
+    el.style.scrollMarginTop = stickyOffset() + 'px';
+
+    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    el.scrollIntoView({
+      behavior: smooth && !reduceMotion ? 'smooth' : 'auto',
+      block: 'start'
+    });
+  }
+
+  function onReady() {
+    align(true);
+    window.addEventListener('hashchange', function () {
+      align(true);
+    });
+    window.addEventListener('resize', function () {
+      var el = document.getElementById(id);
+      if (!el) return;
+      el.style.scrollMarginTop = stickyOffset() + 'px';
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', onReady);
+  } else {
+    onReady();
+  }
+})();
+{% endjavascript %}
 
 {% schema %}
 {
