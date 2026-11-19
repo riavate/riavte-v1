@@ -12,6 +12,18 @@
     "feedback": {
       "type": "feedback-reviews",
       "blocks": {
+        "maya": {
+          "type": "review",
+          "settings": {
+            "fallback": "product-gallery-3.jpg",
+            "name": "Maya L.",
+            "title": "Hair looks fuller after two months",
+            "rating": 5,
+            "verified": true,
+            "date": "16 November 2026",
+            "quote": "<p>I bought the Riavâte Micro-Infusion System for my parting, which was looking thinner in photos. The weekly stamps with Cuprofuse™ took a little practice, then it became easy. After about eight weeks my hair looks fuller and my scalp looks healthier. Not overnight, but I am glad I kept the routine.</p>"
+          }
+        },
         "james": {
           "type": "review",
           "settings": {
@@ -201,6 +213,7 @@
         }
       },
       "block_order": [
+        "maya",
         "james",
         "daniel",
         "oliver",
