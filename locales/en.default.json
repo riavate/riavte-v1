@@ -118,7 +118,18 @@
       "sort_highest": "Highest rating",
       "sort_lowest": "Lowest rating",
       "out_of_five": "out of 5",
-      "pagination": "Review pages"
+      "pagination": "Review pages",
+      "write_title": "Write a store review",
+      "rating_label": "Your rating",
+      "title_label": "Review title",
+      "review_label": "Your review",
+      "photos_label": "Add photos",
+      "photos_help": "Up to 4 images. JPEG or PNG.",
+      "submit": "Submit review",
+      "close": "Close",
+      "pending": "Pending review",
+      "success": "Thank you. Your review has been sent and will appear here after we check it.",
+      "required_rating": "Please choose a star rating."
     }
   },
   "info_page": {

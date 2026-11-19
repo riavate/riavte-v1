@@ -224,10 +224,11 @@
         "score": "4.6 out of 5",
         "count_label": "48",
         "badge": "Verified customer",
-        "button_label": "Write a store review",
-        "button_link": "/pages/contact"
+        "button_label": "Write a store review"
       }
     }
   },
-  "order": ["feedback"]
+  "order": [
+    "feedback"
+  ]
 }
