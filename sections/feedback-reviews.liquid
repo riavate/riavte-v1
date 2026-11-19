@@ -34,45 +34,51 @@
           </button>
         </div>
 
-        <label class="feedback-reviews__field">
+        <div class="feedback-reviews__field">
           <span>{{ 'sections.feedback_reviews.rating_label' | t }}</span>
           <div class="feedback-reviews__rating" data-feedback-stars>
             {%- for i in (1..5) -%}
               <button type="button" data-star="{{ i }}" aria-label="{{ i }} {{ 'sections.feedback_reviews.out_of_five' | t }}">★</button>
             {%- endfor -%}
           </div>
-        </label>
-        <input type="hidden" name="contact[rating]" value="" data-feedback-rating required>
+        </div>
+        <input type="hidden" name="contact[rating]" value="" data-feedback-rating>
 
         <label class="feedback-reviews__field">
-          <span>{{ 'info_page.name' | t }}</span>
+          <span>{{ 'sections.feedback_reviews.review_label' | t }}</span>
+          <span class="feedback-reviews__review-box">
+            <textarea
+              name="contact[body]"
+              rows="6"
+              maxlength="2000"
+              placeholder="{{ 'sections.feedback_reviews.review_placeholder' | t | escape }}"
+              data-feedback-body
+              required
+            ></textarea>
+            <span class="feedback-reviews__count" data-feedback-count>0/2000</span>
+          </span>
+        </label>
+        <input type="hidden" name="contact[review_title]" value="" data-feedback-title>
+
+        <div class="feedback-reviews__media">
+          <label class="feedback-reviews__upload">
+            <input type="file" accept="image/jpeg,image/png,image/webp" multiple data-feedback-files>
+            <span class="feedback-reviews__upload-plus" aria-hidden="true">+</span>
+            <span>{{ 'sections.feedback_reviews.photos_label' | t }}</span>
+            <span class="feedback-reviews__upload-count" data-feedback-upload-count>0/5</span>
+          </label>
+          <ul class="feedback-reviews__previews" data-feedback-previews></ul>
+        </div>
+
+        <label class="feedback-reviews__field">
+          <span>{{ 'sections.feedback_reviews.your_name' | t }}</span>
           <input type="text" name="contact[name]" autocomplete="name" value="{{ customer.name | escape }}" required>
         </label>
 
         <label class="feedback-reviews__field">
-          <span>{{ 'info_page.email' | t }}</span>
+          <span>{{ 'sections.feedback_reviews.your_email' | t }}</span>
           <input type="email" name="contact[email]" autocomplete="email" value="{{ customer.email | escape }}" required>
         </label>
-
-        <label class="feedback-reviews__field">
-          <span>{{ 'sections.feedback_reviews.title_label' | t }}</span>
-          <input type="text" name="contact[review_title]" maxlength="80" required>
-        </label>
-
-        <label class="feedback-reviews__field">
-          <span>{{ 'sections.feedback_reviews.review_label' | t }}</span>
-          <textarea name="contact[body]" rows="5" required></textarea>
-        </label>
-
-        <div class="feedback-reviews__field">
-          <span>{{ 'sections.feedback_reviews.photos_label' | t }}</span>
-          <p class="feedback-reviews__photos-help">{{ 'sections.feedback_reviews.photos_help' | t }}</p>
-          <label class="feedback-reviews__upload">
-            <input type="file" accept="image/jpeg,image/png,image/webp" multiple data-feedback-files>
-            <span>+ {{ 'sections.feedback_reviews.photos_label' | t }}</span>
-          </label>
-          <ul class="feedback-reviews__previews" data-feedback-previews></ul>
-        </div>
 
         <input type="hidden" name="contact[subject]" value="{{ 'sections.feedback_reviews.write_title' | t | escape }}">
         <input type="hidden" name="contact[photo_count]" value="0" data-feedback-photo-count>
@@ -256,10 +262,16 @@
   }
 
   .feedback-reviews__dialog {
-    width: min(520px, calc(100% - 1.5rem));
+    position: fixed;
+    inset: 0;
+    margin: auto;
+    width: min(720px, calc(100vw - 1.5rem));
+    max-height: min(90vh, 820px);
+    height: fit-content;
     padding: 0;
     border: 0;
     border-radius: 12px;
+    overflow: hidden;
   }
 
   .feedback-reviews__dialog::backdrop {
@@ -268,25 +280,35 @@
 
   .feedback-reviews__dialog-inner {
     display: grid;
-    gap: 0.9rem;
-    padding: 1.25rem 1.3rem 1.4rem;
+    gap: 1rem;
+    max-height: min(90vh, 820px);
+    overflow-y: auto;
+    padding: 1.4rem 1.6rem 1.5rem;
   }
 
   .feedback-reviews__dialog-head {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr auto;
     align-items: center;
-    justify-content: space-between;
     gap: 1rem;
   }
 
   .feedback-reviews__dialog-head h2 {
     margin: 0;
-    font-size: 1.2rem;
+    font-size: 1.25rem;
+    font-weight: 700;
+    text-align: center;
+    grid-column: 1 / -1;
+    grid-row: 1;
   }
 
   .feedback-reviews__dialog-close {
+    grid-column: 2;
+    grid-row: 1;
+    z-index: 1;
     width: 36px;
     height: 36px;
+    justify-self: end;
     border: 0;
     background: transparent;
     font-size: 1.6rem;
@@ -320,32 +342,70 @@
     padding: 0;
     border: 0;
     background: transparent;
-    color: #d0d0d0;
-    font-size: 1.7rem;
+    color: transparent;
+    -webkit-text-stroke: 1.5px #e4a13a;
+    font-size: 1.85rem;
     cursor: pointer;
   }
 
   .feedback-reviews__rating button.is-on {
-    color: #2d42a9;
+    color: #e4a13a;
+    -webkit-text-stroke: 1.5px #e4a13a;
   }
 
-  .feedback-reviews__photos-help {
-    margin: 0;
+  .feedback-reviews__review-box {
+    position: relative;
+    display: block;
+  }
+
+  .feedback-reviews__review-box textarea {
+    min-height: 148px;
+    padding-bottom: 1.6rem;
+    resize: vertical;
+  }
+
+  .feedback-reviews__count {
+    position: absolute;
+    right: 12px;
+    bottom: 8px;
     font-size: 12px;
     font-weight: 400;
-    color: #666;
+    color: #9a9a9a;
+  }
+
+  .feedback-reviews__media {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 0.75rem;
   }
 
   .feedback-reviews__upload {
-    display: inline-flex;
+    display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-height: 42px;
-    padding: 0 0.9rem;
-    border: 1px dashed #bbb;
-    border-radius: 8px;
+    width: 112px;
+    height: 112px;
+    border: 1px dashed #c8c8c8;
+    border-radius: 10px;
     cursor: pointer;
     font-weight: 600;
+    font-size: 13px;
+    text-align: center;
+    color: #222;
+  }
+
+  .feedback-reviews__upload-plus {
+    font-size: 1.5rem;
+    line-height: 1;
+    font-weight: 400;
+  }
+
+  .feedback-reviews__upload-count {
+    font-size: 12px;
+    font-weight: 400;
+    color: #666;
   }
 
   .feedback-reviews__upload input {
@@ -360,16 +420,16 @@
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
-    margin: 0.4rem 0 0;
+    margin: 0;
     padding: 0;
     list-style: none;
   }
 
   .feedback-reviews__previews img {
-    width: 72px;
-    height: 72px;
+    width: 112px;
+    height: 112px;
     object-fit: cover;
-    border-radius: 8px;
+    border-radius: 10px;
   }
 
   .feedback-reviews__submit {
@@ -572,6 +632,10 @@
   var previews = root.querySelector('[data-feedback-previews]');
   var photoCount = root.querySelector('[data-feedback-photo-count]');
   var photoNames = root.querySelector('[data-feedback-photo-names]');
+  var bodyInput = root.querySelector('[data-feedback-body]');
+  var countEl = root.querySelector('[data-feedback-count]');
+  var titleInput = root.querySelector('[data-feedback-title]');
+  var uploadCount = root.querySelector('[data-feedback-upload-count]');
   var pendingLabel = root.getAttribute('data-pending-label') || 'Pending review';
   var ratingError = root.getAttribute('data-rating-error') || 'Please choose a star rating.';
   var storageKey = 'riavate-feedback-reviews';
@@ -740,6 +804,13 @@
     });
     if (photoCount) photoCount.value = String(chosenFiles.length);
     if (photoNames) photoNames.value = chosenFiles.map(function (file) { return file.name; }).join(', ');
+    if (uploadCount) uploadCount.textContent = chosenFiles.length + '/5';
+  }
+
+  if (bodyInput && countEl) {
+    bodyInput.addEventListener('input', function () {
+      countEl.textContent = bodyInput.value.length + '/2000';
+    });
   }
 
   if (openBtn && dialog) {
@@ -761,8 +832,8 @@
   }
   if (fileInput) {
     fileInput.addEventListener('change', function () {
-      var next = Array.prototype.slice.call(fileInput.files || [], 0, 4 - chosenFiles.length);
-      chosenFiles = chosenFiles.concat(next).slice(0, 4);
+      var next = Array.prototype.slice.call(fileInput.files || [], 0, 5 - chosenFiles.length);
+      chosenFiles = chosenFiles.concat(next).slice(0, 5);
       fileInput.value = '';
       renderPreviews();
     });
@@ -776,8 +847,9 @@
       }
       event.preventDefault();
       var name = form.querySelector('[name="contact[name]"]').value.trim();
-      var title = form.querySelector('[name="contact[review_title]"]').value.trim();
-      var body = form.querySelector('[name="contact[body]"]').value.trim();
+      var body = (bodyInput ? bodyInput.value : '').trim();
+      var title = body.split(/[.!?]/)[0].slice(0, 70);
+      if (titleInput) titleInput.value = title;
       var rating = Number(ratingInput.value);
       Promise.all(chosenFiles.map(resizeImage)).then(function (photoData) {
         var review = {

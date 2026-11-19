@@ -15,7 +15,7 @@
         "maya": {
           "type": "review",
           "settings": {
-            "fallback": "product-gallery-3.jpg",
+            "fallback": "feedback-customer-3.jpg",
             "name": "Maya L.",
             "title": "Hair looks fuller after two months",
             "rating": 5,
@@ -27,7 +27,7 @@
         "james": {
           "type": "review",
           "settings": {
-            "fallback": "product-review-1.jpg",
+            "fallback": "feedback-customer-1.jpg",
             "name": "James R.",
             "title": "The kit is easier than I expected",
             "rating": 5,
@@ -39,7 +39,7 @@
         "daniel": {
           "type": "review",
           "settings": {
-            "fallback": "product-review-2.jpg",
+            "fallback": "feedback-customer-2.jpg",
             "name": "Daniel K.",
             "title": "Scalp looks calmer, hair looks fuller",
             "rating": 5,
@@ -51,7 +51,7 @@
         "oliver": {
           "type": "review",
           "settings": {
-            "fallback": "product-review-3.jpg",
+            "fallback": "feedback-customer-6.jpg",
             "name": "Oliver P.",
             "title": "Took a few weeks to get used to",
             "rating": 4,
@@ -63,7 +63,6 @@
         "sophie": {
           "type": "review",
           "settings": {
-            "fallback": "product-review-4.jpg",
             "name": "Sophie W.",
             "title": "Simple system, decent progress",
             "rating": 5,
@@ -75,7 +74,6 @@
         "marcus": {
           "type": "review",
           "settings": {
-            "fallback": "product-gallery-2.jpg",
             "name": "Marcus T.",
             "title": "Packaging and device feel premium",
             "rating": 5,
@@ -87,7 +85,6 @@
         "priya": {
           "type": "review",
           "settings": {
-            "fallback": "product-kit-1.jpg",
             "name": "Priya S.",
             "title": "Worth the price if you actually use it",
             "rating": 4,
@@ -110,7 +107,7 @@
         "nina": {
           "type": "review",
           "settings": {
-            "fallback": "product-gallery-4.jpg",
+            "fallback": "feedback-customer-5.jpg",
             "name": "Nina C.",
             "title": "Noticed less shedding in the shower",
             "rating": 4,
@@ -122,6 +119,7 @@
         "tom": {
           "type": "review",
           "settings": {
+            "fallback": "feedback-customer-7.jpg",
             "name": "Tom B.",
             "title": "A bit messy the first time",
             "rating": 3,
@@ -133,7 +131,6 @@
         "elena": {
           "type": "review",
           "settings": {
-            "fallback": "product-kit-3.jpg",
             "name": "Elena M.",
             "title": "Fits a Sunday night routine",
             "rating": 5,
@@ -145,6 +142,7 @@
         "chris": {
           "type": "review",
           "settings": {
+            "fallback": "feedback-customer-4.jpg",
             "name": "Chris D.",
             "title": "Crown looks better in photos",
             "rating": 4,
@@ -156,7 +154,6 @@
         "amira": {
           "type": "review",
           "settings": {
-            "fallback": "product-gallery-1.jpg",
             "name": "Amira L.",
             "title": "Customer service sorted a missing stamp",
             "rating": 5,
@@ -179,7 +176,7 @@
         "hannah": {
           "type": "review",
           "settings": {
-            "fallback": "product-kit-5.jpg",
+            "fallback": "feedback-customer-8.jpg",
             "name": "Hannah F.",
             "title": "Subtle at first, clearer by month three",
             "rating": 5,
@@ -202,7 +199,6 @@
         "kate": {
           "type": "review",
           "settings": {
-            "fallback": "product-gallery-6.jpg",
             "name": "Kate N.",
             "title": "Would buy the kit again",
             "rating": 5,
