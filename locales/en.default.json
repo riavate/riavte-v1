@@ -108,6 +108,17 @@
       "previous": "Previous results",
       "next": "Next results",
       "pages": "Results pages"
+    },
+    "feedback_reviews": {
+      "store_reviews": "Store reviews",
+      "photos": "Review photos",
+      "sort_by": "Sort by",
+      "sort_featured": "Featured",
+      "sort_newest": "Most recent",
+      "sort_highest": "Highest rating",
+      "sort_lowest": "Lowest rating",
+      "out_of_five": "out of 5",
+      "pagination": "Review pages"
     }
   },
   "info_page": {

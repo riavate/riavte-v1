@@ -1,0 +1,233 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "feedback": {
+      "type": "feedback-reviews",
+      "blocks": {
+        "james": {
+          "type": "review",
+          "settings": {
+            "fallback": "product-review-1.jpg",
+            "name": "James R.",
+            "title": "The kit is easier than I expected",
+            "rating": 5,
+            "verified": true,
+            "date": "18 September 2026",
+            "quote": "<p>I ordered the Riavâte Micro-Infusion System after looking at a few scalp-care kits. The 0.5 mm stamps and Cuprofuse™ serum feel well made, and the weekly routine is clearer than I thought it would be. After a couple of months my hair looks a bit denser around the hairline. Not a magic switch, but I am happy I stuck with it.</p>"
+          }
+        },
+        "daniel": {
+          "type": "review",
+          "settings": {
+            "fallback": "product-review-2.jpg",
+            "name": "Daniel K.",
+            "title": "Scalp looks calmer, hair looks fuller",
+            "rating": 5,
+            "verified": true,
+            "date": "12 September 2026",
+            "quote": "<p>I wanted something more structured than just dropping serum on my scalp. The stamps make application feel even. My hair looks fuller in photos I took at month three, especially at the crown. Still using it once a week as directed.</p>"
+          }
+        },
+        "oliver": {
+          "type": "review",
+          "settings": {
+            "fallback": "product-review-3.jpg",
+            "name": "Oliver P.",
+            "title": "Took a few weeks to get used to",
+            "rating": 4,
+            "verified": true,
+            "date": "04 September 2026",
+            "quote": "<p>The first session felt a bit fiddly until I watched the how-to again. After that it became part of Sunday night. I would not say the change is dramatic yet, but my hair looks healthier and I have less of that flat, thinning look under bright light.</p>"
+          }
+        },
+        "sophie": {
+          "type": "review",
+          "settings": {
+            "fallback": "product-review-4.jpg",
+            "name": "Sophie W.",
+            "title": "Simple system, decent progress",
+            "rating": 5,
+            "verified": true,
+            "date": "27 August 2026",
+            "quote": "<p>My scalp feels well cared for and my hair appears healthier and fuller than when I started. I like that everything comes in the kit so I am not mixing products. Would recommend if you are willing to keep a weekly routine.</p>"
+          }
+        },
+        "marcus": {
+          "type": "review",
+          "settings": {
+            "fallback": "product-gallery-2.jpg",
+            "name": "Marcus T.",
+            "title": "Packaging and device feel premium",
+            "rating": 5,
+            "verified": true,
+            "date": "21 August 2026",
+            "quote": "<p>Arrived well packed. The device and serum bottles look the part. I have been using Cuprofuse™ with the stamps for about six weeks. Hair looks a little thicker through the parting. I will keep going for the full three months.</p>"
+          }
+        },
+        "priya": {
+          "type": "review",
+          "settings": {
+            "fallback": "product-kit-1.jpg",
+            "name": "Priya S.",
+            "title": "Worth the price if you actually use it",
+            "rating": 4,
+            "verified": true,
+            "date": "14 August 2026",
+            "quote": "<p>It is an investment, so I was unsure at first. The weekly session takes maybe twenty minutes once you know the pattern. My hair looks denser on the sides. Still waiting to see more at the temples, which is why this is four stars rather than five.</p>"
+          }
+        },
+        "liam": {
+          "type": "review",
+          "settings": {
+            "name": "Liam H.",
+            "title": "Shipping was quick, routine is clear",
+            "rating": 5,
+            "verified": true,
+            "date": "02 August 2026",
+            "quote": "<p>Landed in a few days. Instructions were easy to follow. I was looking for a cosmetic scalp system rather than another leave-in. Hair looks a bit more filled in after two months. Support replied when I asked about restocking stamps.</p>"
+          }
+        },
+        "nina": {
+          "type": "review",
+          "settings": {
+            "fallback": "product-gallery-4.jpg",
+            "name": "Nina C.",
+            "title": "Noticed less shedding in the shower",
+            "rating": 4,
+            "verified": true,
+            "date": "26 July 2026",
+            "quote": "<p>I started mainly for appearance around my parting. After several weeks I am also seeing less hair in the drain, which I did not expect. Looks fuller in natural light. The stamps take a little practice so you do not rush.</p>"
+          }
+        },
+        "tom": {
+          "type": "review",
+          "settings": {
+            "name": "Tom B.",
+            "title": "A bit messy the first time",
+            "rating": 3,
+            "verified": true,
+            "date": "19 July 2026",
+            "quote": "<p>Honest review: the first use I used too much serum and it felt messy. Once I slowed down it was fine. Results so far are subtle. Hair looks a touch healthier, but I wanted a bigger change by week six. Might still finish the kit.</p>"
+          }
+        },
+        "elena": {
+          "type": "review",
+          "settings": {
+            "fallback": "product-kit-3.jpg",
+            "name": "Elena M.",
+            "title": "Fits a Sunday night routine",
+            "rating": 5,
+            "verified": true,
+            "date": "11 July 2026",
+            "quote": "<p>I use it after washing my hair on Sundays. Cuprofuse™ has a light feel, not greasy. Friends have asked if I changed my cut. I think it is the appearance of density more than anything else. Happy with the purchase.</p>"
+          }
+        },
+        "chris": {
+          "type": "review",
+          "settings": {
+            "name": "Chris D.",
+            "title": "Crown looks better in photos",
+            "rating": 4,
+            "verified": true,
+            "date": "03 July 2026",
+            "quote": "<p>I compared photos from day one and week ten. The crown looks less see-through. Hairline is about the same. That is fair enough for a cosmetic system. Stamps are easy to replace when they wear down.</p>"
+          }
+        },
+        "amira": {
+          "type": "review",
+          "settings": {
+            "fallback": "product-gallery-1.jpg",
+            "name": "Amira L.",
+            "title": "Customer service sorted a missing stamp",
+            "rating": 5,
+            "verified": true,
+            "date": "22 June 2026",
+            "quote": "<p>One stamp was missing from my box. Support sent a replacement quickly. The system itself is straightforward. After two months my hair looks fuller around the parting and my scalp looks less dry.</p>"
+          }
+        },
+        "ben": {
+          "type": "review",
+          "settings": {
+            "name": "Ben J.",
+            "title": "Pricey, but the kit feels complete",
+            "rating": 4,
+            "verified": true,
+            "date": "15 June 2026",
+            "quote": "<p>You are paying for a full kit, not just a bottle. That shows. I would like a slightly cheaper refill option, hence four stars. Appearance-wise my hair looks thicker through the top after consistent weekly use.</p>"
+          }
+        },
+        "hannah": {
+          "type": "review",
+          "settings": {
+            "fallback": "product-kit-5.jpg",
+            "name": "Hannah F.",
+            "title": "Subtle at first, clearer by month three",
+            "rating": 5,
+            "verified": true,
+            "date": "08 June 2026",
+            "quote": "<p>Month one I almost gave up because I could not see much. By month three the difference in photos is obvious to me: fuller-looking hair and a healthier scalp. Glad I kept the weekly sessions.</p>"
+          }
+        },
+        "ryan": {
+          "type": "review",
+          "settings": {
+            "name": "Ryan G.",
+            "title": "Fine if you follow the instructions",
+            "rating": 3,
+            "verified": true,
+            "date": "29 May 2026",
+            "quote": "<p>I skipped a couple of weeks and then wondered why nothing changed. When I used it properly, my hair looked a bit denser. Still not where I hoped. The product is decent; I am just not as consistent as I should be.</p>"
+          }
+        },
+        "kate": {
+          "type": "review",
+          "settings": {
+            "fallback": "product-gallery-6.jpg",
+            "name": "Kate N.",
+            "title": "Would buy the kit again",
+            "rating": 5,
+            "verified": true,
+            "date": "17 May 2026",
+            "quote": "<p>I have now finished my first kit and reordered serum. Hair looks fuller and my parting is less obvious. The micro-infusion step is the part that made this feel different from serums I have tried on their own.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "james",
+        "daniel",
+        "oliver",
+        "sophie",
+        "marcus",
+        "priya",
+        "liam",
+        "nina",
+        "tom",
+        "elena",
+        "chris",
+        "amira",
+        "ben",
+        "hannah",
+        "ryan",
+        "kate"
+      ],
+      "settings": {
+        "heading": "Check out our feedback",
+        "text": "<p>We are always looking at how to improve the Riavâte Micro-Infusion System and Cuprofuse™ serum, and we value honest customer reviews of the kit, the weekly routine, and how hair and scalp look over time.</p>",
+        "score": "4.6 out of 5",
+        "count_label": "48",
+        "badge": "Verified customer",
+        "button_label": "Write a store review",
+        "button_link": "/pages/contact"
+      }
+    }
+  },
+  "order": ["feedback"]
+}

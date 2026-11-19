@@ -25,7 +25,7 @@
           "type": "column",
           "settings": {
             "heading": "Support",
-            "links": "FAQs|/pages/faqs\nContact Us|/pages/contact\nShipping & Delivery|/pages/shipping\nReturns & Refunds|/pages/returns\nTrack Your Order|/pages/track-order"
+            "links": "FAQs|/pages/faqs\nReviews|/pages/feedback\nContact Us|/pages/contact\nShipping & Delivery|/pages/shipping\nReturns & Refunds|/pages/returns\nTrack Your Order|/pages/track-order"
           }
         },
         "legal": {

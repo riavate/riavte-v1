@@ -754,6 +754,31 @@
       }
     },
     "main_cart": { "name": "Cart" },
+    "feedback_reviews": {
+      "name": "Feedback reviews",
+      "settings": {
+        "heading": "Heading",
+        "text": "Text",
+        "score": "Score",
+        "count_label": "Review count",
+        "badge": "Verified badge",
+        "button_label": "Button label",
+        "button_link": "Button link"
+      },
+      "blocks": {
+        "review": {
+          "name": "Review",
+          "image": "Photo",
+          "fallback": "Fallback asset filename",
+          "name_label": "Name",
+          "title": "Title",
+          "rating": "Rating",
+          "verified": "Verified customer",
+          "date": "Date",
+          "quote": "Quote"
+        }
+      }
+    },
     "reviews": {
       "name": "Reviews",
       "settings": {

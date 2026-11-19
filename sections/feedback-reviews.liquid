@@ -1,0 +1,518 @@
+<section class="feedback-reviews" data-feedback-reviews>
+  <div class="feedback-reviews__intro">
+    {%- if section.settings.heading != blank -%}
+      <h1 class="feedback-reviews__heading">{{ section.settings.heading | escape }}</h1>
+    {%- endif -%}
+    {%- if section.settings.text != blank -%}
+      <div class="feedback-reviews__text rte">{{ section.settings.text }}</div>
+    {%- endif -%}
+  </div>
+
+  {%- if section.settings.button_label != blank -%}
+    <a class="feedback-reviews__write" href="{{ section.settings.button_link | default: pages.contact.url | default: '/pages/contact' }}">
+      {{ section.settings.button_label | escape }}
+    </a>
+  {%- endif -%}
+
+  <div class="feedback-reviews__meta">
+    <p class="feedback-reviews__tab">
+      {{ 'sections.feedback_reviews.store_reviews' | t }}
+      {%- if section.settings.count_label != blank -%}
+        ({{ section.settings.count_label | escape }})
+      {%- endif -%}
+    </p>
+    <div class="feedback-reviews__score">
+      <span class="feedback-reviews__stars" aria-hidden="true">★★★★★</span>
+      <span>{{ section.settings.score | escape }}</span>
+    </div>
+  </div>
+
+  {%- if section.blocks.size > 0 -%}
+    <ul class="feedback-reviews__photos" aria-label="{{ 'sections.feedback_reviews.photos' | t }}">
+      {%- for block in section.blocks -%}
+        {%- if block.settings.fallback != blank or block.settings.image != blank -%}
+          <li>
+            {%- if block.settings.image != blank -%}
+              {{
+                block.settings.image
+                | image_url: width: 400
+                | image_tag:
+                  widths: '160, 240, 400',
+                  sizes: '120px',
+                  alt: block.settings.name,
+                  loading: 'lazy',
+                  class: 'feedback-reviews__photo-thumb'
+              }}
+            {%- else -%}
+              <img
+                class="feedback-reviews__photo-thumb"
+                src="{{ block.settings.fallback | asset_url }}"
+                alt="{{ block.settings.name | escape }}"
+                width="120"
+                height="120"
+                loading="lazy"
+              >
+            {%- endif -%}
+          </li>
+        {%- endif -%}
+      {%- endfor -%}
+    </ul>
+
+    <div class="feedback-reviews__toolbar">
+      <label class="feedback-reviews__sort-label" for="FeedbackSort-{{ section.id }}">
+        {{ 'sections.feedback_reviews.sort_by' | t }}
+      </label>
+      <select class="feedback-reviews__sort" id="FeedbackSort-{{ section.id }}" data-feedback-sort>
+        <option value="featured">{{ 'sections.feedback_reviews.sort_featured' | t }}</option>
+        <option value="newest">{{ 'sections.feedback_reviews.sort_newest' | t }}</option>
+        <option value="highest">{{ 'sections.feedback_reviews.sort_highest' | t }}</option>
+        <option value="lowest">{{ 'sections.feedback_reviews.sort_lowest' | t }}</option>
+      </select>
+    </div>
+
+    <ul class="feedback-reviews__list" data-feedback-list>
+      {%- for block in section.blocks -%}
+        <li
+          class="feedback-reviews__card"
+          {{ block.shopify_attributes }}
+          data-rating="{{ block.settings.rating }}"
+          data-date="{{ block.settings.date | escape }}"
+          data-order="{{ forloop.index }}"
+        >
+          {%- if block.settings.image != blank -%}
+            {{
+              block.settings.image
+              | image_url: width: 900
+              | image_tag:
+                widths: '400, 700, 900',
+                sizes: '(min-width: 750px) 220px, 100vw',
+                alt: block.settings.name,
+                loading: 'lazy',
+                class: 'feedback-reviews__image'
+            }}
+          {%- elsif block.settings.fallback != blank -%}
+            <img
+              class="feedback-reviews__image"
+              src="{{ block.settings.fallback | asset_url }}"
+              alt="{{ block.settings.name | escape }}"
+              width="220"
+              height="220"
+              loading="lazy"
+            >
+          {%- endif -%}
+          <div class="feedback-reviews__body">
+            <p class="feedback-reviews__card-stars" aria-label="{{ block.settings.rating }} {{ 'sections.feedback_reviews.out_of_five' | t }}">
+              {%- for i in (1..5) -%}
+                {%- if i <= block.settings.rating -%}★{%- else -%}☆{%- endif -%}
+              {%- endfor -%}
+            </p>
+            {%- if block.settings.title != blank -%}
+              <h2 class="feedback-reviews__title">{{ block.settings.title | escape }}</h2>
+            {%- endif -%}
+            <p class="feedback-reviews__name">{{ block.settings.name | escape }}</p>
+            {%- if block.settings.verified -%}
+              <p class="feedback-reviews__verified">{{ section.settings.badge | escape }}</p>
+            {%- endif -%}
+            <div class="feedback-reviews__quote rte">{{ block.settings.quote }}</div>
+            {%- if block.settings.date != blank -%}
+              <p class="feedback-reviews__date">{{ block.settings.date | escape }}</p>
+            {%- endif -%}
+          </div>
+        </li>
+      {%- endfor -%}
+    </ul>
+
+    <nav class="feedback-reviews__pages" data-feedback-pages aria-label="{{ 'sections.feedback_reviews.pagination' | t }}" hidden></nav>
+  {%- endif -%}
+</section>
+
+{% stylesheet %}
+  .feedback-reviews {
+    width: min(860px, calc(100% - 2.5rem));
+    margin: 2.5rem auto 4.5rem;
+  }
+
+  .feedback-reviews__intro {
+    text-align: center;
+  }
+
+  .feedback-reviews__heading {
+    margin: 0;
+    color: #121a43;
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    font-weight: 800;
+    line-height: 1.15;
+  }
+
+  .feedback-reviews__text {
+    margin: 1rem auto 0;
+    max-width: 42rem;
+    color: #4a4a4a;
+    font-size: 1.05rem;
+    line-height: 1.55;
+  }
+
+  .feedback-reviews__write {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 52px;
+    margin: 1.8rem 0 1.6rem;
+    border: 1px solid #111;
+    border-radius: 4px;
+    color: #111;
+    font-size: 15px;
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  .feedback-reviews__write:hover,
+  .feedback-reviews__write:focus-visible {
+    background: #f7f7f7;
+  }
+
+  .feedback-reviews__meta {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    padding-bottom: 0.7rem;
+    border-bottom: 1px solid #e5e5e5;
+  }
+
+  .feedback-reviews__tab {
+    margin: 0;
+    padding-bottom: 0.55rem;
+    border-bottom: 2px solid #111;
+    font-size: 15px;
+    font-weight: 700;
+  }
+
+  .feedback-reviews__score {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin: 0;
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  .feedback-reviews__stars,
+  .feedback-reviews__card-stars {
+    color: #2d42a9;
+    letter-spacing: 0.06em;
+  }
+
+  .feedback-reviews__photos {
+    display: flex;
+    gap: 0.55rem;
+    margin: 1.1rem 0 0;
+    padding: 0 0 0.4rem;
+    list-style: none;
+    overflow-x: auto;
+  }
+
+  .feedback-reviews__photos li {
+    flex: 0 0 112px;
+  }
+
+  .feedback-reviews__photo-thumb {
+    display: block;
+    width: 112px;
+    height: 112px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+
+  .feedback-reviews__toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.6rem;
+    margin: 1.1rem 0 0.4rem;
+  }
+
+  .feedback-reviews__sort-label,
+  .feedback-reviews__sort {
+    font-size: 13px;
+    color: #333;
+  }
+
+  .feedback-reviews__sort {
+    border: 0;
+    background: transparent;
+    font-weight: 600;
+  }
+
+  .feedback-reviews__list {
+    display: grid;
+    gap: 1rem;
+    margin: 0.8rem 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .feedback-reviews__card {
+    display: grid;
+    grid-template-columns: 160px minmax(0, 1fr);
+    gap: 1rem;
+    padding: 1rem 0 1.2rem;
+    border-bottom: 1px solid #ececec;
+  }
+
+  .feedback-reviews__card:not(:has(.feedback-reviews__image)) {
+    grid-template-columns: 1fr;
+  }
+
+  .feedback-reviews__image {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+
+  .feedback-reviews__body {
+    min-width: 0;
+  }
+
+  .feedback-reviews__card-stars,
+  .feedback-reviews__name,
+  .feedback-reviews__verified,
+  .feedback-reviews__date {
+    margin: 0;
+  }
+
+  .feedback-reviews__title {
+    margin: 0.35rem 0 0.2rem;
+    font-size: 16px;
+    font-weight: 700;
+    color: #111;
+  }
+
+  .feedback-reviews__name {
+    font-size: 13px;
+    font-weight: 600;
+  }
+
+  .feedback-reviews__verified {
+    margin-top: 0.2rem;
+    color: #2f6b2f;
+    font-size: 12px;
+    font-weight: 600;
+  }
+
+  .feedback-reviews__quote {
+    margin-top: 0.45rem;
+    color: #333;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .feedback-reviews__date {
+    margin-top: 0.7rem;
+    color: #8e8e8e;
+    font-size: 12px;
+  }
+
+  .feedback-reviews__pages {
+    display: flex;
+    justify-content: center;
+    gap: 0.4rem;
+    margin: 1.5rem 0 0;
+  }
+
+  .feedback-reviews__pages button {
+    min-width: 36px;
+    height: 36px;
+    border: 1px solid #d8d8d8;
+    border-radius: 4px;
+    background: #fff;
+    cursor: pointer;
+  }
+
+  .feedback-reviews__pages button.is-active {
+    border-color: #111;
+    font-weight: 700;
+  }
+
+  @media screen and (max-width: 749px) {
+    .feedback-reviews__card {
+      grid-template-columns: 1fr;
+    }
+
+    .feedback-reviews__image {
+      max-width: 220px;
+    }
+  }
+{% endstylesheet %}
+
+{% javascript %}
+(function () {
+  var root = document.querySelector('[data-feedback-reviews]');
+  if (!root) return;
+
+  var list = root.querySelector('[data-feedback-list]');
+  var sort = root.querySelector('[data-feedback-sort]');
+  var pager = root.querySelector('[data-feedback-pages]');
+  if (!list) return;
+
+  var cards = Array.prototype.slice.call(list.children);
+  var pageSize = 8;
+  var page = 1;
+
+  function parseDate(value) {
+    var time = Date.parse(value);
+    return isNaN(time) ? 0 : time;
+  }
+
+  function sorted() {
+    var mode = sort ? sort.value : 'featured';
+    return cards.slice().sort(function (a, b) {
+      var ratingA = Number(a.getAttribute('data-rating') || 0);
+      var ratingB = Number(b.getAttribute('data-rating') || 0);
+      var dateA = parseDate(a.getAttribute('data-date'));
+      var dateB = parseDate(b.getAttribute('data-date'));
+      var orderA = Number(a.getAttribute('data-order') || 0);
+      var orderB = Number(b.getAttribute('data-order') || 0);
+
+      if (mode === 'newest') return dateB - dateA;
+      if (mode === 'highest') return ratingB - ratingA || dateB - dateA;
+      if (mode === 'lowest') return ratingA - ratingB || dateB - dateA;
+      return orderA - orderB;
+    });
+  }
+
+  function render() {
+    var items = sorted();
+    var pages = Math.max(1, Math.ceil(items.length / pageSize));
+    if (page > pages) page = pages;
+    var start = (page - 1) * pageSize;
+    var visible = items.slice(start, start + pageSize);
+
+    cards.forEach(function (card) {
+      card.hidden = true;
+    });
+    visible.forEach(function (card) {
+      card.hidden = false;
+      list.appendChild(card);
+    });
+
+    if (!pager) return;
+    pager.innerHTML = '';
+    if (pages <= 1) {
+      pager.hidden = true;
+      return;
+    }
+    pager.hidden = false;
+    for (var i = 1; i <= pages; i++) {
+      var button = document.createElement('button');
+      button.type = 'button';
+      button.textContent = String(i);
+      if (i === page) button.className = 'is-active';
+      button.setAttribute('data-page', String(i));
+      pager.appendChild(button);
+    }
+  }
+
+  if (sort) {
+    sort.addEventListener('change', function () {
+      page = 1;
+      render();
+    });
+  }
+
+  if (pager) {
+    pager.addEventListener('click', function (event) {
+      var button = event.target.closest('button[data-page]');
+      if (!button) return;
+      page = Number(button.getAttribute('data-page') || 1);
+      render();
+      root.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  }
+
+  render();
+})();
+{% endjavascript %}
+
+{% schema %}
+{
+  "name": "t:sections.feedback_reviews.name",
+  "tag": "section",
+  "enabled_on": { "templates": ["page"] },
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "t:sections.feedback_reviews.settings.heading",
+      "default": "Check out our feedback"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "t:sections.feedback_reviews.settings.text",
+      "default": "<p>We value honest reviews of the Riavâte Micro-Infusion System and Cuprofuse™ serum.</p>"
+    },
+    {
+      "type": "text",
+      "id": "score",
+      "label": "t:sections.feedback_reviews.settings.score",
+      "default": "4.6 out of 5"
+    },
+    {
+      "type": "text",
+      "id": "count_label",
+      "label": "t:sections.feedback_reviews.settings.count_label",
+      "default": "48"
+    },
+    {
+      "type": "text",
+      "id": "badge",
+      "label": "t:sections.feedback_reviews.settings.badge",
+      "default": "Verified customer"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "t:sections.feedback_reviews.settings.button_label",
+      "default": "Write a store review"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "t:sections.feedback_reviews.settings.button_link"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "review",
+      "name": "t:sections.feedback_reviews.blocks.review.name",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "t:sections.feedback_reviews.blocks.review.image" },
+        { "type": "text", "id": "fallback", "label": "t:sections.feedback_reviews.blocks.review.fallback" },
+        { "type": "text", "id": "name", "label": "t:sections.feedback_reviews.blocks.review.name_label", "default": "James R." },
+        { "type": "text", "id": "title", "label": "t:sections.feedback_reviews.blocks.review.title", "default": "Easy to add to my routine" },
+        {
+          "type": "range",
+          "id": "rating",
+          "label": "t:sections.feedback_reviews.blocks.review.rating",
+          "min": 1,
+          "max": 5,
+          "step": 1,
+          "default": 5
+        },
+        { "type": "checkbox", "id": "verified", "label": "t:sections.feedback_reviews.blocks.review.verified", "default": true },
+        { "type": "text", "id": "date", "label": "t:sections.feedback_reviews.blocks.review.date", "default": "18 September 2026" },
+        {
+          "type": "richtext",
+          "id": "quote",
+          "label": "t:sections.feedback_reviews.blocks.review.quote",
+          "default": "<p>The kit feels premium and straightforward to use.</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [{ "name": "t:sections.feedback_reviews.name" }]
+}
+{% endschema %}
